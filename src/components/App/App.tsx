@@ -1,18 +1,31 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { FC } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Navigation, NotFoundPage } from "components";
+import {  HomePage,
+  PortfolioPage,
+  CabinetPage,
+  SearchPage,
+  AboutPage,
+  ContactsPage, } from "pages";
+import GlobalStyles from "GlobalStyle";
 
-
-
-const App: React.FC = () => {
+const App: FC = () => {
   return (
-    <div >
+    <div>
+      <GlobalStyles />
       <Routes>
-        <Route path='/' element={ <h1>HOME</h1>} />
-        <Route path='/portfolio' element={ <h1>Portfolio</h1>} />
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<HomePage />} />
+          <Route path="/search" element={<SearchPage/>} />
+          <Route path="/cabinet" element={<CabinetPage/>} />
+          <Route path="/portfolio" element={<PortfolioPage/>} />
+          <Route path="/about" element={<AboutPage/>} />
+          <Route path="/contacts" element={<ContactsPage/>} />
+        </Route>
+         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-     <h1>Hello world</h1>
     </div>
   );
-}
+};
 
 export default App;
