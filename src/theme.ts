@@ -72,6 +72,9 @@ export const theme = {
   shadows: {
     boxShadow: "4px 2px 16px rgba(136, 165, 191, 0.48)",
     modalShadow: "0px 4px 57px rgba(17, 17, 17, 0.05)",
+    textShadow: `-1px -1px 0 #3f3f3f, -1px 0 0 #3f3f3f, -1px 1px 0 #3f3f3f,
+    0 -1px 0 #3f3f3f, 0 0 0 #3f3f3f, 0 1px 0 #3f3f3f, 1px -1px 0 #3f3f3f,
+    1px 0 0 #3f3f3f, 1px 1px 0 #3f3f3f`,
   },
 
   breakpoints: {

@@ -14,6 +14,7 @@ export const Item = styled.li`
   } */
 
  &:hover {
+     /* filter: grayscale(.75); */
     
     .nested-component {
      transform: translatey(0);
@@ -83,17 +84,18 @@ border-radius: ${theme.radii.round};
 export const ImgWrapper = styled.div`
 position: relative;
  width: 100%;
-height: 250px;
 overflow: hidden;
+  padding-top: 56.25%; // (9 / 16) * 100%     set relation 16:9
 `;
 
 export const Img = styled.img`
 position: absolute;
+top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  top: 0;
-  left: 0;
+  
 `;
 
 export const Overlay = styled.div`
@@ -106,20 +108,10 @@ export const Overlay = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  
 
-  font-weight: 400;
-  font-size: 18px;
-  line-height: calc(28 / 18);
-  letter-spacing: 0.03em;
-
-  color: white;
-  /* filter: grayscale(.75); */
-  background-color: rgba(0, 0, 0, 0.633);
+  background-color: rgba(0, 0, 0, 0.65);
 
 
   transform: translatey(-101%);
-  transition: transform ease-in-out 250ms;
-
-
+  transition: ${theme.transition.hover};
 `;
