@@ -1,8 +1,17 @@
 import styled from '@emotion/styled';
 
 export const Item = styled.li`
- width: 50%;
+ width: 100%;
  padding: 1.2em;
+
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: 1200px) {
+   width: 33%;
+  }
 
  &:hover {
     

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const List = styled.ul`
- width: 50%;
+ width: 75%;
  height: 50%;
 
  display: flex;
