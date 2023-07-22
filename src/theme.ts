@@ -4,6 +4,7 @@ export const theme = {
   colors: {
     accentColor: "#FE390C",
     lightGray: "#F7F7F7",
+    mediumtGray: "#DDDDDD",
     grayIcon: "#A7AAB4",
     burgerIconGray: "#57595D",
     inputBgColor: "#CACDD1",
@@ -56,9 +57,10 @@ export const theme = {
 
   radii: {
     none: "0",
+    tiny: "4px",
     small: "8px",
-    medium: "14px",
-    big: "16px",
+    medium: "16px",
+    big: "32px",
     round: "50%",
   },
 
@@ -76,7 +78,7 @@ export const theme = {
     mobile: "375px",
     mobileStart: "376px",
     mobileMax: "767px",
-    table: "768px",
+    tablet: "768px",
     desktop: "1440px",
   },
 

@@ -1,17 +1,17 @@
 import styled from '@emotion/styled';
+import { theme } from "theme";
 
 export const Item = styled.li`
  width: 100%;
  padding: 1.2em;
 
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: 50%;
   }
 
-  @media screen and (min-width: 1200px) {
+  /* @media screen and (min-width: ${theme.breakpoints.desktop}) {
    width: 33%;
-  }
+  } */
 
  &:hover {
     
@@ -26,19 +26,23 @@ export const Bar = styled.div`
  display: flex;
  align-items: center;
  justify-content: center;
+
  width: 100%;
  height: 24px;
- background-color: #ddd;
- color: #6a6a6a;
+ background-color: ${theme.colors.mediumtGray};
+ color: ${theme.colors.second_text_switch};
+border-top-right-radius: ${theme.radii.tiny};
+border-top-left-radius: ${theme.radii.tiny};
  z-index: 10;
 `;
 
 export const Title = styled.h2`
- font-size: 10px;
+font-family: ${theme.fonts.title};
+ font-size: ${theme.fontSizes.xs};
  text-transform: uppercase;
- font-weight: 700;
+ font-weight: ${theme.fontWeights.bold};
  line-height: 1.5em;
- color: #8a8a8a;
+color: ${theme.colors.second_text_switch};
 `;
 
 export const IconsBlock = styled.span`
@@ -48,7 +52,7 @@ export const IconsBlock = styled.span`
  display: inline-block;
  width: 12px;
  height: 12px;
- border-radius: 50%;
+ border-radius: ${theme.radii.round};
  background-color: #ff5f57;
 
  &::before {
@@ -59,7 +63,7 @@ export const IconsBlock = styled.span`
      display: inline-block;
  width: 12px;
  height: 12px;
- border-radius: 50%;
+border-radius: ${theme.radii.round};
     background-color: #ffbd2e;
  }
 
@@ -71,14 +75,13 @@ export const IconsBlock = styled.span`
      display: inline-block;
  width: 12px;
  height: 12px;
- border-radius: 50%;
+ border-radius: ${theme.radii.round};
     background-color: #28ca41;
  }
 `;
 
 export const ImgWrapper = styled.div`
 position: relative;
-border: 1px dashed red;
  width: 100%;
 height: 250px;
 overflow: hidden;
