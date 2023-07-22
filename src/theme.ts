@@ -1,0 +1,86 @@
+import "./components/ThemeToggler/colorsThemeToggler.css";
+
+export const theme = {
+  colors: {
+    accentColor: "#FE390C",
+    lightGray: "#F7F7F7",
+    grayIcon: "#A7AAB4",
+    burgerIconGray: "#57595D",
+    inputBgColor: "#CACDD1",
+    white: "#FFFFFF",
+    blackTitle: "#171820",
+    black: "#111111",
+    mainYellow: "#F3B249",
+    redColor: "#DA1414",
+    redErrorLight: "#E74A3B",
+    mainRed: "#EA3D65",
+    greenValid: "#3CBC81",
+    textarea: "#CACDD1",
+    disabled: "#c9cdd3",
+
+    // Theme toggler
+
+    background_switch: "var(--background)",
+    //light #ffffff => dark #0C0C0E
+
+    second_background_switch: "var(--second-background)",
+    //light #fff => dark #111214
+
+    primary_text_switch: "var(--primary-text)",
+    //light #111214 => dark #fff
+
+    second_text_switch: "var(--second-text)",
+    //light #a9a9aa => dark #a9a9aa
+  },
+
+  fonts: {
+    title: "Anton",
+    heading: "Montserrat",
+    text: "Montserrat",
+  },
+  fontSizes: {
+    xs: "12px",
+    s: "14px",
+    m: "16px",
+    l: "18px",
+    xl: "40px",
+    хxl: "120px",
+  },
+
+  fontWeights: {
+    title: 400,
+    normal: 500,
+    heading: 600,
+    bold: 700,
+  },
+
+  radii: {
+    none: "0",
+    small: "8px",
+    medium: "14px",
+    big: "16px",
+    round: "50%",
+  },
+
+  borders: {
+    none: "none",
+    normal: "1px solid",
+  },
+
+  shadows: {
+    boxShadow: "4px 2px 16px rgba(136, 165, 191, 0.48)",
+    modalShadow: "0px 4px 57px rgba(17, 17, 17, 0.05)",
+  },
+
+  breakpoints: {
+    mobile: "375px",
+    mobileStart: "376px",
+    mobileMax: "767px",
+    table: "768px",
+    desktop: "1440px",
+  },
+
+  transition: {
+    hover: "all 250ms ease-in-out",
+  },
+};
