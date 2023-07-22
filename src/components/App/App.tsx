@@ -6,7 +6,7 @@ import {  HomePage,
   CabinetPage,
   SearchPage,
   AboutPage,
-  ContactsPage, } from "pages";
+  ContactsPage, ProjectDetails} from "pages";
 import GlobalStyles from "GlobalStyle";
 
 const App: FC = () => {
@@ -19,6 +19,7 @@ const App: FC = () => {
           <Route path="/search" element={<SearchPage/>} />
           <Route path="/cabinet" element={<CabinetPage/>} />
           <Route path="/portfolio" element={<PortfolioPage/>} />
+          <Route path="/projectDetails/:projectId" element={<ProjectDetails/>} />
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/contacts" element={<ContactsPage/>} />
         </Route>
