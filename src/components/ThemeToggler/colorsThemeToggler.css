@@ -1,0 +1,44 @@
+html[data-theme="light"] {
+  --background: #fff;
+  --second-background: #fff;
+  --primary-text: #111214;
+  --second-text: #a9a9aa;
+}
+
+html[data-theme="dark"] {
+  --background: #0c0c0e;
+  --second-background: #111214;
+  --primary-text: #fff;
+  --second-text: #a9a9aa;
+}
+
+body {
+  background: var(--background);
+  /* transition: background-color 400ms;     */
+}
+
+html {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+    border-radius: 12px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    /* height: 112px; */
+    background: var(--scroll-color);
+    border-radius: 12px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-bg);
+  }
+}
