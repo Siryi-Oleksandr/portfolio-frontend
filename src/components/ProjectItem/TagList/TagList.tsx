@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { List } from './TagList.styled';
 import TagItem from '../TagItem/TagItem';
-import { motion } from "framer-motion";
-import "./styles.css";
+import { motion } from 'framer-motion';
+import 'framer.styles.css';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -10,42 +9,39 @@ const container = {
     opacity: 1,
     scale: 1,
     transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.1
-    }
-  }
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const item = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: -20, opacity: 0 },
   visible: {
     y: 0,
-    opacity: 1
-  }
+    opacity: 1,
+  },
 };
 
 type Props = {
-  tags: Array<string>,
-  isHover: boolean
-}
-
-
+  tags: Array<string>;
+  isHover: boolean;
+};
 
 const TagList: FC<Props> = ({ tags, isHover }) => {
   return (
- <motion.ul
-    className="list"
-    variants={container}
-    initial="hidden"
-     animate={isHover ? "visible" : "hidden"}
-  >
-    {tags.map((tag,index) => (
-      <motion.li key={index} variants={item}>
-        <TagItem tagName={tag.toUpperCase()}/>
-      </motion.li>
-    ))}
-  </motion.ul>
-
+    <motion.ul
+      className="list"
+      variants={container}
+      initial="hidden"
+      animate={isHover ? 'visible' : 'hidden'}
+    >
+      {tags.map((tag, index) => (
+        <motion.li key={index} variants={item}>
+          <TagItem tagName={tag.toUpperCase()} />
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 
