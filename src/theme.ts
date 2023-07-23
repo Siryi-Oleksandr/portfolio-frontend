@@ -18,6 +18,8 @@ export const theme = {
     greenValid: '#3CBC81',
     textarea: '#CACDD1',
     disabled: '#c9cdd3',
+    tagBgColor: '#313131',
+    tagTextColor: '#999999',
 
     // Theme toggler
 
