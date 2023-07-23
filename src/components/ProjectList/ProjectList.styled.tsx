@@ -7,3 +7,4 @@ export const List = styled.ul`
  width: 100%;
  
 `;
+
