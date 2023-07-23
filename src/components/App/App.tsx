@@ -8,10 +8,11 @@ import {  HomePage,
   AboutPage,
   ContactsPage, ProjectDetails} from "pages";
 import GlobalStyles from "GlobalStyle";
+import { Container } from "./App.styled";
 
 const App: FC = () => {
   return (
-    <div>
+    <Container>
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Navigation />}>
@@ -25,7 +26,7 @@ const App: FC = () => {
         </Route>
          <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </div>
+    </Container>
   );
 };
 

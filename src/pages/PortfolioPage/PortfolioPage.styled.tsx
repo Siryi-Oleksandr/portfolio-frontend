@@ -18,6 +18,6 @@ background-color: transparent;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    max-width: 1150px;
+    max-width: 1400px;
   }
 `;
