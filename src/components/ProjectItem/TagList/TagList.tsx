@@ -2,15 +2,20 @@ import React, { FC } from 'react';
 import { List } from './TagList.styled';
 import TagItem from '../TagItem/TagItem';
 
-const TagList: FC = () => {
+type Props = {
+  tags: Array<string>
+}
+
+const TagList: FC<Props> = ({tags}) => {
   return (
     <List>
-      <TagItem tagName="HTML" />
+      { tags.map(tag => <TagItem tagName={tag.toUpperCase()} /> )}
+      {/* <TagItem tagName="HTML" />
       <TagItem tagName="CSS" />
       <TagItem tagName="JavaScript" />
       <TagItem tagName="React" />
       <TagItem tagName="Redux" />
-      <TagItem tagName="Next.js" />
+      <TagItem tagName="Next.js" /> */}
     </List>
   );
 };

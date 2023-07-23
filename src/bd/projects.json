@@ -1,0 +1,153 @@
+[
+  {
+    "id": "1",
+    "title": "Awesome Project",
+    "description": "Which assets from dependencies flow into the top-level project is controlled by specifying a comma-delimited set of tags in the include and exclude properties of the dependency reference. The tags are listed the table below",
+    "linkToCode": "https://github.com/Siryi-Oleksandr/portfolio-frontend",
+    "linkToWebSite": "https://siryi-oleksandr.github.io/portfolio-frontend/",
+    "technologies": [
+      "html",
+      "javascript",
+      "css",
+      "typescript",
+      "redux",
+      "react"
+    ],
+    "posters": [
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      }
+    ]
+  },
+
+  {
+    "id": "2",
+    "title": "Berries Project",
+    "description": "Which assets from dependencies flow into the top-level project is controlled by specifying a comma-delimited set of tags in the include and exclude properties of the dependency reference. The tags are listed the table below",
+    "linkToCode": "https://github.com/Siryi-Oleksandr/portfolio-frontend",
+    "linkToWebSite": "https://siryi-oleksandr.github.io/portfolio-frontend/",
+    "technologies": [
+      "html",
+      "javascript",
+      "css",
+      "typescript",
+      "redux",
+      "react"
+    ],
+    "posters": [
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      }
+    ]
+  },
+
+  {
+    "id": "3",
+    "title": "Awesome Project",
+    "description": "Which assets from dependencies flow into the top-level project is controlled by specifying a comma-delimited set of tags in the include and exclude properties of the dependency reference. The tags are listed the table below",
+    "linkToCode": "https://github.com/Siryi-Oleksandr/portfolio-frontend",
+    "linkToWebSite": "https://siryi-oleksandr.github.io/portfolio-frontend/",
+    "technologies": [
+      "html",
+      "javascript",
+      "css",
+      "typescript",
+      "redux",
+      "react"
+    ],
+    "posters": [
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "first",
+        "url": "https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
+      }
+    ]
+  },
+
+  {
+    "id": "4",
+    "title": "Berries Project",
+    "description": "Which assets from dependencies flow into the top-level project is controlled by specifying a comma-delimited set of tags in the include and exclude properties of the dependency reference. The tags are listed the table below",
+    "linkToCode": "https://github.com/Siryi-Oleksandr/portfolio-frontend",
+    "linkToWebSite": "https://siryi-oleksandr.github.io/portfolio-frontend/",
+    "technologies": [
+      "html",
+      "javascript",
+      "css",
+      "typescript",
+      "redux",
+      "react"
+    ],
+    "posters": [
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      },
+      {
+        "id": "2",
+        "title": "second",
+        "url": "https://caferati.me/images/portfolio/whygowild/list.webp"
+      }
+    ]
+  }
+]

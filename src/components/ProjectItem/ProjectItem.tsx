@@ -3,26 +3,28 @@ import { Link } from "react-router-dom";
 import { Bar, IconsBlock, Img, ImgWrapper, Item, Overlay, Title } from "./ProjectItem.styled";
 import TagList from "./TagList/TagList";
 import { BtnMore } from "./TagItem/TagItem.styled";
+import { IProject } from "types/projectTypes";
 
 type Props = {
-  projectId: string;
+  project: IProject;
 };
 
-const ProjectItem: FC<Props> = ({ projectId = "1" }) => {
+const ProjectItem: FC<Props> = ({project}) => {
+  const { id: projectId, title, description, linkToCode, linkToWebSite, technologies, posters} = project;
   return (
     <Item>
       <Link to={`/projectDetails/${projectId}`}>
         <Bar>
-          <Title>Project Title</Title>
+          <Title>{title}</Title>
           <IconsBlock />
         </Bar>
         <ImgWrapper>
           <Img
-            src="https://caferati.me/images/portfolio/sky-go-desktop/list.webp"
-            alt="Project Name"
+            src={posters[0].url}
+            alt={posters[0].title}
           />
           <Overlay className="nested-component">
-            <TagList />
+            <TagList tags={technologies} />
             <BtnMore>more...</BtnMore>
           </Overlay>
         </ImgWrapper>

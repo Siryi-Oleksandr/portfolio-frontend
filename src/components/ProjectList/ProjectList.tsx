@@ -1,14 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import ProjectItem from "components/ProjectItem/ProjectItem";
 import { List } from "./ProjectList.styled";
+import projectsDb from "bd/projects.json";
+import { IProject } from "types/projectTypes";
 
 const ProjectList: FC = () => {
+  const [projects, setProjects] = useState<Array<IProject>>(projectsDb || []);
+
   return (
     <List>
-      <ProjectItem projectId="1" />
-      <ProjectItem projectId="2" />
-      <ProjectItem projectId="3" />
-      <ProjectItem projectId="4" />
+      {projects.map(project => <ProjectItem project={project} />)}
+    
     </List>
   );
 };

@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import { ProjectList} from 'components';
+import { ProjectList } from 'components';
 
 const Portfolio: FC = () => {
   return (
