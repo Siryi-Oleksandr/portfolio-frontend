@@ -1,15 +1,17 @@
-html[data-theme="light"] {
+html[data-theme='light'] {
   --background: #fff;
   --second-background: #fff;
   --primary-text: #111214;
   --second-text: #a9a9aa;
+  --accent-color: #fe390c;
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --background: #0c0c0e;
   --second-background: #111214;
   --primary-text: #fff;
   --second-text: #a9a9aa;
+  --accent-color: #fe390c;
 }
 
 body {
