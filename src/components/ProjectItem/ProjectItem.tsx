@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bar, IconsBlock, Img, ImgWrapper, Item, Overlay, Title } from "./ProjectItem.styled";
 import TagList from "./TagList/TagList";
@@ -9,10 +9,22 @@ type Props = {
   project: IProject;
 };
 
-const ProjectItem: FC<Props> = ({project}) => {
+const ProjectItem: FC<Props> = ({ project }) => {
+   const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+
   const { id: projectId, title, description, linkToCode, linkToWebSite, technologies, posters} = project;
   return (
-    <Item>
+    <Item onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
       <Link to={`/projectDetails/${projectId}`}>
         <Bar>
           <Title>{title}</Title>
@@ -24,7 +36,7 @@ const ProjectItem: FC<Props> = ({project}) => {
             alt={posters[0].title}
           />
           <Overlay className="nested-component">
-            <TagList tags={technologies} />
+            <TagList tags={technologies} isHover={isHovered} />
             <BtnMore>more...</BtnMore>
           </Overlay>
         </ImgWrapper>
