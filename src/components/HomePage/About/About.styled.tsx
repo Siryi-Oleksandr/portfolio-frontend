@@ -46,18 +46,29 @@ export const AboutItem = styled.li`
 `;
 
 export const ImageWrapper = styled.div`
+  height: 500px;
+  background-color: lightgray;
   border-radius: ${theme.radii.medium};
   overflow: hidden;
-  margin-bottom: 15px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    width: calc(50% - 20px);
   }
 `;
 
 export const TextWrapper = styled.div`
+  margin-bottom: 15px;
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    width: 800px;
+    width: calc(50% - 20px);
+    margin: 0;
   }
+`;
+
+export const ItemNumber = styled.p`
+  font-family: ${theme.fonts.title};
+  font-weight: ${theme.fontWeights.bold};
+  font-size: 70px;
+  color: ${theme.colors.accentColor};
 `;
 
 export const AboutTitle = styled.h3`
@@ -71,13 +82,13 @@ export const AboutTitle = styled.h3`
   margin-bottom: 10px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    font-size: 26px;
+    font-size: 29px;
     margin-bottom: 30px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 45px;
-    margin-bottom: 100px;
+    font-size: 40px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -86,8 +97,11 @@ export const AboutText = styled.p`
   font-size: 18px;
   color: ${theme.colors.primary_text_switch};
 
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    font-size: 24px;
+  }
+
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: 30px;
-    margin-bottom: 150px;
   }
 `;

@@ -5,6 +5,7 @@ import {
   Title,
   AboutList,
   AboutItem,
+  ItemNumber,
   ImageWrapper,
   TextWrapper,
   AboutTitle,
@@ -22,10 +23,8 @@ const About: FC = () => {
         <Title>For what is this bank for?</Title>
         <AboutList>
           <AboutItem>
-            <ImageWrapper>
-              <img src={projectsImg} alt="your projects" />
-            </ImageWrapper>
             <TextWrapper>
+              <ItemNumber>1.</ItemNumber>
               <AboutTitle>Save your projects</AboutTitle>
               <AboutText>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
@@ -34,12 +33,13 @@ const About: FC = () => {
                 incidunt, praesentium similique natus qui alias molestias.
               </AboutText>
             </TextWrapper>
+            <ImageWrapper>
+              {/* <img src={projectsImg} alt="your projects" /> */}
+            </ImageWrapper>
           </AboutItem>
           <AboutItem>
-            <ImageWrapper>
-              <img src={searchImg} alt="your projects" />
-            </ImageWrapper>
             <TextWrapper>
+              <ItemNumber>2.</ItemNumber>
               <AboutTitle>Search other developers</AboutTitle>
               <AboutText>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
@@ -48,6 +48,9 @@ const About: FC = () => {
                 incidunt, praesentium similique natus qui alias molestias.
               </AboutText>
             </TextWrapper>
+            <ImageWrapper>
+              {/* <img src={searchImg} alt="your projects" /> */}
+            </ImageWrapper>
           </AboutItem>
         </AboutList>
       </Container>
