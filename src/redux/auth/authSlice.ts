@@ -3,14 +3,15 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { registerUser, loginUser, logoutUser } from './operations';
 
-import { UserInterface, AuthStateInterface } from 'types/reduxTypes';
-const newUser: UserInterface = {
+import { IUser, IAuthState } from 'redux/reduxTypes';
+
+const newUser: IUser = {
   _id: '',
   name: '',
   email: '',
 };
 
-const initialState: AuthStateInterface = {
+const initialState: IAuthState = {
   user: newUser,
   accessToken: null,
   isLoggedIn: false,

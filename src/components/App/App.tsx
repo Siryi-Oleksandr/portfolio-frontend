@@ -12,9 +12,11 @@ import {
   ProjectDetails,
   RegisterPage,
 } from 'pages';
+import { useAppSelector } from 'redux/reduxHooks';
 import GlobalStyles from 'GlobalStyle';
 
 const App: FC = () => {
+  const user = useAppSelector(state => state.auth.user);
   return (
     <>
       <GlobalStyles />

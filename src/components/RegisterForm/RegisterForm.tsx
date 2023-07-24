@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { registerUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'redux/reduxHooks';
 
 const regExp =
   /^([A-z0-9_-]+\.)*[A-z0-9_-]+@[A-z0-9_-]+(\.[A-z0-9_-]+)*\.[A-z]{2,6}$/;
@@ -25,18 +25,22 @@ interface RegisterValues {
 }
 
 const RegisterForm: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+
   const initialValues: RegisterValues = {
     name: '',
     email: '',
     password: '',
   };
 
-  const handleSubmit = (
+  const handleSubmit = async (
     values: RegisterValues,
     actions: FormikHelpers<RegisterValues>
   ) => {
     actions.resetForm();
+    try {
+      await dispatch(registerUser(values));
+    } catch (error) {}
   };
 
   return (

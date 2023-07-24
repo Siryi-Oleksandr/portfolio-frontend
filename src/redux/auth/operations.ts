@@ -52,7 +52,7 @@ export const tostStyleSuccess = {
 };
 
 export const registerUser = createAsyncThunk(
-  'auth/register',
+  'auth/registerUser',
   async (
     userData: { name: string; email: string; password: string },
     thunkAPI
