@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ProjectList, MainBtn } from 'components';
+import { ProjectList, MainBtn, Container } from 'components';
 
 const Portfolio: FC = () => {
   return (

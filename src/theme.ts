@@ -34,7 +34,7 @@ export const theme = {
 
     second_text_switch: 'var(--second-text)',
     //light #a9a9aa => dark #a9a9aa
-    accent_color_switch: "var(--accent-color)"
+    accent_color_switch: 'var(--accent-color)',
   },
 
   fonts: {
@@ -90,5 +90,11 @@ export const theme = {
 
   transition: {
     hover: 'all 250ms ease-in-out',
+  },
+
+  gaps: {
+    small: 8,
+    medium: 16,
+    big: 32,
   },
 };
