@@ -1,38 +1,34 @@
-import {AiOutlineHistory,AiOutlineHome} from 'react-icons/ai';
-import { FaCog, FaOpencart } from 'react-icons/fa';
-import { SidebarItem } from 'models/SidebarItem';
+import {  AiOutlineHome, AiOutlineSearch, AiFillFolderOpen, AiOutlineContacts } from 'react-icons/ai';
+import { BiCabinet} from 'react-icons/bi'
+import { SidebarItem } from 'types/SidebarItem';
 
 export const SidebarData: SidebarItem[] = [
     {
         title: 'Home',
         path: '/',
-        icon: <AiOutlineHome />,
+        icon: <AiOutlineHome size="25px" />,
         
       
     },
     {
         title: 'Search',
         path: '/search',
-        icon: <FaOpencart />
+        icon: <AiOutlineSearch size="25px"  />
     },
     {
         title: 'Cabinet',
         path: '/cabinet',
-        icon: <AiOutlineHistory />
+        icon: <BiCabinet size="25px" />
     },
     {
         title: 'Portfolio',
         path: '/portfolio',
-        icon: <FaCog />
+        icon: <AiFillFolderOpen size="25px" />
     },
-    {
-        title: 'About',
-        path: '/about',
-        icon: <FaCog />
-    },
+   
     {
         title: 'Contacts',
         path: '/contacts',
-        icon: <FaCog />
+        icon: <AiOutlineContacts size="25px" />
     }
 ];

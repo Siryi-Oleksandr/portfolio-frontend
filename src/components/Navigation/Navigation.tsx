@@ -18,8 +18,8 @@ const Navigation: FC = () => {
             <Link to="/search">Search</Link>
             <Link to="/cabinet">Cabinet</Link>
             <Link to="/portfolio">Portfolio</Link>
-            <Link to="/about">About</Link>
             <Link to="/contacts">Contacts</Link>
+            <Link to="/register">Register</Link>
           </nav>
         </NavWrap>
 

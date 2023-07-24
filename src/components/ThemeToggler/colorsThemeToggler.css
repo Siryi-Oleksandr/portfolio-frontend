@@ -4,6 +4,7 @@ html[data-theme='light'] {
   --primary-text: #111214;
   --second-text: #a9a9aa;
   --accent-color: #fe390c;
+  --slider-hover-color: #3f3f3f;
 }
 
 html[data-theme='dark'] {
@@ -12,6 +13,7 @@ html[data-theme='dark'] {
   --primary-text: #fff;
   --second-text: #a9a9aa;
   --accent-color: #fe390c;
+  --slider-hover-color: white;
 }
 
 body {

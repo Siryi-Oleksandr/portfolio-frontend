@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { theme } from "theme";
 
 export const ThemeModeBtn = styled.button`
-  color: ${theme.colors.primary_text_switch};
+  color: ${theme.colors.white};
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -16,4 +16,9 @@ export const ThemeModeBtn = styled.button`
   margin-left: 12px;
 
   cursor: pointer;
+  transition: ${theme.transition.hover};
+  &:hover {
+    color: ${theme.colors.accentColor};
+    transform: scale(1.5);
+  }
 `;
