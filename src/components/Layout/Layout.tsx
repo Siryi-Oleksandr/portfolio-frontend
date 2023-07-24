@@ -7,11 +7,11 @@ const Layout: FC = () => {
   return (
     <>
       <Navigation />
-      <Container>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </Container>
+
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+
       <FooterWrapper>
         <Container>
           <Footer />

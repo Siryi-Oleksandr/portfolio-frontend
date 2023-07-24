@@ -21,5 +21,6 @@ export const ContainerWrapper = styled.div`
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     max-width: ${theme.breakpoints.desktop};
+    padding: 0 40px;
   }
 `;
