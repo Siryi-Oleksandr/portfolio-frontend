@@ -59,7 +59,11 @@ const ProjectItem: FC<Props> = ({ project }) => {
     posters,
   } = project;
   return (
-    <Item onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Item
+      key={projectId}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link to={`/projectDetails/${projectId}`}>
         <Bar>
           <Title>{title}</Title>
@@ -69,7 +73,7 @@ const ProjectItem: FC<Props> = ({ project }) => {
           <Img src={posters[0].url} alt={posters[0].title} />
           <Overlay className="nested-component">
             <TagList tags={technologies} isHover={isHovered} />
-
+            {/* animation  "btn-more"*/}
             <motion.div
               className="btn-more-container"
               variants={container}

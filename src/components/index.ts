@@ -6,6 +6,7 @@ import ThemeToggler from './ThemeToggler/ThemeToggler';
 import ProjectItem from './ProjectItem/ProjectItem';
 import ProjectList from './ProjectList/ProjectList';
 import Footer from './Footer/Footer';
+import MainBtn from './Buttons/MainBtn';
 
 export {
   App,
@@ -16,4 +17,5 @@ export {
   ProjectItem,
   ProjectList,
   Footer,
+  MainBtn,
 };

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import TagItem from '../TagItem/TagItem';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
+import { sliceTags } from 'services';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -29,6 +30,7 @@ type Props = {
 };
 
 const TagList: FC<Props> = ({ tags, isHover }) => {
+  const handledTags = sliceTags(tags, 6);
   return (
     <motion.ul
       className="list"
@@ -36,7 +38,7 @@ const TagList: FC<Props> = ({ tags, isHover }) => {
       initial="hidden"
       animate={isHover ? 'visible' : 'hidden'}
     >
-      {tags.map((tag, index) => (
+      {handledTags.map((tag, index) => (
         <motion.li key={index} variants={item}>
           <TagItem tagName={tag.toUpperCase()} />
         </motion.li>
