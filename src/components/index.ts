@@ -11,6 +11,7 @@ import About from './HomePage/About/About';
 import Footer from './Footer/Footer';
 import MainBtn from './Buttons/MainBtn';
 import Layout from './Layout/Layout';
+import RegisterForm from './RegisterForm/RegisterForm';
 
 export {
   App,
@@ -26,4 +27,5 @@ export {
   Footer,
   MainBtn,
   Layout,
+  RegisterForm,
 };

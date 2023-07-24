@@ -10,10 +10,13 @@ import {
   AboutPage,
   ContactsPage,
   ProjectDetails,
+  RegisterPage,
 } from 'pages';
+import { useAppSelector } from 'redux/reduxHooks';
 import GlobalStyles from 'GlobalStyle';
 
 const App: FC = () => {
+  const user = useAppSelector(state => state.auth.user);
   return (
     <>
       <GlobalStyles />
@@ -21,6 +24,7 @@ const App: FC = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/cabinet" element={<CabinetPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route
