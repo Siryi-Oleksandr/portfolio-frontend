@@ -13,8 +13,8 @@ import {
 } from './About.styled';
 
 // IMAGES
-import projectsImg from '../../../images/projects.jpg';
-import searchImg from '../../../images/search.jpg';
+// import projectsImg from '../../../images/projects.jpg';
+// import searchImg from '../../../images/search.jpg';
 
 const About: FC = () => {
   return (
