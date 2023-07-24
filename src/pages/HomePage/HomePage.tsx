@@ -1,7 +1,13 @@
 import React, { FC } from 'react';
+import { Hero, About } from 'components';
 
 const HomePage: FC = () => {
-  return <h1>HomePage</h1>;
+  return (
+    <>
+      <Hero />
+      <About />
+    </>
+  );
 };
 
 export default HomePage;
