@@ -6,10 +6,12 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
   gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
   border-bottom: 1px solid black;
+  background-color: red;
 
   > nav {
     display: flex;
@@ -69,30 +71,3 @@ export const MobileMenuButton = styled.button`
     display: none;
   }
 `;
-
-// export const LeftColumnWrapper = styled.div`
-//   position: fixed;
-//   width: 225px;
-//   height: 100%;
-
-//   transition: all 250ms ease-in-out 0s;
-//   z-index: 100;
-//   position: absolute;
-//   left: ${props => (props.showSideBar ? '0' : '-200%')};
-
-//   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-//     width: 289px;
-//   }
-
-//   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-//     position: relative;
-//     left: 0;
-//   }
-// `;
-// export const LeftField = styled.div`
-//   position: absolute;
-//   right: 100%;
-//   top: 0;
-//   height: 100%;
-//   width: 100vw;
-// `;

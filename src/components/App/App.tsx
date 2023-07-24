@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Navigation, NotFoundPage } from 'components';
+
+import { Layout, NotFoundPage } from 'components';
 import {
   HomePage,
   PortfolioPage,
@@ -11,14 +12,13 @@ import {
   ProjectDetails,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
-// import { Container } from './App.styled';
 
 const App: FC = () => {
   return (
     <>
       <GlobalStyles />
       <Routes>
-        <Route path="/" element={<Navigation />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/cabinet" element={<CabinetPage />} />

@@ -6,7 +6,6 @@ const HomePage: FC = () => {
     <>
       <Hero />
       <About />
-      {/* <Footer /> */}
     </>
   );
 };

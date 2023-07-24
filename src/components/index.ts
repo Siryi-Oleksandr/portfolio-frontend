@@ -10,6 +10,7 @@ import Hero from './HomePage/Hero/Hero';
 import About from './HomePage/About/About';
 import Footer from './Footer/Footer';
 import MainBtn from './Buttons/MainBtn';
+import Layout from './Layout/Layout';
 
 export {
   App,
@@ -24,4 +25,5 @@ export {
   About,
   Footer,
   MainBtn,
+  Layout,
 };

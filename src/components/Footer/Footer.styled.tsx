@@ -4,13 +4,8 @@ import { theme } from 'theme';
 export const FooterStyled = styled.footer`
   padding-top: 32px;
   padding-bottom: 32px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   color: #999;
-  background-color: #3f3f3f;
   text-align: center;
-  border-top: solid 1px #949494;
 
   a {
     font-weight: ${theme.fontWeights.bold};
