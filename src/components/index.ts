@@ -5,8 +5,9 @@ import NotFoundPage from './NotFoundPage/NotFoundPage';
 import ThemeToggler from './ThemeToggler/ThemeToggler';
 import ProjectItem from './ProjectItem/ProjectItem';
 import ProjectList from './ProjectList/ProjectList';
-import { Hero } from './HomePage/Hero/Hero';
-import { Container } from './Container/Container';
+import Container from './Container/Container';
+import Hero from './HomePage/Hero/Hero';
+import About from './HomePage/About/About';
 import Footer from './Footer/Footer';
 import MainBtn from './Buttons/MainBtn';
 
@@ -20,6 +21,7 @@ export {
   ProjectItem,
   ProjectList,
   Hero,
+  About,
   Footer,
   MainBtn,
 };

@@ -5,26 +5,28 @@ import {
   TextWrapper,
   Title,
   Description,
-  ButtonWrapper,
-  Button,
+  // ButtonWrapper,
+  // Button,
 } from './Hero.styled';
 
-export const Hero: FC = () => {
+const Hero: FC = () => {
   return (
     <Section>
       <Container>
         <TextWrapper>
-          <Title>PORTFOLIO</Title>
+          <Title>BANKFOLIO</Title>
           <Description>
             Website, where you can save all your projects with very unique and
-            comfortable design.
+            comfortable design and search for projects of another developers!
           </Description>
-          <ButtonWrapper>
+          {/* <ButtonWrapper>
             <Button type="button">Sign up</Button>
             <Button type="button">Sign in</Button>
-          </ButtonWrapper>
+          </ButtonWrapper> */}
         </TextWrapper>
       </Container>
     </Section>
   );
 };
+
+export default Hero;

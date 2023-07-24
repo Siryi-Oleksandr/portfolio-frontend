@@ -34,13 +34,13 @@ export const theme = {
 
     second_text_switch: 'var(--second-text)',
     //light #a9a9aa => dark #a9a9aa
-    accent_color_switch: "var(--accent-color)"
+    accent_color_switch: 'var(--accent-color)',
   },
 
   fonts: {
-    title: 'Anton',
-    heading: 'Montserrat',
-    text: 'Montserrat',
+    title: 'Anton, sans-serif',
+    heading: 'Montserrat, sans-serif',
+    text: 'Montserrat, sans-serif',
   },
   fontSizes: {
     xs: '12px',
@@ -48,7 +48,7 @@ export const theme = {
     m: '16px',
     l: '18px',
     xl: '40px',
-    хxl: '120px',
+    xxl: '120px',
   },
 
   fontWeights: {

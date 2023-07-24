@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import { Footer } from 'components';
+import { Hero, About } from 'components';
 
 const HomePage: FC = () => {
   return (
     <>
-      <h1>HomePage</h1>
-      <Footer />
+      <Hero />
+      <About />
+      {/* <Footer /> */}
     </>
   );
 };

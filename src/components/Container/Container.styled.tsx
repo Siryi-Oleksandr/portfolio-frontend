@@ -3,6 +3,7 @@ import { theme } from 'theme';
 
 export const ContainerWrapper = styled.div`
   width: 100%;
+  padding: 0 15px;
 
   margin-left: auto;
   margin-right: auto;
@@ -11,7 +12,6 @@ export const ContainerWrapper = styled.div`
 
   @media screen and (min-width: ${theme.breakpoints.mobile}) {
     max-width: ${theme.breakpoints.mobile};
-    padding: 0 15px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
