@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import { Layout, NotFoundPage } from 'components';
 import {
   HomePage,
