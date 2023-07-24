@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { theme } from "theme";
+import { theme } from 'theme';
 
 export const Container = styled.div`
   width: 100%;
@@ -7,9 +7,9 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-background-color: transparent;
+  background-color: transparent;
 
-  @media screen and (min-width:  ${theme.breakpoints.mobile}) {
+  @media screen and (min-width: ${theme.breakpoints.mobile}) {
     max-width: ${theme.breakpoints.mobile};
     padding: 0 15px;
   }
@@ -20,6 +20,7 @@ background-color: transparent;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    max-width:  ${theme.breakpoints.desktop};
+    max-width: ${theme.breakpoints.desktop};
+    padding: 0 150px;
   }
 `;
