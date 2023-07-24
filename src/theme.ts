@@ -38,9 +38,9 @@ export const theme = {
   },
 
   fonts: {
-    title: 'Anton, sans-serif',
-    heading: 'Montserrat, sans-serif',
-    text: 'Montserrat, sans-serif',
+    title: 'Anton',
+    heading: 'Montserrat',
+    text: 'Montserrat',
   },
   fontSizes: {
     xs: '12px',
