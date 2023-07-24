@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <FooterStyled>
       <FooterWrap>
-        <p>"Назва нашого проекту" - сreated by developers for people 😉</p>
+        <p>"Showcasing Success" - сreated by developers for people 😉</p>
         <p>
           {' '}
           Wanna get in touch or talk about a project? <br />
