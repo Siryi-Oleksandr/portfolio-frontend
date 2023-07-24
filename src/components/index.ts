@@ -7,6 +7,8 @@ import ProjectItem from './ProjectItem/ProjectItem';
 import ProjectList from './ProjectList/ProjectList';
 import { Hero } from './HomePage/Hero/Hero';
 import { Container } from './Container/Container';
+import Footer from './Footer/Footer';
+import MainBtn from './Buttons/MainBtn';
 
 export {
   App,
@@ -18,4 +20,6 @@ export {
   ProjectItem,
   ProjectList,
   Hero,
+  Footer,
+  MainBtn,
 };

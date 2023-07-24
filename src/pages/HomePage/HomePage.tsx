@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
-import { Hero } from '../../components/index';
+import { Footer } from 'components';
 
 const HomePage: FC = () => {
-  return <Hero />;
+  return (
+    <>
+      <h1>HomePage</h1>
+      <Footer />
+    </>
+  );
 };
 
 export default HomePage;
