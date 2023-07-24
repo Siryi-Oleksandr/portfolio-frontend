@@ -8,18 +8,20 @@ export const Header = styled.header`
   justify-content: space-between;
   height: 80px;
   gap: 12px;
-  padding: 8px 0;
-  margin-bottom: 16px;
+  padding: 8px 20px;
   border-bottom: 1px solid black;
-  background-color: red;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1) );
+  background-color: #404040;
 
-  > nav {
+   nav {
     display: flex;
+    flex-direction: row;
   }
 `;
 
 export const NavWrap = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -30,44 +32,25 @@ export const NavWrap = styled.div`
 `;
 
 export const Link = styled(NavLink)`
+  display: flex;
+
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: ${theme.colors.primary_text_switch};
+  color: ${theme.colors.white};
   font-weight: 500;
+  transition: ${theme.transition.hover};
 
   &.active {
-    color:${theme.colors.second_background_switch};
+    color:${theme.colors.black};
     background-color: ${theme.colors.accentColor};
+    &:hover {
+      color: ${theme.colors.white}
+    }
+  }
+  &:hover {
+    color: ${theme.colors.accentColor};
+    transform: scale(1.2);
   }
 `;
 
-export const MobileMenuButton = styled.button`
-  color: ${theme.colors.primary_text_switch};
-  background-color: transparent;
-  border: none;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  display: flex;
-  margin-right: 8px;
- 
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 250ms linear;
-  &:hover{
-    color: ${theme.colors.accentColor}
-  }
-
-  @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    width: 34px;
-    height: 34px;
-  }
-
-  
-
-  @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    display: none;
-  }
-`;

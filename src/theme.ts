@@ -35,6 +35,7 @@ export const theme = {
     second_text_switch: 'var(--second-text)',
     //light #a9a9aa => dark #a9a9aa
     accent_color_switch: 'var(--accent-color)',
+    slider_hover_color_switch: 'var(--slider-hover-color)'
   },
 
   fonts: {

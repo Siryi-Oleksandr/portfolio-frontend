@@ -33,12 +33,25 @@ export const NavIcon = styled(Link)`
     font-size: 2rem;
     margin-left: 2rem;
     .slider-icons {
-    color: ${theme.colors.primary_text_switch};
+    color: ${theme.colors.white};
+    transition: ${theme.transition.hover};
+  
     &:hover {
       color: ${theme.colors.accentColor};
+      transform: scale(1.5);
     }
   }
     
 `;
 
 export const SidebarWrap = styled.div``;
+
+export const CloseWrap = styled.div`
+.slider-icons {
+    color: ${theme.colors.primary_text_switch};
+    &:hover {
+      color: ${theme.colors.accentColor};
+      transform: scale(1.5);
+    }
+  }
+`;
