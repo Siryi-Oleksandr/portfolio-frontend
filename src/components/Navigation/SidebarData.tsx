@@ -1,6 +1,6 @@
 import {AiOutlineHistory,AiOutlineHome} from 'react-icons/ai';
 import { FaCog, FaOpencart } from 'react-icons/fa';
-import { SidebarItem } from 'models/SidebarItem';
+import { SidebarItem } from 'types/SidebarItem';
 
 export const SidebarData: SidebarItem[] = [
     {
