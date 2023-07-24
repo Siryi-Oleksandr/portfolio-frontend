@@ -7,6 +7,7 @@ import ProjectItem from './ProjectItem/ProjectItem';
 import ProjectList from './ProjectList/ProjectList';
 import Footer from './Footer/Footer';
 import MainBtn from './Buttons/MainBtn';
+import Layout from './Layout/Layout';
 
 export {
   App,
@@ -18,4 +19,5 @@ export {
   ProjectList,
   Footer,
   MainBtn,
+  Layout,
 };
