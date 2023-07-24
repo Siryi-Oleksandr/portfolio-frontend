@@ -5,7 +5,7 @@ import { SidebarData } from './SidebarData';
 import Submenu from './Submenu';
 import { useRef } from 'react';
 import { useOnClickOutside } from 'usehooks-ts'
-import { SidebarNav, NavIcon, Nav, SidebarWrap } from './Sidebar.styled';
+import { SidebarNav, NavIcon, Nav, SidebarWrap, CloseWrap } from './Sidebar.styled';
 
 
 const Sidebar: FC = () => {
@@ -30,10 +30,10 @@ const Sidebar: FC = () => {
                     </NavIcon>
                 </Nav>
             <SidebarNav sidebar={sidebar} >
-                <SidebarWrap>
-                    <NavIcon to="#" onClick={closeSidebar}>
-                        <AiOutlineClose />
-                    </NavIcon>
+                    <SidebarWrap>
+                        <NavIcon to="#" onClick={closeSidebar} >
+                            <CloseWrap><AiOutlineClose /></CloseWrap>
+                        </NavIcon>
                     {SidebarData.map((item, index) => {
                         return <Submenu item={item} key={index}  closeSidebar={ closeSidebar} />;
                     })}
