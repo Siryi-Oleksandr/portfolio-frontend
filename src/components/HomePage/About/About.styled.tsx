@@ -39,7 +39,7 @@ export const AboutItem = styled.li`
     align-items: center;
     gap: 20px;
 
-    :last-child {
+    :nth-child(even) {
       flex-direction: row-reverse;
     }
   }
