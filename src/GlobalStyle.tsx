@@ -8,6 +8,7 @@ const GlobalStyles: FC = () => {
       <Global
         styles={css`
           body {
+            height: 100%;
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
               'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
