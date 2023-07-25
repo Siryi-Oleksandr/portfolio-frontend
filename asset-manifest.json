@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-frontend/static/css/main.964db1b2.css",
-    "main.js": "/portfolio-frontend/static/js/main.718b1b8d.js",
+    "main.js": "/portfolio-frontend/static/js/main.aa23004e.js",
     "static/media/hero-desktop-x2.jpg": "/portfolio-frontend/static/media/hero-desktop-x2.45e7dddd7c8a7d193f84.jpg",
     "static/media/Montserrat-Medium.woff2": "/portfolio-frontend/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
     "static/media/Montserrat-Bold.woff2": "/portfolio-frontend/static/media/Montserrat-Bold.0af89c10df9bc2f8d646.woff2",
@@ -11,10 +11,10 @@
     "static/media/hero-mobile-x2-tablet.jpg": "/portfolio-frontend/static/media/hero-mobile-x2-tablet.23515ed1858f2a0e426a.jpg",
     "index.html": "/portfolio-frontend/index.html",
     "main.964db1b2.css.map": "/portfolio-frontend/static/css/main.964db1b2.css.map",
-    "main.718b1b8d.js.map": "/portfolio-frontend/static/js/main.718b1b8d.js.map"
+    "main.aa23004e.js.map": "/portfolio-frontend/static/js/main.aa23004e.js.map"
   },
   "entrypoints": [
     "static/css/main.964db1b2.css",
-    "static/js/main.718b1b8d.js"
+    "static/js/main.aa23004e.js"
   ]
 }
