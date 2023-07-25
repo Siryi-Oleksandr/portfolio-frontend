@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-frontend/static/css/main.964db1b2.css",
-    "main.js": "/portfolio-frontend/static/js/main.aa23004e.js",
+    "main.js": "/portfolio-frontend/static/js/main.afd30aa9.js",
     "static/media/hero-desktop-x2.jpg": "/portfolio-frontend/static/media/hero-desktop-x2.45e7dddd7c8a7d193f84.jpg",
     "static/media/Montserrat-Medium.woff2": "/portfolio-frontend/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
     "static/media/Montserrat-Bold.woff2": "/portfolio-frontend/static/media/Montserrat-Bold.0af89c10df9bc2f8d646.woff2",
@@ -9,12 +9,13 @@
     "static/media/hero-tablet-x2-desktop.jpg": "/portfolio-frontend/static/media/hero-tablet-x2-desktop.59f80b5af1d4678c2e63.jpg",
     "static/media/Anton-Regular.woff2": "/portfolio-frontend/static/media/Anton-Regular.b39614d2a2389ebda79f.woff2",
     "static/media/hero-mobile-x2-tablet.jpg": "/portfolio-frontend/static/media/hero-mobile-x2-tablet.23515ed1858f2a0e426a.jpg",
+    "static/media/logo.png": "/portfolio-frontend/static/media/logo.58250bbe7a2b182f9284.png",
     "index.html": "/portfolio-frontend/index.html",
     "main.964db1b2.css.map": "/portfolio-frontend/static/css/main.964db1b2.css.map",
-    "main.aa23004e.js.map": "/portfolio-frontend/static/js/main.aa23004e.js.map"
+    "main.afd30aa9.js.map": "/portfolio-frontend/static/js/main.afd30aa9.js.map"
   },
   "entrypoints": [
     "static/css/main.964db1b2.css",
-    "static/js/main.aa23004e.js"
+    "static/js/main.afd30aa9.js"
   ]
 }
