@@ -3,10 +3,9 @@ import { theme } from 'theme';
 
 export const Item = styled.li`
   width: 100%;
-  padding: 1.2em;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    width: 50%;
+    width: calc(50% - ${theme.gaps.medium / 2}px);
   }
 
   &:hover {

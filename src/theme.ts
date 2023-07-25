@@ -98,4 +98,10 @@ export const theme = {
   transition: {
     hover: 'all 250ms ease-in-out',
   },
+
+  gaps: {
+    small: 8,
+    medium: 16,
+    big: 32,
+  },
 };
