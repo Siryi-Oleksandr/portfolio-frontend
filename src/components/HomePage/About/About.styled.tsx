@@ -33,13 +33,19 @@ export const AboutList = styled.ul`
 `;
 
 export const AboutItem = styled.li`
+  text-align: center;
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 
-    :last-child {
+    :nth-of-type(odd) {
+      text-align: start;
+    }
+
+    :nth-of-type(even) {
+      text-align: end;
       flex-direction: row-reverse;
     }
   }
@@ -65,6 +71,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const ItemNumber = styled.p`
+  letter-spacing: 3px;
   font-family: ${theme.fonts.title};
   font-weight: ${theme.fontWeights.bold};
   font-size: 70px;
@@ -73,16 +80,17 @@ export const ItemNumber = styled.p`
 
 export const AboutTitle = styled.h3`
   font-family: ${theme.fonts.title};
+  letter-spacing: 2px;
   display: inline-block;
   border-radius: ${theme.radii.medium};
   padding: 5px 15px;
   background-color: ${theme.colors.accentColor};
-  font-size: 22px;
+  font-size: 27px;
   color: #fff;
   margin-bottom: 10px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    font-size: 29px;
+    font-size: 27px;
     margin-bottom: 30px;
   }
 
@@ -94,7 +102,7 @@ export const AboutTitle = styled.h3`
 
 export const AboutText = styled.p`
   font-family: ${theme.fonts.text};
-  font-size: 18px;
+  font-size: ${theme.fontSizes.l};
   color: ${theme.colors.primary_text_switch};
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
