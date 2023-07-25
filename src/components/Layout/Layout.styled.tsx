@@ -27,6 +27,11 @@ export const Container = styled.div`
 
 export const FooterWrapper = styled.div`
   width: 100%;
-  background-color: #3f3f3f;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.1)
+  );
+  background-color: #404040;
   border-top: solid 1px #949494;
 `;
