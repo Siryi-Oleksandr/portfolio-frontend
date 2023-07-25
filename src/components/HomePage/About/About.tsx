@@ -15,7 +15,6 @@ import {
 // IMAGES
 
 const About: FC = () => {
-  console.log('asdsada');
   return (
     <Section>
       <Container>
