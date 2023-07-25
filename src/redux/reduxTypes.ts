@@ -12,3 +12,7 @@ export interface IAuthState {
   isLoading: boolean;
   error: any;
 }
+
+export interface IState {
+  auth: IAuthState;
+}

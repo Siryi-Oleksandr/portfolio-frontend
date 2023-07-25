@@ -1,3 +1,3 @@
 import { sliceTags } from './sliceTags';
 import { FormRegisterSchema, FormLoginSchema } from './yupSchemas';
-export { sliceTags };
+export { sliceTags, FormLoginSchema, FormRegisterSchema };

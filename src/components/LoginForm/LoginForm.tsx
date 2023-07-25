@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import { loginUser, logoutUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
-import { FormLoginSchema } from 'services/yupSchemas';
+import { FormLoginSchema } from 'services';
 import { LoginValues } from 'types/authFormTypes';
 
 const LoginForm: FC = () => {
