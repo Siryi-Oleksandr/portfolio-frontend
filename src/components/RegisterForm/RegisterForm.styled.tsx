@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
 import { theme } from 'theme';
+import { Btn } from 'components/Buttons/MainBtn.styled';
+import { Link } from 'react-router-dom';
 
 export const StyledForm = styled(Form)`
-  width: 480px;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 60px;
@@ -11,6 +13,16 @@ export const StyledForm = styled(Form)`
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
+`;
+
+export const FormTitleContainer = styled.div`
+  width: 500px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 64px;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
 export const FormTitle = styled.h2`
@@ -22,12 +34,18 @@ export const FormTitle = styled.h2`
 `;
 
 export const FormDescription = styled.p`
-  margin-bottom: 64px;
   font-size: 18px;
   font-style: normal;
   font-weight: ${theme.fontWeights.heading};
   font-family: ${theme.fonts.text};
   color: ${theme.colors.primary_text_switch};
+`;
+
+export const InputsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-bottom: 24px;
 `;
 
 export const StyledField = styled(Field)`
@@ -37,15 +55,15 @@ export const StyledField = styled(Field)`
   border: 2px solid #ccc;
   background-color: ${theme.colors.textarea};
   font-size: 16px;
-  font-weight: 400;
-  color: ${theme.colors.primary_text_switch};
+  font-style: normal;
+  font-weight: 600;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.blackTitle};
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
-  &:not(:last-child) {
-    margin-bottom: 56px;
-  }
+
   &:focus {
     outline: none;
     border-color: ${theme.colors.accentColor};
@@ -58,20 +76,69 @@ export const StyledField = styled(Field)`
 
 export const Label = styled.label`
   position: relative;
-  margin-bottom: 56px;
-  :last-of-type {
-    margin-bottom: 24px;
-  }
 `;
 
 export const StyledLabel = styled.span`
   position: absolute;
-  top: 0;
+  top: -20px;
   left: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.primary_text_switch};
+  transition: all 300ms ease-in-out;
 `;
 
 export const StyledErrorMessage = styled.p`
   position: absolute;
-  top: 0;
+  top: -35px;
   left: 0;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.redColor};
+  transition: all 300ms ease-in-out;
+`;
+
+export const SubmitBtn = styled(Btn)`
+  width: 480px;
+  height: 48px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  background-color: ${theme.colors.auth_button_background_switch};
+  color: ${theme.colors.auth_button_color_switch};
+  &:hover {
+    transform: scale(1.02);
+    background-color: ${theme.colors.accent_color_switch};
+  }
+`;
+export const RedirectContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+`;
+export const RedirectMeta = styled.p`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.text};
+  color: ${theme.colors.primary_text_switch};
+`;
+
+export const RedirectLink = styled(Link)`
+  text-decoration: underline;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.text};
+  color: ${theme.colors.primary_text_switch};
+  transition: all 200ms ease;
+  &:hover {
+    transform: scale(1.1);
+    color: ${theme.colors.accentColor};
+  }
 `;

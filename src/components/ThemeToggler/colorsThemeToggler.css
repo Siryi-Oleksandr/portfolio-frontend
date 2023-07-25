@@ -5,6 +5,8 @@ html[data-theme='light'] {
   --second-text: #a9a9aa;
   --accent-color: #fe390c;
   --slider-hover-color: #3f3f3f;
+  --auth-button-bacground: #171820;
+  --auth-button-color: #fff;
 }
 
 html[data-theme='dark'] {
@@ -14,6 +16,8 @@ html[data-theme='dark'] {
   --second-text: #a9a9aa;
   --accent-color: #fe390c;
   --slider-hover-color: white;
+  --auth-button-bacground: #a9a9aa;
+  --auth-button-color: #171820;
 }
 
 body {
