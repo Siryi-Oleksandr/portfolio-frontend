@@ -5,22 +5,25 @@ import { theme } from "theme";
 export const AuthIcon = styled(Link)`
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
-    height: 5rem;
-    font-size: 2rem;
+    transition: ${theme.transition.hover};
+    &:hover {
+      .slider-icons {color: ${theme.colors.accentColor};}
+      p {
+        color: ${theme.colors.accentColor};
+      }
+    }
     /* margin-left: 2rem; */
     .slider-icons {
     color: ${theme.colors.white};
     transition: ${theme.transition.hover};
-  
-    &:hover {
-      color: ${theme.colors.accentColor};
-      transform: scale(1.5);
-    }
   }
     
 `;
 
-export const BtnText = styled(p)`
+export const BtnText = styled.p`
 color: ${theme.colors.white};
+font-size: 16px;
+transition: ${theme.transition.hover};
 `;

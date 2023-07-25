@@ -2,14 +2,16 @@ import { FC } from 'react';
 import { Link, Header, NavWrap} from './Navigation.styled';
 import { ThemeToggler } from 'components';
 // import { RxHamburgerMenu } from 'react-icons/rx';
-import Sidebar from './Sidebar';
-import LoginBtn from './login';
-import LogoutBtn from './logout';
+import Sidebar from './Sidebar/Sidebar';
+import LoginBtn from './LoginBtn/login';
+import LogoutBtn from './LoginBtn/logout';
+import Logo from './Logo/Logo';
 
 const Navigation: FC = () => {
   return (
     <>
       <Header>
+        <Logo/>
         <Sidebar />
         <ThemeToggler />
         {/* <MobileMenuButton >
@@ -23,7 +25,6 @@ const Navigation: FC = () => {
             <Link to="/portfolio">Portfolio</Link>
             <Link to="/contacts">Contacts</Link>
             <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
           </nav>
         </NavWrap>
         <LoginBtn />

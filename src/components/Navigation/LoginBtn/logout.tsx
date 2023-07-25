@@ -1,17 +1,17 @@
-import { SlLogin} from 'react-icons/sl';
-import { AuthIcon } from './login.styled';
+import { SlLogout} from 'react-icons/sl';
+import { AuthIcon, BtnText } from './login.styled';
 import { IconContext } from 'react-icons';
 
-
-const LoginBtn = () => { 
+const LogoutBtn = () => { 
     return (
         <IconContext.Provider value={{ className: "slider-icons" }}>
             <AuthIcon to="login">
-                <SlLogin size="24px"/>
+                <SlLogout  size="20px"/>
+                <BtnText>LogOut</BtnText>
             </AuthIcon>
         </IconContext.Provider>
         
     )
 }
 
-export default LoginBtn;
+export default LogoutBtn;

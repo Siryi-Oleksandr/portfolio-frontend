@@ -9,10 +9,11 @@ export const Header = styled.header`
   height: 80px;
   gap: 12px;
   padding: 8px 32px;
-  border-bottom: 1px solid black;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1) );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1) );
   background-color: #404040;
-
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    padding: 8px 16px;
+  }
    nav {
     display: flex;
     flex-direction: row;
