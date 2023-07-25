@@ -35,3 +35,9 @@ export const FooterWrapper = styled.div`
   background-color: #404040;
   border-top: solid 1px #949494;
 `;
+
+export const Main = styled.main`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+`;
