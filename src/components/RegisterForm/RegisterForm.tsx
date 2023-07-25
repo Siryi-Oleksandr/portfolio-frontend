@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { registerUser } from 'redux/auth/operations';
-import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { FormRegisterSchema } from 'services';
 import { RegisterValues } from 'types/authFormTypes';
@@ -13,8 +12,13 @@ import {
   FormTitle,
   FormDescription,
   StyledErrorMessage,
+  FormTitleContainer,
+  InputsContainer,
+  SubmitBtn,
+  RedirectContainer,
+  RedirectMeta,
+  RedirectLink,
 } from './RegisterForm.styled';
-import { Link } from 'react-router-dom';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -41,31 +45,33 @@ const RegisterForm: FC = () => {
         onSubmit={handleSubmit}
       >
         <StyledForm>
-          <FormTitle>Sign Up</FormTitle>
-          <FormDescription>
-            Lorem ipsum dolor sit amet adipiscing elit.
-          </FormDescription>
-          <Label>
-            <StyledField type="text" name="name" />
-            <StyledLabel>Name</StyledLabel>
-            <ErrorMessage component={StyledErrorMessage} name="name" />
-          </Label>
+          <FormTitleContainer>
+            <FormTitle>Sign Up</FormTitle>
+            <FormDescription>to create your own own portfolio!</FormDescription>
+          </FormTitleContainer>
+          <InputsContainer>
+            <Label>
+              <StyledField type="text" name="name" />
+              <StyledLabel>Name</StyledLabel>
+              <ErrorMessage component={StyledErrorMessage} name="name" />
+            </Label>
 
-          <Label>
-            <StyledField type="email" name="email" />
-            <StyledLabel>Email</StyledLabel>
-            <ErrorMessage name="email" component={StyledErrorMessage} />
-          </Label>
-          <Label>
-            <StyledField type="password" name="password" />
-            <StyledLabel>Password</StyledLabel>
-            <ErrorMessage name="password" component={StyledErrorMessage} />
-          </Label>
-          <Btn type="submit">Register</Btn>
-          <div>
-            <p>Already have an account?</p>
-            <Link to={'/login'}>Log In</Link>
-          </div>
+            <Label>
+              <StyledField type="email" name="email" />
+              <StyledLabel>Email</StyledLabel>
+              <ErrorMessage name="email" component={StyledErrorMessage} />
+            </Label>
+            <Label>
+              <StyledField type="password" name="password" />
+              <StyledLabel>Password</StyledLabel>
+              <ErrorMessage name="password" component={StyledErrorMessage} />
+            </Label>
+          </InputsContainer>
+          <SubmitBtn type="submit">Register</SubmitBtn>
+          <RedirectContainer>
+            <RedirectMeta>Already have an account?</RedirectMeta>
+            <RedirectLink to={'/login'}>Log In</RedirectLink>
+          </RedirectContainer>
         </StyledForm>
       </Formik>
     </>
