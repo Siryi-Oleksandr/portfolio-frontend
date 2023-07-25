@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import { registerUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
-import { FormRegisterSchema } from 'services/yupSchemas';
+import { FormRegisterSchema } from 'services';
 import { RegisterValues } from 'types/authFormTypes';
 
 const RegisterForm: FC = () => {
