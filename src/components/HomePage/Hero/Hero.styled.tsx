@@ -48,32 +48,36 @@ export const TextWrapper = styled.div`
 
 export const Title = styled.h1`
   font-family: ${theme.fonts.title};
-  font-size: ${theme.fontSizes.xl};
+  font-size: 70px;
+  letter-spacing: 4px;
   color: #fff;
   margin-bottom: 80px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    margin-bottom: 120px;
-    font-size: 60px;
+    margin-bottom: 100px;
+    font-size: 100px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 75px;
+    font-size: 120px;
+    margin-bottom: 90px;
   }
 `;
 
 export const Description = styled.p`
   font-family: ${theme.fonts.text};
-  font-size: 22px;
+  font-size: 23px;
   font-weight: ${theme.fontWeights.title};
   color: #fff;
   margin-bottom: 80px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 30px;
+    line-height: 60px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: 40px;
+    line-height: 80px;
   }
 `;

@@ -12,6 +12,7 @@ import Footer from './Footer/Footer';
 import MainBtn from './Buttons/MainBtn';
 import Layout from './Layout/Layout';
 import RegisterForm from './RegisterForm/RegisterForm';
+import ScrollToTop from './ScrollToTop/ScrollToTop';
 
 export {
   App,
@@ -28,4 +29,5 @@ export {
   MainBtn,
   Layout,
   RegisterForm,
+  ScrollToTop,
 };
