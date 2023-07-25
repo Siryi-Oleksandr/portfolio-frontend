@@ -1,28 +1,20 @@
 import React, { FC } from 'react';
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
+import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { registerUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
-
-const regExp =
-  /^([A-z0-9_-]+\.)*[A-z0-9_-]+@[A-z0-9_-]+(\.[A-z0-9_-]+)*\.[A-z]{2,6}$/;
-
-const FormSchema = Yup.object().shape({
-  name: Yup.string().min(2).max(35).required('Required'),
-  email: Yup.string()
-    .matches(regExp, 'Invalid email address')
-    .required('Required'),
-  password: Yup.string()
-    .min(6, 'Password must be 6 characters long')
-    .required('Required'),
-});
-
-interface RegisterValues {
-  name: string;
-  email: string;
-  password: string;
-}
+import { FormRegisterSchema } from 'services';
+import { RegisterValues } from 'types/authFormTypes';
+import {
+  StyledForm,
+  StyledField,
+  Label,
+  StyledLabel,
+  FormTitle,
+  FormDescription,
+  StyledErrorMessage,
+} from './RegisterForm.styled';
+import { Link } from 'react-router-dom';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -33,43 +25,50 @@ const RegisterForm: FC = () => {
     password: '',
   };
 
-  const handleSubmit = async (
+  const handleSubmit = (
     values: RegisterValues,
     actions: FormikHelpers<RegisterValues>
   ) => {
     actions.resetForm();
-    try {
-      await dispatch(registerUser(values));
-    } catch (error) {}
+    dispatch(registerUser(values));
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={FormSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form>
-        <div>
-          <label htmlFor="name">Name</label>
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="div" />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-        </div>
-        <div>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={FormRegisterSchema}
+        onSubmit={handleSubmit}
+      >
+        <StyledForm>
+          <FormTitle>Sign Up</FormTitle>
+          <FormDescription>
+            Lorem ipsum dolor sit amet adipiscing elit.
+          </FormDescription>
+          <Label>
+            <StyledField type="text" name="name" />
+            <StyledLabel>Name</StyledLabel>
+            <ErrorMessage component={StyledErrorMessage} name="name" />
+          </Label>
+
+          <Label>
+            <StyledField type="email" name="email" />
+            <StyledLabel>Email</StyledLabel>
+            <ErrorMessage name="email" component={StyledErrorMessage} />
+          </Label>
+          <Label>
+            <StyledField type="password" name="password" />
+            <StyledLabel>Password</StyledLabel>
+            <ErrorMessage name="password" component={StyledErrorMessage} />
+          </Label>
           <Btn type="submit">Register</Btn>
-        </div>
-      </Form>
-    </Formik>
+          <div>
+            <p>Already have an account?</p>
+            <Link to={'/login'}>Log In</Link>
+          </div>
+        </StyledForm>
+      </Formik>
+    </>
   );
 };
 

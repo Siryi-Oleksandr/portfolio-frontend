@@ -13,8 +13,6 @@ import {
 } from './About.styled';
 
 // IMAGES
-// import projectsImg from '../../../images/projects.jpg';
-// import searchImg from '../../../images/search.jpg';
 
 const About: FC = () => {
   return (
@@ -33,9 +31,7 @@ const About: FC = () => {
                 incidunt, praesentium similique natus qui alias molestias.
               </AboutText>
             </TextWrapper>
-            <ImageWrapper>
-              {/* <img src={projectsImg} alt="your projects" /> */}
-            </ImageWrapper>
+            <ImageWrapper></ImageWrapper>
           </AboutItem>
           <AboutItem>
             <TextWrapper>
@@ -48,9 +44,20 @@ const About: FC = () => {
                 incidunt, praesentium similique natus qui alias molestias.
               </AboutText>
             </TextWrapper>
-            <ImageWrapper>
-              {/* <img src={searchImg} alt="your projects" /> */}
-            </ImageWrapper>
+            <ImageWrapper></ImageWrapper>
+          </AboutItem>
+          <AboutItem>
+            <TextWrapper>
+              <ItemNumber>3.</ItemNumber>
+              <AboutTitle>Search their projects</AboutTitle>
+              <AboutText>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                animi sunt commodi voluptates dolorum eaque asperiores
+                reiciendis fugit fugiat sapiente deserunt quaerat nulla
+                incidunt, praesentium similique natus qui alias molestias.
+              </AboutText>
+            </TextWrapper>
+            <ImageWrapper></ImageWrapper>
           </AboutItem>
         </AboutList>
       </Container>

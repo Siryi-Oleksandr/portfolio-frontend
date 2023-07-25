@@ -13,11 +13,6 @@ export interface IAuthState {
   error: any;
 }
 
-interface ResponseData {
-  refreshToken: string;
-  accessToken: string;
-  user: {
-    name: string;
-    email: string;
-  };
+export interface IState {
+  auth: IAuthState;
 }

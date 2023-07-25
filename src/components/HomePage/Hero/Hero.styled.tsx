@@ -1,13 +1,16 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
-// IMAGE
-import heroBg from '../../../images/hero-bg-image.jpg';
+// IMAGES
+import mobileBg from '../../../images/hero-mobile.jpg';
+import mobilex2TabletBg from '../../../images/hero-mobile-x2-tablet.jpg';
+import tabletx2DesktopBg from '../../../images/hero-tablet-x2-desktop.jpg';
+import desktopx2Bg from '../../../images/hero-desktop-x2.jpg';
 
 export const Section = styled.section`
-  /* background-image: url(${heroBg});
+  background-image: url(${mobileBg});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; */
+  background-position: center;
   background-color: black;
   height: 500px;
   padding-top: 100px;
@@ -15,6 +18,26 @@ export const Section = styled.section`
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     height: 600px;
+    background-image: url(${mobilex2TabletBg});
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    height: 600px;
+    background-image: url(${tabletx2DesktopBg});
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${mobilex2TabletBg});
+
+    @media screen and (min-width: ${theme.breakpoints.tablet}) {
+      background-image: url(${tabletx2DesktopBg});
+    }
+
+    @media screen and (min-width: ${theme.breakpoints.desktop}) {
+      background-image: url(${desktopx2Bg});
+    }
   }
 `;
 
@@ -25,59 +48,36 @@ export const TextWrapper = styled.div`
 
 export const Title = styled.h1`
   font-family: ${theme.fonts.title};
-  font-size: ${theme.fontSizes.xl};
+  font-size: 70px;
+  letter-spacing: 4px;
   color: #fff;
   margin-bottom: 80px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    margin-bottom: 120px;
-    font-size: 60px;
+    margin-bottom: 100px;
+    font-size: 100px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 75px;
+    font-size: 120px;
+    margin-bottom: 90px;
   }
 `;
 
 export const Description = styled.p`
   font-family: ${theme.fonts.text};
-  font-size: 22px;
+  font-size: 23px;
   font-weight: ${theme.fontWeights.title};
   color: #fff;
   margin-bottom: 80px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 30px;
+    line-height: 60px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: 40px;
-  }
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-`;
-
-export const Button = styled.button`
-  width: 130px;
-  height: 44px;
-  border-radius: 5px;
-  padding: 0;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-
-  transition: ${theme.transition.hover};
-
-  &:hover,
-  &:focus {
-    background-color: ${theme.colors.accentColor};
-    transform: scale(1.1);
-    color: #fff;
+    line-height: 80px;
   }
 `;

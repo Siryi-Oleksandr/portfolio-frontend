@@ -1,13 +1,6 @@
 import React, { FC } from 'react';
 import { Container } from '../../index';
-import {
-  Section,
-  TextWrapper,
-  Title,
-  Description,
-  // ButtonWrapper,
-  // Button,
-} from './Hero.styled';
+import { Section, TextWrapper, Title, Description } from './Hero.styled';
 
 const Hero: FC = () => {
   return (
@@ -19,10 +12,6 @@ const Hero: FC = () => {
             Website, where you can save all your projects with very unique and
             comfortable design and search for projects of another developers!
           </Description>
-          {/* <ButtonWrapper>
-            <Button type="button">Sign up</Button>
-            <Button type="button">Sign in</Button>
-          </ButtonWrapper> */}
         </TextWrapper>
       </Container>
     </Section>

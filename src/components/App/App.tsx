@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Layout, NotFoundPage } from 'components';
@@ -11,12 +11,19 @@ import {
   ContactsPage,
   ProjectDetails,
   RegisterPage,
+  LoginPage,
 } from 'pages';
-import { useAppSelector } from 'redux/reduxHooks';
 import GlobalStyles from 'GlobalStyle';
+import { useAppDispatch } from 'redux/reduxHooks';
+import { currentUser } from 'redux/auth/operations';
 
 const App: FC = () => {
-  const user = useAppSelector(state => state.auth.user);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+
   return (
     <>
       <GlobalStyles />
@@ -25,6 +32,7 @@ const App: FC = () => {
           <Route index element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/cabinet" element={<CabinetPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route
