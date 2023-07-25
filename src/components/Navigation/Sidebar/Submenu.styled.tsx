@@ -12,6 +12,7 @@ export const SidebarLink = styled(Link)`
     padding: 2rem;
     text-decoration: none;
     color: ${theme.colors.primary_text_switch};
+    
 
     &:hover {
         background-color: ${theme.colors.slider_hover_color_switch};

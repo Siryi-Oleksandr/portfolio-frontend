@@ -13,7 +13,10 @@ export const ThemeModeBtn = styled.button`
   align-items: center;
   justify-content: center;
   padding-bottom: 1px;
-  margin-left: 12px;
+   @media screen and (max-width: 1439px) {
+    margin-right: auto;
+  }
+  
 
   cursor: pointer;
   transition: ${theme.transition.hover};

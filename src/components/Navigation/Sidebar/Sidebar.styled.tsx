@@ -7,7 +7,7 @@ export const Nav = styled.div`
     justify-content: flex-start;
     align-items: center;
     height: 5rem;
-     @media screen and (min-width: ${theme.breakpoints.tablet}) {
+     @media screen and (min-width: ${theme.breakpoints.desktop}) {
     display: none;
   }
     
@@ -21,7 +21,7 @@ export const SidebarNav = styled.div<{ sidebar: string }>`
     position: fixed;
     top: 0;
     left: ${({ sidebar }) => (sidebar === "true" ? '0' : '-100%')};
-    transition: 350ms;
+    transition: ${theme.transition.hover};;
     z-index: 1000;
 `;
 
@@ -30,8 +30,8 @@ export const NavIcon = styled(Link)`
     justify-content: flex-start;
     align-items: center;
     height: 5rem;
-    font-size: 2rem;
-    margin-left: 2rem;
+    font-size: 1.5rem;
+    
     .slider-icons {
     color: ${theme.colors.white};
     transition: ${theme.transition.hover};
@@ -48,6 +48,7 @@ export const SidebarWrap = styled.div``;
 
 export const CloseWrap = styled.div`
 .slider-icons {
+  margin-left: 32px;
     color: ${theme.colors.primary_text_switch};
     &:hover {
       color: ${theme.colors.accentColor};
