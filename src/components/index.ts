@@ -13,6 +13,8 @@ import MainBtn from './Buttons/MainBtn';
 import Layout from './Layout/Layout';
 import RegisterForm from './RegisterForm/RegisterForm';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
+import PublicRoute from './AuthRoutes/PublicRoute';
+import PrivateRoute from './AuthRoutes/PrivateRoute';
 
 export {
   App,
@@ -30,4 +32,6 @@ export {
   Layout,
   RegisterForm,
   ScrollToTop,
+  PublicRoute,
+  PrivateRoute,
 };

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { registerUser, loginUser, logoutUser } from './operations';
+import { registerUser, loginUser, logoutUser, currentUser } from './operations';
 
 import { IUser, IAuthState } from 'redux/reduxTypes';
 
@@ -76,6 +76,19 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.isLoading = false;
         state.error = null;
+      })
+      .addCase(currentUser.pending, state => {
+        state.isRefreshing = true;
+      })
+
+      .addCase(currentUser.fulfilled, (state, { payload }) => {
+        state.user = { ...state.user, ...payload.user };
+        state.accessToken = payload.accessToken;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(currentUser.rejected, state => {
+        state.isRefreshing = false;
       });
   },
 });
