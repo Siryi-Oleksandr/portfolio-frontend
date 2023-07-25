@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Layout, NotFoundPage } from 'components';
@@ -14,8 +14,16 @@ import {
   LoginPage,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
+import { useAppDispatch } from 'redux/reduxHooks';
+import { currentUser } from 'redux/auth/operations';
 
 const App: FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+
   return (
     <>
       <GlobalStyles />

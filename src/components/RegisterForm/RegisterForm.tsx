@@ -1,29 +1,10 @@
 import React, { FC } from 'react';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
 import { registerUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
-import { Paragraph } from './RegisterForm.styled';
-
-const regExp =
-  /^([A-z0-9_-]+\.)*[A-z0-9_-]+@[A-z0-9_-]+(\.[A-z0-9_-]+)*\.[A-z]{2,6}$/;
-
-const FormSchema = Yup.object().shape({
-  name: Yup.string().min(2).max(35).required('Required'),
-  email: Yup.string()
-    .matches(regExp, 'Invalid email address')
-    .required('Required'),
-  password: Yup.string()
-    .min(6, 'Password must be 6 characters long')
-    .required('Required'),
-});
-
-interface RegisterValues {
-  name: string;
-  email: string;
-  password: string;
-}
+import { FormRegisterSchema } from 'services/yupSchemas';
+import { RegisterValues } from 'types/authFormTypes';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -34,22 +15,19 @@ const RegisterForm: FC = () => {
     password: '',
   };
 
-  const handleSubmit = async (
+  const handleSubmit = (
     values: RegisterValues,
     actions: FormikHelpers<RegisterValues>
   ) => {
     actions.resetForm();
-    try {
-      await dispatch(registerUser(values));
-    } catch (error) {}
+    dispatch(registerUser(values));
   };
 
   return (
     <>
-      <Paragraph>Privet</Paragraph>
       <Formik
         initialValues={initialValues}
-        validationSchema={FormSchema}
+        validationSchema={FormRegisterSchema}
         onSubmit={handleSubmit}
       >
         <Form>

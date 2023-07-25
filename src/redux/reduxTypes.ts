@@ -12,12 +12,3 @@ export interface IAuthState {
   isLoading: boolean;
   error: any;
 }
-
-interface ResponseData {
-  refreshToken: string;
-  accessToken: string;
-  user: {
-    name: string;
-    email: string;
-  };
-}

@@ -118,21 +118,21 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-// export const currentUser = createAsyncThunk(
-//   'auth/currentUser',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.accessToken;
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue('Unable to fetch user');
-//     }
-//     setToken(persistedToken);
+export const currentUser = createAsyncThunk(
+  'auth/currentUser',
+  async (_, thunkAPI) => {
+    const state: any = thunkAPI.getState();
+    const persistedToken = state.auth.accessToken;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    setToken(persistedToken);
 
-//     try {
-//       const response = await instance.get('/current');
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+    try {
+      const response = await instance.get('/current');
+      return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

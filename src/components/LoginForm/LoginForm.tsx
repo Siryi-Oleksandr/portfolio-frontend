@@ -1,27 +1,10 @@
 import React, { FC } from 'react';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
-import { loginUser } from 'redux/auth/operations';
+import { loginUser, logoutUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
-
-const regExp =
-  /^([A-z0-9_-]+\.)*[A-z0-9_-]+@[A-z0-9_-]+(\.[A-z0-9_-]+)*\.[A-z]{2,6}$/;
-
-const FormSchema = Yup.object().shape({
-  name: Yup.string().min(2).max(35).required('Required'),
-  email: Yup.string()
-    .matches(regExp, 'Invalid email address')
-    .required('Required'),
-  password: Yup.string()
-    .min(6, 'Password must be 6 characters long')
-    .required('Required'),
-});
-
-interface LoginValues {
-  email: string;
-  password: string;
-}
+import { FormLoginSchema } from 'services/yupSchemas';
+import { LoginValues } from 'types/authFormTypes';
 
 const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -31,38 +14,46 @@ const LoginForm: FC = () => {
     password: '',
   };
 
-  const handleSubmit = async (
+  const handleLoginSubmit = (
     values: LoginValues,
     actions: FormikHelpers<LoginValues>
   ) => {
     actions.resetForm();
-    try {
-      await dispatch(loginUser(values));
-    } catch (error) {}
+    dispatch(loginUser(values));
+    console.log('wtf?');
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={FormSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form>
-        <div>
-          <label htmlFor="email">Email</label>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-        </div>
-        <div>
-          <Btn type="submit">Register</Btn>
-        </div>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={FormLoginSchema}
+        onSubmit={handleLoginSubmit}
+      >
+        <Form>
+          <div>
+            <label htmlFor="email">Email</label>
+            <Field type="email" name="email" />
+            <ErrorMessage name="email" component="div" />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <Field type="password" name="password" />
+            <ErrorMessage name="password" component="div" />
+          </div>
+          <div>
+            <Btn type="submit">Login</Btn>
+          </div>
+        </Form>
+      </Formik>
+      <button type="button" onClick={handleLogout}>
+        Logout
+      </button>
+    </>
   );
 };
 
