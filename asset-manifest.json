@@ -1,14 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio-frontend/static/css/main.6f2af537.css",
-    "main.js": "/portfolio-frontend/static/js/main.f3ee02c6.js",
+    "main.css": "/portfolio-frontend/static/css/main.c9d9bc08.css",
+    "main.js": "/portfolio-frontend/static/js/main.02153ae6.js",
+    "static/media/Montserrat-Medium.woff2": "/portfolio-frontend/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
+    "static/media/Montserrat-Bold.woff2": "/portfolio-frontend/static/media/Montserrat-Bold.0af89c10df9bc2f8d646.woff2",
+    "static/media/Montserrat-SemiBold.woff2": "/portfolio-frontend/static/media/Montserrat-SemiBold.109e3207d9afea8524be.woff2",
     "static/media/hero-bg-image.jpg": "/portfolio-frontend/static/media/hero-bg-image.04cfe5a7636ba364abde.jpg",
+    "static/media/Anton-Regular.woff2": "/portfolio-frontend/static/media/Anton-Regular.b39614d2a2389ebda79f.woff2",
     "index.html": "/portfolio-frontend/index.html",
-    "main.6f2af537.css.map": "/portfolio-frontend/static/css/main.6f2af537.css.map",
-    "main.f3ee02c6.js.map": "/portfolio-frontend/static/js/main.f3ee02c6.js.map"
+    "main.c9d9bc08.css.map": "/portfolio-frontend/static/css/main.c9d9bc08.css.map",
+    "main.02153ae6.js.map": "/portfolio-frontend/static/js/main.02153ae6.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f2af537.css",
-    "static/js/main.f3ee02c6.js"
+    "static/css/main.c9d9bc08.css",
+    "static/js/main.02153ae6.js"
   ]
 }
