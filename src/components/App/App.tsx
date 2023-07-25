@@ -14,15 +14,12 @@ import {
   LoginPage,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
-import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
+import { useAppDispatch } from 'redux/reduxHooks';
 import { currentUser } from 'redux/auth/operations';
-import { selectUser } from 'redux/auth/authSelectors';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
-  const state = useAppSelector(selectUser);
 
-  console.log(state);
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);

@@ -1,10 +1,20 @@
 import React, { FC } from 'react';
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
+import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { registerUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { FormRegisterSchema } from 'services';
 import { RegisterValues } from 'types/authFormTypes';
+import {
+  StyledForm,
+  StyledField,
+  Label,
+  StyledLabel,
+  FormTitle,
+  FormDescription,
+  StyledErrorMessage,
+} from './RegisterForm.styled';
+import { Link } from 'react-router-dom';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -30,26 +40,33 @@ const RegisterForm: FC = () => {
         validationSchema={FormRegisterSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
+        <StyledForm>
+          <FormTitle>Sign Up</FormTitle>
+          <FormDescription>
+            Lorem ipsum dolor sit amet adipiscing elit.
+          </FormDescription>
+          <Label>
+            <StyledField type="text" name="name" />
+            <StyledLabel>Name</StyledLabel>
+            <ErrorMessage component={StyledErrorMessage} name="name" />
+          </Label>
+
+          <Label>
+            <StyledField type="email" name="email" />
+            <StyledLabel>Email</StyledLabel>
+            <ErrorMessage name="email" component={StyledErrorMessage} />
+          </Label>
+          <Label>
+            <StyledField type="password" name="password" />
+            <StyledLabel>Password</StyledLabel>
+            <ErrorMessage name="password" component={StyledErrorMessage} />
+          </Label>
+          <Btn type="submit">Register</Btn>
           <div>
-            <label htmlFor="name">Name</label>
-            <Field type="text" name="name" />
-            <ErrorMessage name="name" component="div" />
+            <p>Already have an account?</p>
+            <Link to={'/login'}>Log In</Link>
           </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
-          </div>
-          <div>
-            <Btn type="submit">Register</Btn>
-          </div>
-        </Form>
+        </StyledForm>
       </Formik>
     </>
   );
