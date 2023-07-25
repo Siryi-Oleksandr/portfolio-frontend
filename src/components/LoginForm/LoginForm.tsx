@@ -1,41 +1,40 @@
 import React, { FC } from 'react';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
-import { registerUser } from 'redux/auth/operations';
+import { loginUser, logoutUser } from 'redux/auth/operations';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
-import { FormRegisterSchema } from 'services/yupSchemas';
-import { RegisterValues } from 'types/authFormTypes';
+import { FormLoginSchema } from 'services/yupSchemas';
+import { LoginValues } from 'types/authFormTypes';
 
-const RegisterForm: FC = () => {
+const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
 
-  const initialValues: RegisterValues = {
-    name: '',
+  const initialValues: LoginValues = {
     email: '',
     password: '',
   };
 
-  const handleSubmit = (
-    values: RegisterValues,
-    actions: FormikHelpers<RegisterValues>
+  const handleLoginSubmit = (
+    values: LoginValues,
+    actions: FormikHelpers<LoginValues>
   ) => {
     actions.resetForm();
-    dispatch(registerUser(values));
+    dispatch(loginUser(values));
+    console.log('wtf?');
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={FormRegisterSchema}
-        onSubmit={handleSubmit}
+        validationSchema={FormLoginSchema}
+        onSubmit={handleLoginSubmit}
       >
         <Form>
-          <div>
-            <label htmlFor="name">Name</label>
-            <Field type="text" name="name" />
-            <ErrorMessage name="name" component="div" />
-          </div>
           <div>
             <label htmlFor="email">Email</label>
             <Field type="email" name="email" />
@@ -47,12 +46,15 @@ const RegisterForm: FC = () => {
             <ErrorMessage name="password" component="div" />
           </div>
           <div>
-            <Btn type="submit">Register</Btn>
+            <Btn type="submit">Login</Btn>
           </div>
         </Form>
       </Formik>
+      <button type="button" onClick={handleLogout}>
+        Logout
+      </button>
     </>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

@@ -9,8 +9,6 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import { persistedAuthReducer } from './auth/authSlice';
-// import { tasksReducer } from './tasks/tasksSlice';
-// import { reviewsReducer } from './reviews/reviewsSlice';
 
 export const store = configureStore({
   reducer: {
