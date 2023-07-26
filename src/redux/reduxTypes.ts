@@ -1,11 +1,11 @@
-export interface IUser {
+export interface IPostUser {
   _id: string;
   name: string;
   email: string;
 }
 
 export interface IAuthState {
-  user: IUser;
+  user: IPostUser;
   accessToken: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
