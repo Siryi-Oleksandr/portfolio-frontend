@@ -19,9 +19,19 @@ const UserForm: FC = () => {
   return (
     <>
       <Formik
-        initialValues={{ name: user.name, email: user.email }}
+        initialValues={{
+          name: user.name,
+          surname: user.surname,
+          email: user.email,
+          profession: user.profession,
+          experience: user.experience,
+          phone: user.phone,
+          telegram: user.telegram,
+          linkedinURL: user.linkedinURL,
+          gitHubURL: user.gitHubURL,
+          summary: user.summary,
+        }}
         onSubmit={async values => {
-          console.log(values);
           await new Promise(resolve => setTimeout(resolve, 500));
           alert(JSON.stringify(values, null, 2));
         }}
@@ -49,7 +59,7 @@ const UserForm: FC = () => {
               <ErrorMessage component={StyledErrorMessage} name="profession" />
             </Label>
             <Label>
-              <StyledField type="number" name="experience" />
+              <StyledField type="number" min="0" step="0.5" name="experience" />
               <StyledLabel>Experience</StyledLabel>
               <ErrorMessage component={StyledErrorMessage} name="experience" />
             </Label>
