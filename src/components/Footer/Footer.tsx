@@ -11,7 +11,7 @@ import { GiMustache } from 'react-icons/gi';
 import { IoMailOutline } from 'react-icons/io5';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useAppSelector } from 'redux/reduxHooks';
-import { IUser } from 'redux/reduxTypes';
+import { IUser } from '../../types/userTypes';
 
 const Footer: FC = () => {
   const [isLoggedIn] = useState<boolean>(true);
