@@ -56,6 +56,11 @@ export const HeroInfoWrapper = styled.div`
   }
 `;
 
+export const HeroWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const FullName = styled.h1`
   display: flex;
   flex-wrap: wrap;

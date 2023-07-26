@@ -17,6 +17,7 @@ import PublicRoute from './AuthRoutes/PublicRoute';
 import PrivateRoute from './AuthRoutes/PrivateRoute';
 import RestrictedRoute from './AuthRoutes/RestrictedRoute';
 import PortfolioHero from './PortfolioPage/Hero/Hero';
+import SocialLink from './SocialLink/SocialLink';
 
 export {
   App,
@@ -38,4 +39,5 @@ export {
   PrivateRoute,
   RestrictedRoute,
   PortfolioHero,
+  SocialLink,
 };
