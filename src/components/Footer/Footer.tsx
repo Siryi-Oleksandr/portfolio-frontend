@@ -1,65 +1,54 @@
-import { FC, useState } from 'react';
-import {
-  Email,
-  FooterStyled,
-  FooterWrap,
-  Socials,
-  SocialsLink,
-} from './Footer.styled';
-import { PiTelegramLogo, PiGithubLogo, PiLinkedinLogo } from 'react-icons/pi';
+import { FC, useState, useEffect } from 'react';
+import { Email, FooterStyled, FooterWrap, Socials } from './Footer.styled';
 import { GiMustache } from 'react-icons/gi';
-import { IoMailOutline } from 'react-icons/io5';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
+import { useLocation } from 'react-router-dom';
+import SocialLink from 'components/SocialLink/SocialLink';
+import { useViewportWidth } from 'hooks/useViewportWidth';
+
+type TSize = '1em' | '1.5em' | '2em';
 
 const Footer: FC = () => {
-  const [isLoggedIn] = useState<boolean>(true);
+  const [showDefaultFooter, setShowDefaultFooter] = useState<boolean>(true);
   const user: IUser = useAppSelector(selectUser);
+  const location = useLocation();
+
+  let viewportWidth = useViewportWidth();
+  let size: TSize = '1.5em';
+
+  if (viewportWidth > 768) {
+    size = '2em';
+  }
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        setShowDefaultFooter(true);
+        break;
+      case '/search':
+        setShowDefaultFooter(true);
+        break;
+      case '/contacts':
+        setShowDefaultFooter(true);
+        break;
+      case '/login':
+        setShowDefaultFooter(true);
+        break;
+      case '/register':
+        setShowDefaultFooter(true);
+        break;
+      default:
+        setShowDefaultFooter(false);
+        break;
+    }
+  }, [location.pathname, setShowDefaultFooter]);
 
   return (
     <FooterStyled>
       <FooterWrap>
-        {isLoggedIn ? (
-          <>
-            <p>Developer: {user.name}</p>
-            <GiMustache size={'5em'} />
-            <Socials>
-              <li>
-                <SocialsLink
-                  href="https://web.telegram.org/k/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <PiTelegramLogo size={'2em'} />
-                </SocialsLink>
-              </li>
-              <li>
-                <SocialsLink
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <PiLinkedinLogo size={'2em'} />
-                </SocialsLink>
-              </li>
-              <li>
-                <SocialsLink
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <PiGithubLogo size={'2em'} />
-                </SocialsLink>
-              </li>
-              <li>
-                <SocialsLink href={`mailto:${user.email}`}>
-                  <IoMailOutline size={'2em'} />
-                </SocialsLink>
-              </li>
-            </Socials>
-          </>
-        ) : (
+        {showDefaultFooter ? (
           <>
             <p>"Showcasing Success" - сreated by developers for people 😉</p>
             <p>
@@ -70,6 +59,39 @@ const Footer: FC = () => {
                 commitmakers@gmail.com
               </Email>
             </p>
+          </>
+        ) : (
+          <>
+            <p style={{ flex: '1' }}>Developer: {user.name}</p>
+            <GiMustache size={'5em'} style={{ flex: '1' }} />
+            <Socials style={{ flex: '1' }}>
+              {user.telegram && (
+                <SocialLink
+                  type="telegram"
+                  url={`${user.telegram}`}
+                  size={size}
+                />
+              )}
+              {user.linkedinURL && (
+                <SocialLink
+                  type="linkedin"
+                  url={`${user.linkedinURL}`}
+                  size={size}
+                />
+              )}
+              {user.gitHubURL && (
+                <SocialLink
+                  type="github"
+                  url={`${user.gitHubURL}`}
+                  size={size}
+                />
+              )}
+              <SocialLink
+                type="email"
+                url={`mailto:${user.email}`}
+                size={size}
+              />
+            </Socials>
           </>
         )}
       </FooterWrap>

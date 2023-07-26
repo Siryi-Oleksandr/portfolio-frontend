@@ -75,25 +75,5 @@ export const FooterWrap = styled.div`
 export const Socials = styled.ul`
   display: flex;
   gap: 8px;
-`;
-
-export const SocialsLink = styled.a`
-  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 58px;
-  height: 58px;
-
-  border-radius: 50%;
-  box-shadow: 0 0 40px 40px transparent inset, 0 0 0 0 transparent;
-  border: 2px solid transparent;
-
-  transition: all 200ms ease-in-out;
-
-  :hover,
-  :focus {
-    box-shadow: 0 0 10px 0 ${theme.colors.accentColor} inset,
-      0 0 10px 4px ${theme.colors.accentColor};
-    border: 2px solid ${theme.colors.accentColor};
-  }
 `;
