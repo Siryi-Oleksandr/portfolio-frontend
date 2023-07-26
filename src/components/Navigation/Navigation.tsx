@@ -2,7 +2,10 @@ import { FC } from 'react';
 import { Link, Header, NavWrap } from './Navigation.styled';
 import { ThemeToggler } from 'components';
 // import { RxHamburgerMenu } from 'react-icons/rx';
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar/Sidebar';
+import LoginBtn from './LoginBtn/login';
+import LogoutBtn from './LoginBtn/logout';
+import Logo from './Logo/Logo';
 import { useAuth } from 'hooks/useAuth';
 
 const Navigation: FC = () => {
@@ -11,7 +14,9 @@ const Navigation: FC = () => {
   return (
     <>
       <Header>
+        <Logo />
         <Sidebar />
+        <ThemeToggler />
         {/* <MobileMenuButton >
           <RxHamburgerMenu size={34} />
         </MobileMenuButton> */}
@@ -32,8 +37,8 @@ const Navigation: FC = () => {
             {!isLoggedIn && <Link to="/login">Login</Link>} */}
           </nav>
         </NavWrap>
-
-        <ThemeToggler />
+        <LoginBtn />
+        <LogoutBtn />
       </Header>
     </>
   );
