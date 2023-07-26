@@ -13,6 +13,8 @@ export const Title = styled.h2`
   margin-bottom: 30px;
   text-align: center;
 
+  transition: ${theme.transition.hover};
+
   @media screen and (min-width: ${theme.breakpoints.mobile}) {
     width: 300px;
   }
@@ -104,6 +106,8 @@ export const AboutText = styled.p`
   font-family: ${theme.fonts.text};
   font-size: ${theme.fontSizes.l};
   color: ${theme.colors.primary_text_switch};
+
+  transition: ${theme.transition.hover};
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 24px;
