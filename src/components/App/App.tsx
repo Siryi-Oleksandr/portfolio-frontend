@@ -1,13 +1,19 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
-import { Layout, NotFoundPage } from 'components';
+import { useAppSelector } from 'redux/reduxHooks';
+import {
+  Layout,
+  Loader,
+  NotFoundPage,
+  // PublicRoute,
+  PrivateRoute,
+  RestrictedRoute,
+} from 'components';
 import {
   HomePage,
   PortfolioPage,
   CabinetPage,
   SearchPage,
-  AboutPage,
   ContactsPage,
   ProjectDetails,
   RegisterPage,
@@ -16,35 +22,70 @@ import {
 import GlobalStyles from 'GlobalStyle';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { currentUser } from 'redux/auth/operations';
+import { useAuth } from 'hooks/useAuth';
+import { selectAuthIsLoading } from 'redux/auth/authSelectors';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
+  const isAuthLoading = useAppSelector(selectAuthIsLoading);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);
 
   return (
-    <>
-      <GlobalStyles />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/cabinet" element={<CabinetPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route
-            path="/projectDetails/:projectId"
-            element={<ProjectDetails />}
-          />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </>
+    <Suspense fallback={<Loader />}>
+      {isAuthLoading && <Loader />}
+      {/* {projectsIsLoading && <Loader />} */}
+      {isRefreshing ? (
+        <Loader />
+      ) : (
+        <>
+          <GlobalStyles />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              {/* <Route path="/" element={<PublicRoute />}> */}
+              <Route index element={<HomePage />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route
+                path="/register"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    component={<RegisterPage />}
+                  />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    component={<LoginPage />}
+                  />
+                }
+              />
+
+              <Route path="/portfolio/:userId" element={<PortfolioPage />} />
+              {/* TODO Delete next empty portfolio route */}
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route
+                path="/projectDetails/:projectId"
+                element={<ProjectDetails />}
+              />
+              <Route path="/contacts" element={<ContactsPage />} />
+              {/* </Route> */}
+
+              <Route path="/" element={<PrivateRoute />}>
+                <Route path="/cabinet" element={<CabinetPage />} />
+              </Route>
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </>
+      )}
+    </Suspense>
   );
 };
 

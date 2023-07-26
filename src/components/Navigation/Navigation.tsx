@@ -1,17 +1,20 @@
 import { FC } from 'react';
-import { Link, Header, NavWrap} from './Navigation.styled';
+import { Link, Header, NavWrap } from './Navigation.styled';
 import { ThemeToggler } from 'components';
 // import { RxHamburgerMenu } from 'react-icons/rx';
 import Sidebar from './Sidebar/Sidebar';
 import LoginBtn from './LoginBtn/login';
 import LogoutBtn from './LoginBtn/logout';
 import Logo from './Logo/Logo';
+import { useAuth } from 'hooks/useAuth';
 
 const Navigation: FC = () => {
+  const { isLoggedIn, user } = useAuth();
+
   return (
     <>
       <Header>
-        <Logo/>
+        <Logo />
         <Sidebar />
         <ThemeToggler />
         {/* <MobileMenuButton >
@@ -21,15 +24,19 @@ const Navigation: FC = () => {
           <nav>
             <Link to="/">Home</Link>
             <Link to="/search">Search</Link>
-            <Link to="/cabinet">Cabinet</Link>
-            <Link to="/portfolio">Portfolio</Link>
+            {isLoggedIn && <Link to="/cabinet">Cabinet</Link>}
+            <Link to={`/portfolio/${user._id}`}>Portfolio</Link>
             <Link to="/contacts">Contacts</Link>
-            <Link to="/register">Register</Link>
+
+            {!isLoggedIn ? (
+              <Link to="/register">Register</Link>
+            ) : (
+              <span>Welcome {user.name}</span>
+            )}
+            {!isLoggedIn && <Link to="/login">Login</Link>}
           </nav>
         </NavWrap>
-        <LoginBtn />
-        <LogoutBtn/>
-               
+        {!isLoggedIn ? <LoginBtn /> : <LogoutBtn />}
       </Header>
     </>
   );

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 
-export const Item = styled.li`
+export const Item = styled.div`
   position: relative;
   display: inline-block;
   padding: 4px 8px;
