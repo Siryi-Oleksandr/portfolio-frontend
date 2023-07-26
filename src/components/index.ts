@@ -16,6 +16,7 @@ import ScrollToTop from './ScrollToTop/ScrollToTop';
 import PublicRoute from './AuthRoutes/PublicRoute';
 import PrivateRoute from './AuthRoutes/PrivateRoute';
 import RestrictedRoute from './AuthRoutes/RestrictedRoute';
+import PortfolioHero from './PortfolioPage/Hero/Hero';
 
 export {
   App,
@@ -36,4 +37,5 @@ export {
   PublicRoute,
   PrivateRoute,
   RestrictedRoute,
+  PortfolioHero,
 };
