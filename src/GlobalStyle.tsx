@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Global, css } from '@emotion/react';
+import { theme } from 'theme';
 import 'modern-normalize';
 
 const GlobalStyles: FC = () => {
@@ -15,6 +16,8 @@ const GlobalStyles: FC = () => {
               'Helvetica Neue', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+
+            transition: ${theme.transition.hover};
           }
 
           code {
