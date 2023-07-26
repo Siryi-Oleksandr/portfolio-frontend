@@ -33,6 +33,7 @@ export const Bar = styled.div`
 export const Title = styled.h2`
   font-family: ${theme.fonts.title};
   font-size: ${theme.fontSizes.s};
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   font-weight: ${theme.fontWeights.bold};
   line-height: 1.5em;

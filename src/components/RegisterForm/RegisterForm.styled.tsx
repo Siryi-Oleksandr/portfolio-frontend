@@ -13,16 +13,28 @@ export const StyledForm = styled(Form)`
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
+  @media screen and (max-width: 375px) {
+    max-width: 300px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 600px) {
+    width: 360px;
+  }
 `;
 
 export const FormTitleContainer = styled.div`
-  width: 500px;
+  width: 480px;
   height: 100px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 64px;
   padding-left: 10px;
   padding-right: 10px;
+  @media screen and (max-width: 375px) {
+    max-width: 280px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 600px) {
+    width: 340px;
+  }
 `;
 
 export const FormTitle = styled.h2`
@@ -72,6 +84,13 @@ export const StyledField = styled(Field)`
   &:focus ~ span {
     color: ${theme.colors.accentColor};
   }
+
+  @media screen and (max-width: 375px) {
+    max-width: 280px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 600px) {
+    width: 340px;
+  }
 `;
 
 export const Label = styled.label`
@@ -88,6 +107,13 @@ export const StyledLabel = styled.span`
   font-family: ${theme.fonts.heading};
   color: ${theme.colors.primary_text_switch};
   transition: all 300ms ease-in-out;
+`;
+
+export const IconWrap = styled.div`
+  position: absolute;
+  top: 15px;
+  left: 90%;
+  font-size: 20px;
 `;
 
 export const StyledErrorMessage = styled.p`
@@ -114,6 +140,12 @@ export const SubmitBtn = styled(Btn)`
   &:hover {
     transform: scale(1.02);
     background-color: ${theme.colors.accent_color_switch};
+  }
+  @media screen and (max-width: 375px) {
+    max-width: 280px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 600px) {
+    width: 340px;
   }
 `;
 export const RedirectContainer = styled.div`
