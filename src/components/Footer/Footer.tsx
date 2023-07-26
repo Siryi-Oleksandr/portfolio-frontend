@@ -8,16 +8,21 @@ import {
 } from './Footer.styled';
 import { PiTelegramLogo, PiGithubLogo, PiLinkedinLogo } from 'react-icons/pi';
 import { GiMustache } from 'react-icons/gi';
+import { IoMailOutline } from 'react-icons/io5';
+import { selectUser } from 'redux/auth/authSelectors';
+import { useAppSelector } from 'redux/reduxHooks';
+import { IUser } from 'redux/reduxTypes';
 
 const Footer: FC = () => {
-  const [isLoggedIn] = useState(true);
+  const [isLoggedIn] = useState<boolean>(true);
+  const user: IUser = useAppSelector(selectUser);
 
   return (
     <FooterStyled>
       <FooterWrap>
         {isLoggedIn ? (
           <>
-            <p>Developer: Anatolii Kobzar</p>
+            <p>Developer: {user.name}</p>
             <GiMustache size={'5em'} />
             <Socials>
               <li>
@@ -31,6 +36,15 @@ const Footer: FC = () => {
               </li>
               <li>
                 <SocialsLink
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <PiLinkedinLogo size={'2em'} />
+                </SocialsLink>
+              </li>
+              <li>
+                <SocialsLink
                   href="https://github.com/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -39,12 +53,8 @@ const Footer: FC = () => {
                 </SocialsLink>
               </li>
               <li>
-                <SocialsLink
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <PiLinkedinLogo size={'2em'} />
+                <SocialsLink href={`mailto:${user.email}`}>
+                  <IoMailOutline size={'2em'} />
                 </SocialsLink>
               </li>
             </Socials>

@@ -18,6 +18,7 @@ import PrivateRoute from './AuthRoutes/PrivateRoute';
 import RestrictedRoute from './AuthRoutes/RestrictedRoute';
 import PortfolioHero from './PortfolioPage/Hero/Hero';
 import SocialLink from './SocialLink/SocialLink';
+import UserForm from './UserForm/UserForm';
 
 export {
   App,
@@ -40,4 +41,5 @@ export {
   RestrictedRoute,
   PortfolioHero,
   SocialLink,
+  UserForm,
 };

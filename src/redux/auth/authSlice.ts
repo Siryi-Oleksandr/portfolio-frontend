@@ -3,9 +3,9 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { registerUser, loginUser, logoutUser, currentUser } from './operations';
 
-import { IUser, IAuthState } from 'redux/reduxTypes';
+import { IPostUser, IAuthState } from 'redux/reduxTypes';
 
-const newUser: IUser = {
+const newUser: IPostUser = {
   _id: '',
   name: '',
   email: '',

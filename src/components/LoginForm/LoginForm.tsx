@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
+import { IoEyeOutline, IoEyeOff } from 'react-icons/io5';
 import { loginUser } from 'redux/auth/operations';
-
 import { useAppDispatch } from 'redux/reduxHooks';
 import { FormLoginSchema } from 'services';
 import { LoginValues } from 'types/authFormTypes';
@@ -19,7 +19,9 @@ import {
   RedirectContainer,
   RedirectMeta,
   RedirectLink,
+  IconWrap,
 } from 'components/RegisterForm/RegisterForm.styled';
+import { usePasswordToggle } from 'hooks/usePasswordToogle';
 
 const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -28,6 +30,7 @@ const LoginForm: FC = () => {
     email: '',
     password: '',
   };
+  const [passwordType, togglePassword] = usePasswordToggle();
 
   const handleLoginSubmit = (
     values: LoginValues,
@@ -56,8 +59,11 @@ const LoginForm: FC = () => {
               <ErrorMessage name="email" component={StyledErrorMessage} />
             </Label>
             <Label>
-              <StyledField type="password" name="password" />
+              <StyledField type={passwordType} name="password" />
               <StyledLabel>Password</StyledLabel>
+              <IconWrap onClick={togglePassword}>
+                {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
+              </IconWrap>
               <ErrorMessage name="password" component={StyledErrorMessage} />
             </Label>
           </InputsContainer>
