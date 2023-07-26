@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useAppSelector } from 'redux/reduxHooks';
-import { IUser } from 'redux/reduxTypes';
+import { IUser } from '../../types/userTypes';
 import { Formik, ErrorMessage } from 'formik';
 import {
   InputsContainer,
