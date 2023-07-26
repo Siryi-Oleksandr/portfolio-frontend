@@ -10,7 +10,7 @@ const ProjectList: FC = () => {
   return (
     <List>
       {projects.map(project => (
-        <ProjectItem project={project} />
+        <ProjectItem key={project.id} project={project} />
       ))}
     </List>
   );

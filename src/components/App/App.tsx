@@ -5,8 +5,9 @@ import {
   Layout,
   Loader,
   NotFoundPage,
-  PublicRoute,
+  // PublicRoute,
   PrivateRoute,
+  RestrictedRoute,
 } from 'components';
 import {
   HomePage,
@@ -47,9 +48,28 @@ const App: FC = () => {
               {/* <Route path="/" element={<PublicRoute />}> */}
               <Route index element={<HomePage />} />
               <Route path="/search" element={<SearchPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/register"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    component={<RegisterPage />}
+                  />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    component={<LoginPage />}
+                  />
+                }
+              />
+
               <Route path="/portfolio/:userId" element={<PortfolioPage />} />
+              {/* TODO Delete next empty portfolio route */}
+              <Route path="/portfolio" element={<PortfolioPage />} />
               <Route
                 path="/projectDetails/:projectId"
                 element={<ProjectDetails />}

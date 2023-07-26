@@ -15,6 +15,7 @@ import RegisterForm from './RegisterForm/RegisterForm';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
 import PublicRoute from './AuthRoutes/PublicRoute';
 import PrivateRoute from './AuthRoutes/PrivateRoute';
+import RestrictedRoute from './AuthRoutes/RestrictedRoute';
 
 export {
   App,
@@ -34,4 +35,5 @@ export {
   ScrollToTop,
   PublicRoute,
   PrivateRoute,
+  RestrictedRoute,
 };

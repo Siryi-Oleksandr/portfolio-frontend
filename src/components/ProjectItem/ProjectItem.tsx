@@ -59,11 +59,7 @@ const ProjectItem: FC<Props> = ({ project }) => {
     posters,
   } = project;
   return (
-    <Item
-      key={projectId}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <Item onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to={`/projectDetails/${projectId}`}>
         <Bar>
           <Title>{title}</Title>

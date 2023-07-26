@@ -10,7 +10,7 @@ import { useAuth } from 'hooks/useAuth';
 
 const Navigation: FC = () => {
   const { isLoggedIn, user } = useAuth();
-  console.log('😎', user);
+
   return (
     <>
       <Header>
@@ -27,18 +27,16 @@ const Navigation: FC = () => {
             {isLoggedIn && <Link to="/cabinet">Cabinet</Link>}
             <Link to={`/portfolio/${user._id}`}>Portfolio</Link>
             <Link to="/contacts">Contacts</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-            {/* {!isLoggedIn ? (
+
+            {!isLoggedIn ? (
               <Link to="/register">Register</Link>
             ) : (
-              <span>Name</span>
+              <span>Welcome {user.name}</span>
             )}
-            {!isLoggedIn && <Link to="/login">Login</Link>} */}
+            {!isLoggedIn && <Link to="/login">Login</Link>}
           </nav>
         </NavWrap>
-        <LoginBtn />
-        <LogoutBtn />
+        {!isLoggedIn ? <LoginBtn /> : <LogoutBtn />}
       </Header>
     </>
   );
