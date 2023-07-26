@@ -16,6 +16,8 @@ import ScrollToTop from './ScrollToTop/ScrollToTop';
 import PublicRoute from './AuthRoutes/PublicRoute';
 import PrivateRoute from './AuthRoutes/PrivateRoute';
 import RestrictedRoute from './AuthRoutes/RestrictedRoute';
+import PortfolioHero from './PortfolioPage/Hero/Hero';
+import SocialLink from './SocialLink/SocialLink';
 import UserForm from './UserForm/UserForm';
 
 export {
@@ -37,5 +39,7 @@ export {
   PublicRoute,
   PrivateRoute,
   RestrictedRoute,
+  PortfolioHero,
+  SocialLink,
   UserForm,
 };
