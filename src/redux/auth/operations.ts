@@ -152,7 +152,7 @@ export const updateUser = createAsyncThunk(
       name,
       surname,
       profession,
-      experience,
+      // experience,
       phone,
       telegram,
       summary,
@@ -169,7 +169,7 @@ export const updateUser = createAsyncThunk(
       formData.append('name', name);
       formData.append('surname', surname);
       formData.append('profession', profession);
-      formData.append('experience', experience);
+      // formData.append('experience', experience);
       formData.append('phone', phone);
       formData.append('telegram', telegram);
       formData.append('summary', summary);
