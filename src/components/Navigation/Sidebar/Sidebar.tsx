@@ -6,6 +6,7 @@ import Submenu from './Submenu';
 import { useRef } from 'react';
 import { useOnClickOutside } from 'usehooks-ts'
 import { SidebarNav, NavIcon, Nav, SidebarWrap, CloseWrap } from './Sidebar.styled';
+import { useAuth } from 'hooks/useAuth';
 
 
 const Sidebar: FC = () => {
@@ -19,6 +20,8 @@ const Sidebar: FC = () => {
     };
 
     useOnClickOutside(ref, handleClickOutside);
+
+    const { isLoggedIn, user } = useAuth();
 
 
     return (
