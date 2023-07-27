@@ -1,17 +1,17 @@
 import { FC } from 'react';
-import { Dna } from 'react-loader-spinner';
+import { Triangle } from 'react-loader-spinner';
 import { LoaderStyled } from './Loader.styled';
 
 const Loader: FC = () => {
   return (
     <LoaderStyled>
-      <Dna
-        visible={true}
-        height="80"
-        width="80"
-        ariaLabel="dna-loading"
+      <Triangle
+        height="100"
+        width="100"
+        color="#FE390C"
+        ariaLabel="triangle-loading"
         wrapperStyle={{}}
-        wrapperClass="dna-wrapper"
+        visible={true}
       />
     </LoaderStyled>
   );
