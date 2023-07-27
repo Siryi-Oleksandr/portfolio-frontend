@@ -20,6 +20,7 @@ import PortfolioHero from './PortfolioPage/Hero/Hero';
 import SocialLink from './SocialLink/SocialLink';
 import UserForm from './UserForm/UserForm';
 import SearchInput from './SearchPage/SearchInput/SearchInput';
+import SearchItem from './SearchPage/SearchItem/SearchItem';
 
 export {
   App,
@@ -44,4 +45,5 @@ export {
   SocialLink,
   UserForm,
   SearchInput,
+  SearchItem,
 };

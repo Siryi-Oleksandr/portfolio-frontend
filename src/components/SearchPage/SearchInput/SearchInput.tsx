@@ -7,7 +7,11 @@ import {
   SearchIcon,
 } from './SearchInput.styled';
 
-const SearchInput: FC = () => {
+interface onSubmitFunc {
+  onSubmit: Function;
+}
+
+const SearchInput: FC<onSubmitFunc> = ({ onSubmit }) => {
   const [query, setQuery] = useState<string>('');
   const [ready, setReady] = useState<boolean>(false);
 
@@ -15,8 +19,14 @@ const SearchInput: FC = () => {
     setQuery(evt.target.value);
   };
 
-  const onSubmit = (evt: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+
+    if (query.trim() === '') {
+      return;
+    }
+
+    onSubmit(query);
     setQuery('');
   };
 
@@ -25,7 +35,7 @@ const SearchInput: FC = () => {
   }, []);
 
   return (
-    <Form isReady={ready} onSubmit={onSubmit}>
+    <Form isReady={ready} onSubmit={handleSubmit}>
       <InputContainer>
         <Input
           onChange={onType}

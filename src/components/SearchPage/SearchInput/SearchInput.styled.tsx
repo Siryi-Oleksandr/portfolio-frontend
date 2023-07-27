@@ -44,16 +44,17 @@ export const Input = styled.input`
   font-weight: 500;
   font-family: ${theme.fonts.heading};
   color: ${theme.colors.white};
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
 
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  ::placeholder {
+    font-size: 16px;
+  }
 
   &:focus {
     outline: none;
     border-left: 3px solid ${theme.colors.accentColor};
     border-right: 3px solid ${theme.colors.accentColor};
     border-color: ${theme.colors.accentColor};
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   }
 `;
 
