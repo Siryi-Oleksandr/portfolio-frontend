@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
+import { IUpdateUser } from 'redux/reduxTypes';
+import { theme } from 'theme';
 
 export const instance = axios.create({
   baseURL: 'https://ts-projects-api.onrender.com',
@@ -40,15 +42,16 @@ instance.interceptors.response.use(
 
 const tostStyleError = {
   borderRadius: '8px',
-  border: '1px solid red',
-  background: '#13151A',
-  color: '#3E85F3',
+  border: '1px solid black',
+  background: `${theme.colors.mainRed}`,
+  color: '#fff',
 };
 
 export const tostStyleSuccess = {
   borderRadius: '8px',
-  background: '#3E85F3',
-  color: '#ffffff',
+  border: `1px solid ${theme.colors.accentColor}`,
+  background: `${theme.colors.tagBgColor}`,
+  color: `${theme.colors.primary_text_switch}`,
 };
 
 export const registerUser = createAsyncThunk(
@@ -108,6 +111,9 @@ export const logoutUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       await instance.post('/logout');
+      toast.success(`Good Bye, have a nice day!`, {
+        style: tostStyleSuccess,
+      });
       setToken('');
     } catch (error: any) {
       if (error.response.status === 401) {
@@ -130,6 +136,57 @@ export const currentUser = createAsyncThunk(
 
     try {
       const response = await instance.get('/current');
+      return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (userData: IUpdateUser, thunkAPI) => {
+    const {
+      avatar,
+      email,
+      name,
+      surname,
+      profession,
+      experience,
+      phone,
+      telegram,
+      summary,
+      technicalStack,
+      linkedinURL,
+      gitHubURL,
+    } = userData;
+    try {
+      const formData = new FormData();
+      if (avatar !== undefined) {
+        formData.append('avatar', avatar);
+      }
+      formData.append('email', email);
+      formData.append('name', name);
+      formData.append('surname', surname);
+      formData.append('profession', profession);
+      formData.append('experience', experience);
+      formData.append('phone', phone);
+      formData.append('telegram', telegram);
+      formData.append('summary', summary);
+      formData.append('technicalStack', JSON.stringify(technicalStack));
+      formData.append('linkedinURL', linkedinURL);
+      formData.append('gitHubURL', gitHubURL);
+
+      const response = await instance.patch('/update', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      toast.success(`Your account has been updated!`, {
+        style: tostStyleSuccess,
+      });
+
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);

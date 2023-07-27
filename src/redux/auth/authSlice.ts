@@ -1,7 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { registerUser, loginUser, logoutUser, currentUser } from './operations';
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  currentUser,
+  updateUser,
+} from './operations';
 
 import { IPostUser, IAuthState } from 'redux/reduxTypes';
 
@@ -39,6 +45,12 @@ const authSlice = createSlice({
       .addCase(logoutUser.pending, state => {
         state.isLoading = true;
       })
+      .addCase(currentUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(updateUser.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -46,6 +58,13 @@ const authSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(currentUser.rejected, state => {
+        state.isRefreshing = false;
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.user };
@@ -77,9 +96,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(currentUser.pending, state => {
-        state.isRefreshing = true;
-      })
 
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.user = { ...state.user, ...payload.user };
@@ -87,8 +103,10 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(currentUser.rejected, state => {
-        state.isRefreshing = false;
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
+        state.user = { ...state.user, ...payload };
+        state.isLoading = false;
+        state.error = null;
       });
   },
 });
