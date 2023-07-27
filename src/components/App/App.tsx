@@ -24,6 +24,7 @@ import { useAppDispatch } from 'redux/reduxHooks';
 import { currentUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { selectAuthIsLoading } from 'redux/auth/authSelectors';
+import { Toaster } from 'react-hot-toast';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
@@ -85,6 +86,7 @@ const App: FC = () => {
           </Routes>
         </>
       )}
+      <Toaster position="top-right" reverseOrder={false} />
     </Suspense>
   );
 };
