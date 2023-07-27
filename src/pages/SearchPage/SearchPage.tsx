@@ -1,9 +1,8 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react';
+import { SearchInput } from 'components';
 
 const SearchPage: FC = () => {
-  return (
-    <div>SearchPage</div>
-  )
-}
+  return <SearchInput />;
+};
 
 export default SearchPage;
