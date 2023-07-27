@@ -29,7 +29,7 @@ export const NavWrap = styled.div`
   margin-right: auto;
   gap: 12px;
   padding: 8px 0;
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 999px) {
     display: none;
   }
 `;
@@ -57,4 +57,17 @@ export const Link = styled(NavLink)`
   }
 `;
 
+export const GreetWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+`;
+
+export const GreetText = styled.p`
+color: ${theme.colors.white};
+`;
+
+export const GreetName = styled.p`
+color: ${theme.colors.accentColor};
+`;
 

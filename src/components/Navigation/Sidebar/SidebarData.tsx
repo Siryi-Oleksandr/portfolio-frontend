@@ -2,11 +2,10 @@ import {
   AiOutlineHome,
   AiOutlineSearch,
   AiFillFolderOpen,
-  AiOutlineContacts,
 } from 'react-icons/ai';
 import { BiCabinet } from 'react-icons/bi';
 import { SidebarItem } from 'types/SidebarItem';
-import { SlLogin } from 'react-icons/sl';
+// import { SlLogin } from 'react-icons/sl';
 
 export const SidebarData: SidebarItem[] = [
   {
@@ -30,15 +29,15 @@ export const SidebarData: SidebarItem[] = [
     icon: <AiFillFolderOpen size="25px" />,
   },
 
-  {
-    title: 'Contacts',
-    path: '/contacts',
-    icon: <AiOutlineContacts size="25px" />,
-  },
+  // {
+  //   title: 'Contacts',
+  //   path: '/contacts',
+  //   icon: <AiOutlineContacts size="25px" />,
+  // },
 
-  {
-    title: 'LogIn',
-    path: '/login',
-    icon: <SlLogin size="25px" />,
-  },
+  // {
+  //   title: 'LogIn',
+  //   path: '/login',
+  //   icon: <SlLogin size="25px" />,
+  // },
 ];
