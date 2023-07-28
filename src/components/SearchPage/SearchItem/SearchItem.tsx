@@ -12,6 +12,7 @@ import {
 
 interface Props {
   user: IUser;
+  state: object;
 }
 
 interface IUser {
@@ -19,17 +20,19 @@ interface IUser {
   profession: string;
 }
 
-const SearchItem: FC<Props> = ({ user }) => {
+const SearchItem: FC<Props> = ({ user, state }) => {
   return (
     <Item>
       <Wrapper>
         <ImageWrapper></ImageWrapper>
         <InfoWrapper>
-          <NameLink to="#">{user.name}</NameLink>
+          <NameLink to="#" state={state}>
+            {user.name}
+          </NameLink>
           <Profession>{user.profession}</Profession>
         </InfoWrapper>
       </Wrapper>
-      <LinkBtn to="#">
+      <LinkBtn to="#" state={state}>
         <ArrowLink />
       </LinkBtn>
     </Item>

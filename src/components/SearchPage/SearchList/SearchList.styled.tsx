@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 
-export const Section = styled.section`
-  flex-grow: 1;
-`;
-
 export const ListContainer = styled.div`
   width: 100%;
   padding: 0 15px;
