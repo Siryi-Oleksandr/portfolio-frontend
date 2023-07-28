@@ -7,7 +7,7 @@ export const Nav = styled.div`
     justify-content: flex-start;
     align-items: center;
     height: 5rem;
-     @media screen and (min-width: ${theme.breakpoints.desktop}) {
+     @media screen and (min-width: 1000px) {
     display: none;
   }
     
@@ -55,4 +55,24 @@ export const CloseWrap = styled.div`
       transform: scale(1.5);
     }
   }
+`;
+export const SlideGreetWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  
+`;
+
+export const SlideGreetText = styled.p`
+color: ${theme.colors.primary_text_switch};
+font-size: ${theme.fontSizes.l};
+font-weight: ${theme.fontWeights.bold};
+font-family: ${theme.fonts.text};
+`;
+
+export const SlideGreetName = styled.p`
+color: ${theme.colors.accentColor};
+font-size: ${theme.fontSizes.l};
+font-weight: ${theme.fontWeights.bold};
+font-family: ${theme.fonts.text};
 `;

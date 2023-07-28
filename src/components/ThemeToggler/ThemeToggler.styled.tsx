@@ -13,7 +13,7 @@ export const ThemeModeBtn = styled.button`
   align-items: center;
   justify-content: center;
   padding-bottom: 1px;
-   @media screen and (max-width: 1439px) {
+   @media screen and (max-width: 999px) {
     margin-right: auto;
   }
   

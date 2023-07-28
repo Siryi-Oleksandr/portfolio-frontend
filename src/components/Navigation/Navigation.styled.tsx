@@ -34,7 +34,7 @@ export const NavWrap = styled.div`
   margin-right: auto;
   gap: 12px;
   padding: 8px 0;
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 999px) {
     display: none;
   }
 `;
