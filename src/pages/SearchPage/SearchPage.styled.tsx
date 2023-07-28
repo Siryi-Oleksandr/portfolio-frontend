@@ -31,7 +31,7 @@ export const ListContainer = styled.div`
 
 export const ResultsWrapper = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: start;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 7px;

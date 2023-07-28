@@ -61,3 +61,16 @@ export const Link = styled(NavLink)`
     transform: scale(1.2);
   }
 `;
+
+export const GreetWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const GreetText = styled.p`
+  color: ${theme.colors.white};
+`;
+
+export const GreetName = styled.p`
+  color: ${theme.colors.accentColor};
+`;
