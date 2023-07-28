@@ -9,7 +9,7 @@ interface isReadySearch {
 export const Form = styled.form<isReadySearch>`
   height: 41px;
   transform: ${({ isReady }) =>
-    isReady ? 'translateY(-1px)' : 'translateY(-200%)'};
+    isReady ? 'translateY(0)' : 'translateY(-200%)'};
   transition: transform 800ms ease;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
   background-color: #404040;
@@ -18,7 +18,7 @@ export const Form = styled.form<isReadySearch>`
 export const InputContainer = styled.div`
   position: relative;
   margin: 0 auto;
-  width: 375px;
+  width: 100%;
   height: 41px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
@@ -35,7 +35,7 @@ export const Input = styled.input`
   height: 41px;
   padding-left: 15px;
   padding-right: 50px;
-  border-top: none;
+  border-top: 3px solid transparent;
   border-left: 3px solid transparent;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
