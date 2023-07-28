@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Container, SearchInput, SearchItem } from 'components';
+import { SearchInput, SearchItem } from 'components';
 import {
   Section,
   ListContainer,
