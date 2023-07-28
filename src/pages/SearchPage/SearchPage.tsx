@@ -1,14 +1,20 @@
 import React, { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Container, SearchInput, SearchItem } from 'components';
-import { List } from './SearchPage.styled';
+import {
+  Section,
+  ListContainer,
+  ResultsWrapper,
+  TotalResults,
+  List,
+} from './SearchPage.styled';
 
 const usersList = [
-  { name: 'Oleksandr Filippov', proffesion: 'Full Stack developer' },
-  { name: 'Maxim Koval', proffesion: 'Full Stack developer' },
-  { name: 'Oleksandr Siryi', proffesion: 'Full Stack developer' },
-  { name: 'Oleksandr Malakhov', proffesion: 'Full Stack developer' },
-  { name: 'Anatolii Kobzar', proffesion: 'Full Stack developer' },
+  { name: 'Oleksandr Filippov', profession: 'Full Stack developer' },
+  { name: 'Maxim Koval', profession: 'Full Stack developer' },
+  { name: 'Oleksandr Siryi', profession: 'Full Stack developer' },
+  { name: 'Oleksandr Malakhov', profession: 'Full Stack developer' },
+  { name: 'Anatolii Kobzar', profession: 'Full Stack developer' },
 ];
 
 const SearchPage: FC = () => {
@@ -24,16 +30,19 @@ const SearchPage: FC = () => {
   };
 
   return (
-    <>
+    <Section>
       <SearchInput onSubmit={onSubmit} />
-      <Container>
+      <ListContainer>
+        <ResultsWrapper>
+          <TotalResults>Results: {usersList.length}</TotalResults>
+        </ResultsWrapper>
         <List>
           {usersList.map(user => (
             <SearchItem key={user.name} user={user} />
           ))}
         </List>
-      </Container>
-    </>
+      </ListContainer>
+    </Section>
   );
 };
 

@@ -38,7 +38,7 @@ export const Input = styled.input`
   border-top: none;
   border-left: 3px solid transparent;
   border-right: 3px solid transparent;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 3px solid transparent;
   background-color: transparent;
   font-size: 14px;
   font-weight: 500;
