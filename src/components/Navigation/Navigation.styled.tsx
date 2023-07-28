@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-import { theme } from "theme";
- 
+import { theme } from 'theme';
+
 export const Header = styled.header`
   display: flex;
   align-items: center;
@@ -9,15 +9,20 @@ export const Header = styled.header`
   height: 80px;
   gap: 12px;
   padding: 8px 32px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1) );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.1)
+  );
   background-color: #404040;
   @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
     padding: 8px 16px;
   }
-   nav {
+  nav {
     display: flex;
     flex-direction: row;
   }
+  z-index: 100;
 `;
 
 export const NavWrap = styled.div`
@@ -45,10 +50,10 @@ export const Link = styled(NavLink)`
   transition: ${theme.transition.hover};
 
   &.active {
-    color:${theme.colors.black};
+    color: ${theme.colors.black};
     background-color: ${theme.colors.accentColor};
     &:hover {
-      color: ${theme.colors.white}
+      color: ${theme.colors.white};
     }
   }
   &:hover {
@@ -60,14 +65,12 @@ export const Link = styled(NavLink)`
 export const GreetWrap = styled.div`
   display: flex;
   flex-direction: column;
-  
 `;
 
 export const GreetText = styled.p`
-color: ${theme.colors.white};
+  color: ${theme.colors.white};
 `;
 
 export const GreetName = styled.p`
-color: ${theme.colors.accentColor};
+  color: ${theme.colors.accentColor};
 `;
-

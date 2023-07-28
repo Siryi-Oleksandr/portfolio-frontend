@@ -37,7 +37,15 @@ export const FooterWrapper = styled.div`
 `;
 
 export const Main = styled.main`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 `;
+
+//  display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+
+// display: grid;
+// grid-template-rows: auto 1fr auto;
+// min-height: 100vh;

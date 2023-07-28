@@ -19,6 +19,9 @@ import RestrictedRoute from './AuthRoutes/RestrictedRoute';
 import PortfolioHero from './PortfolioPage/Hero/Hero';
 import SocialLink from './SocialLink/SocialLink';
 import UserForm from './UserForm/UserForm';
+import SearchInput from './SearchPage/SearchInput/SearchInput';
+import SearchList from './SearchPage/SearchList/SearchList';
+import SearchItem from './SearchPage/SearchItem/SearchItem';
 
 export {
   App,
@@ -42,4 +45,7 @@ export {
   PortfolioHero,
   SocialLink,
   UserForm,
+  SearchInput,
+  SearchList,
+  SearchItem,
 };
