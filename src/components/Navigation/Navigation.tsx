@@ -1,5 +1,12 @@
 import { FC } from 'react';
-import { Link, Header, NavWrap, GreetWrap, GreetName, GreetText } from './Navigation.styled';
+import {
+  Link,
+  Header,
+  NavWrap,
+  GreetWrap,
+  GreetName,
+  GreetText,
+} from './Navigation.styled';
 import { ThemeToggler } from 'components';
 // import { RxHamburgerMenu } from 'react-icons/rx';
 import Sidebar from './Sidebar/Sidebar';
@@ -28,17 +35,17 @@ const Navigation: FC = () => {
             {isLoggedIn && <Link to="/cabinet">Cabinet</Link>}
             <Link to={`/portfolio/${user._id}`}>Portfolio</Link>
             <Link to="/contacts">Contacts</Link>
+            <Link to="/projectDetails">Project</Link>
           </nav>
-          
         </NavWrap>
         {!isLoggedIn ? (
-              <RegisterBtn/>
-            ) : (
-                <GreetWrap>
-                    <GreetText>Welcome</GreetText>
-                    <GreetName>{user.name}</GreetName>
-                </GreetWrap>
-            )}
+          <RegisterBtn />
+        ) : (
+          <GreetWrap>
+            <GreetText>Welcome</GreetText>
+            <GreetName>{user.name}</GreetName>
+          </GreetWrap>
+        )}
         {!isLoggedIn ? <LoginBtn /> : <LogoutBtn />}
       </Header>
     </>

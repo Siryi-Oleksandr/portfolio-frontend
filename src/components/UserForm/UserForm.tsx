@@ -15,7 +15,11 @@ import { StyledUserForm } from './UserForm.styled';
 import { IUpdateUser } from 'redux/reduxTypes';
 import { updateUser } from 'redux/auth/operations';
 
-const UserForm: FC = () => {
+type UserFormPorps = {
+    onClose: any;
+} 
+
+const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const user: IUser = useAppSelector(selectUser);
 
@@ -39,6 +43,7 @@ const UserForm: FC = () => {
     console.log(values);
     actions.resetForm();
     dispatch(updateUser(values));
+    onClose();
   };
 
   return (

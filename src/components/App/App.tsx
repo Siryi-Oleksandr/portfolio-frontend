@@ -72,7 +72,8 @@ const App: FC = () => {
               {/* TODO Delete next empty portfolio route */}
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route
-                path="/projectDetails/:projectId"
+                // path="/projectDetails/:projectId"
+                path="/projectDetails"
                 element={<ProjectDetails />}
               />
               <Route path="/contacts" element={<ContactsPage />} />

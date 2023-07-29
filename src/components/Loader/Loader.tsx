@@ -1,18 +1,20 @@
 import { FC } from 'react';
-import { Triangle } from 'react-loader-spinner';
+import { ThreeCircles } from 'react-loader-spinner';
 import { LoaderStyled } from './Loader.styled';
 
 const Loader: FC = () => {
   return (
     <LoaderStyled>
-      <Triangle
+      <ThreeCircles
         height="100"
         width="100"
         color="#FE390C"
-        ariaLabel="triangle-loading"
-        wrapperStyle={{}}
         visible={true}
-      />
+        ariaLabel="three-circles-rotating"
+        outerCircleColor="#171820"
+        innerCircleColor="#FE390C"
+        middleCircleColor="#57595D"
+/>
     </LoaderStyled>
   );
 };
