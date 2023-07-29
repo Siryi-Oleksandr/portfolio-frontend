@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
+import React, { FC, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { SearchItem, SearchEmpty, Loader } from 'components';
 import { searchUsers } from 'redux/searchUsers/operations';
 import { useAppSelector } from 'redux/reduxHooks';

@@ -15,9 +15,9 @@ const SearchPage: FC = () => {
     setPage(1);
   };
 
-  const loadMore = () => {
-    setPage(prevState => prevState + 1);
-  };
+  // const loadMore = () => {
+  //   setPage(prevState => prevState + 1);
+  // };
 
   return (
     <Section>

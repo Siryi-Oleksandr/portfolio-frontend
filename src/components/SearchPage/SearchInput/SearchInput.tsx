@@ -30,7 +30,6 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit }) => {
     }
 
     onSubmit(query);
-    setQuery('');
   };
 
   useEffect(() => {

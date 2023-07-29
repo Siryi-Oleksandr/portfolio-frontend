@@ -59,6 +59,7 @@ export const NameLink = styled(Link)`
 `;
 
 export const Profession = styled.p`
+  height: 16px;
   font-family: ${theme.fonts.text};
   font-weight: ${theme.fontWeights.normal};
   font-size: ${theme.fontSizes.xs};
