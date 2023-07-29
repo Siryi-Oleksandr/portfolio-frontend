@@ -1,9 +1,13 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
-import { SearchItem, SearchEmpty } from 'components';
-// import { searchUsers } from 'redux/searchUsers/operations';
-// import { useAppSelector } from 'redux/reduxHooks';
-// import { selectFoundUsers } from 'redux/searchUsers/searchUsersSelectors';
+import { SearchItem, SearchEmpty, Loader } from 'components';
+import { searchUsers } from 'redux/searchUsers/operations';
+import { useAppSelector } from 'redux/reduxHooks';
+import { useAppDispatch } from 'redux/reduxHooks';
+import {
+  selectFoundUsers,
+  selectIsLoading,
+} from 'redux/searchUsers/searchUsersSelectors';
 import {
   ListContainer,
   ResultsWrapper,
@@ -14,45 +18,45 @@ import {
 
 interface Props {
   query: string;
+  page: number;
 }
 
-const usersList = [
-  { name: 'Oleksandr Filippov', profession: 'Full Stack developer' },
-  { name: 'Maxim Koval', profession: 'Full Stack developer' },
-  { name: 'Oleksandr Siryi', profession: 'Full Stack developer' },
-  { name: 'Oleksandr Malakhov', profession: 'Full Stack developer' },
-  { name: 'Anatolii Kobzar', profession: 'Full Stack developer' },
-];
-
-const SearchList: FC<Props> = ({ query }) => {
+const SearchList: FC<Props> = ({ query, page }) => {
   const location = useLocation();
-  const [searchParams, setSearchparams] = useSearchParams();
+  // const [showBtn, setShowBtn] = useState<boolean>(false);
 
-  const searchQuery = searchParams.get('query') ?? '';
+  const dispatch = useAppDispatch();
+
+  const users = useAppSelector(selectFoundUsers);
+  const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
-    const nextParams: any = query !== '' ? { query } : {};
-    setSearchparams(nextParams);
-  }, [query, setSearchparams]);
+    if (query === '') {
+      return;
+    }
+
+    dispatch(searchUsers({ query, page }));
+  }, [dispatch, page, query]);
 
   return (
     <>
-      {searchQuery === '' && <SearchEmpty />}
-      {searchQuery !== '' && (
+      {query === '' && <SearchEmpty />}
+      {isLoading && <Loader />}
+      {query !== '' && !isLoading && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {usersList.length}</TotalResults>
+            <TotalResults>Results: {users.length}</TotalResults>
           </ResultsWrapper>
           <List>
-            {usersList.map(user => (
+            {users.map(user => (
               <SearchItem
-                key={user.name}
+                key={user._id}
                 user={user}
                 state={{ from: location }}
               />
             ))}
           </List>
-          <WatchMoreBtn>Watch more</WatchMoreBtn>
+          <WatchMoreBtn type="button">Watch More</WatchMoreBtn>
         </ListContainer>
       )}
     </>

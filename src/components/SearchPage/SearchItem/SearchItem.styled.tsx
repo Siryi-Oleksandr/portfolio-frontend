@@ -27,6 +27,7 @@ export const ImageWrapper = styled.div`
   height: 40px;
   border-radius: 50%;
   background-color: red;
+  overflow: hidden;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: 50px;
