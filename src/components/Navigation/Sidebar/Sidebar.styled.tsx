@@ -21,7 +21,7 @@ export const SidebarNav = styled.div<{ sidebar: string }>`
     position: fixed;
     top: 0;
     left: ${({ sidebar }) => (sidebar === "true" ? '0' : '-100%')};
-    transition: ${theme.transition.hover};;
+    transition: ${theme.transition.hover};
     z-index: 1000;
 `;
 

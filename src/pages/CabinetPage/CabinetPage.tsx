@@ -1,8 +1,9 @@
-import { UserForm } from 'components';
+// import { UserForm } from 'components';
 import React, { FC } from 'react';
+import CabinetUserInfo from 'components/Cabinet/CabinetUserInfo';
 
 const CabinetPage: FC = () => {
-  return <UserForm />;
+  return <CabinetUserInfo />;
 };
 
 export default CabinetPage;
