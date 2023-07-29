@@ -58,5 +58,5 @@ export const List = styled.ul`
 `;
 
 export const WatchMoreBtn = styled.button`
-padd
+  padding: 8px 16px;
 `;
