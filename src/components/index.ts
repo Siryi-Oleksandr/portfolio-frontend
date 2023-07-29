@@ -22,6 +22,7 @@ import UserForm from './UserForm/UserForm';
 import SearchInput from './SearchPage/SearchInput/SearchInput';
 import SearchList from './SearchPage/SearchList/SearchList';
 import SearchItem from './SearchPage/SearchItem/SearchItem';
+import SearchEmpty from './SearchPage/SearchEmpty/SearchEmpty';
 
 export {
   App,
@@ -48,4 +49,5 @@ export {
   SearchInput,
   SearchList,
   SearchItem,
+  SearchEmpty,
 };

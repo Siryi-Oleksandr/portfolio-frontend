@@ -7,6 +7,7 @@ export const ListContainer = styled.div`
 
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 20px;
 
   background-color: transparent;
 
@@ -53,5 +54,9 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-bottom: 20px;
+  margin-bottom: 15px;
+`;
+
+export const WatchMoreBtn = styled.button`
+padd
 `;
