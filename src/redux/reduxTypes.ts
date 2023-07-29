@@ -1,3 +1,6 @@
+import { Interface } from 'readline';
+import { IUser } from 'types/userTypes';
+
 export interface IPostUser {
   _id: string;
   name: string;
@@ -13,7 +16,7 @@ export interface IAuthState {
   error: any;
 }
 
-export interface IState {
+export interface IStateAuth {
   auth: IAuthState;
 }
 
@@ -30,4 +33,14 @@ export interface IUpdateUser {
   technicalStack?: string[];
   linkedinURL: string;
   gitHubURL: string;
+}
+
+export interface ISearchState {
+  foundUsers: IUser[];
+  isLoading: boolean;
+  error: any;
+}
+
+export interface IStateSearch {
+  search: ISearchState;
 }
