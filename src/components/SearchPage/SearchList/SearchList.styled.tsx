@@ -7,6 +7,7 @@ export const ListContainer = styled.div`
 
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 20px;
 
   background-color: transparent;
 
@@ -17,11 +18,13 @@ export const ListContainer = styled.div`
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     max-width: ${theme.breakpoints.tablet};
     padding: 0 20px;
+    padding-bottom: 40px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     max-width: ${theme.breakpoints.desktop};
     padding: 0 140px;
+    padding-bottom: 40px;
   }
 `;
 
@@ -53,5 +56,28 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-bottom: 20px;
+  margin-bottom: 15px;
+`;
+
+export const WatchMoreBtn = styled.button`
+  display: block;
+  margin: 0 auto;
+  padding: 10px 16px;
+  border: 1px solid ${theme.colors.accentColor};
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+
+  font-family: ${theme.fonts.text};
+  font-weight: ${theme.fontWeights.heading};
+  font-size: ${theme.fontSizes.m};
+
+  color: ${theme.colors.primary_text_switch};
+  transition: ${theme.transition.hover};
+
+  :hover,
+  :focus {
+    transform: scale(1.04);
+    background-color: ${theme.colors.accentColor};
+  }
 `;

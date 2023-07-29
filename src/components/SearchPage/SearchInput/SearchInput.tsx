@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useResponse } from '../../../hooks/useResponsive';
 import {
   Form,
   InputContainer,
@@ -15,6 +16,8 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit }) => {
   const [query, setQuery] = useState<string>('');
   const [ready, setReady] = useState<boolean>(false);
 
+  const { isDesktop } = useResponse();
+
   const onType = (evt: ChangeEvent<HTMLInputElement>) => {
     setQuery(evt.target.value);
   };
@@ -27,7 +30,6 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit }) => {
     }
 
     onSubmit(query);
-    setQuery('');
   };
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit }) => {
           name="query"
           value={query}
           autoComplete="off"
-          autoFocus
+          autoFocus={isDesktop && true}
           placeholder="Search"
         />
         <SubmitBtn type="submit">
