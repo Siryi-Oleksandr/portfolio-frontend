@@ -9,10 +9,12 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import { persistedAuthReducer } from './auth/authSlice';
+import searchSliceReducer from './searchUsers/searchUsersSlice';
 
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
+    search: searchSliceReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
