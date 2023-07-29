@@ -10,4 +10,5 @@ export const StyledUserForm = styled(Form)`
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
+  overflow: scroll;
 `;
