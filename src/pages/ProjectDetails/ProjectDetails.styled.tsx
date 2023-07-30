@@ -28,16 +28,12 @@ export const ProjectSubTitle = styled.h3`
 
 export const LinksContainer = styled.div`
   display: flex;
+  margin-bottom: 10px;
 `;
 
 export const ProjectLink = styled(AwesomeButton)`
-  color: teal;
   width: 140px;
   height: 40px;
-
-  &:before {
-    /* background: rgb(0, 121, 107); */
-  }
 `;
 
 export const ProjectLinkIcon = styled(BiLinkExternal)`
@@ -55,6 +51,33 @@ export const CodeLinkIcon = styled(AiFillGithub)`
   height: 22px;
   margin-right: 5px;
 `;
+
+export const ProjectAboutContainer = styled.div`
+  margin-top: 30px;
+`;
+
+export const ProjectAboutTitle = styled.h4`
+  color: ${theme.colors.project_page_primary_text_switch};
+  font-family: ${theme.fonts.title};
+  font-size: 2em;
+  line-height: 1.35em;
+  font-weight: 600;
+`;
+
+export const Line = styled.hr`
+  height: 1px;
+  width: 50%;
+  border: 0.5 solid rgba(72, 72, 72, 1);
+  margin-left: 0px;
+`;
+
+export const ProjectAbout = styled.p`
+  color: ${theme.colors.project_page_primary_text_switch};
+  font-family: ${theme.fonts.text};
+  font-size: 1.3em;
+  line-height: 1.65em;
+`;
+
 // export const ProjectLink = styled.a`
 //   width: 130px;
 //   height: 40px;
