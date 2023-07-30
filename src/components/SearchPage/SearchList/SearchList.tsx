@@ -49,6 +49,10 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     }
 
     dispatch(searchUsers({ query, page }));
+
+    return () => {
+      dispatch(resetSearchUsers());
+    };
   }, [dispatch, page, query]);
 
   return (
