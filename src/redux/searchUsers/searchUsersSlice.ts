@@ -37,5 +37,5 @@ const searchSlice = createSlice({
   },
 });
 
-export const { actions } = searchSlice;
+export const { resetSearchUsers } = searchSlice.actions;
 export default searchSlice.reducer;
