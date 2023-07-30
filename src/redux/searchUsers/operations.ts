@@ -7,7 +7,9 @@ export const searchUsers = createAsyncThunk(
   'users/searchUsers',
   async ({ query, page }: { query: string; page: number }, thunkAPI) => {
     try {
-      const response = await instance.get(`/?${query}&${page}`);
+      const response = await instance.get(
+        `/?query=${query}&page=${page}&limit=1`
+      );
       toast.success(`We found, ${query} for You!`, {
         style: tostStyleSuccess,
       });

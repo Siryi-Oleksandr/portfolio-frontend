@@ -12,7 +12,11 @@ const initialState: ISearchState = {
 const searchSlice = createSlice({
   name: 'search/users',
   initialState,
-  reducers: {},
+  reducers: {
+    resetSearchUsers: state => {
+      state.foundUsers = [];
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(searchUsers.pending, state => {
@@ -21,7 +25,7 @@ const searchSlice = createSlice({
       .addCase(
         searchUsers.fulfilled,
         (state, action: PayloadAction<IUser[]>) => {
-          state.foundUsers = action.payload;
+          state.foundUsers.push(...action.payload);
           state.isLoading = false;
           state.error = null;
         }
@@ -33,5 +37,5 @@ const searchSlice = createSlice({
   },
 });
 
-export const { actions } = searchSlice;
+export const { resetSearchUsers } = searchSlice.actions;
 export default searchSlice.reducer;
