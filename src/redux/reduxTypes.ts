@@ -21,6 +21,7 @@ export interface IStateAuth {
 }
 
 export interface IUpdateUser {
+  avatarURL?: string;
   avatar?: File | undefined;
   email: string;
   name: string;
@@ -37,6 +38,7 @@ export interface IUpdateUser {
 
 export interface ISearchState {
   foundUsers: IUser[];
+  totalCount: number;
   isLoading: boolean;
   error: any;
 }

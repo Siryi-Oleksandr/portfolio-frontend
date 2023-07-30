@@ -3,7 +3,12 @@ import React, { FC } from 'react';
 import CabinetUserInfo from 'components/Cabinet/CabinetUserInfo';
 
 const CabinetPage: FC = () => {
-  return <CabinetUserInfo />;
+  return (
+    <>
+      <CabinetUserInfo />
+    </>
+  )
+  
 };
 
 export default CabinetPage;

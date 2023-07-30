@@ -5,6 +5,7 @@ import { IUser } from 'types/userTypes';
 
 const initialState: ISearchState = {
   foundUsers: [],
+  totalCount: 0,
   isLoading: false,
   error: null,
 };
@@ -24,8 +25,12 @@ const searchSlice = createSlice({
       })
       .addCase(
         searchUsers.fulfilled,
-        (state, action: PayloadAction<IUser[]>) => {
-          state.foundUsers.push(...action.payload);
+        (
+          state,
+          action: PayloadAction<{ users: IUser[]; totalCount: number }>
+        ) => {
+          state.foundUsers.push(...action.payload.users);
+          state.totalCount = action.payload.totalCount;
           state.isLoading = false;
           state.error = null;
         }

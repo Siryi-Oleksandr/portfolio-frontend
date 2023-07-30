@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 import { selectAccessToken } from 'redux/auth/authSelectors';
+import { Section } from './PrivateRoute.styled';
 
 const PrivateRoute = () => {
   // Це для перемикання між приватним та публічним
@@ -8,9 +9,9 @@ const PrivateRoute = () => {
   const userAccessToken = useSelector(selectAccessToken);
 
   return userAccessToken ? (
-    <div style={{ backgroundColor: 'var(--background)' }}>
+    <Section>
       <Outlet />
-    </div>
+    </Section>
   ) : (
     <Navigate to="/" replace />
   );
