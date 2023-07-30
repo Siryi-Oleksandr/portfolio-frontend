@@ -1,17 +1,35 @@
 import React, { FC } from 'react';
+import {
+  ProjectSectionContainer,
+  ProjectTitle,
+  ProjectSubTitle,
+  ProjectLink,
+  LinksContainer,
+  ProjectLinkIcon,
+  CodeLink,
+  CodeLinkIcon,
+  ProjectAbout,
+  ProjectAboutContainer,
+  ProjectAboutTitle,
+  Line,
+} from './ProjectDetails.styled';
+import { ProjectSlider } from './ProjectSlider/ProjectSlider';
 
 const ProjectDetails: FC = () => {
   const projectState = {
     _id: 'asdasdq12e3132e4sdfsdf34314',
-    projectTitle: 'sky go desktop',
+    projectTitle: 'Sky go desktop',
     projectSubTitle:
       'Sky Go Desktop react javascript web application build on top of the Electron framework.',
     projectLink: 'https://caferati.me/portfolio/sky-go-desktop',
+    codeLink: 'gitHub',
     projectImages: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF0fV3pZJj_K4WvI3-1hTIQWpAXsgbLnl8mTdHu-yCrHgR5FSHmB34rvj0Ntq1xyAMFCk&usqp=CAU',
+      'https://caferati.me/images/portfolio/sky-go-desktop/1.jpg',
+      'https://caferati.me/images/portfolio/sky-go-desktop/2.jpg',
+      'https://caferati.me/images/portfolio/sky-go-desktop/3.jpg',
     ],
     aboutProject:
-      'Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go Desktop app is a React web application build on top of the Electron framework.',
+      'Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go Desktop app is a React web application build on top of the Electron framework.At this project I acted as the lead UI/UX developer specialist being the bridge between UI/UX Design, PO and the UI development team. The main challenge was to reorganize the UI structure from a react-virtualized grid into a pure CSS one. Which improved drastically the scalability and maintainability of the project.',
     technicalStack: ['Js', 'React', 'Redux', 'Webpack'],
   };
 
@@ -23,36 +41,35 @@ const ProjectDetails: FC = () => {
     technicalStack,
     projectImages,
   } = projectState;
+
   return (
     <>
-      <section key={projectTitle}>
-        <h2>{projectTitle}</h2>
-        <h3>{projectSubTitle}</h3>
-        <div>
-          <a href={projectLink}>Visit The Website</a>
-          <ul>
-            <li>
-              <a href="https://github.com/Malakhow-Alexandr">Git</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/oleksandr-malakhow/">
-                Linkidin
-              </a>
-            </li>
-            <li>
-              <a href="https://t.me/MakakhovA">Telegram</a>
-            </li>
-          </ul>
-        </div>
+      <ProjectSectionContainer>
+        <ProjectTitle>{projectTitle}</ProjectTitle>
+        <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>
+        <LinksContainer>
+          <ProjectLink href={projectLink} type="primary">
+            <ProjectLinkIcon />
+            Website
+          </ProjectLink>
+          <CodeLink type="danger">
+            <CodeLinkIcon />
+            <span>Code</span>
+          </CodeLink>
+        </LinksContainer>
+        <ProjectSlider images={projectImages} />
+        <ProjectAboutContainer>
+          <ProjectAboutTitle>About this project</ProjectAboutTitle>
+          <Line />
+          <ProjectAbout>{aboutProject}</ProjectAbout>
+        </ProjectAboutContainer>
 
-        <img src={projectImages[0]} alt={projectTitle} />
-        <p>{aboutProject}</p>
         <ul>
           {technicalStack.map(tech => (
             <li key={tech}>{tech}</li>
           ))}
         </ul>
-      </section>
+      </ProjectSectionContainer>
     </>
   );
 };
