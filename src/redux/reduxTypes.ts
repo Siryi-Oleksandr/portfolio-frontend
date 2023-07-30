@@ -21,6 +21,7 @@ export interface IStateAuth {
 }
 
 export interface IUpdateUser {
+  avatarURL?: string;
   avatar?: File | undefined;
   email: string;
   name: string;
