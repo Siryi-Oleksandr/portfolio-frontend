@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { IUser } from 'types/userTypes';
 import {
   Item,
   Wrapper,
@@ -15,21 +16,20 @@ interface Props {
   state: object;
 }
 
-interface IUser {
-  name: string;
-  profession: string;
-}
-
 const SearchItem: FC<Props> = ({ user, state }) => {
   return (
     <Item>
       <Wrapper>
-        <ImageWrapper></ImageWrapper>
+        <ImageWrapper>
+          <img src={user.avatarURL} alt="user avatar" />
+        </ImageWrapper>
         <InfoWrapper>
           <NameLink to="#" state={state}>
             {user.name}
           </NameLink>
-          <Profession>{user.profession}</Profession>
+          <Profession>
+            {user.profession === '' ? 'Not indicated' : `${user.profession}`}
+          </Profession>
         </InfoWrapper>
       </Wrapper>
       <LinkBtn to="#" state={state}>
