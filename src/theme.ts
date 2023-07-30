@@ -42,6 +42,8 @@ export const theme = {
     auth_button_background_switch: 'var(--auth-button-bacground)',
 
     auth_button_color_switch: 'var(--auth-button-color)',
+
+    project_page_primary_text_switch: 'var(--project-page-text-primary)',
   },
 
   fonts: {

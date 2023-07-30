@@ -7,10 +7,11 @@ html[data-theme='light'] {
   --slider-hover-color: #3f3f3f;
   --auth-button-bacground: #171820;
   --auth-button-color: #fff;
+  --project-page-text-primary: #1a1c1f;
 }
 
 html[data-theme='dark'] {
-  --background: #0c0c0e;
+  --background: #2a2a2a;
   --second-background: #111214;
   --primary-text: #fff;
   --second-text: #a9a9aa;
@@ -18,6 +19,7 @@ html[data-theme='dark'] {
   --slider-hover-color: white;
   --auth-button-bacground: #a9a9aa;
   --auth-button-color: #171820;
+  --project-page-text-primary: #cacaca;
 }
 
 body {

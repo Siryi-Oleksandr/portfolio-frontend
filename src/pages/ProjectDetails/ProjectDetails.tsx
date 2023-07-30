@@ -1,9 +1,19 @@
 import React, { FC } from 'react';
+import {
+  ProjectSectionContainer,
+  ProjectTitle,
+  ProjectSubTitle,
+  ProjectLink,
+  LinksContainer,
+  ProjectLinkIcon,
+  CodeLink,
+  CodeLinkIcon,
+} from './ProjectDetails.styled';
 
 const ProjectDetails: FC = () => {
   const projectState = {
     _id: 'asdasdq12e3132e4sdfsdf34314',
-    projectTitle: 'sky go desktop',
+    projectTitle: 'Sky go desktop',
     projectSubTitle:
       'Sky Go Desktop react javascript web application build on top of the Electron framework.',
     projectLink: 'https://caferati.me/portfolio/sky-go-desktop',
@@ -23,27 +33,22 @@ const ProjectDetails: FC = () => {
     technicalStack,
     projectImages,
   } = projectState;
+
   return (
     <>
-      <section key={projectTitle}>
-        <h2>{projectTitle}</h2>
-        <h3>{projectSubTitle}</h3>
-        <div>
-          <a href={projectLink}>Visit The Website</a>
-          <ul>
-            <li>
-              <a href="https://github.com/Malakhow-Alexandr">Git</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/oleksandr-malakhow/">
-                Linkidin
-              </a>
-            </li>
-            <li>
-              <a href="https://t.me/MakakhovA">Telegram</a>
-            </li>
-          </ul>
-        </div>
+      <ProjectSectionContainer>
+        <ProjectTitle>{projectTitle}</ProjectTitle>
+        <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>
+        <LinksContainer>
+          <ProjectLink href={projectLink} type="primary">
+            <ProjectLinkIcon />
+            Website
+          </ProjectLink>
+          <CodeLink type="danger">
+            <CodeLinkIcon />
+            <span>Code</span>
+          </CodeLink>
+        </LinksContainer>
 
         <img src={projectImages[0]} alt={projectTitle} />
         <p>{aboutProject}</p>
@@ -52,7 +57,7 @@ const ProjectDetails: FC = () => {
             <li key={tech}>{tech}</li>
           ))}
         </ul>
-      </section>
+      </ProjectSectionContainer>
     </>
   );
 };

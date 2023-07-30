@@ -21,6 +21,7 @@
     "framer-motion": "^10.13.0",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
+    "react-awesome-button": "^7.0.5",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
