@@ -15,14 +15,14 @@ const SearchPage: FC = () => {
     setPage(1);
   };
 
-  // const loadMore = () => {
-  //   setPage(prevState => prevState + 1);
-  // };
+  const loadMore = () => {
+    setPage(prevState => prevState + 1);
+  };
 
   return (
     <Section>
       <SearchInput onSubmit={onSubmit} />
-      <SearchList query={searchQuery} page={page} />
+      <SearchList query={searchQuery} page={page} loadMore={loadMore} />
     </Section>
   );
 };

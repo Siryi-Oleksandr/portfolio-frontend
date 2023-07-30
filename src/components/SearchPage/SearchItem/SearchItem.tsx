@@ -28,7 +28,7 @@ const SearchItem: FC<Props> = ({ user, state }) => {
             {user.name}
           </NameLink>
           <Profession>
-            {user.profession === '' ? 'Not indicated' : `${user.profession}`}
+            {user.profession === '' ? '' : `${user.profession}`}
           </Profession>
         </InfoWrapper>
       </Wrapper>
