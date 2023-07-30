@@ -34,7 +34,6 @@ const Navigation: FC = () => {
             <Link to="/search">Search</Link>
             {isLoggedIn && <Link to="/cabinet">Cabinet</Link>}
             <Link to={`/portfolio/${user._id}`}>Portfolio</Link>
-            <Link to="/contacts">Contacts</Link>
             <Link to="/projectDetails">Project</Link>
           </nav>
         </NavWrap>
