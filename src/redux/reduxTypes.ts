@@ -38,6 +38,7 @@ export interface IUpdateUser {
 
 export interface ISearchState {
   foundUsers: IUser[];
+  totalCount: number;
   isLoading: boolean;
   error: any;
 }
