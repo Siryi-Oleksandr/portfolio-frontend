@@ -17,6 +17,9 @@ const GlobalStyles: FC = () => {
             -moz-osx-font-smoothing: grayscale;
 
             transition: background-color 250ms ease-in-out;
+            ::-webkit-scrollbar {
+              display: none;
+            }
           }
 
           code {
