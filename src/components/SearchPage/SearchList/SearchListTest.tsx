@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { instance } from '../../../redux/auth/operations';
 import { useLocation } from 'react-router-dom';
 import { SearchItem, SearchEmpty, NoResults, Loader } from 'components';
-// import { IUser } from '../../../types/userTypes';
+import { IUser } from '../../../types/userTypes';
 import {
   ListContainer,
   ResultsWrapper,
@@ -31,7 +31,7 @@ const fetchUsers = async (query: string, page: number) => {
 const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
   const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isNoResults, setIsNoResults] = useState(false);
@@ -62,13 +62,21 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
           setIsNoResults(false);
         }
 
-        //   setUsers(prevState => [...prevState, ...data.users]);
-        setUsers(data.users);
+        setUsers(prevState => [...prevState, ...data.users]);
         setTotalUsers(data.totalCount);
         setShowBtn(true);
         setIsLoading(false);
 
-        if (users.length + data.users.length >= data.totalCount) {
+        console.log(users.length);
+        console.log(data.users.length);
+        console.log(users.length + data.users.length);
+        console.log(data.totalCount);
+        console.log(users.length + data.users.length >= data.totalCount);
+
+        if (
+          users.length >= data.totalCount ||
+          users.length + data.users.length >= data.totalCount
+        ) {
           setShowBtn(false);
         }
       })
@@ -92,8 +100,8 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
           <List>
             {users.map(user => (
               <SearchItem
-                // key={user._id}
-                // id={user._id}
+                key={user._id}
+                id={user._id}
                 user={user}
                 state={{ from: location }}
               />

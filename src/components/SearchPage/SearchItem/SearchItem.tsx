@@ -14,9 +14,10 @@ import {
 interface Props {
   user: IUser;
   state: object;
+  id: string;
 }
 
-const SearchItem: FC<Props> = ({ user, state }) => {
+const SearchItem: FC<Props> = ({ user, state, id }) => {
   return (
     <Item>
       <Wrapper>

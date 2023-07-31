@@ -69,6 +69,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
             {users.map(user => (
               <SearchItem
                 key={user._id}
+                id={user._id}
                 user={user}
                 state={{ from: location }}
               />
