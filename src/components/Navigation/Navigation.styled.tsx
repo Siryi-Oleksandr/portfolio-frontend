@@ -29,6 +29,7 @@ export const NavWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 64px;
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;

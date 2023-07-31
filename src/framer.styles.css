@@ -56,3 +56,33 @@
     width: 60%;
   }
 }
+
+.description {
+  font-size: 14px;
+  color: white;
+}
+.div {
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 80px;
+  align-content: center;
+  justify-content: center;
+}
+.cabinet-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    color: #fe390c;
+    transform: scale(1.2);
+  }
+}
