@@ -30,25 +30,11 @@ const fetchUsers = async (query: string, page: number) => {
 
 const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
-  const [showBtn, setShowBtn] = useState<boolean>(false);
   const [users, setUsers] = useState<IUser[]>([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isNoResults, setIsNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
-
-  // const getUsers = (query: string, page: number) => {
-  //   if (query === '') {
-  //     return;
-  //   }
-
-  //   try {
-  //   } catch (error) {
-  //     console.log(error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
 
   useEffect(() => {
     if (query === '') {
@@ -70,7 +56,6 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
         if (data.totalCount === 0) {
           setIsNoResults(true);
           setIsLoading(false);
-          setShowBtn(false);
         }
         if (data.totalCount > 0) {
           setIsNoResults(false);
@@ -78,21 +63,13 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
 
         setUsers(prevState => [...prevState, ...data.users]);
         setTotalUsers(data.totalCount);
-        setShowBtn(true);
-        setIsLoading(false);
 
-        if (
-          users.length >= data.totalCount ||
-          users.length + data.users.length >= data.totalCount
-        ) {
-          setShowBtn(false);
-        }
+        setIsLoading(false);
       })
       .catch(error => {
         console.log(error);
       })
       .finally(() => setIsLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, query]);
 
   return (
@@ -115,7 +92,7 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
               />
             ))}
           </List>
-          {showBtn && (
+          {!isLoading && users.length > 0 && users.length < totalUsers && (
             <WatchMoreBtn type="button" onClick={loadMore}>
               Load More
             </WatchMoreBtn>

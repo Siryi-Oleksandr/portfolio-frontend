@@ -26,7 +26,7 @@ interface Props {
 const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
   const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [isNoResults, setIsNoResults] = useState(false);
+  const [isNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
 
   const dispatch = useAppDispatch();
