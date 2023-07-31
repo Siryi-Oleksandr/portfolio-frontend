@@ -14,9 +14,10 @@ import {
 interface Props {
   user: IUser;
   state: object;
+  id: string;
 }
 
-const SearchItem: FC<Props> = ({ user, state }) => {
+const SearchItem: FC<Props> = ({ user, state, id }) => {
   return (
     <Item>
       <Wrapper>
@@ -28,7 +29,7 @@ const SearchItem: FC<Props> = ({ user, state }) => {
             {user.name}
           </NameLink>
           <Profession>
-            {user.profession === '' ? 'Not indicated' : `${user.profession}`}
+            {user.profession === '' ? '' : `${user.profession}`}
           </Profession>
         </InfoWrapper>
       </Wrapper>

@@ -10,13 +10,18 @@ import {
 
 interface onSubmitFunc {
   onSubmit: Function;
+  paramsQuery: string;
 }
 
-const SearchInput: FC<onSubmitFunc> = ({ onSubmit }) => {
+const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
   const [query, setQuery] = useState<string>('');
   const [ready, setReady] = useState<boolean>(false);
 
   const { isDesktop } = useResponse();
+
+  useEffect(() => {
+    setQuery(paramsQuery);
+  }, [paramsQuery]);
 
   const onType = (evt: ChangeEvent<HTMLInputElement>) => {
     setQuery(evt.target.value);
