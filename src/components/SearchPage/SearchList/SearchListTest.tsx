@@ -39,7 +39,6 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
 
   useEffect(() => {
     if (query === '') {
-      setIsEmptySeach(true);
       return;
     }
 
@@ -69,7 +68,7 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
         setShowBtn(true);
         setIsLoading(false);
 
-        if (users.length >= data.totalCount) {
+        if (users.length + data.users.length >= data.totalCount) {
           setShowBtn(false);
         }
       })

@@ -27,7 +27,7 @@ const SearchPage: FC = () => {
   return (
     <Section>
       <SearchInput onSubmit={onSubmit} paramsQuery={paramsQuery} />
-      <SearchList query={paramsQuery} page={page} loadMore={loadMore} />
+      <SearchListTest query={paramsQuery} page={page} loadMore={loadMore} />
     </Section>
   );
 };

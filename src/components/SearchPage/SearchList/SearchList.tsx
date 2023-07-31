@@ -38,7 +38,6 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   useEffect(() => {
     // setSearcQuery(query);
     if (query === '') {
-      setIsEmptySeach(true);
       return;
     }
 
@@ -51,9 +50,9 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     dispatch(searchUsers({ query, page }));
     setShowBtn(true);
 
-    // return () => {
-    //   dispatch(resetSearchUsers());
-    // };
+    return () => {
+      dispatch(resetSearchUsers());
+    };
   }, [dispatch, page, query]);
 
   return (
