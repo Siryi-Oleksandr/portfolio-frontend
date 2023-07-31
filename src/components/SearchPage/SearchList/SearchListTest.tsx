@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { instance } from '../../../redux/auth/operations';
 import { useLocation } from 'react-router-dom';
 import { SearchItem, SearchEmpty, NoResults, Loader } from 'components';
-import { IUser } from '../../../types/userTypes';
+// import { IUser } from '../../../types/userTypes';
 import {
   ListContainer,
   ResultsWrapper,
@@ -32,6 +32,7 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
   const [showBtn, setShowBtn] = useState<boolean>(false);
   const [users, setUsers] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isNoResults, setIsNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
@@ -48,22 +49,35 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
 
     setIsEmptySeach(false);
     setIsLoading(true);
-    setShowBtn(false);
 
-    fetchUsers(query, page).then(data => {
-      console.log(data);
-      if (data.totalCount === 0) {
-        setIsNoResults(true);
+    fetchUsers(query, page)
+      .then(data => {
+        console.log(data);
+
+        if (data.totalCount === 0) {
+          setIsNoResults(true);
+          setIsLoading(false);
+          setShowBtn(false);
+        }
+        if (data.totalCount > 0) {
+          setIsNoResults(false);
+        }
+
+        //   setUsers(prevState => [...prevState, ...data.users]);
+        setUsers(data.users);
+        setTotalUsers(data.totalCount);
+        setShowBtn(true);
         setIsLoading(false);
-      }
-      if (data.totalCount > 0) {
-        setIsNoResults(false);
-      }
-      setUsers(data.users);
-      //   setUsers(prevState => [...prevState, ...data.users]);
 
-      setIsLoading(false);
-    });
+        if (users.length >= data.totalCount) {
+          setShowBtn(false);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => setIsLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, query]);
 
   return (
@@ -74,20 +88,23 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
       {users.length !== 0 && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {users.length}</TotalResults>
+            <TotalResults>Results: {totalUsers}</TotalResults>
           </ResultsWrapper>
           <List>
             {users.map(user => (
               <SearchItem
                 // key={user._id}
+                // id={user._id}
                 user={user}
                 state={{ from: location }}
               />
             ))}
           </List>
-          <WatchMoreBtn type="button" onClick={loadMore}>
-            Watch More
-          </WatchMoreBtn>
+          {showBtn && (
+            <WatchMoreBtn type="button" onClick={loadMore}>
+              Load More
+            </WatchMoreBtn>
+          )}
         </ListContainer>
       )}
     </>

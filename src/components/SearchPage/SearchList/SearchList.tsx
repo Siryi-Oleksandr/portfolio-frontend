@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { SearchItem, SearchEmpty, Loader } from 'components';
+import { SearchItem, SearchEmpty, NoResults, Loader } from 'components';
 import { searchUsers } from 'redux/searchUsers/operations';
 import { resetSearchUsers } from 'redux/searchUsers/searchUsersSlice';
 import { useAppSelector } from 'redux/reduxHooks';
@@ -25,14 +25,14 @@ interface Props {
 
 const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
-  // const [showBtn, setShowBtn] = useState<boolean>(false);
-  // const [searchQuery, setSearcQuery] = useState('');
+  const [showBtn, setShowBtn] = useState<boolean>(false);
+  const [isNoResults, setIsNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
 
   const dispatch = useAppDispatch();
 
   const users = useAppSelector(selectFoundUsers);
-  console.log(users);
+
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
@@ -42,13 +42,14 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
       return;
     }
 
-    setIsEmptySeach(false);
-
     if (page === 1) {
       dispatch(resetSearchUsers());
     }
 
+    setIsEmptySeach(false);
+
     dispatch(searchUsers({ query, page }));
+    setShowBtn(true);
 
     // return () => {
     //   dispatch(resetSearchUsers());
@@ -57,7 +58,8 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
 
   return (
     <>
-      {isEmptySeach && <SearchEmpty />}
+      {isEmptySeach && !isLoading && <SearchEmpty />}
+      {isNoResults && !isLoading && <NoResults />}
       {isLoading && <Loader />}
       {users.length !== 0 && (
         <ListContainer>
@@ -73,9 +75,11 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
               />
             ))}
           </List>
-          <WatchMoreBtn type="button" onClick={loadMore}>
-            Watch More
-          </WatchMoreBtn>
+          {showBtn && (
+            <WatchMoreBtn type="button" onClick={loadMore}>
+              Load More
+            </WatchMoreBtn>
+          )}
         </ListContainer>
       )}
     </>

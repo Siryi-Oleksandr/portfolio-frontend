@@ -8,7 +8,7 @@ const SearchPage: FC = () => {
   const [searchParams, setSearchparams] = useSearchParams();
   const [page, setPage] = useState<number>(1);
 
-  const searchQuery: string = searchParams.get('query') ?? '';
+  const paramsQuery: string = searchParams.get('query') ?? '';
 
   const onSubmit = (query: string) => {
     setQuery(query);
@@ -24,8 +24,8 @@ const SearchPage: FC = () => {
   // Різниця в тому, що з парамсів воно при повернені на сторінку кнопкою назад, буде відмальовувати останній запрос, а з просто стейту не буде
   return (
     <Section>
-      <SearchInput onSubmit={onSubmit} />
-      <SearchListTest query={searchQuery} page={page} loadMore={loadMore} />
+      <SearchInput onSubmit={onSubmit} paramsQuery={paramsQuery} />
+      <SearchList query={paramsQuery} page={page} loadMore={loadMore} />
     </Section>
   );
 };
