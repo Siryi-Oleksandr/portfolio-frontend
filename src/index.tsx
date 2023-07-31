@@ -13,15 +13,15 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter basename="/portfolio-frontend">
-            <App />
-          </BrowserRouter>
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter basename="/portfolio-frontend">
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </PersistGate>
+  </Provider>
+  // </React.StrictMode>
 );

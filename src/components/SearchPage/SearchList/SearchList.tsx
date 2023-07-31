@@ -36,7 +36,6 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
-    // setSearcQuery(query);
     if (query === '') {
       return;
     }

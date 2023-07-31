@@ -37,12 +37,26 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
   const [isNoResults, setIsNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
 
+  // const getUsers = (query: string, page: number) => {
+  //   if (query === '') {
+  //     return;
+  //   }
+
+  //   try {
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   useEffect(() => {
     if (query === '') {
       return;
     }
 
     if (page === 1) {
+      setTotalUsers(0);
       setUsers([]);
     }
 
@@ -66,12 +80,6 @@ const SearchListTest: FC<Props> = ({ query, page, loadMore }) => {
         setTotalUsers(data.totalCount);
         setShowBtn(true);
         setIsLoading(false);
-
-        console.log(users.length);
-        console.log(data.users.length);
-        console.log(users.length + data.users.length);
-        console.log(data.totalCount);
-        console.log(users.length + data.users.length >= data.totalCount);
 
         if (
           users.length >= data.totalCount ||
