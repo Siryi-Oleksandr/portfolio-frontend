@@ -32,7 +32,6 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
   const dispatch = useAppDispatch();
 
   const users = useAppSelector(selectFoundUsers);
-
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
@@ -41,6 +40,7 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
     }
 
     if (page === 1) {
+      // reducer for totalUsers
       dispatch(resetSearchUsers());
     }
 
