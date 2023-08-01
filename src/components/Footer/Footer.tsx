@@ -62,7 +62,9 @@ const Footer: FC = () => {
           </>
         ) : (
           <>
-            <p style={{ flex: '1' }}>Developer: {user.name}</p>
+            <p style={{ flex: '1' }}>
+              {user.name} {user.surname} {user.profession}
+            </p>
             <GiMustache size={'5em'} style={{ flex: '1' }} />
             <Socials style={{ flex: '1' }}>
               {user.telegram && (

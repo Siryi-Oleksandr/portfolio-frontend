@@ -31,7 +31,7 @@ export interface IUpdateUser {
   phone: string;
   telegram: string;
   summary: string;
-  technicalStack?: string[];
+  technicalStack?: string;
   linkedinURL: string;
   gitHubURL: string;
 }
