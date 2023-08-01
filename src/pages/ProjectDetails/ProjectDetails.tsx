@@ -13,7 +13,7 @@ import {
   ProjectAboutTitle,
   Line,
 } from './ProjectDetails.styled';
-import { ProjectSlider } from './ProjectSlider/ProjectSlider';
+import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
 
 const ProjectDetails: FC = () => {
   const projectState = {
