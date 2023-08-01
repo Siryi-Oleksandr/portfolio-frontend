@@ -20,8 +20,8 @@ import PortfolioHero from './PortfolioPage/Hero/Hero';
 import SocialLink from './SocialLink/SocialLink';
 import UserForm from './UserForm/UserForm';
 import SearchInput from './SearchPage/SearchInput/SearchInput';
+import SearchListRedux from './SearchPage/SearchList/SearchListRedux';
 import SearchList from './SearchPage/SearchList/SearchList';
-import SearchListTest from './SearchPage/SearchList/SearchListTest';
 import SearchItem from './SearchPage/SearchItem/SearchItem';
 import SearchEmpty from './SearchPage/SearchEmpty/SearchEmpty';
 import NoResults from './SearchPage/NoResults/NoResults';
@@ -49,8 +49,8 @@ export {
   SocialLink,
   UserForm,
   SearchInput,
+  SearchListRedux,
   SearchList,
-  SearchListTest,
   SearchItem,
   SearchEmpty,
   NoResults,

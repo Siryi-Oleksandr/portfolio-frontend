@@ -1,8 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
-import { instance } from '../../../redux/auth/operations';
 import { useLocation } from 'react-router-dom';
 import { SearchItem, SearchEmpty, NoResults, Loader } from 'components';
-import { IUser } from '../../../types/userTypes';
+import { searchUsers } from 'redux/searchUsers/operations';
+import { resetSearchUsers } from 'redux/searchUsers/searchUsersSlice';
+import { useAppSelector } from 'redux/reduxHooks';
+import { useAppDispatch } from 'redux/reduxHooks';
+import {
+  selectFoundUsers,
+  selectIsLoading,
+} from 'redux/searchUsers/searchUsersSelectors';
 import {
   ListContainer,
   ResultsWrapper,
@@ -17,24 +23,17 @@ interface Props {
   loadMore: () => void;
 }
 
-const fetchUsers = async (query: string, page: number) => {
-  try {
-    const response = await instance.get(
-      `/?query=${query}&page=${page}&limit=2`
-    );
-    return response.data;
-  } catch (error: any) {
-    console.log(error.message);
-  }
-};
-
-const SearchList: FC<Props> = ({ query, page, loadMore }) => {
+const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
-  const [users, setUsers] = useState<IUser[]>([]);
-  const [totalUsers, setTotalUsers] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [showBtn, setShowBtn] = useState<boolean>(false);
+  const [isNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
+
+  const dispatch = useAppDispatch();
+
+  const users = useAppSelector(selectFoundUsers);
+
+  const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
     if (query === '') {
@@ -42,36 +41,28 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     }
 
     if (page === 1) {
-      setTotalUsers(0);
-      setUsers([]);
+      dispatch(resetSearchUsers());
     }
 
     setIsEmptySeach(false);
-    setIsLoading(true);
 
-    fetchUsers(query, page)
-      .then(data => {
-        console.log(data);
-        setUsers(prevState => [...prevState, ...data.users]);
-        setTotalUsers(data.totalCount);
+    dispatch(searchUsers({ query, page }));
+    setShowBtn(true);
 
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-      .finally(() => setIsLoading(false));
-  }, [page, query]);
+    return () => {
+      dispatch(resetSearchUsers());
+    };
+  }, [dispatch, page, query]);
 
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
-      {!isEmptySeach && totalUsers === 0 && !isLoading && <NoResults />}
+      {isNoResults && !isLoading && <NoResults />}
       {isLoading && <Loader />}
       {users.length !== 0 && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {totalUsers}</TotalResults>
+            <TotalResults>Results: {users.length}</TotalResults>
           </ResultsWrapper>
           <List>
             {users.map(user => (
@@ -83,7 +74,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
               />
             ))}
           </List>
-          {!isLoading && users.length > 0 && users.length < totalUsers && (
+          {showBtn && (
             <WatchMoreBtn type="button" onClick={loadMore}>
               Load More
             </WatchMoreBtn>
@@ -94,4 +85,4 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   );
 };
 
-export default SearchList;
+export default SearchListRedux;
