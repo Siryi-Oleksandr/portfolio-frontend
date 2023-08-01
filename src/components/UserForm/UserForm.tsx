@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
@@ -27,9 +27,10 @@ type UserFormPorps = {
 const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const user: IUser = useAppSelector(selectUser);
+  const [userAvatar, setUserAvatar] = useState<any>(user.avatarURL);
 
   const initialValues: IUpdateUser = {
-    avatarURL: user.avatarURL,
+    avatarURL: user.avatarURL || '',
     name: user.name,
     surname: user.surname || '',
     email: user.email,
@@ -53,33 +54,34 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
     onClose();
   };
 
-  const handleAvatarUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const files = event.currentTarget.files;
-    if (!files || files.length === 0) {
-      toast.error('Файл не выбран!');
-      return;
-    }
+  // const handleAvatarUpload = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const files = event.currentTarget.files;
+  //   if (!files || files.length === 0) {
+  //     toast.error('Файл не выбран!');
+  //     return;
+  //   }
 
-    const file = files[0];
-    if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
-      toast.error(
-        'Недопустимый формат файла! Пожалуйста, выберите изображение в формате PNG или JPEG!'
-      );
-      return;
-    }
+  //   const file = files[0];
+  //   if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+  //     toast.error(
+  //       'Недопустимый формат файла! Пожалуйста, выберите изображение в формате PNG или JPEG!'
+  //     );
+  //     return;
+  //   }
 
-    if (file.size >= 2000000) {
-      toast.error(
-        'Выбранный файл слишком большой! Пожалуйста, выберите файл размером менее 2 МБ!'
-      );
-      return;
-    }
+  //   if (file.size >= 2000000) {
+  //     toast.error(
+  //       'Выбранный файл слишком большой! Пожалуйста, выберите файл размером менее 2 МБ!'
+  //     );
+  //     return;
+  //   }
 
-    console.log(file);
-    if (file) {
-      // setFieldValue(URL.createObjectURL(file));
-    }
-  };
+  //   console.log(file);
+  //   setFieldValue('avatarURL', file);
+  //   if (file) {
+  //     setUserAvatar(URL.createObjectURL(file));
+  //   }
+  // };
 
   return (
     <>
@@ -88,13 +90,42 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
           <StyledUserForm>
             <InputsContainer>
               <Avatar>
-                <img src={initialValues.avatarURL} alt="Avatar" />
+                <img src={userAvatar} alt="Avatar" />
               </Avatar>
               <Label>
                 <input
-                  name="avatarURL"
+                  name="avatar"
                   type="file"
-                  onChange={handleAvatarUpload}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    const files = event.currentTarget.files;
+                    if (!files || files.length === 0) {
+                      toast.error('File not selected!');
+                      return;
+                    }
+
+                    const file = files[0];
+                    if (
+                      file.type !== 'image/png' &&
+                      file.type !== 'image/jpeg'
+                    ) {
+                      toast.error(
+                        `Invalid file format! Please choose a PNG or JPEG image!`
+                      );
+                      return;
+                    }
+
+                    if (file.size >= 1000000) {
+                      toast.error(
+                        `Selected file is too large! Please select a file under 1MB in size!`
+                      );
+                      return;
+                    }
+
+                    if (file) {
+                      setUserAvatar(URL.createObjectURL(file));
+                      props.setFieldValue('avatar', file);
+                    }
+                  }}
                   style={{ display: 'none' }}
                 />
                 <AddIcon />

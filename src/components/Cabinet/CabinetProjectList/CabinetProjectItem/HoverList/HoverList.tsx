@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
-import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+import { FaEdit, FaRegTrashAlt, FaLink } from 'react-icons/fa';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -18,9 +20,10 @@ const container = {
 type Props = {
   description: string;
   isHover: boolean;
+  projectId: string;
 };
 
-const HoverList: FC<Props> = ({ isHover, description }) => {
+const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
   return (
     <motion.div
       className="div"
@@ -28,7 +31,11 @@ const HoverList: FC<Props> = ({ isHover, description }) => {
       initial="hidden"
       animate={isHover ? 'visible' : 'hidden'}
     >
-      <motion.p className="description">{description}</motion.p>
+      <motion.div className="cabinet-btn">
+        <Link to={`/projectDetails/${projectId}`}>
+          <FaLink size="30px"></FaLink>
+        </Link>
+      </motion.div>
       <motion.button className="cabinet-btn">
         <FaEdit size="30px" />
       </motion.button>
