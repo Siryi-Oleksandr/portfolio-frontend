@@ -3,25 +3,34 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 export const SliderContainer = styled.div`
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
+  & > .slick-next:hover {
+    opacity: 1;
+    visibility: visible;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.65) 0px,
+        rgba(0, 0, 0, 0) 100%
+      )
+      rgba(0, 0, 0, 0);
+  }
 `;
 
 export const NextArrowStyled = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  padding-right: 20px;
-  width: 120px;
   height: 99.3%;
-  top: 49.7%;
+  top: 49.68%;
   right: 0px;
+  width: 140px;
+  padding-right: 20px;
   transition: all 500ms ease;
   color: transparent;
-
   &:hover {
-    background-color: rgba(29, 29, 29, 0.4);
     color: #fff;
   }
+  
   &:before {
     opacity: 0;
     position: absolute;
@@ -41,15 +50,14 @@ export const PrevArrowStyled = styled.div`
   display: flex;
   align-items: center;
   padding-left: 20px;
-  width: 120px;
+  width: 140px;
   height: 99.3%;
-  top: 49.7%;
+  top: 49.68%;
   z-index: 100;
   transition: all 500ms ease;
   color: transparent;
 
   &:hover {
-    background-color: rgba(29, 29, 29, 0.4);
     color: #fff;
   }
   &:before {
@@ -66,4 +74,30 @@ export const ArrowPrevIcon = styled(SlArrowLeft)`
   width: 40px;
   height: 40px;
   margin-right: auto;
+`;
+
+export const Dot = styled.li`
+  transform: scale(0.7);
+  border-radius: 50%;
+  background-color: rgba(123, 122, 122, 0.7);
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+  &.slick-active {
+    background-color: rgba(229, 216, 216, 1);
+    transform: scale(1);
+  }
+`;
+
+export const DotsContainer = styled.ul`
+  position: absolute;
+  width: 100px;
+  bottom: 10px;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  transform: translate(-50%, -50%);
 `;
