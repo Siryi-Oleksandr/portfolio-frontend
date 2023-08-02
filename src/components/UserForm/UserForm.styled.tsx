@@ -79,7 +79,7 @@ export const Avatar = styled.div`
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  border: 2px solid #3e85f3;
+  border: 2px solid ${theme.colors.accentColor};
   border-radius: 50%;
 
   img {
@@ -98,5 +98,5 @@ export const AddIcon = styled(AiFillPlusCircle)`
   height: 28px;
   font-size: 12px;
   cursor: pointer;
-  color: #3e85f3;
+  color: ${theme.colors.accentColor};
 `;

@@ -1,5 +1,11 @@
 import { FC, useState, useEffect } from 'react';
-import { Email, FooterStyled, FooterWrap, Socials } from './Footer.styled';
+import {
+  AvatarWrap,
+  Email,
+  FooterStyled,
+  FooterWrap,
+  Socials,
+} from './Footer.styled';
 import { GiMustache } from 'react-icons/gi';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useAppSelector } from 'redux/reduxHooks';
@@ -65,7 +71,10 @@ const Footer: FC = () => {
             <p style={{ flex: '1' }}>
               {user.name} {user.surname} {user.profession}
             </p>
-            <GiMustache size={'5em'} style={{ flex: '1' }} />
+            <AvatarWrap>
+              <img src={user.avatarURL} alt="Avatar" style={{ flex: '1' }} />
+            </AvatarWrap>
+            {/* <GiMustache size={'5em'} style={{ flex: '1' }} /> */}
             <Socials style={{ flex: '1' }}>
               {user.telegram && (
                 <SocialLink

@@ -173,7 +173,7 @@ export const updateUser = createAsyncThunk(
       formData.append('phone', phone);
       formData.append('telegram', telegram);
       formData.append('summary', summary);
-      formData.append('technicalStack', JSON.stringify(technicalStack));
+      formData.append('technicalStack', technicalStack);
       formData.append('linkedinURL', linkedinURL);
       formData.append('gitHubURL', gitHubURL);
 
