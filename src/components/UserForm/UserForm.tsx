@@ -3,10 +3,7 @@ import { selectUser } from 'redux/auth/authSelectors';
 import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
-import {
-  StyledErrorMessage,
-  SubmitBtn,
-} from 'components/RegisterForm/RegisterForm.styled';
+import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import {
   AddIcon,
   Avatar,
@@ -15,6 +12,7 @@ import {
   StyledField,
   StyledLabel,
   StyledUserForm,
+  SubmitBtn,
 } from './UserForm.styled';
 import { IUpdateUser } from 'redux/reduxTypes';
 import { updateUser } from 'redux/auth/operations';
@@ -22,7 +20,7 @@ import { toast } from 'react-hot-toast';
 import { FormUserUpdateSchema } from 'services/yupSchemas';
 
 type UserFormPorps = {
-  onClose: any;
+  onClose: () => void;
 };
 
 const UserForm: FC<UserFormPorps> = ({ onClose }) => {
@@ -49,40 +47,39 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
     values: IUpdateUser,
     actions: FormikHelpers<IUpdateUser>
   ) => {
-    console.log(values);
     actions.resetForm();
     dispatch(updateUser(values));
     onClose();
   };
 
-  // const handleAvatarUpload = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const files = event.currentTarget.files;
-  //   if (!files || files.length === 0) {
-  //     toast.error('Файл не выбран!');
-  //     return;
-  //   }
+  const handleAvatarUpload = (
+    event: ChangeEvent<HTMLInputElement>,
+    formikProps: any
+  ) => {
+    const files = event.currentTarget.files;
+    if (!files || files.length === 0) {
+      toast.error('File not selected!');
+      return;
+    }
 
-  //   const file = files[0];
-  //   if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
-  //     toast.error(
-  //       'Недопустимый формат файла! Пожалуйста, выберите изображение в формате PNG или JPEG!'
-  //     );
-  //     return;
-  //   }
+    const file = files[0];
+    if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+      toast.error(`Invalid file format! Please choose a PNG or JPEG image!`);
+      return;
+    }
 
-  //   if (file.size >= 2000000) {
-  //     toast.error(
-  //       'Выбранный файл слишком большой! Пожалуйста, выберите файл размером менее 2 МБ!'
-  //     );
-  //     return;
-  //   }
+    if (file.size >= 1000000) {
+      toast.error(
+        `Selected file is too large! Please select a file under 1MB in size!`
+      );
+      return;
+    }
 
-  //   console.log(file);
-  //   setFieldValue('avatarURL', file);
-  //   if (file) {
-  //     setUserAvatar(URL.createObjectURL(file));
-  //   }
-  // };
+    if (file) {
+      setUserAvatar(URL.createObjectURL(file));
+      formikProps.setFieldValue('avatar', file);
+    }
+  };
 
   return (
     <>
@@ -101,36 +98,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <input
                   name="avatar"
                   type="file"
-                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const files = event.currentTarget.files;
-                    if (!files || files.length === 0) {
-                      toast.error('File not selected!');
-                      return;
-                    }
-
-                    const file = files[0];
-                    if (
-                      file.type !== 'image/png' &&
-                      file.type !== 'image/jpeg'
-                    ) {
-                      toast.error(
-                        `Invalid file format! Please choose a PNG or JPEG image!`
-                      );
-                      return;
-                    }
-
-                    if (file.size >= 1000000) {
-                      toast.error(
-                        `Selected file is too large! Please select a file under 1MB in size!`
-                      );
-                      return;
-                    }
-
-                    if (file) {
-                      setUserAvatar(URL.createObjectURL(file));
-                      props.setFieldValue('avatar', file);
-                    }
-                  }}
+                  onChange={event => handleAvatarUpload(event, props)}
                   style={{ display: 'none' }}
                 />
                 <AddIcon />
@@ -213,7 +181,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                   onChange={props.handleChange}
                   value={props.values.summary || ''}
                   name="summary"
-                  style={{ height: ' 150px' }}
+                  style={{ height: '150px' }}
                 />
                 <StyledLabel>Summary</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="summary" />
