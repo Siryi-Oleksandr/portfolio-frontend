@@ -57,19 +57,13 @@
   }
 }
 
-.description {
-  font-size: 14px;
-  color: white;
-}
 .div {
   width: 80%;
   height: 80%;
-
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 80px;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .cabinet-btn {
   display: flex;

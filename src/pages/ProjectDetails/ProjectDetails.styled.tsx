@@ -10,6 +10,19 @@ export const ProjectSectionContainer = styled.section`
   padding: 20px 15px;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (max-width: 375px) {
+    max-width: 290px;
+    padding: 20px 0px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 600px) {
+    width: 360px;
+  }
+  @media screen and (min-width: 601px) and (max-width: 800px) {
+    width: 560px;
+  }
+  @media screen and (min-width: 801px) and (max-width: 1030px) {
+    width: 750px;
+  }
 `;
 export const ProjectTitle = styled.h2`
   color: ${theme.colors.project_page_primary_text_switch};
@@ -28,6 +41,7 @@ export const ProjectSubTitle = styled.h3`
 
 export const LinksContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   margin-bottom: 10px;
 `;
 
@@ -43,7 +57,6 @@ export const ProjectLinkIcon = styled(BiLinkExternal)`
 
 export const CodeLink = styled(AwesomeButton)`
   height: 40px;
-  margin-left: auto;
 `;
 
 export const CodeLinkIcon = styled(AiFillGithub)`
@@ -59,7 +72,7 @@ export const ProjectAboutContainer = styled.div`
 export const ProjectAboutTitle = styled.h4`
   color: ${theme.colors.project_page_primary_text_switch};
   font-family: ${theme.fonts.title};
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1.35em;
   font-weight: 600;
 `;
@@ -74,97 +87,31 @@ export const Line = styled.hr`
 export const ProjectAbout = styled.p`
   color: ${theme.colors.project_page_primary_text_switch};
   font-family: ${theme.fonts.text};
-  font-size: 1.3em;
-  line-height: 1.65em;
+  font-size: 1.1em;
+  line-height: 1.8em;
 `;
 
-// export const ProjectLink = styled.a`
-//   width: 130px;
-//   height: 40px;
-//   color: #fff;
-//   border-radius: 5px;
-//   padding: 10px 25px;
-//   font-family: ${theme.fonts.text};
-//   font-weight: 400;
-//   font-size: 15px;
-//   text-align: center;
-//   background: transparent;
-//   cursor: pointer;
-//   transition: all 250ms ease;
-//   position: relative;
-//   display: inline-block;
-//   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-//     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-//   outline: none;
-//   border: none;
-//   background: ${theme.colors.accentColor};
-//   background: linear-gradient(0deg, #fe390c 0%, #fc3503 100%);
-//   color: #fff;
-//   overflow: hidden;
-//   :before {
-//     position: absolute;
-//     content: '';
-//     display: inline-block;
-//     top: -180px;
-//     left: 0;
-//     width: 30px;
-//     height: 100%;
-//     background-color: #fff;
-//     animation: btn 3s ease infinite;
-//   }
-//   :hover {
-//     text-decoration: none;
-//     color: #fff;
-//     opacity: 0.7;
-//   }
-//   :active {
-//     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
-//       -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-//       inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
-//       inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
-//   }
+export const TechnicalStackAbout = styled.p`
+  margin-top: 10px;
+  color: ${theme.colors.project_page_primary_text_switch};
+  font-family: ${theme.fonts.text};
+  font-size: 1.1em;
+  line-height: 1.8em;
+`;
 
-//   @keyframes btn {
-//     0% {
-//       -webkit-transform: scale(0) rotate(45deg);
-//       opacity: 0;
-//     }
-//     80% {
-//       -webkit-transform: scale(0) rotate(45deg);
-//       opacity: 0.5;
-//     }
-//     81% {
-//       -webkit-transform: scale(4) rotate(45deg);
-//       opacity: 1;
-//     }
-//     100% {
-//       -webkit-transform: scale(50) rotate(45deg);
-//       opacity: 0;
-//     }
-//   }
-// `;
+export const TechnicalList = styled.ul`
+  list-style: circle;
+  width:200px;
+  color: ${theme.colors.project_page_primary_text_switch};
+  position: relative;
+  left: 18px;
+`;
 
-// export const CodeLink = styled(ProjectLink)`
-//   :before {
-//     animation: btn2 3s ease-in-out infinite;
-//   }
+export const TechnicalListItem = styled.li``;
 
-//   @keyframes btn2 {
-//     0% {
-//       -webkit-transform: scale(50) rotate(45deg);
-//       opacity: 0;
-//     }
-//     20% {
-//       -webkit-transform: scale(4) rotate(45deg);
-//       opacity: 1;
-//     }
-//     21% {
-//       -webkit-transform: scale(0) rotate(45deg);
-//       opacity: 0.5;
-//     }
-//     100% {
-//       -webkit-transform: scale(0) rotate(45deg);
-//       opacity: 0;
-//     }
-//   }
-// `;
+export const TechnicalListItemText = styled.p`
+  color: ${theme.colors.project_page_primary_text_switch};
+  font-family: ${theme.fonts.text};
+  font-size: 1.1em;
+  line-height: 1.4em;
+`;

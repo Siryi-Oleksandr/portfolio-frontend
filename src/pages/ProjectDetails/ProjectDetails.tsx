@@ -12,6 +12,10 @@ import {
   ProjectAboutContainer,
   ProjectAboutTitle,
   Line,
+  TechnicalStackAbout,
+  TechnicalList,
+  TechnicalListItem,
+  TechnicalListItemText,
 } from './ProjectDetails.styled';
 import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
 
@@ -63,12 +67,19 @@ const ProjectDetails: FC = () => {
           <Line />
           <ProjectAbout>{aboutProject}</ProjectAbout>
         </ProjectAboutContainer>
+        <ProjectAboutContainer>
+          <ProjectAboutTitle>Technical Sheet</ProjectAboutTitle>
 
-        <ul>
-          {technicalStack.map(tech => (
-            <li key={tech}>{tech}</li>
-          ))}
-        </ul>
+          <TechnicalStackAbout>
+            Code technologies I got involved with while working on this project.
+          </TechnicalStackAbout>
+          <Line />
+          <TechnicalList>
+            {technicalStack.map(tech => (
+              <TechnicalListItem key={tech}><TechnicalListItemText>{tech}</TechnicalListItemText></TechnicalListItem>
+            ))}
+          </TechnicalList>
+        </ProjectAboutContainer>
       </ProjectSectionContainer>
     </>
   );
