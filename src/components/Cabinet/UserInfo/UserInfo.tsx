@@ -44,6 +44,7 @@ const UserInfo: FC = () => {
     linkedinURL: user.linkedinURL || '',
     gitHubURL: user.gitHubURL || '',
     summary: user.summary || '',
+    technicalStack: user.technicalStack || '',
   };
   return (
     <IconContext.Provider value={{ className: 'slider-icons' }}>
