@@ -19,6 +19,7 @@ import {
 import { IUpdateUser } from 'redux/reduxTypes';
 import { updateUser } from 'redux/auth/operations';
 import { toast } from 'react-hot-toast';
+import { FormUserUpdateSchema } from 'services/yupSchemas';
 
 type UserFormPorps = {
   onClose: any;
@@ -85,7 +86,11 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={FormUserUpdateSchema}
+        onSubmit={handleSubmit}
+      >
         {props => (
           <StyledUserForm>
             <InputsContainer>

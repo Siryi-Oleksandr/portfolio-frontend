@@ -77,3 +77,18 @@ export const Socials = styled.ul`
   gap: 8px;
   justify-content: center;
 `;
+
+export const AvatarWrap = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid ${theme.colors.accentColor};
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+`;
