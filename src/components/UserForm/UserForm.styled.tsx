@@ -41,10 +41,8 @@ export const StyledField = styled(Field)`
   font-weight: 500;
   font-family: ${theme.fonts.heading};
   color: ${theme.colors.blackTitle};
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+  transition: all 250ms ease-in-out;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     height: 48px;
@@ -72,7 +70,7 @@ export const StyledLabel = styled.span`
   font-weight: 600;
   font-family: ${theme.fonts.heading};
   color: ${theme.colors.primary_text_switch};
-  transition: all 300ms ease-in-out;
+  transition: all 250ms ease-in-out;
 `;
 
 export const Avatar = styled.div`

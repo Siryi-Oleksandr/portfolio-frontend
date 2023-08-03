@@ -77,7 +77,9 @@ const ProjectDetails: FC = () => {
           <Line />
           <TechnicalList>
             {technicalStack.map(tech => (
-              <TechnicalListItem key={tech}><TechnicalListItemText>{tech}</TechnicalListItemText></TechnicalListItem>
+              <TechnicalListItem key={tech}>
+                <TechnicalListItemText>{tech}</TechnicalListItemText>
+              </TechnicalListItem>
             ))}
           </TechnicalList>
         </ProjectAboutContainer>

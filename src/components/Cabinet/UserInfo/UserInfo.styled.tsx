@@ -1,13 +1,34 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
+import { Btn } from 'components/Buttons/MainBtn.styled';
+
+import mobilex2TabletBg from 'images/hero-mobile-x2-tablet.jpg';
+import tabletx2DesktopBg from 'images/hero-tablet-x2-desktop.jpg';
+import desktopx2 from 'img/Bg.jpg';
 
 export const UserInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: start;
   padding: 20px 20px;
-  gap: ${theme.gaps.medium}px;
+  gap: ${theme.gaps.big}px;
+
+  background-image: url(${mobilex2TabletBg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    background-image: url(${tabletx2DesktopBg});
+  }
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    background-image: url(${desktopx2});
+  }
 `;
 
 export const LogoWrap = styled.div`
@@ -15,12 +36,20 @@ export const LogoWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  max-width: 300px;
+  @media screen and (max-width: 1200px) {
+    max-width: 250px;
+  }
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    max-width: 220px;
+  }
+
+  gap: 8px;
 `;
 
 export const Avawrap = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 200px;
+  height: 200px;
 
   & img {
     display: block;
@@ -28,6 +57,14 @@ export const Avawrap = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: ${theme.radii.round};
+  }
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 120px;
+    height: 120px;
   }
 `;
 
@@ -39,11 +76,14 @@ export const AboutWrap = styled.div`
 `;
 
 export const AboutText = styled.p`
-  color: ${theme.colors.primary_text_switch};
+  color: ${theme.colors.lightGray};
   font-family: ${theme.fonts.text};
-  font-size: ${theme.fontSizes.m};
+  font-size: ${theme.fontSizes.l};
   text-align: start;
   word-spacing: 0.2em;
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    font-size: ${theme.fontSizes.m};
+  }
 `;
 
 export const AvatarImg = styled.img`
@@ -63,27 +103,44 @@ export const TextName = styled.p`
   color: ${theme.colors.accent_color_switch};
   font-family: ${theme.fonts.heading};
   font-weight: ${theme.fontWeights.bold};
-  font-size: ${theme.fontSizes.s};
+  font-size: ${theme.fontSizes.m};
 `;
 
 export const TextProfession = styled.p`
   color: ${theme.colors.second_text_switch};
   font-family: ${theme.fonts.heading};
   font-weight: ${theme.fontWeights.bold};
-  font-size: ${theme.fontSizes.s};
+  font-size: ${theme.fontSizes.m};
+  text-align: center;
+  @media screen and (max-width: ${theme.breakpoints.desktop}) {
+    font-size: ${theme.fontSizes.xs};
+  }
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    font-size: ${theme.fontSizes.xs};
+  }
 `;
 
-export const EditBtn = styled.button`
+export const EditBtn = styled(Btn)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  margin-left: 20px;
-  background-color: inherit;
-  color: ${theme.colors.primary_text_switch};
+  gap: 20px;
+  width: 100%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  line-height: 1;
+  font-size: ${theme.fontSizes.l};
+
+  background-color: ${theme.colors.auth_button_background_switch};
+  /* color: ${theme.colors.accent_color_switch}; */
+  color: ${theme.colors.accent_color_switch};
   transition: ${theme.transition.hover};
   &:hover {
-    color: ${theme.colors.accentColor};
-    transform: scale(1.2);
+    color: ${theme.colors.auth_button_color_switch};
+    background-color: ${theme.colors.accent_color_switch};
+  }
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 `;
