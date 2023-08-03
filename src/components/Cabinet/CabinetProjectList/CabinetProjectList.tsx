@@ -20,7 +20,7 @@ const CabinetProjectList: FC = () => {
           <CabinetProjectItem key={project.id} project={project} />
         ))}
         <AddProjectBtnWrap key="addBtnId">
-          <AddProjectBtn>
+          <AddProjectBtn to="/addProject">
             <MdOutlineAddCircle size="50px" />
             Add project
           </AddProjectBtn>
