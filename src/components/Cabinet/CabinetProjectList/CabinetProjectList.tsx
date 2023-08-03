@@ -1,9 +1,14 @@
 import React, { FC, useState } from 'react';
 import CabinetProjectItem from './CabinetProjectItem/CabinetProjectItem';
-import { List } from './CabinetProjectList.styled';
+import {
+  List,
+  AddProjectBtnWrap,
+  AddProjectBtn,
+} from './CabinetProjectList.styled';
 import projectsDb from 'bd/projects.json';
 import { IProject } from 'types/projectTypes';
 import Container from 'components/Container/Container';
+import { MdOutlineAddCircle } from 'react-icons/md';
 
 const CabinetProjectList: FC = () => {
   const [projects] = useState<Array<IProject>>(projectsDb || []);
@@ -14,7 +19,12 @@ const CabinetProjectList: FC = () => {
         {projects.map(project => (
           <CabinetProjectItem key={project.id} project={project} />
         ))}
-        <button key="addBtnId">add project</button>
+        <AddProjectBtnWrap key="addBtnId">
+          <AddProjectBtn to="/addProject">
+            <MdOutlineAddCircle size="50px" />
+            Add project
+          </AddProjectBtn>
+        </AddProjectBtnWrap>
       </List>
     </Container>
   );

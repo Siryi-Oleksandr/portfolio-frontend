@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Bar,
   IconsBlock,
@@ -39,7 +38,7 @@ const CabinetProjectItem: FC<Props> = ({ project }) => {
   } = project;
   return (
     <Item onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Link to={`/projectDetails/${projectId}`}>
+      <div>
         <Bar>
           <Title>{title}</Title>
           <IconsBlock />
@@ -47,10 +46,14 @@ const CabinetProjectItem: FC<Props> = ({ project }) => {
         <ImgWrapper>
           <Img src={posters[0].url} alt={posters[0].title} />
           <Overlay className="nested-component">
-            <HoverList description={description} isHover={isHovered} />
+            <HoverList
+              description={description}
+              isHover={isHovered}
+              projectId={projectId}
+            />
           </Overlay>
         </ImgWrapper>
-      </Link>
+      </div>
     </Item>
   );
 };

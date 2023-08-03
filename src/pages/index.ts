@@ -7,6 +7,7 @@ import ContactsPage from './ContactsPage/ContactsPage';
 import ProjectDetails from './ProjectDetails/ProjectDetails';
 import RegisterPage from './RegisterPage/RegisterPage';
 import LoginPage from './LoginPage/LoginPage';
+import AddProject from './AddProject/AddProject';
 
 export {
   HomePage,
@@ -18,4 +19,5 @@ export {
   ProjectDetails,
   RegisterPage,
   LoginPage,
+  AddProject,
 };
