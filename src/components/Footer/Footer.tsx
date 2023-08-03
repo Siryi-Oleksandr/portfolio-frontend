@@ -71,7 +71,11 @@ const Footer: FC = () => {
               {user.name} {user.surname} {user.profession}
             </p>
             <AvatarWrap>
-              <img src={user.avatarURL} alt="Avatar" style={{ flex: '1' }} />
+              <img
+                src={user.miniAvatarURL}
+                alt="Avatar"
+                style={{ flex: '1' }}
+              />
             </AvatarWrap>
             <Socials style={{ flex: '1' }}>
               {user.telegram && (

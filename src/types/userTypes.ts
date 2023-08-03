@@ -12,4 +12,5 @@ export interface IUser {
   avatarURL?: string;
   linkedinURL?: string;
   gitHubURL?: string;
+  miniAvatarURL?: string;
 }
