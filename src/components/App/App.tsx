@@ -18,6 +18,7 @@ import {
   ProjectDetails,
   RegisterPage,
   LoginPage,
+  AddProject,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -81,6 +82,7 @@ const App: FC = () => {
 
               <Route path="/" element={<PrivateRoute />}>
                 <Route path="/cabinet" element={<CabinetPage />} />
+                <Route path="/addProject" element={<AddProject />} />
               </Route>
             </Route>
             <Route path="*" element={<NotFoundPage />} />

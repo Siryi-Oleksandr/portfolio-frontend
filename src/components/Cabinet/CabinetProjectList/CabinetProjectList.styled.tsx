@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
+import { NavLink } from 'react-router-dom';
 
 export const List = styled.ul`
   margin-top: 20px;
@@ -33,7 +34,7 @@ export const AddProjectBtnWrap = styled.div`
   }
 `;
 
-export const AddProjectBtn = styled.button`
+export const AddProjectBtn = styled(NavLink)`
   display: flex;
   flex-direction: column;
   align-items: center;
