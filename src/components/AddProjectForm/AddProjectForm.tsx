@@ -1,11 +1,14 @@
 import { ErrorMessage, Formik, FormikHelpers } from 'formik';
-import React, { ChangeEvent, FC } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import {
   Label,
   LabelTextArea,
   StyledAddProjectForm,
   StyledProdjecField,
   StyledLabel,
+  ImageWrap,
+  AddImgIcon,
+  ImagesWrap,
 } from './AddProjectForm.styled';
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
@@ -15,9 +18,15 @@ import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled'
 import { useAppDispatch } from 'redux/reduxHooks';
 import { createProject } from 'redux/project/operations';
 import { toast } from 'react-hot-toast';
+import placeholder from '../../images/placeholder-image.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const AddProjectForm: FC = () => {
   const dispatch = useAppDispatch();
+  const [projectImg1, setProjectImg1] = useState<any>(placeholder);
+  const [projectImg2, setProjectImg2] = useState<any>(placeholder);
+  const [projectImg3, setProjectImg3] = useState<any>(placeholder);
+  const navigate = useNavigate();
 
   const initialValues: ICreateUpdateProject = {
     projectTitle: '',
@@ -37,7 +46,7 @@ const AddProjectForm: FC = () => {
   ) => {
     actions.resetForm();
     dispatch(createProject(values));
-    console.log(values);
+    navigate('/cabinet');
   };
 
   const handleImg1Upload = (
@@ -67,6 +76,7 @@ const AddProjectForm: FC = () => {
 
     if (image1) {
       formikProps.setFieldValue('image1', image1);
+      setProjectImg1(URL.createObjectURL(image1));
     }
   };
 
@@ -95,6 +105,7 @@ const AddProjectForm: FC = () => {
 
     if (image2) {
       formikProps.setFieldValue('image2', image2);
+      setProjectImg2(URL.createObjectURL(image2));
     }
   };
 
@@ -123,6 +134,7 @@ const AddProjectForm: FC = () => {
 
     if (image3) {
       formikProps.setFieldValue('image3', image3);
+      setProjectImg3(URL.createObjectURL(image3));
     }
   };
 
@@ -210,27 +222,48 @@ const AddProjectForm: FC = () => {
                 name="aboutProject"
               />
             </LabelTextArea>
-            <Label>
-              <input
-                type="file"
-                multiple
-                name="image3"
-                onChange={event => handleImg1Upload(event, props)}
-              />
-              <input
-                type="file"
-                multiple
-                name="image2"
-                onChange={event => handleImg2Upload(event, props)}
-              />
-              <input
-                type="file"
-                multiple
-                name="image3"
-                onChange={event => handleImg3Upload(event, props)}
-              />
-              <StyledLabel>Project Images</StyledLabel>
-            </Label>
+            <ImagesWrap>
+              <Label>
+                <input
+                  type="file"
+                  multiple
+                  name="image3"
+                  onChange={event => handleImg1Upload(event, props)}
+                  style={{ display: 'none' }}
+                />
+                <AddImgIcon />
+                <StyledLabel>Project Images</StyledLabel>
+                <ImageWrap>
+                  <img src={projectImg1} alt="project image1" />
+                </ImageWrap>
+              </Label>
+              <Label>
+                <input
+                  type="file"
+                  multiple
+                  name="image2"
+                  onChange={event => handleImg2Upload(event, props)}
+                  style={{ display: 'none' }}
+                />
+                <AddImgIcon />
+                <ImageWrap>
+                  <img src={projectImg2} alt="project image2" />
+                </ImageWrap>
+              </Label>
+              <Label>
+                <input
+                  type="file"
+                  multiple
+                  name="image3"
+                  onChange={event => handleImg3Upload(event, props)}
+                  style={{ display: 'none' }}
+                />
+                <AddImgIcon />
+                <ImageWrap>
+                  <img src={projectImg3} alt="project image3" />
+                </ImageWrap>
+              </Label>
+            </ImagesWrap>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
               Add new project
             </SubmitBtn>
