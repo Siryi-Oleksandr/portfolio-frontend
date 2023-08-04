@@ -65,9 +65,7 @@ export const updateProject = createAsyncThunk(
     try {
       const formData = new FormData();
       if (projectImages !== undefined) {
-        for (let i = 0; i < projectImages.length; i++) {
-          formData.append('projectImages', projectImages[i]);
-        }
+        formData.append('projectImages', projectImages);
       }
       formData.append('projectTitle', projectTitle);
       formData.append('projectSubTitle', projectSubTitle || '');
