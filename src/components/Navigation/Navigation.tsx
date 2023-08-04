@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useAuth } from 'hooks/useAuth';
 import {
   Link,
   Header,
@@ -8,13 +9,9 @@ import {
   GreetText,
 } from './Navigation.styled';
 import { ThemeToggler } from 'components';
-// import { RxHamburgerMenu } from 'react-icons/rx';
 import Sidebar from './Sidebar/Sidebar';
-import LoginBtn from './LoginBtn/login';
-import LogoutBtn from './LoginBtn/logout';
-import RegisterBtn from './LoginBtn/register';
+import { LoginBtn, LogoutBtn, RegisterBtn } from './LoginBtn';
 import Logo from './Logo/Logo';
-import { useAuth } from 'hooks/useAuth';
 
 const Navigation: FC = () => {
   const { isLoggedIn, user } = useAuth();
@@ -25,9 +22,6 @@ const Navigation: FC = () => {
         <Logo />
         <Sidebar />
         <ThemeToggler />
-        {/* <MobileMenuButton >
-          <RxHamburgerMenu size={34} />
-        </MobileMenuButton> */}
         <NavWrap>
           <nav>
             <Link to="/">Home</Link>

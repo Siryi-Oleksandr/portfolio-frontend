@@ -16,9 +16,7 @@ import {
   SlideGreetWrap,
 } from './Sidebar.styled';
 import { useAuth } from 'hooks/useAuth';
-import RegisterSlideBtn from '../LoginBtn/registerSlider';
-import LoginSlideBtn from '../LoginBtn/loginSlide';
-import LogoutSlideBtn from '../LoginBtn/logoutSlide';
+import { RegisterSlideBtn, LoginSlideBtn, LogoutSlideBtn } from '../LoginBtn';
 
 const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState<string>('false');
@@ -62,7 +60,6 @@ const Sidebar: FC = () => {
                 <Submenu item={item} key={index} closeSidebar={closeSidebar} />
               );
             })}
-
             {!isLoggedIn ? (
               <LoginSlideBtn closeSidebar={closeSidebar} />
             ) : (
