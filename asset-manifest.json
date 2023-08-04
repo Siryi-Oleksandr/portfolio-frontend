@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-frontend/static/css/main.cadfdd78.css",
-    "main.js": "/portfolio-frontend/static/js/main.b8025dc1.js",
+    "main.css": "/portfolio-frontend/static/css/main.a5cc0657.css",
+    "main.js": "/portfolio-frontend/static/js/main.6fe4bc88.js",
     "static/media/Bg.jpg": "/portfolio-frontend/static/media/Bg.0a7499a3396c6d2d33f6.jpg",
     "static/media/hero-desktop-x2.jpg": "/portfolio-frontend/static/media/hero-desktop-x2.45e7dddd7c8a7d193f84.jpg",
     "static/media/Montserrat-Medium.woff2": "/portfolio-frontend/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
@@ -10,17 +10,18 @@
     "static/media/hero-tablet-x2-desktop.jpg": "/portfolio-frontend/static/media/hero-tablet-x2-desktop.59f80b5af1d4678c2e63.jpg",
     "static/media/Anton-Regular.woff2": "/portfolio-frontend/static/media/Anton-Regular.b39614d2a2389ebda79f.woff2",
     "static/media/hero-mobile-x2-tablet.jpg": "/portfolio-frontend/static/media/hero-mobile-x2-tablet.23515ed1858f2a0e426a.jpg",
+    "static/media/about-laptop-2x.jpg": "/portfolio-frontend/static/media/about-laptop-2x.1353bf1898fa2eda73dc.jpg",
     "static/media/logo.png": "/portfolio-frontend/static/media/logo.58250bbe7a2b182f9284.png",
     "static/media/slick.svg": "/portfolio-frontend/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/portfolio-frontend/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/portfolio-frontend/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/portfolio-frontend/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio-frontend/index.html",
-    "main.cadfdd78.css.map": "/portfolio-frontend/static/css/main.cadfdd78.css.map",
-    "main.b8025dc1.js.map": "/portfolio-frontend/static/js/main.b8025dc1.js.map"
+    "main.a5cc0657.css.map": "/portfolio-frontend/static/css/main.a5cc0657.css.map",
+    "main.6fe4bc88.js.map": "/portfolio-frontend/static/js/main.6fe4bc88.js.map"
   },
   "entrypoints": [
-    "static/css/main.cadfdd78.css",
-    "static/js/main.b8025dc1.js"
+    "static/css/main.a5cc0657.css",
+    "static/js/main.6fe4bc88.js"
   ]
 }
