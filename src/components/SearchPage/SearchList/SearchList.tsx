@@ -1,7 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import { instance } from '../../../redux/auth/operations';
 import { useLocation } from 'react-router-dom';
-import { SearchItem, SearchEmpty, NoResults, Loader } from 'components';
+import {
+  SearchItem,
+  SearchEmpty,
+  NoResults,
+  Loader,
+  SmallLoader,
+} from 'components';
 import { IUser } from '../../../types/userTypes';
 import {
   ListContainer,
@@ -33,6 +39,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
 
   useEffect(() => {
@@ -45,6 +52,9 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
       setUsers([]);
     }
 
+    if (page !== 1) {
+      setIsLoadMoreLoading(true);
+    }
     setIsEmptySeach(false);
     setIsLoading(true);
 
@@ -54,19 +64,23 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
         setUsers(prevState => [...prevState, ...data.users]);
         setTotalUsers(data.totalCount);
 
+        setIsLoadMoreLoading(false);
         setIsLoading(false);
       })
       .catch(error => {
         console.log(error);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+        setIsLoadMoreLoading(false);
+      });
   }, [page, query]);
 
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
       {!isEmptySeach && totalUsers === 0 && !isLoading && <NoResults />}
-      {isLoading && <Loader />}
+      {isLoading && !isLoadMoreLoading && <Loader />}
       {users.length !== 0 && (
         <ListContainer>
           <ResultsWrapper>
@@ -82,9 +96,9 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
               />
             ))}
           </List>
-          {!isLoading && users.length > 0 && users.length < totalUsers && (
+          {users.length > 0 && users.length < totalUsers && (
             <WatchMoreBtn type="button" onClick={loadMore}>
-              Load More
+              {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
             </WatchMoreBtn>
           )}
         </ListContainer>

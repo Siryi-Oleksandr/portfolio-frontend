@@ -1,5 +1,6 @@
 import App from './App/App';
 import Loader from './Loader/Loader';
+import SmallLoader from './SearchPage/smallLoader';
 import Navigation from './Navigation/Navigation';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import ThemeToggler from './ThemeToggler/ThemeToggler';
@@ -30,6 +31,7 @@ export {
   App,
   Container,
   Loader,
+  SmallLoader,
   Navigation,
   NotFoundPage,
   ThemeToggler,

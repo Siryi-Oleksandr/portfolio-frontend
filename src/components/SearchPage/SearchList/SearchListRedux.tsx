@@ -39,6 +39,8 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
       return;
     }
 
+    console.log('HELLO');
+
     if (page === 1) {
       dispatch(resetSearchUsers());
     }
@@ -48,6 +50,7 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
     dispatch(searchUsers({ query, page }));
 
     return () => {
+      console.log('RETURN');
       dispatch(resetSearchUsers());
     };
   }, [dispatch, page, query]);

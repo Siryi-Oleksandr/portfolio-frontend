@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { SearchInput, SearchList, SearchListRedux } from 'components';
+import { SearchInput, SearchListRedux } from 'components';
 import { Section } from './SearchPage.styled';
 
 const SearchPage: FC = () => {
