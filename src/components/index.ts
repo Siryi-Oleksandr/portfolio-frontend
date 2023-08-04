@@ -25,6 +25,8 @@ import SearchListTest from './SearchPage/SearchList/SearchListTest';
 import SearchItem from './SearchPage/SearchItem/SearchItem';
 import SearchEmpty from './SearchPage/SearchEmpty/SearchEmpty';
 import NoResults from './SearchPage/NoResults/NoResults';
+import CabinetUserInfo from './Cabinet/CabinetUserInfo/CabinetUserInfo';
+import CabinetProjectList from './Cabinet/CabinetProjectList/CabinetProjectList';
 
 export {
   App,
@@ -54,4 +56,6 @@ export {
   SearchItem,
   SearchEmpty,
   NoResults,
+  CabinetUserInfo,
+  CabinetProjectList,
 };
