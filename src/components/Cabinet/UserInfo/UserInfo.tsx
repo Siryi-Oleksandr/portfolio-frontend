@@ -62,13 +62,15 @@ const UserInfo: FC = () => {
           </Avawrap>
           <TextName>{initialValues.name}</TextName>
           <TextProfession>{initialValues.profession}</TextProfession>
+          <EditBtn onClick={handleShowModal}>
+            Edit
+            <FaEdit size="32px" />
+          </EditBtn>
         </LogoWrap>
         <AboutWrap>
           <AboutText>{initialValues.summary}</AboutText>
         </AboutWrap>
-        <EditBtn onClick={handleShowModal}>
-          <FaEdit size="40px" />
-        </EditBtn>
+
         {showModal && <UserFormModal onClose={handleCloseModal} />}
       </UserInfoContainer>
       {/* <p>User info { initialValues.email}</p>

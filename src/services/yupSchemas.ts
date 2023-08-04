@@ -46,3 +46,12 @@ export const FormUserUpdateSchema = Yup.object().shape({
   technicalStack: Yup.string().min(2).max(150),
   summary: Yup.string().min(2).max(500),
 });
+
+export const FormAddProjectUpdateSchema = Yup.object().shape({
+  projectTitle: Yup.string().min(3).max(100).required(),
+  technicalStack: Yup.string().min(3).max(100).required(),
+  projectSubTitle: Yup.string(),
+  projectLink: Yup.string().required(),
+  codeLink: Yup.string().required(),
+  aboutProject: Yup.string().min(3).max(1000).required(),
+});
