@@ -50,7 +50,7 @@ export interface ICreateUpdateProject {
 export interface IProjectState {
   allProjects: IProject2[];
   userProjects: IProject2[];
-  projectById: IProject2;
+  projectById: Partial<IProject2>;
   isLoading: boolean;
   error: any;
 }
@@ -61,6 +61,7 @@ export interface IStateProject {
 
 export interface ISearchState {
   foundUsers: IUser[];
+  userById: Partial<IUser>;
   totalCount: number;
   isLoading: boolean;
   error: any;

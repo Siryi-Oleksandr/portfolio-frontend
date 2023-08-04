@@ -81,9 +81,11 @@ const projectsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.userProjects.findIndex(
-          project => project._id === action.payload
+          (project) => project._id === action.payload
         );
-        state.userProjects.splice(index, 1);
+        if (index !== -1) {
+          state.userProjects.splice(index, 1);
+        }
       });
   },
 });
