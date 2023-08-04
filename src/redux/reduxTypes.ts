@@ -1,4 +1,3 @@
-import { Interface } from 'readline';
 import { IUser } from 'types/userTypes';
 
 export interface IPostUser {
@@ -34,6 +33,17 @@ export interface IUpdateUser {
   technicalStack: string;
   linkedinURL: string;
   gitHubURL: string;
+}
+
+export interface ICreateUpdateProject {
+  id?:string;
+  projectTitle: string;
+  projectSubTitle?: string;
+  projectLink: string;
+  codeLink: string;
+  projectImages?: File[];
+  aboutProject: string;
+  technicalStack: string;
 }
 
 export interface ISearchState {
