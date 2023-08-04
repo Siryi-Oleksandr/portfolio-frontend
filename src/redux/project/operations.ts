@@ -22,14 +22,22 @@ export const createProject = createAsyncThunk(
       projectSubTitle,
       projectLink,
       codeLink,
-      projectImages,
+      image1,
+      image2,
+      image3,
       aboutProject,
       technicalStack,
     } = projectData;
     try {
       const formData = new FormData();
-      if (projectImages !== undefined) {
-        formData.append('projectImages', projectImages);
+      if (image1 !== undefined) {
+        formData.append('posters', image1);
+      }
+      if (image2 !== undefined) {
+        formData.append('posters', image2);
+      }
+      if (image3 !== undefined) {
+        formData.append('posters', image3);
       }
       formData.append('projectTitle', projectTitle);
       formData.append('projectSubTitle', projectSubTitle || '');
@@ -58,15 +66,24 @@ export const updateProject = createAsyncThunk(
       projectSubTitle,
       projectLink,
       codeLink,
-      projectImages,
+      image1,
+      image2,
+      image3,
       aboutProject,
       technicalStack,
     } = projectData;
     try {
       const formData = new FormData();
-      if (projectImages !== undefined) {
-        formData.append('projectImages', projectImages);
+      if (image1 !== undefined) {
+        formData.append('posters', image1);
       }
+      if (image2 !== undefined) {
+        formData.append('posters', image2);
+      }
+      if (image3 !== undefined) {
+        formData.append('posters', image3);
+      }
+
       formData.append('projectTitle', projectTitle);
       formData.append('projectSubTitle', projectSubTitle || '');
       formData.append('projectLink', projectLink);
