@@ -36,7 +36,7 @@ export interface IUpdateUser {
 }
 
 export interface ICreateUpdateProject {
-  id?:string;
+  id?: string;
   projectTitle: string;
   projectSubTitle?: string;
   projectLink: string;
