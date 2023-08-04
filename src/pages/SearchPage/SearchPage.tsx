@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { SearchInput, SearchListRedux } from 'components';
+import { SearchInput, SearchListRedux, SearchList } from 'components';
 import { Section } from './SearchPage.styled';
 
 const SearchPage: FC = () => {
@@ -24,7 +24,7 @@ const SearchPage: FC = () => {
   return (
     <Section>
       <SearchInput onSubmit={onSubmit} paramsQuery={paramsQuery} />
-      <SearchListRedux query={paramsQuery} page={page} loadMore={loadMore} />
+      <SearchList query={paramsQuery} page={page} loadMore={loadMore} />
     </Section>
   );
 };
