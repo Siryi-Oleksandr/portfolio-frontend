@@ -60,9 +60,13 @@ export const List = styled.ul`
 `;
 
 export const WatchMoreBtn = styled.button`
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  padding: 10px 16px;
+  width: 122px;
+  height: 40px;
+  /* padding: 10px 16px; */
   border: 1px solid ${theme.colors.accentColor};
   border-radius: 4px;
   background-color: transparent;
