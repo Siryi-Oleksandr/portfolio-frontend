@@ -1,4 +1,4 @@
-import { Formik, FormikHelpers } from 'formik';
+import { ErrorMessage, Formik, FormikHelpers } from 'formik';
 import React, { FC } from 'react';
 import {
   Label,
@@ -9,54 +9,62 @@ import {
 } from './AddProjectForm.styled';
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
+import { ICreateUpdateProject } from 'redux/reduxTypes';
+import { FormAddProjectUpdateSchema } from 'services/yupSchemas';
+import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 
 const AddProjectForm: FC = () => {
-  const initialValues: any = {
+  const initialValues: ICreateUpdateProject = {
     projectTitle: '',
     projectSubTitle: '',
     projectLink: '',
     codeLink: '',
-    projectImages: '',
+    // projectImages: File[],
     aboutProject: '',
     technicalStack: '',
   };
 
-  // const handleSubmit = () =>
-  //   // values: IUpdateUser,
-  //   // actions: FormikHelpers<IUpdateUser>
-  //   {
-  //     // actions.resetForm();
-  //   };
+  const handleSubmit = (
+    values: ICreateUpdateProject,
+    actions: FormikHelpers<ICreateUpdateProject>
+  ) => {
+    actions.resetForm();
+    console.log(values);
+  };
 
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={}
-      onSubmit={(
-        values: typeof initialValues,
-        { setSubmitting }: FormikHelpers<typeof initialValues>
-      ) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 500);
-      }}
+      validationSchema={FormAddProjectUpdateSchema}
+      onSubmit={handleSubmit}
     >
       {props => (
         <Container>
           <StyledAddProjectForm>
             <Label>
-              <StyledProdjecField type="text" name="projectTitle" />
-              <StyledLabel>Project title</StyledLabel>
+              <StyledProdjecField
+                type="text"
+                name="projectTitle"
+                autoComplete="off"
+              />
+              <StyledLabel>Project Title</StyledLabel>
+              <ErrorMessage
+                component={StyledErrorMessage}
+                name="projectTitle"
+              />
             </Label>
             <Label>
               <StyledProdjecField
                 type="text"
                 name="technicalStack"
                 autoComplete="off"
-                placeholder="HTML, CSS, JavaScript, React."
+                placeholder="TypeScript, React, Redux"
               />
               <StyledLabel>Technical Stack</StyledLabel>
+              <ErrorMessage
+                component={StyledErrorMessage}
+                name="technicalStack"
+              />
             </Label>
             <LabelTextArea>
               <StyledProdjecField
@@ -64,17 +72,33 @@ const AddProjectForm: FC = () => {
                 name="projectSubTitle"
                 className="full-width"
                 component="textarea"
+                autoComplete="off"
                 onChange={props.handleChange}
               />
               <StyledLabel>Project SubTitle</StyledLabel>
+              <ErrorMessage
+                component={StyledErrorMessage}
+                name="projectSubTitle"
+              />
             </LabelTextArea>
             <Label>
-              <StyledProdjecField type="text" name="projectLink" />
+              <StyledProdjecField
+                type="text"
+                name="projectLink"
+                autoComplete="off"
+                placeholder="Set link to project live page"
+              />
               <StyledLabel>Project Link</StyledLabel>
+              <ErrorMessage component={StyledErrorMessage} name="projectLink" />
             </Label>
             <Label>
-              <StyledProdjecField type="text" name="codeLink" />
+              <StyledProdjecField
+                type="text"
+                name="codeLink"
+                autoComplete="off"
+              />
               <StyledLabel>Code Link</StyledLabel>
+              <ErrorMessage component={StyledErrorMessage} name="codeLink" />
             </Label>
             <LabelTextArea>
               <StyledProdjecField
@@ -82,13 +106,23 @@ const AddProjectForm: FC = () => {
                 name="aboutProject"
                 className="full-width"
                 component="textarea"
+                autoComplete="off"
                 onChange={props.handleChange}
                 style={{ height: '120px' }}
               />
               <StyledLabel>About Project</StyledLabel>
+              <ErrorMessage
+                component={StyledErrorMessage}
+                name="aboutProject"
+              />
             </LabelTextArea>
             <Label>
-              <input type="file" multiple name="projectImages" />
+              <input
+                type="file"
+                multiple
+                name="projectImages"
+                autoComplete="off"
+              />
               <StyledLabel>Project Images</StyledLabel>
             </Label>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
