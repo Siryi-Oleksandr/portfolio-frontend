@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
-import { theme } from "theme";
+import { theme } from 'theme';
 
+// TODO remove this Container
 export const Container = styled.div`
   width: 100%;
 
   margin-left: auto;
   margin-right: auto;
 
-background-color: transparent;
+  background-color: transparent;
 
-  @media screen and (min-width:  ${theme.breakpoints.mobile}) {
+  @media screen and (min-width: ${theme.breakpoints.mobile}) {
     max-width: 450px;
   }
 
