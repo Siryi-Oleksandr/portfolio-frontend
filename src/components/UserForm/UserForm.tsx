@@ -166,7 +166,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <StyledField
                   type="text"
                   name="technicalStack"
-                  placeholder="HTML, CSS, JavaScript, React."
+                  placeholder="HTML, CSS, JavaScript, React"
                 />
                 <StyledLabel>TechnicalStack</StyledLabel>
                 <ErrorMessage
