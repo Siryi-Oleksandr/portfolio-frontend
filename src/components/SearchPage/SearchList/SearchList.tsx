@@ -33,7 +33,6 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-
   const [isEmptySeach, setIsEmptySeach] = useState(true);
 
   useEffect(() => {

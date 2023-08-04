@@ -8,6 +8,7 @@ import { useAppDispatch } from 'redux/reduxHooks';
 import {
   selectFoundUsers,
   selectIsLoading,
+  selectTotalUsersCount,
 } from 'redux/searchUsers/searchUsersSelectors';
 import {
   ListContainer,
@@ -25,13 +26,12 @@ interface Props {
 
 const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
-  const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [isNoResults] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
 
   const dispatch = useAppDispatch();
 
   const users = useAppSelector(selectFoundUsers);
+  const totalUsers = useAppSelector(selectTotalUsersCount);
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
@@ -40,14 +40,12 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
     }
 
     if (page === 1) {
-      // reducer for totalUsers
       dispatch(resetSearchUsers());
     }
 
     setIsEmptySeach(false);
 
     dispatch(searchUsers({ query, page }));
-    setShowBtn(true);
 
     return () => {
       dispatch(resetSearchUsers());
@@ -57,12 +55,12 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
-      {isNoResults && !isLoading && <NoResults />}
+      {!isEmptySeach && totalUsers === 0 && !isLoading && <NoResults />}
       {isLoading && <Loader />}
       {users.length !== 0 && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {users.length}</TotalResults>
+            <TotalResults>Results: {totalUsers}</TotalResults>
           </ResultsWrapper>
           <List>
             {users.map(user => (
@@ -74,7 +72,7 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
               />
             ))}
           </List>
-          {showBtn && (
+          {!isLoading && users.length > 0 && users.length < totalUsers && (
             <WatchMoreBtn type="button" onClick={loadMore}>
               Load More
             </WatchMoreBtn>
