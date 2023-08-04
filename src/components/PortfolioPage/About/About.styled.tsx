@@ -109,6 +109,11 @@ export const Title = styled.h2`
   letter-spacing: 0.64px;
   text-transform: uppercase;
   transition: ${theme.transition.hover};
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    font-size: 40px;
+    letter-spacing: 0.8px;
+  }
 `;
 export const Summary = styled.p`
   color: ${theme.colors.second_text_switch};
@@ -116,8 +121,14 @@ export const Summary = styled.p`
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 2.66; /* 266.667% */
+  line-height: 2.66;
   letter-spacing: -0.24px;
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    font-size: 14px;
+    line-height: 2.28;
+    letter-spacing: -0.28px;
+  }
 `;
 
 export const Number = styled.span`
