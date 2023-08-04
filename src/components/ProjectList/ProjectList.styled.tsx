@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { theme } from 'theme';
 
 export const List = styled.ul`
-  margin-top: 20px;
+  padding-top: 35px;
+  padding-bottom: 35px;
 
   display: flex;
   flex-wrap: wrap;

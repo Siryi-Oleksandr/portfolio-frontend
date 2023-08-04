@@ -1,13 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { searchUsers } from './operations';
+import { searchUsers, getUserById } from './operations';
 import { ISearchState } from 'redux/reduxTypes';
 import { IUser } from 'types/userTypes';
 
 const initialState: ISearchState = {
   foundUsers: [],
+  userById: {},
   totalCount: 0,
   isLoading: false,
   error: null,
+};
+
+const handlePending = (state: ISearchState) => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const handleRejected = (state: ISearchState, action: PayloadAction<any>) => {
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 const searchSlice = createSlice({
@@ -21,9 +32,10 @@ const searchSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(searchUsers.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(searchUsers.pending, handlePending)
+      .addCase(searchUsers.rejected, handleRejected)
+      .addCase(getUserById.pending, handlePending)
+      .addCase(getUserById.rejected, handleRejected)
       .addCase(
         searchUsers.fulfilled,
         (
@@ -36,9 +48,11 @@ const searchSlice = createSlice({
           state.error = null;
         }
       )
-      .addCase(searchUsers.rejected, (state, action) => {
+      .addCase(getUserById.fulfilled, (state, action) => {
+        state.userById = action.payload;
+        state.totalCount = 0;
         state.isLoading = false;
-        state.error = action.payload || 'Unknown error';
+        state.error = null;
       });
   },
 });

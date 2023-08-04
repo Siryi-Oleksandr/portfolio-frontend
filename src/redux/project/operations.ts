@@ -51,49 +51,49 @@ export const createProject = createAsyncThunk(
   }
 );
 
-// export const updateProject = createAsyncThunk(
-//     'projects/updateProject',
-//     async (projectData: ICreateUpdateProject, thunkAPI) => {
-//       const {
-//         id,
-//         projectTitle,
-//         projectSubTitle,
-//         projectLink,
-//         codeLink,
-//         projectImages,
-//         aboutProject,
-//         technicalStack,
-//       } = projectData;
-//       try {
-//         const formData = new FormData();
-//         if (projectImages !== undefined) {
-//           for (let i = 0; i < projectImages.length; i++) {
-//             formData.append('projectImages', projectImages[i]);
-//           }
-//         }
-//         formData.append('projectTitle', projectTitle);
-//         formData.append('projectSubTitle', projectSubTitle || '');
-//         formData.append('projectLink', projectLink);
-//         formData.append('codeLink', codeLink);
-//         formData.append('aboutProject', aboutProject);
-//         formData.append('technicalStack', technicalStack);
-//         const response = await instance.patch(`/projects/${id}`, formData, {
-//           headers: {
-//             'Content-Type': 'multipart/form-data',
-//           },
-//         });
-//         return response.data;
-//       } catch (error: any) {
-//         return thunkAPI.rejectWithValue(error.message);
-//       }
-//     }
-//   );
+export const updateProject = createAsyncThunk(
+    'projects/updateProject',
+    async (projectData: ICreateUpdateProject, thunkAPI) => {
+      const {
+        id,
+        projectTitle,
+        projectSubTitle,
+        projectLink,
+        codeLink,
+        projectImages,
+        aboutProject,
+        technicalStack,
+      } = projectData;
+      try {
+        const formData = new FormData();
+        if (projectImages !== undefined) {
+          for (let i = 0; i < projectImages.length; i++) {
+            formData.append('projectImages', projectImages[i]);
+          }
+        }
+        formData.append('projectTitle', projectTitle);
+        formData.append('projectSubTitle', projectSubTitle || '');
+        formData.append('projectLink', projectLink);
+        formData.append('codeLink', codeLink);
+        formData.append('aboutProject', aboutProject);
+        formData.append('technicalStack', technicalStack);
+        const response = await instance.patch(`/projects/${id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        return response.data;
+      } catch (error: any) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
 
-export const getOwnProjects = createAsyncThunk(
-  'projects/getOwnProjects',
-  async (_, thunkAPI) => {
+export const getUserProjects = createAsyncThunk(
+  'projects/getUsersProjects',
+  async (userId: string, thunkAPI) => {
     try {
-      const response = await instance.get('/projects/own');
+      const response = await instance.get(`/projects/own/${userId}`);
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
@@ -103,9 +103,9 @@ export const getOwnProjects = createAsyncThunk(
 
 export const getProjectById = createAsyncThunk(
   'projects/getProjectById',
-  async (id, thunkAPI) => {
+  async (projectId: string, thunkAPI) => {
     try {
-      const response = await instance.get(`/projects/${id}`);
+      const response = await instance.get(`/projects/${projectId}`);
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);

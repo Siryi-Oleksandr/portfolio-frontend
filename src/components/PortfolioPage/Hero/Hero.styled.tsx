@@ -7,6 +7,9 @@ import tabletx2DesktopBg from 'images/hero-tablet-x2-desktop.jpg';
 import desktopx2Bg from 'images/hero-desktop-x2.jpg';
 
 export const Section = styled.section`
+  padding-top: 100px;
+  padding-bottom: 100px;
+
   height: 500px;
   display: flex;
   align-items: center;
@@ -18,6 +21,8 @@ export const Section = styled.section`
   background-color: black;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    padding-top: 150px;
+    padding-bottom: 150px;
     height: 600px;
     background-image: url(${mobilex2TabletBg});
   }
@@ -78,17 +83,17 @@ export const FullName = styled.h1`
 export const HeroName = styled.span`
   display: inline-block;
   font-family: ${theme.fonts.title};
-  font-size: 58px;
+  font-size: 42px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: ${theme.colors.white};
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    font-size: 100px;
+    font-size: 60px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 120px;
+    font-size: 80px;
   }
 `;
 
