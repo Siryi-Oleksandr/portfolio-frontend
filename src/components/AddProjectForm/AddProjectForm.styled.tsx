@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 import { Field, Form } from 'formik';
+import { BiSolidImageAdd } from 'react-icons/bi';
 
 export const StyledAddProjectForm = styled(Form)`
   display: flex;
@@ -72,5 +73,54 @@ export const LabelTextArea = styled.label`
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     grid-column: 1 / 3;
     width: 100%;
+  }
+`;
+
+export const ImageWrap = styled.div`
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #999;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    width: 237px;
+    height: 170px;
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    width: 376px;
+    height: 245px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+export const AddImgIcon = styled(BiSolidImageAdd)`
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  cursor: pointer;
+  color: ${theme.colors.accentColor};
+`;
+
+export const ImagesWrap = styled.div`
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    gap: 16px;
   }
 `;
