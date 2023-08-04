@@ -26,10 +26,12 @@ const UserInfo: FC = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
+    document.body.style.overflow = 'auto';
   };
 
   const handleShowModal = () => {
     setShowModal(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const initialValues: IUpdateUser = {
