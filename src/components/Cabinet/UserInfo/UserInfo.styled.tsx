@@ -11,7 +11,7 @@ export const UserInfoContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  padding: 20px 20px;
+  padding: 20px 120px;
   gap: ${theme.gaps.big}px;
 
   background-image: url(${mobilex2TabletBg});
@@ -19,8 +19,12 @@ export const UserInfoContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-color: black;
+  @media screen and (max-width: ${theme.breakpoints.desktop}) {
+    padding: 20px 80px;
+  }
   @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
     flex-direction: column;
+    padding: 20px 40px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
@@ -131,8 +135,7 @@ export const EditBtn = styled(Btn)`
   line-height: 1;
   font-size: ${theme.fontSizes.l};
 
-  background-color: ${theme.colors.auth_button_background_switch};
-  /* color: ${theme.colors.accent_color_switch}; */
+  background-color: ${theme.colors.second_text_switch};
   color: ${theme.colors.accent_color_switch};
   transition: ${theme.transition.hover};
   &:hover {
