@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-frontend/static/css/main.a5cc0657.css",
-    "main.js": "/portfolio-frontend/static/js/main.6fe4bc88.js",
+    "main.css": "/portfolio-frontend/static/css/main.8270125e.css",
+    "main.js": "/portfolio-frontend/static/js/main.846e36db.js",
     "static/media/Bg.jpg": "/portfolio-frontend/static/media/Bg.0a7499a3396c6d2d33f6.jpg",
     "static/media/hero-desktop-x2.jpg": "/portfolio-frontend/static/media/hero-desktop-x2.45e7dddd7c8a7d193f84.jpg",
     "static/media/Montserrat-Medium.woff2": "/portfolio-frontend/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
@@ -17,11 +17,11 @@
     "static/media/slick.ttf": "/portfolio-frontend/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/portfolio-frontend/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio-frontend/index.html",
-    "main.a5cc0657.css.map": "/portfolio-frontend/static/css/main.a5cc0657.css.map",
-    "main.6fe4bc88.js.map": "/portfolio-frontend/static/js/main.6fe4bc88.js.map"
+    "main.8270125e.css.map": "/portfolio-frontend/static/css/main.8270125e.css.map",
+    "main.846e36db.js.map": "/portfolio-frontend/static/js/main.846e36db.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5cc0657.css",
-    "static/js/main.6fe4bc88.js"
+    "static/css/main.8270125e.css",
+    "static/js/main.846e36db.js"
   ]
 }
