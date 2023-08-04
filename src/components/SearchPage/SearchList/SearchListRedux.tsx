@@ -8,7 +8,7 @@ import { useAppDispatch } from 'redux/reduxHooks';
 import {
   selectFoundUsers,
   selectIsLoading,
-  selectTotalUsersCount,
+  totalUsersCount,
 } from 'redux/searchUsers/searchUsersSelectors';
 import {
   ListContainer,
@@ -31,7 +31,7 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
   const dispatch = useAppDispatch();
 
   const users = useAppSelector(selectFoundUsers);
-  const totalUsers = useAppSelector(selectTotalUsersCount);
+  const totalUsers = useAppSelector(totalUsersCount);
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
