@@ -1,7 +1,6 @@
 import { instance } from 'redux/auth/operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-hot-toast';
-import { tostStyleError } from 'redux/auth/operations';
+
 
 export const searchUsers = createAsyncThunk(
   'users/searchUsers',
@@ -12,9 +11,19 @@ export const searchUsers = createAsyncThunk(
       );
       return response.data;
     } catch (error: any) {
-      toast.error(`Sorry ${query} does not exist in the base!`, {
-        style: tostStyleError,
-      });
+
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getUserById = createAsyncThunk(
+  'users/getUserById',
+  async (id: string, thunkAPI) => {
+    try {
+      const response = await instance.get(`/${id}`);
+      return response.data;
+    } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }

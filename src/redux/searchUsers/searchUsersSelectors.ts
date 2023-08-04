@@ -4,3 +4,4 @@ export const selectFoundUsers = (state: IStateSearch) =>
 export const selectIsLoading = (state: IStateSearch) => state.search.isLoading;
 export const selectError = (state: IStateSearch) => state.search.error;
 export const totalUsersCount = (state: IStateSearch) => state.search.totalCount;
+export const userById = (state: IStateSearch) => state.search.userById;
