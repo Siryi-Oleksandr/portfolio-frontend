@@ -1,7 +1,8 @@
+import AddProjectForm from 'components/AddProjectForm/AddProjectForm';
 import React, { FC } from 'react';
 
 const AddProject: FC = () => {
-  return <>Толік, сунь сюди свою форму</>;
+  return <AddProjectForm />;
 };
 
 export default AddProject;

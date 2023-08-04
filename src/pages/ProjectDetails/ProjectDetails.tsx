@@ -26,7 +26,7 @@ const ProjectDetails: FC = () => {
     projectSubTitle:
       'Sky Go Desktop react javascript web application build on top of the Electron framework.',
     projectLink: 'https://caferati.me/portfolio/sky-go-desktop',
-    codeLink: 'gitHub',
+    codeLink: 'https://github.com/Siryi-Oleksandr/portfolio-frontend',
     projectImages: [
       'https://caferati.me/images/portfolio/sky-go-desktop/1.jpg',
       'https://caferati.me/images/portfolio/sky-go-desktop/2.jpg',
@@ -42,6 +42,7 @@ const ProjectDetails: FC = () => {
     projectSubTitle,
     projectLink,
     aboutProject,
+    codeLink,
     technicalStack,
     projectImages,
   } = projectState;
@@ -56,7 +57,7 @@ const ProjectDetails: FC = () => {
             <ProjectLinkIcon />
             Website
           </ProjectLink>
-          <CodeLink type="danger">
+          <CodeLink type="danger" href={codeLink}>
             <CodeLinkIcon />
             <span>Code</span>
           </CodeLink>
@@ -76,7 +77,9 @@ const ProjectDetails: FC = () => {
           <Line />
           <TechnicalList>
             {technicalStack.map(tech => (
-              <TechnicalListItem key={tech}><TechnicalListItemText>{tech}</TechnicalListItemText></TechnicalListItem>
+              <TechnicalListItem key={tech}>
+                <TechnicalListItemText>{tech}</TechnicalListItemText>
+              </TechnicalListItem>
             ))}
           </TechnicalList>
         </ProjectAboutContainer>

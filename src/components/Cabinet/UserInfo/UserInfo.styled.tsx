@@ -76,7 +76,7 @@ export const AboutWrap = styled.div`
 `;
 
 export const AboutText = styled.p`
-  color: ${theme.colors.primary_text_switch};
+  color: ${theme.colors.lightGray};
   font-family: ${theme.fonts.text};
   font-size: ${theme.fontSizes.l};
   text-align: start;
