@@ -10,11 +10,12 @@ import {
 } from 'redux-persist';
 import { persistedAuthReducer } from './auth/authSlice';
 import searchSliceReducer from './searchUsers/searchUsersSlice';
-
+import projectSliceReducer from './project/projectSlice';
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     search: searchSliceReducer,
+    projects: projectSliceReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({

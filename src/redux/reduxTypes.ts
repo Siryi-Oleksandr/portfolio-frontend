@@ -1,4 +1,5 @@
 import { IUser } from 'types/userTypes';
+import { IProject2 } from 'types/projectTypes2';
 
 export interface IPostUser {
   _id: string;
@@ -36,7 +37,7 @@ export interface IUpdateUser {
 }
 
 export interface ICreateUpdateProject {
-  id?:string;
+  id?: string;
   projectTitle: string;
   projectSubTitle?: string;
   projectLink: string;
@@ -44,6 +45,18 @@ export interface ICreateUpdateProject {
   projectImages?: File[];
   aboutProject: string;
   technicalStack: string;
+}
+
+export interface IProjectState {
+  allProjects: IProject2[];
+  userProjects: IProject2[];
+  projectById: IProject2;
+  isLoading: boolean;
+  error: any;
+}
+
+export interface IStateProject {
+  projects: IProjectState;
 }
 
 export interface ISearchState {

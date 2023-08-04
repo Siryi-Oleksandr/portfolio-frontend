@@ -1,78 +1,91 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IProjectState } from 'redux/reduxTypes';
 
-import  { getAllProjects,createProject,updateProject,getUserProjects,getProjectById,deleteProject } from './operations';
+import {
+  getAllProjects,
+  createProject,
+  updateProject,
+  getUserProjects,
+  getProjectById,
+  deleteProject,
+} from './operations';
 
-const initialState = {
-  allProjects: [Object],
-  userProjects: [Object],
+const initialState: IProjectState = {
+  allProjects: [],
+  userProjects: [],
   projectById: {},
   isLoading: false,
   error: null,
 };
 
+const handlePending = (state: IProjectState) => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const handleRejected = (state: IProjectState, action: PayloadAction<any>) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 const projectsSlice = createSlice({
-    name: 'projects',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-      builder.addCase(getAllProjects.pending, (state) => {
-        state.isLoading = true;
+  name: 'projects',
+  initialState,
+  reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(getAllProjects.pending, handlePending)
+      .addCase(createProject.pending, handlePending)
+      .addCase(updateProject.pending, handlePending)
+      .addCase(getUserProjects.pending, handlePending)
+      .addCase(deleteProject.pending, handlePending)
+      .addCase(getProjectById.pending, handlePending)
+      .addCase(getAllProjects.rejected, handleRejected)
+      .addCase(createProject.rejected, handleRejected)
+      .addCase(updateProject.rejected, handleRejected)
+      .addCase(getUserProjects.rejected, handleRejected)
+      .addCase(getProjectById.rejected, handleRejected)
+      .addCase(deleteProject.rejected, handleRejected)
+      .addCase(getAllProjects.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.error = null;
-      }).addCase(createProject.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      }).addCase(updateProject.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      }).addCase(getUserProjects.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      }).addCase(deleteProject.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      }).addCase(getAllProjects.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(createProject.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(updateProject.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(getUserProjects.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(getProjectById.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(deleteProject.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(getAllProjects.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.allProjects = action.payload;
-      }).addCase(createProject.fulfilled, (state, action) => {
+      })
+      .addCase(createProject.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.userProjects.push(action.payload);
-      }).addCase(updateProject.fulfilled, (state, action) => {
+      })
+      .addCase(updateProject.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         const updatedProject = action.payload;
-        const index = state.userProjects.findIndex((project) => project.id === updatedProject.id);
+        const index = state.userProjects.findIndex(
+          project => project._id === updatedProject._id
+        );
         if (index !== -1) {
           state.userProjects[index] = updatedProject;
         }
-      }).addCase(getUserProjects.fulfilled, (state, action) => {
+      })
+      .addCase(getUserProjects.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userProjects = action.payload;
-      }).addCase(getProjectById.pending, (state) => {
-        state.isLoading = true;
         state.error = null;
-      }).addCase(getProjectById.fulfilled, (state, action) => {
+        state.userProjects = action.payload;
+      })
+      .addCase(getProjectById.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.projectById = action.payload;
-      }).addCase(deleteProject.fulfilled, (state, action) => {
+      })
+      .addCase(deleteProject.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userProjects = state.userProjects.filter((project) => project.id !== action.payload);
+        state.error = null;
+        const index = state.userProjects.findIndex(
+          project => project._id === action.payload
+        );
+        state.userProjects.splice(index, 1);
       });
-    },
-  });
+  },
+});
+
+export default projectsSlice.reducer;
