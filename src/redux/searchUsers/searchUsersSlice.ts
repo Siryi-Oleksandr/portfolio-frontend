@@ -8,6 +8,7 @@ const initialState: ISearchState = {
   userById: {},
   totalCount: 0,
   isLoading: false,
+  isLoadingMore: false,
   error: null,
 };
 
@@ -29,6 +30,9 @@ const searchSlice = createSlice({
       state.foundUsers = [];
       state.totalCount = 0;
     },
+    isLoadMore: state => {
+      state.isLoadingMore = true;
+    },
   },
   extraReducers: builder => {
     builder
@@ -45,6 +49,7 @@ const searchSlice = createSlice({
           state.foundUsers.push(...action.payload.users);
           state.totalCount = action.payload.totalCount;
           state.isLoading = false;
+          state.isLoadingMore = false;
           state.error = null;
         }
       )
@@ -57,5 +62,5 @@ const searchSlice = createSlice({
   },
 });
 
-export const { resetSearchUsers } = searchSlice.actions;
+export const { resetSearchUsers, isLoadMore } = searchSlice.actions;
 export default searchSlice.reducer;

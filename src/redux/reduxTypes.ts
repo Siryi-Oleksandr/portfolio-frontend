@@ -65,6 +65,7 @@ export interface ISearchState {
   foundUsers: IUser[];
   userById: Partial<IUser>;
   totalCount: number;
+  isLoadingMore: boolean;
   isLoading: boolean;
   error: any;
 }

@@ -5,8 +5,8 @@ const SmallLoader: FC = () => {
   return (
     <>
       <ThreeCircles
-        height="35"
-        width="35"
+        height="34"
+        width="34"
         color="#FE390C"
         visible={true}
         ariaLabel="three-circles-rotating"
