@@ -34,6 +34,12 @@ const UserInfo: FC = () => {
     document.body.style.overflow = 'hidden';
   };
 
+  let stringStack = '';
+
+  if (user.technicalStack !== undefined) {
+    stringStack = user.technicalStack.join(', ');
+  }
+
   const initialValues: IUpdateUser = {
     avatarURL: user.avatarURL || '',
     name: user.name,
@@ -46,7 +52,7 @@ const UserInfo: FC = () => {
     linkedinURL: user.linkedinURL || '',
     gitHubURL: user.gitHubURL || '',
     summary: user.summary || '',
-    technicalStack: user.technicalStack || '',
+    technicalStack: stringStack,
   };
   return (
     <IconContext.Provider value={{ className: 'slider-icons' }}>

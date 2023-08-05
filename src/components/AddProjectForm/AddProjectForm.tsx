@@ -54,7 +54,6 @@ const AddProjectForm: FC = () => {
     formikProps: any
   ) => {
     const files = event.currentTarget.files;
-    console.log(files);
 
     if (!files || files.length === 0) {
       toast.error('File not selected!');
@@ -67,9 +66,9 @@ const AddProjectForm: FC = () => {
       return;
     }
 
-    if (image1.size >= 1000000) {
+    if (image1.size >= 5000000) {
       toast.error(
-        `Selected file is too large! Please select a file under 1MB in size!`
+        `Selected file is too large! Please select a file under 5MB in size!`
       );
       return;
     }
@@ -96,9 +95,9 @@ const AddProjectForm: FC = () => {
       return;
     }
 
-    if (image2.size >= 1000000) {
+    if (image2.size >= 5000000) {
       toast.error(
-        `Selected file is too large! Please select a file under 1MB in size!`
+        `Selected file is too large! Please select a file under 5MB in size!`
       );
       return;
     }
@@ -125,9 +124,9 @@ const AddProjectForm: FC = () => {
       return;
     }
 
-    if (image3.size >= 1000000) {
+    if (image3.size >= 5000000) {
       toast.error(
-        `Selected file is too large! Please select a file under 1MB in size!`
+        `Selected file is too large! Please select a file under 5MB in size!`
       );
       return;
     }
