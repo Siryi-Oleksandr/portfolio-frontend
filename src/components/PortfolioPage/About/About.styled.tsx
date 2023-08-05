@@ -93,6 +93,7 @@ export const CustomersNumber = styled.span`
 export const AboutUser = styled.div`
   margin-bottom: 35px;
   display: flex;
+  justify-content: center;
   gap: 15px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
