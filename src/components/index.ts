@@ -29,6 +29,7 @@ import NoResults from './SearchPage/NoResults/NoResults';
 import CabinetUserInfo from './Cabinet/CabinetUserInfo/CabinetUserInfo';
 import CabinetProjectList from './Cabinet/CabinetProjectList/CabinetProjectList';
 import StackList from './PortfolioPage/StackList/StackList';
+import Portfolio from './PortfolioPage/Portfolio';
 
 export {
   App,
@@ -62,4 +63,5 @@ export {
   CabinetUserInfo,
   CabinetProjectList,
   StackList,
+  Portfolio,
 };

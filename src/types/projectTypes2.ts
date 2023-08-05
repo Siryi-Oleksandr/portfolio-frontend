@@ -6,6 +6,6 @@ export interface IProject2 {
   codeLink: string;
   projectImages: { posterURL: string; posterID: string }[];
   aboutProject: string;
-  technicalStack:string;
+  technicalStack: string[];
   owner: string;
 }

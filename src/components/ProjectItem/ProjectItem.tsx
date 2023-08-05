@@ -10,9 +10,9 @@ import {
   Title,
 } from './ProjectItem.styled';
 import TagList from './TagList/TagList';
-import { IProject } from 'types/projectTypes';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
+import { IProject2 } from 'types/projectTypes2';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -35,7 +35,7 @@ const item = {
 };
 
 type Props = {
-  project: IProject;
+  project: IProject2;
 };
 
 const ProjectItem: FC<Props> = ({ project }) => {
@@ -50,25 +50,25 @@ const ProjectItem: FC<Props> = ({ project }) => {
   };
 
   const {
-    id: projectId,
-    title,
-    // description,
-    // linkToCode,
-    // linkToWebSite,
-    technologies,
-    posters,
+    _id: projectId,
+    projectTitle,
+    technicalStack,
+    projectImages,
   } = project;
   return (
     <Item onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to={`/projectDetails/${projectId}`}>
         <Bar>
-          <Title>{title}</Title>
+          <Title>{projectTitle}</Title>
           <IconsBlock />
         </Bar>
         <ImgWrapper>
-          <Img src={posters[0].url} alt={posters[0].title} />
+          <Img
+            src={projectImages[0].posterURL}
+            alt={`poster of ${projectTitle}`}
+          />
           <Overlay className="nested-component">
-            <TagList tags={technologies} isHover={isHovered} />
+            <TagList tags={technicalStack} isHover={isHovered} />
             {/* animation  "btn-more"*/}
             <motion.div
               className="btn-more-container"

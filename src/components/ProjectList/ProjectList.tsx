@@ -1,16 +1,19 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import ProjectItem from 'components/ProjectItem/ProjectItem';
 import { List } from './ProjectList.styled';
-import projectsDb from 'bd/projects.json';
-import { IProject } from 'types/projectTypes';
+import { IProject2 } from 'types/projectTypes2';
 
-const ProjectList: FC = () => {
-  const [projects] = useState<Array<IProject>>(projectsDb || []);
+type Props = {
+  projects: IProject2[];
+};
+
+const ProjectList: FC<Props> = ({ projects }) => {
+  // const [projects] = useState<Array<IProject>>(projectsDb || []);
 
   return (
     <List>
       {projects.map(project => (
-        <ProjectItem key={project.id} project={project} />
+        <ProjectItem key={project._id} project={project} />
       ))}
     </List>
   );

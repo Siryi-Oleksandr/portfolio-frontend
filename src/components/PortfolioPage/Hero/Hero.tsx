@@ -11,8 +11,14 @@ import {
   HeroWrapper,
 } from './Hero.styled';
 import SocialList from '../SocialList/SocialList';
+import { IUser } from 'types/userTypes';
 
-const PortfolioHero: FC = () => {
+type Props = {
+  user: IUser;
+};
+
+const PortfolioHero: FC<Props> = ({ user }) => {
+  const { name, surname, profession } = user;
   return (
     <Section>
       <Container>
@@ -22,11 +28,11 @@ const PortfolioHero: FC = () => {
               Hello, <span>I'm</span>
             </SubTitle>
             <FullName>
-              <HeroName>Robert</HeroName>
-              <HeroSurname>Fox</HeroSurname>
+              <HeroName>{name}</HeroName>
+              <HeroSurname>{surname}</HeroSurname>
             </FullName>
 
-            <Proffecion>Full Stack Developer</Proffecion>
+            <Proffecion>{profession}</Proffecion>
             <MainBtn text="Let's Talk" />
           </HeroInfoWrapper>
           <SocialList />
