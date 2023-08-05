@@ -1,5 +1,6 @@
 import App from './App/App';
 import Loader from './Loader/Loader';
+import SmallLoader from './SearchPage/smallLoader';
 import Navigation from './Navigation/Navigation';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import ThemeToggler from './ThemeToggler/ThemeToggler';
@@ -20,17 +21,20 @@ import PortfolioHero from './PortfolioPage/Hero/Hero';
 import SocialLink from './SocialLink/SocialLink';
 import UserForm from './UserForm/UserForm';
 import SearchInput from './SearchPage/SearchInput/SearchInput';
+import SearchListRedux from './SearchPage/SearchList/SearchListRedux';
 import SearchList from './SearchPage/SearchList/SearchList';
-import SearchListTest from './SearchPage/SearchList/SearchListTest';
 import SearchItem from './SearchPage/SearchItem/SearchItem';
 import SearchEmpty from './SearchPage/SearchEmpty/SearchEmpty';
 import NoResults from './SearchPage/NoResults/NoResults';
+import CabinetUserInfo from './Cabinet/CabinetUserInfo/CabinetUserInfo';
+import CabinetProjectList from './Cabinet/CabinetProjectList/CabinetProjectList';
 import StackList from './PortfolioPage/StackList/StackList';
 
 export {
   App,
   Container,
   Loader,
+  SmallLoader,
   Navigation,
   NotFoundPage,
   ThemeToggler,
@@ -50,10 +54,12 @@ export {
   SocialLink,
   UserForm,
   SearchInput,
+  SearchListRedux,
   SearchList,
-  SearchListTest,
   SearchItem,
   SearchEmpty,
   NoResults,
+  CabinetUserInfo,
+  CabinetProjectList,
   StackList,
 };

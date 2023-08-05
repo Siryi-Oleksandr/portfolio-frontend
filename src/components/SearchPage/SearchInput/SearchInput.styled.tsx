@@ -33,12 +33,12 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   width: 100%;
   height: 41px;
-  padding-left: 15px;
-  padding-right: 50px;
-  border-top: 3px solid transparent;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid transparent;
+  padding-left: 45px;
+  padding-right: 15px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   background-color: transparent;
   font-size: 14px;
   font-weight: 500;
@@ -50,10 +50,8 @@ export const Input = styled.input`
     font-size: 16px;
   }
 
-  &:focus {
+  :focus {
     outline: none;
-    border-left: 3px solid ${theme.colors.accentColor};
-    border-right: 3px solid ${theme.colors.accentColor};
     border-color: ${theme.colors.accentColor};
   }
 `;
@@ -64,24 +62,25 @@ export const SubmitBtn = styled.button`
   align-items: center;
   position: absolute;
   top: 0px;
-  right: 5px;
+  left: 5px;
   border: none;
   background-color: transparent;
   width: 40px;
   height: 40px;
   cursor: pointer;
+
+  :hover svg,
+  :focus svg {
+    transform: rotate(0);
+  }
 `;
 
 export const SearchIcon = styled(BsSearch)`
   width: 20px;
   height: 20px;
 
+  transform: rotate(45deg);
+  transition: ${theme.transition.hover};
+
   fill: #fff;
 `;
-
-// background: linear-gradient(
-//     to bottom,
-//     rgba(0, 0, 0, 0.7),
-//     rgba(0, 0, 0, 0.1)
-//   );
-//   background-color: #404040;

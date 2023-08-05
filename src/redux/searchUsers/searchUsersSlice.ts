@@ -27,6 +27,7 @@ const searchSlice = createSlice({
   reducers: {
     resetSearchUsers: state => {
       state.foundUsers = [];
+      state.totalCount = 0;
     },
   },
   extraReducers: builder => {
