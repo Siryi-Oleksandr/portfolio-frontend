@@ -15,6 +15,7 @@ import Logo from './Logo/Logo';
 
 const Navigation: FC = () => {
   const { isLoggedIn, user } = useAuth();
+  const example = 'example';
 
   return (
     <>
@@ -27,7 +28,9 @@ const Navigation: FC = () => {
             <Link to="/">Home</Link>
             <Link to="/search">Search</Link>
             {isLoggedIn && <Link to="/cabinet">Cabinet</Link>}
-            <Link to={`/portfolio/${user._id}`}>Portfolio</Link>
+            <Link to={`/portfolio/${user._id ? user._id : example}`}>
+              Portfolio
+            </Link>
             <Link to="/projectDetails">Project</Link>
           </nav>
         </NavWrap>
