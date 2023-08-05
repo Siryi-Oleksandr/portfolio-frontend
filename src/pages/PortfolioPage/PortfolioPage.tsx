@@ -4,7 +4,7 @@ import { Loader, Portfolio } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getUserById } from 'redux/searchUsers/operations';
 import { getUserProjects } from 'redux/project/operations';
-import { useProjects, useSearch, useViewportWidth } from 'hooks';
+import { useProjects, useSearch } from 'hooks';
 
 const PortfolioPage: FC = () => {
   const [isGuest, setIsGuest] = useState(false);
