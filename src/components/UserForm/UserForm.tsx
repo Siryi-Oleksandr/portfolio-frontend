@@ -28,6 +28,12 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   const user: IUser = useAppSelector(selectUser);
   const [userAvatar, setUserAvatar] = useState<any>(user.avatarURL);
 
+  let stringStack = '';
+
+  if (user.technicalStack !== undefined) {
+    stringStack = user.technicalStack.join(', ');
+  }
+
   const initialValues: IUpdateUser = {
     avatarURL: user.avatarURL || '',
     name: user.name,
@@ -39,7 +45,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
     telegram: user.telegram || '',
     linkedinURL: user.linkedinURL || '',
     gitHubURL: user.gitHubURL || '',
-    technicalStack: user.technicalStack || '',
+    technicalStack: stringStack || '',
     summary: user.summary || '',
   };
 
