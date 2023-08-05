@@ -1,8 +1,4 @@
-import {
-  AiOutlineHome,
-  AiOutlineSearch,
-  AiFillFolderOpen,
-} from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineSearch } from 'react-icons/ai';
 import { BiCabinet } from 'react-icons/bi';
 import { SidebarItem } from 'types/SidebarItem';
 
@@ -22,11 +18,11 @@ export const SidebarData: SidebarItem[] = [
     path: '/cabinet',
     icon: <BiCabinet size="25px" />,
   },
-  {
-    title: 'Portfolio',
-    path: '/portfolio/:userId',
-    icon: <AiFillFolderOpen size="25px" />,
-  },
+  // {
+  //   title: 'Portfolio',
+  //   path: '/portfolio/:userId',
+  //   icon: <AiFillFolderOpen size="25px" />,
+  // },
 
   // {
   //   title: 'Contacts',

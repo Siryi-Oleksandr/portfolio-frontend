@@ -1,6 +1,11 @@
 import React, { FC, useState } from 'react';
 import { IconContext } from 'react-icons';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiFillFolderOpen,
+} from 'react-icons/ai';
+
 import { SidebarData } from './SidebarData';
 import Submenu from './Submenu';
 import { useRef } from 'react';
@@ -17,11 +22,13 @@ import {
 } from './Sidebar.styled';
 import { useAuth } from 'hooks/useAuth';
 import { RegisterSlideBtn, LoginSlideBtn, LogoutSlideBtn } from '../LoginBtn';
+import { BtnSlideText, AuthSlideIcon } from '../LoginBtn/loginSlide.styled';
 
 const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState<string>('false');
   const showSidebar = () => setSidebar('true');
   const closeSidebar = () => setSidebar('false');
+  const example = 'example';
 
   const ref = useRef(null);
   const handleClickOutside = () => {
@@ -60,6 +67,13 @@ const Sidebar: FC = () => {
                 <Submenu item={item} key={index} closeSidebar={closeSidebar} />
               );
             })}
+            <AuthSlideIcon
+              to={`/portfolio/${user._id ? user._id : example}`}
+              onClick={closeSidebar}
+            >
+              <AiFillFolderOpen size="24px" />
+              <BtnSlideText>Portfolio</BtnSlideText>
+            </AuthSlideIcon>
             {!isLoggedIn ? (
               <LoginSlideBtn closeSidebar={closeSidebar} />
             ) : (

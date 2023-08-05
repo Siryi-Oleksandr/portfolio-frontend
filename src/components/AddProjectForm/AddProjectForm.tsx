@@ -1,5 +1,5 @@
 import { ErrorMessage, Formik, FormikHelpers } from 'formik';
-import React, { ChangeEvent, FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   Label,
   LabelTextArea,
@@ -17,15 +17,15 @@ import { FormAddProjectUpdateSchema } from 'services/yupSchemas';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { createProject } from 'redux/project/operations';
-import { toast } from 'react-hot-toast';
 import placeholder from '../../images/placeholder-image.jpg';
 import { useNavigate } from 'react-router-dom';
+import { handleFormikImageUpload } from 'services';
 
 const AddProjectForm: FC = () => {
   const dispatch = useAppDispatch();
-  const [projectImg1, setProjectImg1] = useState<any>(placeholder);
-  const [projectImg2, setProjectImg2] = useState<any>(placeholder);
-  const [projectImg3, setProjectImg3] = useState<any>(placeholder);
+  const [projectImg1, setProjectImg1] = useState<string>(placeholder);
+  const [projectImg2, setProjectImg2] = useState<string>(placeholder);
+  const [projectImg3, setProjectImg3] = useState<string>(placeholder);
   const navigate = useNavigate();
 
   const initialValues: ICreateUpdateProject = {
@@ -47,94 +47,6 @@ const AddProjectForm: FC = () => {
     actions.resetForm();
     dispatch(createProject(values));
     navigate('/cabinet');
-  };
-
-  const handleImg1Upload = (
-    event: ChangeEvent<HTMLInputElement>,
-    formikProps: any
-  ) => {
-    const files = event.currentTarget.files;
-
-    if (!files || files.length === 0) {
-      toast.error('File not selected!');
-      return;
-    }
-
-    const image1 = files[0];
-    if (image1.type !== 'image/png' && image1.type !== 'image/jpeg') {
-      toast.error(`Invalid file format! Please choose a PNG or JPEG image!`);
-      return;
-    }
-
-    if (image1.size >= 5000000) {
-      toast.error(
-        `Selected file is too large! Please select a file under 5MB in size!`
-      );
-      return;
-    }
-
-    if (image1) {
-      formikProps.setFieldValue('image1', image1);
-      setProjectImg1(URL.createObjectURL(image1));
-    }
-  };
-
-  const handleImg2Upload = (
-    event: ChangeEvent<HTMLInputElement>,
-    formikProps: any
-  ) => {
-    const files = event.currentTarget.files;
-
-    if (!files || files.length === 0) {
-      toast.error('File not selected!');
-      return;
-    }
-    const image2 = files[0];
-    if (image2.type !== 'image/png' && image2.type !== 'image/jpeg') {
-      toast.error(`Invalid file format! Please choose a PNG or JPEG image!`);
-      return;
-    }
-
-    if (image2.size >= 5000000) {
-      toast.error(
-        `Selected file is too large! Please select a file under 5MB in size!`
-      );
-      return;
-    }
-
-    if (image2) {
-      formikProps.setFieldValue('image2', image2);
-      setProjectImg2(URL.createObjectURL(image2));
-    }
-  };
-
-  const handleImg3Upload = (
-    event: ChangeEvent<HTMLInputElement>,
-    formikProps: any
-  ) => {
-    const files = event.currentTarget.files;
-
-    if (!files || files.length === 0) {
-      toast.error('File not selected!');
-      return;
-    }
-    const image3 = files[0];
-    if (image3.type !== 'image/png' && image3.type !== 'image/jpeg') {
-      toast.error(`Invalid file format! Please choose a PNG or JPEG image!`);
-      return;
-    }
-
-    if (image3.size >= 5000000) {
-      toast.error(
-        `Selected file is too large! Please select a file under 5MB in size!`
-      );
-      return;
-    }
-
-    if (image3) {
-      formikProps.setFieldValue('image3', image3);
-      setProjectImg3(URL.createObjectURL(image3));
-    }
   };
 
   return (
@@ -226,8 +138,15 @@ const AddProjectForm: FC = () => {
                 <input
                   type="file"
                   multiple
-                  name="image3"
-                  onChange={event => handleImg1Upload(event, props)}
+                  name="image1"
+                  onChange={event =>
+                    handleFormikImageUpload(
+                      event,
+                      props,
+                      'image1',
+                      setProjectImg1
+                    )
+                  }
                   style={{ display: 'none' }}
                 />
                 <AddImgIcon />
@@ -241,7 +160,14 @@ const AddProjectForm: FC = () => {
                   type="file"
                   multiple
                   name="image2"
-                  onChange={event => handleImg2Upload(event, props)}
+                  onChange={event =>
+                    handleFormikImageUpload(
+                      event,
+                      props,
+                      'image2',
+                      setProjectImg2
+                    )
+                  }
                   style={{ display: 'none' }}
                 />
                 <AddImgIcon />
@@ -254,7 +180,14 @@ const AddProjectForm: FC = () => {
                   type="file"
                   multiple
                   name="image3"
-                  onChange={event => handleImg3Upload(event, props)}
+                  onChange={event =>
+                    handleFormikImageUpload(
+                      event,
+                      props,
+                      'image3',
+                      setProjectImg3
+                    )
+                  }
                   style={{ display: 'none' }}
                 />
                 <AddImgIcon />
