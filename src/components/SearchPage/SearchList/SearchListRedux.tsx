@@ -57,7 +57,7 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
       dispatch(resetSearchUsers());
     }
 
-    if (page !== 1) {
+    if (page > 1) {
       dispatch(isLoadMore());
     }
 

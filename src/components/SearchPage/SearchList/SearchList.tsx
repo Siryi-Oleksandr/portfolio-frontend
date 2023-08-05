@@ -52,7 +52,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
       setUsers([]);
     }
 
-    if (page !== 1) {
+    if (page > 1) {
       setIsLoadMoreLoading(true);
     }
     setIsEmptySeach(false);
