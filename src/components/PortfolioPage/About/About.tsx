@@ -10,8 +10,6 @@ import {
   ExperienceInfo,
   AboutUser,
   Summary,
-  Title,
-  Number,
   AboutWrapper,
 } from './About.styled';
 
@@ -20,6 +18,7 @@ import handX1 from 'images/portfolio/about/about-hand-1x.jpg';
 import handX2 from 'images/portfolio/about/about-hand-2x.jpg';
 import laptopX1 from 'images/portfolio/about/about-laptop-1x.jpg';
 import laptopX2 from 'images/portfolio/about/about-laptop-2x.jpg';
+import SectionTitle from '../Title/Title';
 
 function About() {
   return (
@@ -57,9 +56,8 @@ function About() {
       </WorthWrapper>
 
       <AboutUser>
-        <Number>01</Number>
         <AboutWrapper>
-          <Title>About me</Title>
+          <SectionTitle number="01" text="About me" />
           <Summary>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit officia consequat duis enim velit mollit. Exercitation

@@ -25,6 +25,7 @@ import SearchListTest from './SearchPage/SearchList/SearchListTest';
 import SearchItem from './SearchPage/SearchItem/SearchItem';
 import SearchEmpty from './SearchPage/SearchEmpty/SearchEmpty';
 import NoResults from './SearchPage/NoResults/NoResults';
+import StackList from './PortfolioPage/StackList/StackList';
 
 export {
   App,
@@ -54,4 +55,5 @@ export {
   SearchItem,
   SearchEmpty,
   NoResults,
+  StackList,
 };
