@@ -7,13 +7,13 @@ import {
 } from 'redux/project/projectSelectors';
 
 export const useProjects = () => {
-  const projects = useAppSelector(selectAllProjects);
+  const allPprojects = useAppSelector(selectAllProjects);
   const userProjects = useAppSelector(selectUserProjects);
   const projectById = useAppSelector(selectProjectById);
   const isProjectLoading = useAppSelector(selectisLoading);
 
   return {
-    projects,
+    allPprojects,
     userProjects,
     projectById,
     isProjectLoading,

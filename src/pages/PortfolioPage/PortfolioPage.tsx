@@ -9,9 +9,12 @@ import { useProjects, useSearch } from 'hooks';
 const PortfolioPage: FC = () => {
   const [isGuest, setIsGuest] = useState(false);
   let { userId = 'example' } = useParams();
-  const { projects, isProjectLoading } = useProjects();
+  const { userProjects, isProjectLoading } = useProjects();
   const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
+
+  console.log('user==>', user);
+  console.log('projects==>', userProjects);
 
   useEffect(() => {
     if (userId === 'example') {
@@ -28,7 +31,7 @@ const PortfolioPage: FC = () => {
       {isGuest ? (
         <p>Заглушка</p>
       ) : (
-        <Portfolio user={user ? user : {}} projects={projects} />
+        <Portfolio user={user ? user : {}} projects={userProjects} />
       )}
     </>
   );
