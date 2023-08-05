@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import ProjectItem from 'components/ProjectItem/ProjectItem';
 import { List } from './ProjectList.styled';
-import { IProject2 } from 'types/projectTypes2';
+import { IProject } from 'types/projectTypes';
 
 type Props = {
-  projects: IProject2[];
+  projects: IProject[];
 };
 
 const ProjectList: FC<Props> = ({ projects }) => {

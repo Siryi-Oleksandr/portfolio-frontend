@@ -28,7 +28,7 @@ const PortfolioPage: FC = () => {
       {isGuest ? (
         <p>Заглушка</p>
       ) : (
-        <Portfolio user={user} projects={projects} />
+        <Portfolio user={user ? user : {}} projects={projects} />
       )}
     </>
   );

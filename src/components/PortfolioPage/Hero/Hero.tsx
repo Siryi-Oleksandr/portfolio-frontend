@@ -14,7 +14,7 @@ import SocialList from '../SocialList/SocialList';
 import { IUser } from 'types/userTypes';
 
 type Props = {
-  user: IUser;
+  user: Partial<IUser>;
 };
 
 const PortfolioHero: FC<Props> = ({ user }) => {

@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import { IProject2 } from 'types/projectTypes2';
 import { IUser } from 'types/userTypes';
 import PortfolioHero from './Hero/Hero';
 import { Container, ProjectList, StackList } from 'components';
 import About from './About/About';
 import { useViewportWidth } from 'hooks';
 import SectionTitle from './Title/Title';
+import { IProject } from 'types/projectTypes';
 
 type Props = {
-  user: IUser;
-  projects: IProject2[];
+  user: Partial<IUser>;
+  projects: IProject[];
 };
 
 const Portfolio: FC<Props> = ({ user, projects }) => {

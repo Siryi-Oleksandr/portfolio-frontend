@@ -12,7 +12,7 @@ import {
 import TagList from './TagList/TagList';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
-import { IProject2 } from 'types/projectTypes2';
+import { IProject } from 'types/projectTypes';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -35,7 +35,7 @@ const item = {
 };
 
 type Props = {
-  project: IProject2;
+  project: IProject;
 };
 
 const ProjectItem: FC<Props> = ({ project }) => {
