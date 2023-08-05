@@ -8,7 +8,7 @@ export interface IUser {
   phone?: string;
   telegram?: string;
   summary?: string;
-  technicalStack?: string;
+  technicalStack?: string[];
   avatarURL?: string;
   linkedinURL?: string;
   gitHubURL?: string;
