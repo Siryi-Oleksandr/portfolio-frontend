@@ -1,5 +1,5 @@
 import { IUser } from 'types/userTypes';
-import { IProject2 } from 'types/projectTypes2';
+import { IProject } from 'types/projectTypes';
 
 export interface IPostUser {
   _id: string;
@@ -50,9 +50,9 @@ export interface ICreateUpdateProject {
 }
 
 export interface IProjectState {
-  allProjects: IProject2[];
-  userProjects: IProject2[];
-  projectById: Partial<IProject2>;
+  allProjects: IProject[];
+  userProjects: IProject[];
+  projectById: Partial<IProject>;
   isLoading: boolean;
   error: any;
 }

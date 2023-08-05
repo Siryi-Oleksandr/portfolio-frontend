@@ -100,21 +100,6 @@ export const AboutUser = styled.div`
   }
 `;
 
-export const Title = styled.h2`
-  color: ${theme.colors.primary_text_switch};
-  font-family: ${theme.fonts.title};
-  font-size: 32px;
-  text-align: left;
-  line-height: normal;
-  letter-spacing: 0.64px;
-  text-transform: uppercase;
-  transition: ${theme.transition.hover};
-
-  @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 40px;
-    letter-spacing: 0.8px;
-  }
-`;
 export const Summary = styled.p`
   color: ${theme.colors.second_text_switch};
   font-family: ${theme.fonts.text};
@@ -129,15 +114,6 @@ export const Summary = styled.p`
     line-height: 2.28;
     letter-spacing: -0.28px;
   }
-`;
-
-export const Number = styled.span`
-  color: ${theme.colors.accentColor};
-  font-family: ${theme.fonts.title};
-  font-size: 64px;
-  line-height: normal;
-  letter-spacing: 1.28px;
-  text-transform: uppercase;
 `;
 
 export const AboutWrapper = styled.div`

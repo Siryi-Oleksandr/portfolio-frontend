@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
@@ -16,8 +16,8 @@ import {
 } from './UserForm.styled';
 import { IUpdateUser } from 'redux/reduxTypes';
 import { updateUser } from 'redux/auth/operations';
-import { toast } from 'react-hot-toast';
 import { FormUserUpdateSchema } from 'services/yupSchemas';
+import { handleFormikImageUpload } from 'services';
 
 type UserFormPorps = {
   onClose: () => void;
@@ -27,6 +27,12 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const user: IUser = useAppSelector(selectUser);
   const [userAvatar, setUserAvatar] = useState<any>(user.avatarURL);
+
+  let stringStack = '';
+
+  if (user.technicalStack !== undefined) {
+    stringStack = user.technicalStack.join(', ');
+  }
 
   const initialValues: IUpdateUser = {
     avatarURL: user.avatarURL || '',
@@ -39,7 +45,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
     telegram: user.telegram || '',
     linkedinURL: user.linkedinURL || '',
     gitHubURL: user.gitHubURL || '',
-    technicalStack: user.technicalStack || '',
+    technicalStack: stringStack || '',
     summary: user.summary || '',
   };
 
@@ -50,35 +56,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
     actions.resetForm();
     dispatch(updateUser(values));
     onClose();
-  };
-
-  const handleAvatarUpload = (
-    event: ChangeEvent<HTMLInputElement>,
-    formikProps: any
-  ) => {
-    const files = event.currentTarget.files;
-    if (!files || files.length === 0) {
-      toast.error('File not selected!');
-      return;
-    }
-
-    const file = files[0];
-    if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
-      toast.error(`Invalid file format! Please choose a PNG or JPEG image!`);
-      return;
-    }
-
-    if (file.size >= 1000000) {
-      toast.error(
-        `Selected file is too large! Please select a file under 1MB in size!`
-      );
-      return;
-    }
-
-    if (file) {
-      setUserAvatar(URL.createObjectURL(file));
-      formikProps.setFieldValue('avatar', file);
-    }
   };
 
   return (
@@ -98,7 +75,14 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <input
                   name="avatar"
                   type="file"
-                  onChange={event => handleAvatarUpload(event, props)}
+                  onChange={event =>
+                    handleFormikImageUpload(
+                      event,
+                      props,
+                      'avatar',
+                      setUserAvatar
+                    )
+                  }
                   style={{ display: 'none' }}
                 />
                 <AddIcon />
