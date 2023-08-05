@@ -6,12 +6,27 @@ import {
   AddProjectBtn,
 } from './CabinetProjectList.styled';
 import projectsDb from 'bd/projects.json';
-import { IProject } from 'types/projectTypes';
 import Container from 'components/Container/Container';
 import { MdOutlineAddCircle } from 'react-icons/md';
 
+export interface MyIProject {
+  id: string;
+  title: string;
+  description: string;
+  linkToCode: string;
+  linkToWebSite: string;
+  technologies: Array<string>;
+  posters: Array<Poster>;
+}
+
+type Poster = {
+  id: string;
+  title: string;
+  url: string;
+};
+
 const CabinetProjectList: FC = () => {
-  const [projects] = useState<Array<IProject>>(projectsDb || []);
+  const [projects] = useState<Array<MyIProject>>(projectsDb || []);
 
   return (
     <Container>

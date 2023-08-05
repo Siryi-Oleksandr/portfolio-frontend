@@ -9,11 +9,11 @@ import {
   Title,
 } from './CabinetProjectItem.styled';
 import HoverList from './HoverList/HoverList';
-import { IProject } from 'types/projectTypes';
+import { MyIProject } from '../CabinetProjectList'; 
 import 'framer.styles.css';
 
 type Props = {
-  project: IProject;
+  project: MyIProject;
 };
 
 const CabinetProjectItem: FC<Props> = ({ project }) => {

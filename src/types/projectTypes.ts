@@ -1,15 +1,11 @@
 export interface IProject {
-  id: string;
-  title: string;
-  description: string;
-  linkToCode: string;
-  linkToWebSite: string;
-  technologies: Array<string>;
-  posters: Array<Poster>;
+  _id?: string;
+  projectTitle: string;
+  projectSubTitle?: string;
+  projectLink?: string;
+  codeLink: string;
+  projectImages: { posterURL: string; posterID: string }[];
+  aboutProject: string;
+  technicalStack:string;
+  owner: string;
 }
-
-type Poster = {
-  id: string;
-  title: string;
-  url: string;
-};
