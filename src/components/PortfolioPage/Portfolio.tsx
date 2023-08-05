@@ -18,13 +18,20 @@ const Portfolio: FC<Props> = ({ user, projects }) => {
     <>
       <PortfolioHero user={user} />
       <Container>
-        <About />
+        <About user={user} />
         {viewportWidth > 768 ? (
           <SectionTitle number="02" text="My technology stack" />
         ) : (
           <SectionTitle number="02" text="My stack" />
         )}
-        <StackList techStack={['HTML, scc, JAvaScript, TypeScript']} />
+        {user.technicalStack ? (
+          <StackList techStack={user.technicalStack} />
+        ) : (
+          <p style={{ textAlign: 'center' }}>
+            Here must be your stack technology
+          </p>
+        )}
+
         <SectionTitle number="03" text="Portfolio" />
         <ProjectList projects={projects} />
       </Container>

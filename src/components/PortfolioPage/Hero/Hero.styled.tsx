@@ -63,7 +63,17 @@ export const HeroInfoWrapper = styled.div`
 
 export const HeroWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column-reverse;
+  gap: 25px;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+  }
 `;
 
 export const FullName = styled.h1`
@@ -78,6 +88,13 @@ export const FullName = styled.h1`
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     gap: 25px;
   }
+`;
+
+export const MediaWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
 `;
 
 export const HeroName = styled.span`
@@ -135,4 +152,38 @@ export const Proffecion = styled.p`
     font-size: 24px;
     line-height: calc(30 / 24);
   }
+`;
+
+export const Avawrap = styled.div`
+  width: 200px;
+  height: 200px;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: ${theme.radii.round};
+  }
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 120px;
+    height: 120px;
+  }
+`;
+
+export const AvatarImg = styled.img`
+  border: 2px solid ${theme.colors.primary_text_switch};
+  margin-right: 8px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  display: block;
+  height: auto;
+  align-self: safe;
+  justify-content: flex-start;
 `;

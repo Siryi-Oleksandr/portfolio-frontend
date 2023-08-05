@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   Section,
   CustomersWrapper,
@@ -12,6 +12,7 @@ import {
   Summary,
   AboutWrapper,
 } from './About.styled';
+import { IUser } from 'types/userTypes';
 
 // IMAGES
 import handX1 from 'images/portfolio/about/about-hand-1x.jpg';
@@ -19,8 +20,15 @@ import handX2 from 'images/portfolio/about/about-hand-2x.jpg';
 import laptopX1 from 'images/portfolio/about/about-laptop-1x.jpg';
 import laptopX2 from 'images/portfolio/about/about-laptop-2x.jpg';
 import SectionTitle from '../Title/Title';
+import { useProjects } from 'hooks';
 
-function About() {
+type Props = {
+  user: Partial<IUser>;
+};
+
+const About: FC<Props> = ({ user }) => {
+  const { experience, summary } = user;
+  const { userProjects } = useProjects();
   return (
     <Section>
       <WorthWrapper>
@@ -34,8 +42,8 @@ function About() {
           />
 
           <CustomersInfo>
-            <CustomersText>Saticfied Customers</CustomersText>
-            <CustomersNumber>25</CustomersNumber>
+            <CustomersText>Successfull Projects</CustomersText>
+            <CustomersNumber>{userProjects.length}</CustomersNumber>
           </CustomersInfo>
         </CustomersWrapper>
 
@@ -50,7 +58,7 @@ function About() {
 
           <ExperienceInfo>
             <CustomersText>Years of experience</CustomersText>
-            <CustomersNumber>8</CustomersNumber>
+            <CustomersNumber>{experience}</CustomersNumber>
           </ExperienceInfo>
         </ExperienceWrapper>
       </WorthWrapper>
@@ -59,14 +67,12 @@ function About() {
         <AboutWrapper>
           <SectionTitle number="01" text="About me" />
           <Summary>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
+            {summary ? summary : 'Here must be summary about you'}
           </Summary>
         </AboutWrapper>
       </AboutUser>
     </Section>
   );
-}
+};
 
 export default About;
