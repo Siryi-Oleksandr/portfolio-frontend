@@ -1,13 +1,23 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { SearchItem, SearchEmpty, NoResults, Loader } from 'components';
+import {
+  SearchItem,
+  SearchEmpty,
+  NoResults,
+  Loader,
+  SmallLoader,
+} from 'components';
 import { searchUsers } from 'redux/searchUsers/operations';
-import { resetSearchUsers } from 'redux/searchUsers/searchUsersSlice';
+import {
+  resetSearchUsers,
+  isLoadMore,
+} from 'redux/searchUsers/searchUsersSlice';
 import { useAppSelector } from 'redux/reduxHooks';
 import { useAppDispatch } from 'redux/reduxHooks';
 import {
   selectFoundUsers,
   selectIsLoading,
+  selectIsLoadingMore,
   totalUsersCount,
 } from 'redux/searchUsers/searchUsersSelectors';
 import {
@@ -27,12 +37,14 @@ interface Props {
 const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
   const location = useLocation();
   const [isEmptySeach, setIsEmptySeach] = useState(true);
+  // const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
 
   const dispatch = useAppDispatch();
 
   const users = useAppSelector(selectFoundUsers);
   const totalUsers = useAppSelector(totalUsersCount);
   const isLoading = useAppSelector(selectIsLoading);
+  const isLoadingMore = useAppSelector(selectIsLoadingMore);
 
   useEffect(() => {
     if (query === '') {
@@ -45,22 +57,26 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
       dispatch(resetSearchUsers());
     }
 
+    if (page !== 1) {
+      dispatch(isLoadMore());
+    }
+
     setIsEmptySeach(false);
 
     dispatch(searchUsers({ query, page }));
 
-    return () => {
-      console.log('RETURN');
-      dispatch(resetSearchUsers());
-    };
+    // return () => {
+    //   console.log('RETURN');
+    //   dispatch(resetSearchUsers());
+    // };
   }, [dispatch, page, query]);
 
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
       {!isEmptySeach && totalUsers === 0 && !isLoading && <NoResults />}
-      {isLoading && <Loader />}
-      {users.length !== 0 && (
+      {isLoading && !isLoadingMore && <Loader />}
+      {users.length !== 0 && !isEmptySeach && (
         <ListContainer>
           <ResultsWrapper>
             <TotalResults>Results: {totalUsers}</TotalResults>
@@ -75,9 +91,9 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
               />
             ))}
           </List>
-          {!isLoading && users.length > 0 && users.length < totalUsers && (
+          {users.length > 0 && users.length < totalUsers && (
             <WatchMoreBtn type="button" onClick={loadMore}>
-              Load More
+              {isLoadingMore ? <SmallLoader /> : 'Load more'}
             </WatchMoreBtn>
           )}
         </ListContainer>
