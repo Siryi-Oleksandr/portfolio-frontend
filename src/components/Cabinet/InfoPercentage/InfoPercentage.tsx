@@ -16,6 +16,14 @@ const InfoPercentage: FC<Props> = ({ user }) => {
     let filledProperties = 0;
 
     for (const userKey in userObj) {
+      if (
+        userKey === '_id' ||
+        userKey === 'miniAvatarURL' ||
+        userKey === 'avatarURL'
+      ) {
+        continue;
+      }
+
       const value = userObj[userKey];
 
       if (value !== null && value !== undefined) {
@@ -31,16 +39,33 @@ const InfoPercentage: FC<Props> = ({ user }) => {
       }
     }
 
-    const percentage = (filledProperties / totalProperties) * 100;
+    const percentage = (filledProperties / (totalProperties - 3)) * 100;
     return percentage.toFixed(0);
   };
 
+  const getEmoji = (percentage: string) => {
+    const number = +percentage;
+    if (number === 100) {
+      return '😁';
+    } else if (number >= 71 && number < 100) {
+      return '🙂';
+    } else if (number >= 40 && number < 71) {
+      return '😐';
+    } else if (number < 40) {
+      return '😞';
+    }
+  };
+
   const filledPercentage = calculateInfoPercentage(user);
+  const emoji = getEmoji(filledPercentage);
 
   return (
     <TextWrapper>
       <Text>
-        Filled infromation: <Percentage>{filledPercentage}%</Percentage>
+        Filled infromation:{' '}
+        <Percentage>
+          {filledPercentage}% {emoji}
+        </Percentage>
       </Text>
     </TextWrapper>
   );
