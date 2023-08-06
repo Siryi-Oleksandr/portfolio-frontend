@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
+import { InfoPercentage } from 'components';
 import {
   AddIcon,
   Avatar,
@@ -86,6 +87,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                   style={{ display: 'none' }}
                 />
                 <AddIcon />
+                <InfoPercentage user={user} />
               </Label>
               <Label>
                 <StyledField type="text" name="name" />

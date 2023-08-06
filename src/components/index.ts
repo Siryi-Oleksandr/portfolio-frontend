@@ -32,6 +32,7 @@ import StackList from './PortfolioPage/StackList/StackList';
 import Portfolio from './PortfolioPage/Portfolio';
 import PassDiff from './PassDiff/PassDiff';
 import AddProjectForm from './AddProjectForm/AddProjectForm';
+import InfoPercentage from './Cabinet/InfoPercentage/InfoPercentage';
 
 export {
   App,
@@ -68,4 +69,5 @@ export {
   Portfolio,
   PassDiff,
   AddProjectForm,
+  InfoPercentage,
 };
