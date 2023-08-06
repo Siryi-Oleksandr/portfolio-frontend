@@ -31,6 +31,7 @@ import CabinetProjectList from './Cabinet/CabinetProjectList/CabinetProjectList'
 import StackList from './PortfolioPage/StackList/StackList';
 import Portfolio from './PortfolioPage/Portfolio';
 import PassDiff from './PassDiff/PassDiff';
+import AddProjectForm from './AddProjectForm/AddProjectForm';
 
 export {
   App,
@@ -66,4 +67,5 @@ export {
   StackList,
   Portfolio,
   PassDiff,
+  AddProjectForm,
 };
