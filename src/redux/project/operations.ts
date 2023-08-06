@@ -128,7 +128,7 @@ export const getProjectById = createAsyncThunk(
 
 export const deleteProject = createAsyncThunk(
   'projects/deleteProject',
-  async (id, thunkAPI) => {
+  async (id: string, thunkAPI) => {
     try {
       await instance.delete(`/projects/${id}`);
       return id;
