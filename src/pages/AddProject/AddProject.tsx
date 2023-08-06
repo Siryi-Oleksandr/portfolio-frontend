@@ -1,4 +1,4 @@
-import AddProjectForm from 'components/AddProjectForm/AddProjectForm';
+import { AddProjectForm } from 'components';
 import React, { FC } from 'react';
 
 const AddProject: FC = () => {

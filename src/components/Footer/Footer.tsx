@@ -6,18 +6,19 @@ import {
   FooterWrap,
   Socials,
 } from './Footer.styled';
-import { selectUser } from 'redux/auth/authSelectors';
 import { useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
 import { useLocation } from 'react-router-dom';
 import SocialLink from 'components/SocialLink/SocialLink';
 import { useViewportWidth } from 'hooks/useViewportWidth';
+import { userById } from 'redux/searchUsers/searchUsersSelectors';
 
 type TSize = '1em' | '1.5em' | '2em';
 
 const Footer: FC = () => {
   const [showDefaultFooter, setShowDefaultFooter] = useState<boolean>(true);
-  const user: IUser = useAppSelector(selectUser);
+  const user: Partial<IUser> = useAppSelector(userById);
+
   const location = useLocation();
 
   let viewportWidth = useViewportWidth();
@@ -42,6 +43,9 @@ const Footer: FC = () => {
         setShowDefaultFooter(true);
         break;
       case '/register':
+        setShowDefaultFooter(true);
+        break;
+      case '/cabinet':
         setShowDefaultFooter(true);
         break;
       default:
