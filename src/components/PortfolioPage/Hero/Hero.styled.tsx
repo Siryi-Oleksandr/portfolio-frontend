@@ -62,7 +62,7 @@ export const HeroInfoWrapper = styled.div`
 
 export const HeroWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 25px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
@@ -115,7 +115,7 @@ export const HeroName = styled.span`
 
 export const HeroSurname = styled(HeroName)`
   margin-right: 0;
-  border-right: 1px solid ${theme.colors.white};
+  border-right: 1px solid ${theme.colors.accentColor};
 `;
 
 export const SubTitle = styled.p`
@@ -163,7 +163,7 @@ export const Avawrap = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: ${theme.radii.big};
+    border-radius: ${theme.radii.medium};
   }
   @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
     width: 150px;
@@ -178,7 +178,6 @@ export const Avawrap = styled.div`
 export const AvatarImg = styled.img`
   border: 2px solid ${theme.colors.primary_text_switch};
   margin-right: 8px;
-  /* border-radius: ${theme.radii.medium}; */
   width: 32px;
   height: 32px;
   overflow: hidden;
