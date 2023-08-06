@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
 import { Link } from 'react-router-dom';
+import { deleteProject } from 'redux/project/operations';
+import { useAppDispatch } from 'redux/reduxHooks';
 
 import { FaEdit, FaRegTrashAlt, FaLink } from 'react-icons/fa';
 
@@ -20,10 +22,14 @@ const container = {
 type Props = {
   description: string;
   isHover: boolean;
-  projectId: string | undefined;
+  projectId: string;
 };
 
 const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
+  const dispatch = useAppDispatch();
+  const handleDelete = (id: string) => {
+    dispatch(deleteProject(id));
+  };
   return (
     <motion.div
       className="div"
@@ -39,7 +45,10 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
       <motion.button className="cabinet-btn">
         <FaEdit size="30px" />
       </motion.button>
-      <motion.button className="cabinet-btn">
+      <motion.button
+        className="cabinet-btn"
+        onClick={() => handleDelete(projectId)}
+      >
         <FaRegTrashAlt size="30px" />
       </motion.button>
     </motion.div>
