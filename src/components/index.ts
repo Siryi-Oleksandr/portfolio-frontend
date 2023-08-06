@@ -30,6 +30,7 @@ import CabinetUserInfo from './Cabinet/CabinetUserInfo/CabinetUserInfo';
 import CabinetProjectList from './Cabinet/CabinetProjectList/CabinetProjectList';
 import StackList from './PortfolioPage/StackList/StackList';
 import Portfolio from './PortfolioPage/Portfolio';
+import AddProjectForm from './AddProjectForm/AddProjectForm';
 
 export {
   App,
@@ -64,4 +65,5 @@ export {
   CabinetProjectList,
   StackList,
   Portfolio,
+  AddProjectForm,
 };
