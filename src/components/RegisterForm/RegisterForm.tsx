@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Formik, ErrorMessage, FormikHelpers } from 'formik';
+import React, { FC, useEffect, useState } from 'react';
+import { Formik, ErrorMessage, FormikHelpers, useFormikContext } from 'formik';
 import { IoEyeOutline, IoEyeOff } from 'react-icons/io5';
 import { registerUser } from 'redux/auth/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -22,10 +22,12 @@ import {
   IconWrap,
 } from './RegisterForm.styled';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
+import { PassDiff } from 'components';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
   const [passwordType, togglePassword] = usePasswordToggle();
+  // const [password, setPassword] = useState('');
 
   const initialValues: RegisterValues = {
     name: '',
@@ -41,6 +43,16 @@ const RegisterForm: FC = () => {
     dispatch(registerUser(values));
   };
 
+  // const FormObserver = () => {
+  //   const { values, errors } = useFormikContext();
+
+  //   useEffect(() => {
+  //     setPassword(values.password);
+  //   }, [errors.password, values]);
+
+  //   return null;
+  // };
+
   return (
     <>
       <Formik
@@ -49,6 +61,7 @@ const RegisterForm: FC = () => {
         onSubmit={handleSubmit}
       >
         <StyledForm>
+          {/* <FormObserver /> */}
           <FormTitleContainer>
             <FormTitle>Sign Up</FormTitle>
             <FormDescription>to create your own own portfolio!</FormDescription>
@@ -72,6 +85,7 @@ const RegisterForm: FC = () => {
               <IconWrap onClick={togglePassword}>
                 {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
               </IconWrap>
+              <PassDiff password={''} />
             </Label>
           </InputsContainer>
           <SubmitBtn type="submit">Register</SubmitBtn>

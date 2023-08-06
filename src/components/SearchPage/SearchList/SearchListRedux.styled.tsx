@@ -66,7 +66,6 @@ export const WatchMoreBtn = styled.button`
   margin: 0 auto;
   width: 122px;
   height: 42px;
-  /* padding: 10px 16px; */
   border: 1px solid ${theme.colors.accentColor};
   border-radius: 4px;
   background-color: transparent;
