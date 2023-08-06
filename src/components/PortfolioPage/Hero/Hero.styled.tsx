@@ -10,7 +10,6 @@ export const Section = styled.section`
   padding-top: 100px;
   padding-bottom: 100px;
 
-  height: 500px;
   display: flex;
   align-items: center;
 
@@ -116,7 +115,7 @@ export const HeroName = styled.span`
 
 export const HeroSurname = styled(HeroName)`
   margin-right: 0;
-  border-right: 1px solid ${theme.colors.white};
+  border-right: 1px solid ${theme.colors.accentColor};
 `;
 
 export const SubTitle = styled.p`
@@ -157,13 +156,14 @@ export const Proffecion = styled.p`
 export const Avawrap = styled.div`
   width: 200px;
   height: 200px;
+  overflow: hidden;
 
   & img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: ${theme.radii.round};
+    border-radius: ${theme.radii.medium};
   }
   @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
     width: 150px;
@@ -178,7 +178,6 @@ export const Avawrap = styled.div`
 export const AvatarImg = styled.img`
   border: 2px solid ${theme.colors.primary_text_switch};
   margin-right: 8px;
-  border-radius: 50%;
   width: 32px;
   height: 32px;
   overflow: hidden;
