@@ -20,7 +20,7 @@ const container = {
 type Props = {
   description: string;
   isHover: boolean;
-  projectId: string;
+  projectId: string | undefined;
 };
 
 const HoverList: FC<Props> = ({ isHover, description, projectId }) => {

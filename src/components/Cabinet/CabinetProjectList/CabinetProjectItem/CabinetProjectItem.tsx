@@ -9,11 +9,11 @@ import {
   Title,
 } from './CabinetProjectItem.styled';
 import HoverList from './HoverList/HoverList';
-import { MyIProject } from '../CabinetProjectList'; 
+import { IProject } from 'types/projectTypes';
 import 'framer.styles.css';
 
 type Props = {
-  project: MyIProject;
+  project: IProject;
 };
 
 const CabinetProjectItem: FC<Props> = ({ project }) => {
@@ -27,27 +27,19 @@ const CabinetProjectItem: FC<Props> = ({ project }) => {
     setIsHovered(false);
   };
 
-  const {
-    id: projectId,
-    title,
-    description,
-    // linkToCode,
-    // linkToWebSite,
-    // technologies,
-    posters,
-  } = project;
+  const { _id: projectId, projectTitle, aboutProject, projectImages } = project;
   return (
     <Item onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div>
         <Bar>
-          <Title>{title}</Title>
+          <Title>{projectTitle}</Title>
           <IconsBlock />
         </Bar>
         <ImgWrapper>
-          <Img src={posters[0].url} alt={posters[0].title} />
+          <Img src={projectImages[0].posterURL} alt={projectTitle} />
           <Overlay className="nested-component">
             <HoverList
-              description={description}
+              description={aboutProject}
               isHover={isHovered}
               projectId={projectId}
             />
