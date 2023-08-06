@@ -1,13 +1,15 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import CabinetProjectItem from './CabinetProjectItem/CabinetProjectItem';
 import {
   List,
   AddProjectBtnWrap,
   AddProjectBtn,
 } from './CabinetProjectList.styled';
-import projectsDb from 'bd/projects.json';
+// import projectsDb from 'bd/projects.json';
 import Container from 'components/Container/Container';
 import { MdOutlineAddCircle } from 'react-icons/md';
+import { IProject } from 'types/projectTypes';
+import { IUser } from 'types/userTypes';
 
 export interface MyIProject {
   id: string;
@@ -19,20 +21,23 @@ export interface MyIProject {
   posters: Array<Poster>;
 }
 
+type Props = {
+  user: Partial<IUser>;
+  projects: IProject[];
+};
+
 type Poster = {
   id: string;
   title: string;
   url: string;
 };
 
-const CabinetProjectList: FC = () => {
-  const [projects] = useState<Array<MyIProject>>(projectsDb || []);
-
+const CabinetProjectList: FC<Props> = ({ user, projects }) => {
   return (
     <Container>
       <List>
         {projects.map(project => (
-          <CabinetProjectItem key={project.id} project={project} />
+          <CabinetProjectItem key={project._id} project={project} />
         ))}
         <AddProjectBtnWrap key="addBtnId">
           <AddProjectBtn to="/addProject">
