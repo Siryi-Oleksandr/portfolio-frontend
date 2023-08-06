@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 
+const gray = `${theme.colors.textarea}`;
 const green = 'green';
 const red = 'red';
 const orange = 'orange';
@@ -22,26 +23,22 @@ export const Item = styled.li<{ state: string }>`
   text-align: center;
 
   background-color: ${({ state }) =>
-    state === 'red'
-      ? red
-      : state === 'strong'
-      ? green
-      : `${theme.colors.textarea}`};
+    state === 'red' ? red : state === 'strong' ? green : gray};
 
-  &:first-child {
+  &:first-of-type {
     color: ${red};
     background-color: ${({ state }) => state === 'weak' && red};
   }
 
-  &:nth-child(1) {
+  &:nth-of-type(1) {
     background-color: ${({ state }) => state === 'medium' && orange};
   }
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     color: ${orange};
     background-color: ${({ state }) => state === 'medium' && orange};
   }
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     color: ${green};
   }
 `;

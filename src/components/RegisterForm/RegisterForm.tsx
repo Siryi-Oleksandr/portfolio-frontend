@@ -1,5 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Formik, ErrorMessage, FormikHelpers, useFormikContext } from 'formik';
+import {
+  Formik,
+  ErrorMessage,
+  FormikHelpers,
+  useFormikContext,
+  FormikValues,
+  FormikErrors,
+} from 'formik';
 import { IoEyeOutline, IoEyeOff } from 'react-icons/io5';
 import { registerUser } from 'redux/auth/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -27,7 +34,7 @@ import { PassDiff } from 'components';
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
   const [passwordType, togglePassword] = usePasswordToggle();
-  // const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');
 
   const initialValues: RegisterValues = {
     name: '',
@@ -43,15 +50,20 @@ const RegisterForm: FC = () => {
     dispatch(registerUser(values));
   };
 
-  // const FormObserver = () => {
-  //   const { values, errors } = useFormikContext();
+  interface FormValues {
+    password: string;
+  }
 
-  //   useEffect(() => {
-  //     setPassword(values.password);
-  //   }, [errors.password, values]);
+  const FormObserver = () => {
+    const { values } = useFormikContext<FormikValues>();
+    const { errors } = useFormikContext<FormikErrors<FormValues>>();
 
-  //   return null;
-  // };
+    useEffect(() => {
+      setPassword(values.password);
+    }, [errors.password, values]);
+
+    return null;
+  };
 
   return (
     <>
@@ -61,7 +73,7 @@ const RegisterForm: FC = () => {
         onSubmit={handleSubmit}
       >
         <StyledForm>
-          {/* <FormObserver /> */}
+          <FormObserver />
           <FormTitleContainer>
             <FormTitle>Sign Up</FormTitle>
             <FormDescription>to create your own own portfolio!</FormDescription>
@@ -85,7 +97,7 @@ const RegisterForm: FC = () => {
               <IconWrap onClick={togglePassword}>
                 {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
               </IconWrap>
-              <PassDiff password={''} />
+              <PassDiff password={password} />
             </Label>
           </InputsContainer>
           <SubmitBtn type="submit">Register</SubmitBtn>
