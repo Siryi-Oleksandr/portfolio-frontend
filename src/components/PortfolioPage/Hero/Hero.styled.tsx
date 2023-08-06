@@ -10,7 +10,6 @@ export const Section = styled.section`
   padding-top: 100px;
   padding-bottom: 100px;
 
-  height: 500px;
   display: flex;
   align-items: center;
 
@@ -63,7 +62,7 @@ export const HeroInfoWrapper = styled.div`
 
 export const HeroWrapper = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 25px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
@@ -157,13 +156,14 @@ export const Proffecion = styled.p`
 export const Avawrap = styled.div`
   width: 200px;
   height: 200px;
+  overflow: hidden;
 
   & img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: ${theme.radii.round};
+    border-radius: ${theme.radii.big};
   }
   @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
     width: 150px;
@@ -178,7 +178,7 @@ export const Avawrap = styled.div`
 export const AvatarImg = styled.img`
   border: 2px solid ${theme.colors.primary_text_switch};
   margin-right: 8px;
-  border-radius: 50%;
+  /* border-radius: ${theme.radii.medium}; */
   width: 32px;
   height: 32px;
   overflow: hidden;
