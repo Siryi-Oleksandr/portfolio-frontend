@@ -1,5 +1,5 @@
 import { ErrorMessage, Formik, FormikHelpers } from 'formik';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
   Label,
   LabelTextArea,
@@ -9,17 +9,18 @@ import {
   ImageWrap,
   AddImgIcon,
   ImagesWrap,
-} from './UpdateProjectForm.styled';
+} from '../AddProjectForm/AddProjectForm.styled';
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
 import { FormAddProjectUpdateSchema } from 'services/yupSchemas';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
-import { useAppDispatch } from 'redux/reduxHooks';
-import { createProject } from 'redux/project/operations';
 import placeholder from '../../images/placeholder-image.jpg';
-import { useNavigate } from 'react-router-dom';
 import { handleFormikImageUpload } from 'services';
+import { useProjects } from 'hooks';
+import { updateProject } from 'redux/project/operations';
+import { useAppDispatch } from 'redux/reduxHooks';
+
 type UpdateProjectFormPorps = {
   onClose: () => void;
 };
@@ -29,27 +30,50 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
   const [projectImg1, setProjectImg1] = useState<string>(placeholder);
   const [projectImg2, setProjectImg2] = useState<string>(placeholder);
   const [projectImg3, setProjectImg3] = useState<string>(placeholder);
-  const navigate = useNavigate();
+
+  const { projectById } = useProjects();
+
+  let stringStack = '';
+
+  if (projectById.technicalStack !== undefined) {
+    stringStack = projectById.technicalStack.join(', ');
+  }
+
+  useEffect(() => {
+    if (projectById.projectImages !== undefined) {
+      if (projectById.projectImages[0]?.posterURL) {
+        setProjectImg1(projectById.projectImages[0].posterURL);
+      }
+      if (projectById.projectImages[1]?.posterURL) {
+        setProjectImg2(projectById.projectImages[1].posterURL);
+      }
+      if (projectById.projectImages[2]?.posterURL) {
+        setProjectImg3(projectById.projectImages[2].posterURL);
+      }
+    }
+  }, [projectById.projectImages]);
 
   const initialValues: ICreateUpdateProject = {
-    projectTitle: '',
-    projectSubTitle: '',
-    projectLink: '',
-    codeLink: '',
-    image1: undefined,
-    image2: undefined,
-    image3: undefined,
-    aboutProject: '',
-    technicalStack: '',
+    projectTitle: projectById.projectTitle || '',
+    projectSubTitle: projectById.projectSubTitle || '',
+    projectLink: projectById.projectLink || '',
+    codeLink: projectById.codeLink || '',
+    image1: projectImg1,
+    image2: projectImg2,
+    image3: projectImg3,
+    aboutProject: projectById.aboutProject || '',
+    technicalStack: stringStack,
   };
+
+  const id = projectById._id;
 
   const handleSubmit = (
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
+    dispatch(updateProject({ id, ...values }));
     actions.resetForm();
-    dispatch(createProject(values));
-    navigate('/cabinet');
+    onClose();
   };
 
   return (
@@ -140,7 +164,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
               <Label>
                 <input
                   type="file"
-                  multiple
                   name="image1"
                   onChange={event =>
                     handleFormikImageUpload(
@@ -161,7 +184,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
               <Label>
                 <input
                   type="file"
-                  multiple
                   name="image2"
                   onChange={event =>
                     handleFormikImageUpload(
@@ -181,7 +203,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
               <Label>
                 <input
                   type="file"
-                  multiple
                   name="image3"
                   onChange={event =>
                     handleFormikImageUpload(
@@ -200,7 +221,7 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
               </Label>
             </ImagesWrap>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
-              Add new project
+              Update project
             </SubmitBtn>
           </StyledAddProjectForm>
         </Container>

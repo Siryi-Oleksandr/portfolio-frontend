@@ -48,6 +48,9 @@ const Footer: FC = () => {
       case '/cabinet':
         setShowDefaultFooter(true);
         break;
+      case '/addProject':
+        setShowDefaultFooter(true);
+        break;
       default:
         setShowDefaultFooter(false);
         break;
