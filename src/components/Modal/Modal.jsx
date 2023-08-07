@@ -33,7 +33,7 @@ export const Modal = ({ children, onClose }) => {
     <Overlay onClick={handleOverlayClick}>
       <ModalContainer>
         <CloseBtn onClick={onClose}>
-          <AiOutlineClose size="30px" />
+          <AiOutlineClose size="24px" />
         </CloseBtn>
         {children}
       </ModalContainer>
