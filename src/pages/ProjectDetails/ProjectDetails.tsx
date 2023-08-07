@@ -1,10 +1,9 @@
-import React, { FC, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { FC, useEffect, useRef } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { Loader } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getProjectById } from 'redux/project/operations';
 import { getUserById } from 'redux/searchUsers/operations';
-
 import { useProjects } from 'hooks';
 import {
   ProjectSectionContainer,
@@ -25,11 +24,16 @@ import {
   TechnicalListItemText,
 } from './ProjectDetails.styled';
 import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
+import BackLink from 'components/BackLink/BackLink';
 
 const ProjectDetails: FC = () => {
   const { projectId } = useParams();
   const { projectById, isProjectLoading } = useProjects();
   const dispatch = useAppDispatch();
+
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
+  
 
   const userId = projectById.owner?._id;
 
@@ -56,21 +60,36 @@ const ProjectDetails: FC = () => {
     <>
       <ProjectSectionContainer>
         {isProjectLoading ? (
-          <Loader />
+          <div style={{ width: '100px', height: '100px', margin: 'auto' }}>
+            <Loader />
+          </div>
         ) : (
           <>
+            <BackLink to={backLinkLocationRef.current}>Back</BackLink>
             <ProjectTitle>{projectTitle}</ProjectTitle>
             {projectSubTitle && (
               <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>
             )}
             <LinksContainer>
               {projectLink && (
-                <ProjectLink href={projectLink} type="primary">
+                <ProjectLink
+                  onPress={(e: React.MouseEvent) => {
+                    e.preventDefault();
+                    window.open(projectLink, '_blank');
+                  }}
+                  type="primary"
+                >
                   <ProjectLinkIcon />
                   Website
                 </ProjectLink>
               )}
-              <CodeLink type="danger" href={codeLink}>
+              <CodeLink
+                type="danger"
+                onPress={(e: React.MouseEvent) => {
+                  e.preventDefault();
+                  window.open(codeLink, '_blank');
+                }}
+              >
                 <CodeLinkIcon />
                 <span>Code</span>
               </CodeLink>

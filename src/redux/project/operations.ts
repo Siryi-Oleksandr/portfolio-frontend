@@ -1,7 +1,8 @@
 import { instance } from 'redux/auth/operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
-
+import { toast } from 'react-hot-toast';
+import { tostStyleError, tostStyleSuccess } from 'redux/auth/operations';
 export const getAllProjects = createAsyncThunk(
   'projects/getAllProjects',
   async (_, thunkAPI) => {
@@ -50,8 +51,15 @@ export const createProject = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
+      toast.success(`Your project ${response.data.projectTitle}has been successfully added!`, {
+        style: tostStyleSuccess,
+      });
+    
       return response.data;
     } catch (error: any) {
+      toast.error(`Sorry we have some error ${error.message}. Please try again!`, {
+        style: tostStyleError,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -95,8 +103,14 @@ export const updateProject = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
+      toast.success(`Your project ${response.data.projectTitle}has been successfully updated!`, {
+        style: tostStyleSuccess,
+      });
       return response.data;
     } catch (error: any) {
+      toast.error(`Sorry we have some error ${error.message}. Please try again!`, {
+        style: tostStyleError,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -131,8 +145,14 @@ export const deleteProject = createAsyncThunk(
   async (id: string, thunkAPI) => {
     try {
       await instance.delete(`/projects/${id}`);
+      toast.success(`Your project ${id} has been successfully deleted!`, {
+        style: tostStyleSuccess,
+      });
       return id;
     } catch (error: any) {
+      toast.error(`Sorry we have some error ${error.message}. Please try again!`, {
+        style: tostStyleError,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

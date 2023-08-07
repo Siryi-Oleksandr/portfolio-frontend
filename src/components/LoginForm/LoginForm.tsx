@@ -50,7 +50,7 @@ const LoginForm: FC = () => {
         <StyledForm>
           <FormTitleContainer>
             <FormTitle>Log In</FormTitle>
-            <FormDescription>to create your own own portfolio!</FormDescription>
+            <FormDescription>to create your own portfolio!</FormDescription>
           </FormTitleContainer>
           <InputsContainer>
             <Label>

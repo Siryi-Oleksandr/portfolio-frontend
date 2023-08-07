@@ -21,7 +21,7 @@ export const ModalContainer = styled.div`
   position: relative;
   padding: 40px 18px;
   max-width: 90%;
-  min-height: 336px;
+  min-height: 160px;
   max-height: 90vh;
   box-sizing: border-box;
   border: ${theme.borders.normal} rgba(220, 227, 229, 0.8);
@@ -29,7 +29,7 @@ export const ModalContainer = styled.div`
   border-radius: ${theme.radii.small};
   box-shadow: 0px 4px 16px 0px #1111111a;
   border-color: ${theme.colors.modal_border_color};
-  overflow-y: scroll;
+  overflow-y: auto;
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -45,7 +45,7 @@ export const ModalContainer = styled.div`
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     padding: 40px 28px;
     min-width: 396px;
-    min-height: 360px;
+    min-height: 160px;
   }
 `;
 
