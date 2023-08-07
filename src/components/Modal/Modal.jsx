@@ -41,3 +41,4 @@ export const Modal = ({ children, onClose }) => {
     document.getElementById('modal-root')
   );
 };
+// export default Modal;
