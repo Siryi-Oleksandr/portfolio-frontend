@@ -4,7 +4,6 @@ import { Loader } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getProjectById } from 'redux/project/operations';
 import { getUserById } from 'redux/searchUsers/operations';
-
 import { useProjects } from 'hooks';
 import {
   ProjectSectionContainer,
@@ -56,7 +55,9 @@ const ProjectDetails: FC = () => {
     <>
       <ProjectSectionContainer>
         {isProjectLoading ? (
-          <Loader />
+          <div style={{ width: '100px', height: '100px', margin: 'auto' }}>
+            <Loader />
+          </div>
         ) : (
           <>
             <ProjectTitle>{projectTitle}</ProjectTitle>
