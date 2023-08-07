@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Loader } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getProjectById } from 'redux/project/operations';
+import { getUserById } from 'redux/searchUsers/operations';
+
 import { useProjects } from 'hooks';
 import {
   ProjectSectionContainer,
@@ -28,11 +30,15 @@ const ProjectDetails: FC = () => {
   const { projectId } = useParams();
   const { projectById, isProjectLoading } = useProjects();
   const dispatch = useAppDispatch();
-  console.log(projectId);
+
+  const userId = projectById.owner?._id;
 
   useEffect(() => {
     dispatch(getProjectById(projectId as string));
-  }, [dispatch, projectId]);
+    if (userId) {
+      dispatch(getUserById(userId));
+    }
+  }, [dispatch, projectId, userId]);
 
   const images = projectById?.projectImages;
   const sliderData = images?.map(item => item.posterURL);
