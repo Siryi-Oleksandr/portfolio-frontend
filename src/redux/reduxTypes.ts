@@ -42,9 +42,9 @@ export interface ICreateUpdateProject {
   projectSubTitle?: string;
   projectLink: string;
   codeLink: string;
-  image1: File | undefined;
-  image2: File | undefined;
-  image3: File | undefined;
+  image1: File | undefined | string;
+  image2: File | undefined | string;
+  image3: File | undefined | string;
   aboutProject: string;
   technicalStack: string;
 }

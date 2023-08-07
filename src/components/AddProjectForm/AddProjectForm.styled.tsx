@@ -19,7 +19,7 @@ export const StyledAddProjectForm = styled(Form)`
 
 export const StyledProdjecField = styled(Field)`
   display: block;
-  width: 300px;
+  width: 260px;
   min-width: 100%;
   height: 36px;
   padding: 8px 5px;
@@ -32,6 +32,10 @@ export const StyledProdjecField = styled(Field)`
   color: ${theme.colors.blackTitle};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 250ms ease-in-out;
+
+  @media screen and (min-width: ${theme.breakpoints.mobile}) {
+    width: 300px;
+  }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: 100%;
@@ -77,13 +81,17 @@ export const LabelTextArea = styled.label`
 `;
 
 export const ImageWrap = styled.div`
-  width: 300px;
+  width: 260px;
   height: 200px;
   background-color: white;
   border: 1px solid #999;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: ${theme.breakpoints.mobile}) {
+    width: 300px;
+  }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: 237px;
