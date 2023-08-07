@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { green } from '@mui/material/colors';
 import { theme } from 'theme';
 
 export const TextWrapper = styled.div`
@@ -17,9 +18,19 @@ export const Text = styled.p`
   }
 `;
 
-export const Percentage = styled.span`
+export const Percentage = styled.span<{ percentage: string }>`
   padding: 3px 7px 3px 7px;
   color: #fff;
-  background-color: ${theme.colors.accentColor};
+  background-color: ${p => {
+    if (p.percentage === '100') {
+      return 'green';
+    } else if (p.percentage >= '71' && p.percentage < '100') {
+      return 'yellow';
+    } else if (p.percentage >= '40' && p.percentage < '71') {
+      return 'orange';
+    } else if (p.percentage < '40') {
+      return 'red';
+    }
+  }};
   border-radius: 5px;
 `;

@@ -11,6 +11,7 @@ interface UserObject {
 }
 
 const InfoPercentage: FC<Props> = ({ user }) => {
+  console.log(user);
   const calculateInfoPercentage = (userObj: UserObject) => {
     const totalProperties = Object.keys(userObj).length;
     let filledProperties = 0;
@@ -44,14 +45,13 @@ const InfoPercentage: FC<Props> = ({ user }) => {
   };
 
   const getEmoji = (percentage: string) => {
-    const number = +percentage;
-    if (number === 100) {
+    if (percentage === '100') {
       return '😁';
-    } else if (number >= 71 && number < 100) {
+    } else if (percentage >= '71' && percentage < '100') {
       return '🙂';
-    } else if (number >= 40 && number < 71) {
+    } else if (percentage >= '40' && percentage < '71') {
       return '😐';
-    } else if (number < 40) {
+    } else if (percentage < '40') {
       return '😞';
     }
   };
@@ -63,9 +63,10 @@ const InfoPercentage: FC<Props> = ({ user }) => {
     <TextWrapper>
       <Text>
         Filled infromation:{' '}
-        <Percentage>
-          {filledPercentage}% {emoji}
-        </Percentage>
+        <Percentage percentage={filledPercentage}>
+          {filledPercentage}%
+        </Percentage>{' '}
+        {emoji}
       </Text>
     </TextWrapper>
   );
