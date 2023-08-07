@@ -69,9 +69,11 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
         {props => (
           <StyledUserForm>
             <InputsContainer>
+              <InfoPercentage user={user} />
               <Avatar>
                 <img src={userAvatar} alt="Avatar" />
               </Avatar>
+
               <Label>
                 <input
                   name="avatar"
@@ -87,7 +89,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                   style={{ display: 'none' }}
                 />
                 <AddIcon />
-                <InfoPercentage user={user} />
               </Label>
               <Label>
                 <StyledField type="text" name="name" />

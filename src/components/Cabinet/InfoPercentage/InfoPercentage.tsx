@@ -1,6 +1,12 @@
 import { FC } from 'react';
+import { InfoTrigger } from 'components';
 import { IUser } from 'types/userTypes';
-import { TextWrapper, Text, Percentage } from './InfoPercentage.styled';
+import {
+  TextWrapper,
+  Text,
+  Percentage,
+  InfoWrapper,
+} from './InfoPercentage.styled';
 
 interface Props {
   user: IUser;
@@ -11,7 +17,6 @@ interface UserObject {
 }
 
 const InfoPercentage: FC<Props> = ({ user }) => {
-  console.log(user);
   const calculateInfoPercentage = (userObj: UserObject) => {
     const totalProperties = Object.keys(userObj).length;
     let filledProperties = 0;
@@ -67,6 +72,11 @@ const InfoPercentage: FC<Props> = ({ user }) => {
           {filledPercentage}%
         </Percentage>{' '}
         {emoji}
+        <InfoWrapper>
+          <InfoTrigger>
+            The percentage of information you have filled in your fields.
+          </InfoTrigger>
+        </InfoWrapper>
       </Text>
     </TextWrapper>
   );
