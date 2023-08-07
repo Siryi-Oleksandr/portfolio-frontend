@@ -2,11 +2,9 @@ import React, { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
 import { Link } from 'react-router-dom';
-import { deleteProject } from 'redux/project/operations';
-import { useAppDispatch } from 'redux/reduxHooks';
 import { EditProjectModal } from 'components/Cabinet/EditProjectModal/EditProjectModal';
-
 import { FaEdit, FaRegTrashAlt, FaLink } from 'react-icons/fa';
+import { DeleteModal } from 'components/Cabinet/DeleteModal/DeleteModal';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -27,12 +25,8 @@ type Props = {
 };
 
 const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
-  const dispatch = useAppDispatch();
-  const handleDelete = (id: string) => {
-    dispatch(deleteProject(id));
-  };
-
   const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -41,6 +35,16 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
 
   const handleShowModal = () => {
     setShowModal(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseDeleteModal = () => {
+    setShowDeleteModal(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  const handleShowDeleteModal = () => {
+    setShowDeleteModal(true);
     document.body.style.overflow = 'hidden';
   };
 
@@ -61,11 +65,15 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
       </motion.button>
       <motion.button
         className="cabinet-btn"
-        onClick={() => handleDelete(projectId)}
+        // onClick={() => handleDelete(projectId)}
+        onClick={handleShowDeleteModal}
       >
         <FaRegTrashAlt size="30px" />
       </motion.button>
       {showModal && <EditProjectModal onClose={handleCloseModal} />}
+      {showDeleteModal && (
+        <DeleteModal onClose={handleCloseDeleteModal} id={projectId} />
+      )}
     </motion.div>
   );
 };
