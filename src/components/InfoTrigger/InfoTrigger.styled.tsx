@@ -21,15 +21,15 @@ export const InfoWrapper = styled.div<{ showInfo: boolean }>`
   padding: 2px;
   width: 100px;
   pointer-events: none;
-  transform: ${({ showInfo }) =>
-    showInfo
-      ? 'translateX(-100%) translateY(-125%)'
-      : 'translateX(-92%) translateY(-115%)'};
   background-color: ${theme.colors.textarea};
   border-radius: 4px;
   text-align: center;
 
   opacity: ${({ showInfo }) => (showInfo ? '1' : '0')};
+  transform: ${({ showInfo }) =>
+    showInfo
+      ? 'translateX(-100%) translateY(-125%)'
+      : 'translateX(-92%) translateY(-115%)'};
 
   transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
 
