@@ -5,7 +5,6 @@ import { Btn } from 'components/Buttons/MainBtn.styled';
 import { Link } from 'react-router-dom';
 
 export const StyledForm = styled(Form)`
-  width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 60px;
@@ -19,10 +18,12 @@ export const StyledForm = styled(Form)`
   @media screen and (min-width: 376px) and (max-width: 600px) {
     width: 360px;
   }
+  @media screen and (min-width: 601px) {
+    width: 500px;
+  }
 `;
 
 export const FormTitleContainer = styled.div`
-  width: 480px;
   height: 100px;
   margin-left: auto;
   margin-right: auto;
@@ -34,6 +35,9 @@ export const FormTitleContainer = styled.div`
   }
   @media screen and (min-width: 376px) and (max-width: 600px) {
     width: 340px;
+  }
+  @media screen and (min-width: 601px) {
+    width: 480px;
   }
 `;
 
@@ -61,7 +65,7 @@ export const InputsContainer = styled.div`
 `;
 
 export const StyledField = styled(Field)`
-  width: 480px;
+  width: 280px;
   height: 48px;
   padding: 2px 5px;
   border: 2px solid #ccc;
@@ -90,6 +94,9 @@ export const StyledField = styled(Field)`
   }
   @media screen and (min-width: 376px) and (max-width: 600px) {
     width: 340px;
+  }
+  @media screen and (min-width: 601px) {
+    width: 480px;
   }
 `;
 
@@ -129,7 +136,7 @@ export const StyledErrorMessage = styled.p`
 `;
 
 export const SubmitBtn = styled(Btn)`
-  width: 480px;
+  width: 280px;
   height: 48px;
   margin-bottom: 24px;
   font-size: 16px;
@@ -146,6 +153,9 @@ export const SubmitBtn = styled(Btn)`
   }
   @media screen and (min-width: 376px) and (max-width: 600px) {
     width: 340px;
+  }
+  @media screen and (min-width: 601px) {
+    width: 480px;
   }
 `;
 export const RedirectContainer = styled.div`
