@@ -76,7 +76,7 @@ const RegisterForm: FC = () => {
           <FormObserver />
           <FormTitleContainer>
             <FormTitle>Sign Up</FormTitle>
-            <FormDescription>to create your own own portfolio!</FormDescription>
+            <FormDescription>to create your own portfolio!</FormDescription>
           </FormTitleContainer>
           <InputsContainer>
             <Label>

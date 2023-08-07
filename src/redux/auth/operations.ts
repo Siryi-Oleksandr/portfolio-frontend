@@ -51,7 +51,7 @@ export const tostStyleSuccess = {
   borderRadius: '8px',
   border: `1px solid ${theme.colors.accentColor}`,
   background: `${theme.colors.tagBgColor}`,
-  color: `${theme.colors.primary_text_switch}`,
+  color: `${theme.colors.white}`,
 };
 
 export const registerUser = createAsyncThunk(
