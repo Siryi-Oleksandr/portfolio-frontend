@@ -3,17 +3,14 @@ import React, { FC } from 'react';
 import UserForm from 'components/UserForm/UserForm';
 
 type ModalUserFormPorps = {
-    onClose: any;
-} 
+  onClose: any;
+};
 
 export const UserFormModal: FC<ModalUserFormPorps> = ({ onClose }) => {
- 
-   return (
+  return (
     <Modal onClose={onClose}>
       <div>
-        <UserForm
-          onClose={onClose}
-        />
+        <UserForm onClose={onClose} />
       </div>
     </Modal>
   );

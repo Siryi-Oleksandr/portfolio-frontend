@@ -71,8 +71,7 @@ const App: FC = () => {
 
               <Route path="/portfolio/:userId" element={<PortfolioPage />} />
               <Route
-                // path="/projectDetails/:projectId"
-                path="/projectDetails"
+                path="/projectDetails/:projectId"
                 element={<ProjectDetails />}
               />
               <Route path="/contacts" element={<ContactsPage />} />

@@ -17,7 +17,7 @@ type Props = {
 };
 
 const CabinetProjectItem: FC<Props> = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
 
   const handleMouseEnter = () => {
     setIsHovered(true);

@@ -79,8 +79,8 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
       <Slider ref={(slider) => (sliderRef.current = slider)} {...settings}>
         {images.map(image => {
           return (
-            <div key={image}>
-              <img src={image} alt={`Project${image}`} />
+            <div  key={image}>
+              <img style={{marginLeft:"auto", marginRight:"auto",width:"100%", objectFit:"contain"}} src={image} alt={`Project${image}`} />
             </div>
           );
         })}

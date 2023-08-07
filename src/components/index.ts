@@ -33,6 +33,8 @@ import Portfolio from './PortfolioPage/Portfolio';
 import PassDiff from './PassDiff/PassDiff';
 import AddProjectForm from './AddProjectForm/AddProjectForm';
 import InfoPercentage from './Cabinet/InfoPercentage/InfoPercentage';
+import UpdateProjectForm from './UpdateProjectForm/UpdateProjectForm';
+// import Modal from './Modal/Modal';
 
 export {
   App,
@@ -70,4 +72,5 @@ export {
   PassDiff,
   AddProjectForm,
   InfoPercentage,
+  UpdateProjectForm,
 };

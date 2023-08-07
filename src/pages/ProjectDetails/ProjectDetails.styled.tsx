@@ -42,7 +42,7 @@ export const ProjectSubTitle = styled.h3`
 export const LinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const ProjectLink = styled(AwesomeButton)`

@@ -44,8 +44,8 @@ const AddProjectForm: FC = () => {
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
-    actions.resetForm();
     dispatch(createProject(values));
+    actions.resetForm();
     navigate('/cabinet');
   };
 
@@ -137,7 +137,6 @@ const AddProjectForm: FC = () => {
               <Label>
                 <input
                   type="file"
-                  multiple
                   name="image1"
                   onChange={event =>
                     handleFormikImageUpload(
@@ -158,7 +157,6 @@ const AddProjectForm: FC = () => {
               <Label>
                 <input
                   type="file"
-                  multiple
                   name="image2"
                   onChange={event =>
                     handleFormikImageUpload(
@@ -178,7 +176,6 @@ const AddProjectForm: FC = () => {
               <Label>
                 <input
                   type="file"
-                  multiple
                   name="image3"
                   onChange={event =>
                     handleFormikImageUpload(

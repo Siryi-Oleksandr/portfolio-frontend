@@ -2,18 +2,10 @@ import styled from '@emotion/styled';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 export const SliderContainer = styled.div`
-  width: 100%;
+  max-width: 100%;
   overflow: hidden;
-  & > .slick-next:hover {
-    opacity: 1;
-    visibility: visible;
-    background: linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0.65) 0px,
-        rgba(0, 0, 0, 0) 100%
-      )
-      rgba(0, 0, 0, 0);
-  }
+
+ 
 `;
 
 export const NextArrowStyled = styled.div`
@@ -30,7 +22,7 @@ export const NextArrowStyled = styled.div`
   &:hover {
     color: #fff;
   }
-  
+
   &:before {
     opacity: 0;
     position: absolute;
