@@ -8,7 +8,6 @@ export const TriggerWrapper = styled.div`
 export const Text = styled.p`
   cursor: pointer;
   padding: 3px;
-  /* text-decoration: underline; */
   font-family: ${theme.fonts.text};
   border-radius: 4px;
   background-color: ${theme.colors.textarea};

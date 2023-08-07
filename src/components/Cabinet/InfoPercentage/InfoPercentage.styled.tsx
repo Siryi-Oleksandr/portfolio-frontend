@@ -19,12 +19,12 @@ export const Text = styled.p`
 
 export const Percentage = styled.span<{ percentage: string }>`
   padding: 3px 7px 3px 7px;
-  color: #fff;
+  color: #000;
   background-color: ${({ percentage }) => {
     if (percentage === '100') {
-      return 'green';
+      return '#008000';
     } else if (percentage >= '71' && percentage < '100') {
-      return 'yellow';
+      return 'e7e723';
     } else if (percentage >= '40' && percentage < '71') {
       return 'orange';
     } else if (percentage < '40') {
@@ -36,6 +36,6 @@ export const Percentage = styled.span<{ percentage: string }>`
 
 export const InfoWrapper = styled.div`
   position: absolute;
-  top: -25px;
+  top: -27px;
   right: -5px;
 `;
