@@ -1,4 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Loader } from 'components';
+import { useAppDispatch } from 'redux/reduxHooks';
+import { getProjectById } from 'redux/project/operations';
+import { useProjects } from 'hooks';
 import {
   ProjectSectionContainer,
   ProjectTitle,
@@ -20,22 +25,17 @@ import {
 import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
 
 const ProjectDetails: FC = () => {
-  const projectState = {
-    _id: 'asdasdq12e3132e4sdfsdf34314',
-    projectTitle: 'Sky go desktop',
-    projectSubTitle:
-      'Sky Go Desktop react javascript web application build on top of the Electron framework.',
-    projectLink: 'https://caferati.me/portfolio/sky-go-desktop',
-    codeLink: 'https://github.com/Siryi-Oleksandr/portfolio-frontend',
-    projectImages: [
-      'https://caferati.me/images/portfolio/sky-go-desktop/1.jpg',
-      'https://caferati.me/images/portfolio/sky-go-desktop/2.jpg',
-      'https://caferati.me/images/portfolio/sky-go-desktop/3.jpg',
-    ],
-    aboutProject:
-      'Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go Desktop app is a React web application build on top of the Electron framework.At this project I acted as the lead UI/UX developer specialist being the bridge between UI/UX Design, PO and the UI development team. The main challenge was to reorganize the UI structure from a react-virtualized grid into a pure CSS one. Which improved drastically the scalability and maintainability of the project.',
-    technicalStack: ['Js', 'React', 'Redux', 'Webpack'],
-  };
+  const { projectId } = useParams();
+  const { projectById, isProjectLoading } = useProjects();
+  const dispatch = useAppDispatch();
+  console.log(projectId);
+
+  useEffect(() => {
+    dispatch(getProjectById(projectId as string));
+  }, [dispatch, projectId]);
+
+  const images = projectById?.projectImages;
+  const sliderData = images?.map(item => item.posterURL);
 
   const {
     projectTitle,
@@ -44,45 +44,58 @@ const ProjectDetails: FC = () => {
     aboutProject,
     codeLink,
     technicalStack,
-    projectImages,
-  } = projectState;
+  } = projectById;
 
   return (
     <>
       <ProjectSectionContainer>
-        <ProjectTitle>{projectTitle}</ProjectTitle>
-        <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>
-        <LinksContainer>
-          <ProjectLink href={projectLink} type="primary">
-            <ProjectLinkIcon />
-            Website
-          </ProjectLink>
-          <CodeLink type="danger" href={codeLink}>
-            <CodeLinkIcon />
-            <span>Code</span>
-          </CodeLink>
-        </LinksContainer>
-        <ProjectSlider images={projectImages} />
-        <ProjectAboutContainer>
-          <ProjectAboutTitle>About this project</ProjectAboutTitle>
-          <Line />
-          <ProjectAbout>{aboutProject}</ProjectAbout>
-        </ProjectAboutContainer>
-        <ProjectAboutContainer>
-          <ProjectAboutTitle>Technical Sheet</ProjectAboutTitle>
+        {isProjectLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <ProjectTitle>{projectTitle}</ProjectTitle>
+            {projectSubTitle && (
+              <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>
+            )}
+            <LinksContainer>
+              {projectLink && (
+                <ProjectLink href={projectLink} type="primary">
+                  <ProjectLinkIcon />
+                  Website
+                </ProjectLink>
+              )}
+              <CodeLink type="danger" href={codeLink}>
+                <CodeLinkIcon />
+                <span>Code</span>
+              </CodeLink>
+            </LinksContainer>
+            {images && <ProjectSlider images={sliderData as string[]} />}
 
-          <TechnicalStackAbout>
-            Code technologies I got involved with while working on this project.
-          </TechnicalStackAbout>
-          <Line />
-          <TechnicalList>
-            {technicalStack.map(tech => (
-              <TechnicalListItem key={tech}>
-                <TechnicalListItemText>{tech}</TechnicalListItemText>
-              </TechnicalListItem>
-            ))}
-          </TechnicalList>
-        </ProjectAboutContainer>
+            <ProjectAboutContainer>
+              <ProjectAboutTitle>About this project</ProjectAboutTitle>
+              <Line />
+              <ProjectAbout>{aboutProject}</ProjectAbout>
+            </ProjectAboutContainer>
+            <ProjectAboutContainer>
+              <ProjectAboutTitle>Technical Sheet</ProjectAboutTitle>
+
+              <TechnicalStackAbout>
+                Code technologies I got involved with while working on this
+                project.
+              </TechnicalStackAbout>
+              <Line />
+              {technicalStack && (
+                <TechnicalList>
+                  {technicalStack?.map(tech => (
+                    <TechnicalListItem key={tech}>
+                      <TechnicalListItemText>{tech}</TechnicalListItemText>
+                    </TechnicalListItem>
+                  ))}
+                </TechnicalList>
+              )}
+            </ProjectAboutContainer>
+          </>
+        )}
       </ProjectSectionContainer>
     </>
   );

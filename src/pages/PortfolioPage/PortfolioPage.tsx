@@ -13,8 +13,6 @@ const PortfolioPage: FC = () => {
   const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
 
-  console.log('user==>', user);
-  console.log('projects==>', userProjects);
 
   useEffect(() => {
     if (userId === 'example') {
