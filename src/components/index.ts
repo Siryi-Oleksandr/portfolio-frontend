@@ -33,6 +33,7 @@ import Portfolio from './PortfolioPage/Portfolio';
 import PassDiff from './PassDiff/PassDiff';
 import AddProjectForm from './AddProjectForm/AddProjectForm';
 import UpdateProjectForm from './UpdateProjectForm/UpdateProjectForm';
+// import Modal from './Modal/Modal';
 
 export {
   App,

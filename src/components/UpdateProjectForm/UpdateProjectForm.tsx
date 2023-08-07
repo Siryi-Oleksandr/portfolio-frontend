@@ -20,8 +20,11 @@ import { createProject } from 'redux/project/operations';
 import placeholder from '../../images/placeholder-image.jpg';
 import { useNavigate } from 'react-router-dom';
 import { handleFormikImageUpload } from 'services';
+type UpdateProjectFormPorps = {
+  onClose: () => void;
+};
 
-const UpdateProjectForm: FC = () => {
+const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const [projectImg1, setProjectImg1] = useState<string>(placeholder);
   const [projectImg2, setProjectImg2] = useState<string>(placeholder);

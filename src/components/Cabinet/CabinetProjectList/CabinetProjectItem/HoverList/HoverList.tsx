@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
 import { Link } from 'react-router-dom';
 import { deleteProject } from 'redux/project/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
+import { EditProjectModal } from 'components/Cabinet/EditProjectModal/EditProjectModal';
 
 import { FaEdit, FaRegTrashAlt, FaLink } from 'react-icons/fa';
 
@@ -30,6 +31,19 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
   const handleDelete = (id: string) => {
     dispatch(deleteProject(id));
   };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true);
+    document.body.style.overflow = 'hidden';
+  };
+
   return (
     <motion.div
       className="div"
@@ -42,7 +56,7 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
           <FaLink size="30px"></FaLink>
         </Link>
       </motion.div>
-      <motion.button className="cabinet-btn">
+      <motion.button className="cabinet-btn" onClick={handleShowModal}>
         <FaEdit size="30px" />
       </motion.button>
       <motion.button
@@ -51,6 +65,7 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
       >
         <FaRegTrashAlt size="30px" />
       </motion.button>
+      {showModal && <EditProjectModal onClose={handleCloseModal} />}
     </motion.div>
   );
 };

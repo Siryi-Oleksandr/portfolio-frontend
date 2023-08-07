@@ -1,16 +1,16 @@
 import { Modal } from 'components/Modal/Modal';
 import React, { FC } from 'react';
-import UserForm from 'components/UserForm/UserForm';
+import UpdateProjectForm from 'components/UpdateProjectForm/UpdateProjectForm';
 
 type ModalUserFormPorps = {
   onClose: any;
 };
 
-export const UserFormModal: FC<ModalUserFormPorps> = ({ onClose }) => {
+export const EditProjectModal: FC<ModalUserFormPorps> = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
       <div>
-        <UserForm onClose={onClose} />
+        <UpdateProjectForm onClose={onClose} />
       </div>
     </Modal>
   );
