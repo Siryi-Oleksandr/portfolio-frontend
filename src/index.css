@@ -1,34 +1,4 @@
-/* @font-face {
-  font-display: swap;
-  font-family: 'Anton';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/Anton-Regular.woff2') format('woff2');
-}
 
-@font-face {
-  font-display: swap;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: url('fonts/Montserrat-Bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  src: url('fonts/Montserrat-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  src: url('fonts/Montserrat-SemiBold.woff2') format('woff2');
-} */
 .slick-next.slick-arrow {
   background: linear-gradient(
       to left,

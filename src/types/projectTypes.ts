@@ -7,5 +7,11 @@ export interface IProject {
   projectImages: { posterURL: string; posterID: string }[];
   aboutProject: string;
   technicalStack: string[];
-  owner: string;
+  owner: {
+    _id: string;
+    avatarURL: string;
+    email: string;
+    
+
+  };
 }
