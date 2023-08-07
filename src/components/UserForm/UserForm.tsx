@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
+import { InfoPercentage } from 'components';
 import {
   AddIcon,
   Avatar,
@@ -68,9 +69,11 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
         {props => (
           <StyledUserForm>
             <InputsContainer>
+              <InfoPercentage user={user} />
               <Avatar>
                 <img src={userAvatar} alt="Avatar" />
               </Avatar>
+
               <Label>
                 <input
                   name="avatar"
