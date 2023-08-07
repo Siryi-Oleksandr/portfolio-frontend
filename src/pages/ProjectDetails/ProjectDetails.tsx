@@ -65,12 +65,24 @@ const ProjectDetails: FC = () => {
             )}
             <LinksContainer>
               {projectLink && (
-                <ProjectLink href={projectLink} type="primary">
+                <ProjectLink
+                  onPress={(e: React.MouseEvent) => {
+                    e.preventDefault();
+                    window.open(projectLink, '_blank');
+                  }}
+                  type="primary"
+                >
                   <ProjectLinkIcon />
                   Website
                 </ProjectLink>
               )}
-              <CodeLink type="danger" href={codeLink}>
+              <CodeLink
+                type="danger"
+                onPress={(e: React.MouseEvent) => {
+                  e.preventDefault();
+                  window.open(codeLink, '_blank');
+                }}
+              >
                 <CodeLinkIcon />
                 <span>Code</span>
               </CodeLink>
