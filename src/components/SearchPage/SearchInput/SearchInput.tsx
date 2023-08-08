@@ -51,7 +51,7 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
           value={query}
           autoComplete="off"
           autoFocus={isDesktop && true}
-          placeholder="Search"
+          placeholder="Search users"
         />
         <SubmitBtn type="submit">
           <SearchIcon />

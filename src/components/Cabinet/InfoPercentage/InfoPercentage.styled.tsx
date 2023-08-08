@@ -19,7 +19,7 @@ export const Text = styled.p`
 
 export const Percentage = styled.span<{ percentage: string }>`
   padding: 3px 7px 3px 7px;
-  color: ${theme.colors.primary_text_switch};
+  color: #000;
   background-color: ${({ percentage }) => {
     const numericPercentage = +percentage;
 
