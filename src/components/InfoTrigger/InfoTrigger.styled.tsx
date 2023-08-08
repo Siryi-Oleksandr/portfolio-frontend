@@ -8,7 +8,6 @@ export const TriggerWrapper = styled.div`
 export const Text = styled.p`
   cursor: pointer;
   padding: 3px;
-  /* text-decoration: underline; */
   font-family: ${theme.fonts.text};
   border-radius: 4px;
   background-color: ${theme.colors.textarea};
@@ -22,13 +21,14 @@ export const InfoWrapper = styled.div<{ showInfo: boolean }>`
   width: 100px;
   pointer-events: none;
   background-color: ${theme.colors.textarea};
+  border: 1px solid #000;
   border-radius: 4px;
   text-align: center;
 
   opacity: ${({ showInfo }) => (showInfo ? '1' : '0')};
   transform: ${({ showInfo }) =>
     showInfo
-      ? 'translateX(-100%) translateY(-125%)'
+      ? 'translateX(-102%) translateY(-137%)'
       : 'translateX(-92%) translateY(-115%)'};
 
   transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;

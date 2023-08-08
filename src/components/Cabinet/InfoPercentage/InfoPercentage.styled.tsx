@@ -19,16 +19,16 @@ export const Text = styled.p`
 
 export const Percentage = styled.span<{ percentage: string }>`
   padding: 3px 7px 3px 7px;
-  color: #fff;
+  color: ${theme.colors.primary_text_switch};
   background-color: ${({ percentage }) => {
     if (percentage === '100') {
-      return 'green';
+      return '#008000';
     } else if (percentage >= '71' && percentage < '100') {
-      return 'yellow';
+      return '#e7e723';
     } else if (percentage >= '40' && percentage < '71') {
-      return 'orange';
+      return '#ffa500';
     } else if (percentage < '40') {
-      return 'red';
+      return '#ff0000';
     }
   }};
   border-radius: 5px;
@@ -36,6 +36,6 @@ export const Percentage = styled.span<{ percentage: string }>`
 
 export const InfoWrapper = styled.div`
   position: absolute;
-  top: -25px;
+  top: -27px;
   right: -5px;
 `;
