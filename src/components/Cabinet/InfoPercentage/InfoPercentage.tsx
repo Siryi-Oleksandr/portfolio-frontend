@@ -50,19 +50,23 @@ const InfoPercentage: FC<Props> = ({ user }) => {
   };
 
   const getEmoji = (percentage: string) => {
-    if (percentage === '100') {
+    const numericPercentage = +percentage;
+
+    if (numericPercentage === 100) {
       return '😁';
-    } else if (percentage >= '71' && percentage < '100') {
+    } else if (numericPercentage >= 70 && numericPercentage < 100) {
       return '🙂';
-    } else if (percentage >= '40' && percentage < '71') {
+    } else if (numericPercentage >= 37 && numericPercentage < 70) {
       return '😐';
-    } else if (percentage < '40') {
+    } else if (numericPercentage < 37) {
       return '😞';
     }
   };
 
   const filledPercentage = calculateInfoPercentage(user);
+  console.log(filledPercentage);
   const emoji = getEmoji(filledPercentage);
+  console.log(emoji);
 
   return (
     <TextWrapper>
