@@ -27,9 +27,10 @@ import {
   RedirectMeta,
   RedirectLink,
   IconWrap,
+  InfoWrapper,
 } from './RegisterForm.styled';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
-import { PassDiff } from 'components';
+import { PassDiff, InfoTrigger } from 'components';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -98,6 +99,11 @@ const RegisterForm: FC = () => {
                 {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
               </IconWrap>
               <PassDiff password={password} />
+              <InfoWrapper>
+                <InfoTrigger>
+                  This bar shows the difficulty of your password
+                </InfoTrigger>
+              </InfoWrapper>
             </Label>
           </InputsContainer>
           <SubmitBtn type="submit">Register</SubmitBtn>

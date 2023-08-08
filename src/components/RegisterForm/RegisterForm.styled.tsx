@@ -184,3 +184,9 @@ export const RedirectLink = styled(Link)`
     color: ${theme.colors.accentColor};
   }
 `;
+
+export const InfoWrapper = styled.div`
+  position: absolute;
+  top: -26px;
+  right: 140px;
+`;
