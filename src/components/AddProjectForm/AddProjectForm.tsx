@@ -149,6 +149,7 @@ const AddProjectForm: FC = () => {
                   style={{ display: 'none' }}
                 />
                 <AddImgIcon />
+                <ErrorMessage component={StyledErrorMessage} name="image1" />
                 <StyledLabel>Project Images</StyledLabel>
                 <ImageWrap>
                   <img src={projectImg1} alt="project image1" />

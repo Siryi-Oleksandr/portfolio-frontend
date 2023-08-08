@@ -54,5 +54,5 @@ export const FormAddProjectUpdateSchema = Yup.object().shape({
   projectLink: Yup.string().required(),
   codeLink: Yup.string().required(),
   aboutProject: Yup.string().min(3).max(1000).required(),
-  summary: Yup.string().min(2).max(500),
+  image1: Yup.mixed().required('File is required'),
 });
