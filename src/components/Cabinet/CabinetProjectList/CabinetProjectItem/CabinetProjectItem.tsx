@@ -11,6 +11,7 @@ import {
 import HoverList from './HoverList/HoverList';
 import { IProject } from 'types/projectTypes';
 import 'framer.styles.css';
+import projectImg from '../../../../img/project-img.jpg';
 
 type Props = {
   project: IProject;
@@ -36,7 +37,10 @@ const CabinetProjectItem: FC<Props> = ({ project }) => {
           <IconsBlock />
         </Bar>
         <ImgWrapper>
-          <Img src={projectImages[0].posterURL} alt={projectTitle} />
+          <Img
+            src={projectImages[0] ? projectImages[0].posterURL : projectImg}
+            alt={projectTitle}
+          />
           <Overlay className="nested-component">
             <HoverList
               description={aboutProject}
