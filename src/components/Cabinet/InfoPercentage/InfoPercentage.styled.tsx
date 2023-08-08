@@ -21,13 +21,15 @@ export const Percentage = styled.span<{ percentage: string }>`
   padding: 3px 7px 3px 7px;
   color: ${theme.colors.primary_text_switch};
   background-color: ${({ percentage }) => {
-    if (percentage === '100') {
+    const numericPercentage = +percentage;
+
+    if (numericPercentage === 100) {
       return '#008000';
-    } else if (percentage >= '71' && percentage < '100') {
+    } else if (numericPercentage >= 70 && numericPercentage < 100) {
       return '#e7e723';
-    } else if (percentage >= '40' && percentage < '71') {
+    } else if (numericPercentage >= 37 && numericPercentage < 70) {
       return '#ffa500';
-    } else if (percentage < '40') {
+    } else if (numericPercentage < 37) {
       return '#ff0000';
     }
   }};
