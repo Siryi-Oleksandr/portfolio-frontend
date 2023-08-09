@@ -131,3 +131,10 @@ export const ImagesWrap = styled.div`
     gap: 16px;
   }
 `;
+
+export const Wrapper = styled.div`
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
