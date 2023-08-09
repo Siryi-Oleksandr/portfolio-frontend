@@ -22,7 +22,8 @@ import SocialLink from './SocialLink/SocialLink';
 import UserForm from './UserForm/UserForm';
 import SearchInput from './SearchPage/SearchInput/SearchInput';
 import SearchList from './SearchPage/SearchList/SearchList';
-import SearchItem from './SearchPage/SearchItem/SearchItem';
+import SearchUserItem from './SearchPage/SearchItem/SearchUserItem';
+import SearchProjectsItem from './SearchPage/SearchItem/SearchProjectsItem';
 import SearchEmpty from './SearchPage/SearchEmpty/SearchEmpty';
 import NoResults from './SearchPage/NoResults/NoResults';
 import CabinetUserInfo from './Cabinet/CabinetUserInfo/CabinetUserInfo';
@@ -61,7 +62,8 @@ export {
   UserForm,
   SearchInput,
   SearchList,
-  SearchItem,
+  SearchUserItem,
+  SearchProjectsItem,
   SearchEmpty,
   NoResults,
   CabinetUserInfo,

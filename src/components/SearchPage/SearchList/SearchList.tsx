@@ -2,7 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 import { fetchUsers, fetchProjects } from '../apiServise';
 import { useLocation } from 'react-router-dom';
 import {
-  SearchItem,
+  SearchUserItem,
+  SearchProjectsItem,
   SearchEmpty,
   NoResults,
   Loader,
@@ -78,9 +79,8 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchProjects }) => {
           </ResultsWrapper>
           <List>
             {dataList.map(dataItem => (
-              <SearchItem
+              <SearchUserItem
                 key={dataItem._id}
-                id={dataItem._id}
                 dataItem={dataItem}
                 state={{ from: location }}
               />

@@ -9,15 +9,14 @@ import {
   Profession,
   LinkBtn,
   ArrowLink,
-} from './SearchItem.styled';
+} from './SearchUserItem.styled';
 
 interface Props {
   dataItem: IUser;
   state: object;
-  id: string;
 }
 
-const SearchItem: FC<Props> = ({ dataItem, state, id }) => {
+const SearchUserItem: FC<Props> = ({ dataItem, state }) => {
   return (
     <Item>
       <Wrapper>
@@ -25,7 +24,7 @@ const SearchItem: FC<Props> = ({ dataItem, state, id }) => {
           <img src={dataItem.avatarURL} alt="user avatar" />
         </ImageWrapper>
         <InfoWrapper>
-          <NameLink to={`/portfolio/${id}`} state={state}>
+          <NameLink to={`/portfolio/${dataItem._id}`} state={state}>
             {dataItem.name}
           </NameLink>
           <Profession>
@@ -33,11 +32,11 @@ const SearchItem: FC<Props> = ({ dataItem, state, id }) => {
           </Profession>
         </InfoWrapper>
       </Wrapper>
-      <LinkBtn to={`/portfolio/${id}`} state={state}>
+      <LinkBtn to={`/portfolio/${dataItem._id}`} state={state}>
         <ArrowLink />
       </LinkBtn>
     </Item>
   );
 };
 
-export default SearchItem;
+export default SearchUserItem;
