@@ -9,7 +9,7 @@ import {
   ImageWrap,
   AddImgIcon,
   ImagesWrap,
-} from '../AddProjectForm/AddProjectForm.styled';
+} from './UpdateProjectForm.styled';
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';

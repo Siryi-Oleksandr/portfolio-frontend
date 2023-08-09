@@ -18,6 +18,7 @@ export const DeleteModal: FC<DeleteModalPorps> = ({ onClose, id }) => {
   const dispatch = useAppDispatch();
   const handleDelete = (id: string) => {
     dispatch(deleteProject(id));
+    onClose();
   };
 
   return (

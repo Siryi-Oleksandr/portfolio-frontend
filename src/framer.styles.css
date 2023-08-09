@@ -75,6 +75,7 @@
   background-color: transparent;
   border: none;
   transition: all 250ms ease-in-out;
+  cursor: pointer;
   &:hover {
     color: #fe390c;
     transform: scale(1.2);
