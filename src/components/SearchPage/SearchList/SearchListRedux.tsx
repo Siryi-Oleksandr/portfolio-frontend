@@ -26,7 +26,7 @@ import {
   TotalResults,
   List,
   WatchMoreBtn,
-} from './SearchListRedux.styled';
+} from './SearchList.styled';
 
 interface Props {
   query: string;
