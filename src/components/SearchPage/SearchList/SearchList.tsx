@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { fetchUsers } from '../apiServise';
+import { fetchUsers, fetchProjects } from '../apiServise';
 import { useLocation } from 'react-router-dom';
 import {
   SearchItem,

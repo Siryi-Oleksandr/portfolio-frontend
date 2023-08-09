@@ -101,6 +101,7 @@ export const UserLabel = styled.label<{ selected: boolean }>`
   justify-content: center;
   align-items: center;
   gap: 3px;
+  cursor: pointer;
 
   font-family: ${theme.fonts.text};
   color: ${({ selected }) =>
@@ -117,6 +118,7 @@ export const ProjectLabel = styled.label<{ selected: boolean }>`
   justify-content: center;
   align-items: center;
   gap: 3px;
+  cursor: pointer;
 
   font-family: ${theme.fonts.text};
   color: ${({ selected }) =>

@@ -14,7 +14,7 @@ export const fetchUsers = async (query: string, page: number) => {
 export const fetchProjects = async (query: string, page: number) => {
   try {
     const response = await instance.get(
-      `/?query=${query}&page=${page}&limit=2`
+      `/projects/query/?query=${query}&page=${page}&limit=2`
     );
     return response.data;
   } catch (error: any) {
