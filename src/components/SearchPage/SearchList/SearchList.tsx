@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { instance } from '../../../redux/auth/operations';
+import { fetchUsers } from '../apiServise';
 import { useLocation } from 'react-router-dom';
 import {
   SearchItem,
@@ -20,24 +20,14 @@ import {
 interface Props {
   query: string;
   page: number;
+  isSearchProjects: boolean;
   loadMore: () => void;
 }
 
-const fetchUsers = async (query: string, page: number) => {
-  try {
-    const response = await instance.get(
-      `/?query=${query}&page=${page}&limit=2`
-    );
-    return response.data;
-  } catch (error: any) {
-    console.log(error.message);
-  }
-};
-
-const SearchList: FC<Props> = ({ query, page, loadMore }) => {
+const SearchList: FC<Props> = ({ query, page, loadMore, isSearchProjects }) => {
   const location = useLocation();
-  const [users, setUsers] = useState<IUser[]>([]);
-  const [totalUsers, setTotalUsers] = useState(0);
+  const [dataList, setDataList] = useState<IUser[]>([]);
+  const [totalResults, setTotalResults] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
@@ -48,8 +38,8 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     }
 
     if (page === 1) {
-      setTotalUsers(0);
-      setUsers([]);
+      setTotalResults(0);
+      setDataList([]);
     }
 
     if (page > 1) {
@@ -61,8 +51,8 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     fetchUsers(query, page)
       .then(data => {
         console.log(data);
-        setUsers(prevState => [...prevState, ...data.users]);
-        setTotalUsers(data.totalCount);
+        setDataList(prevState => [...prevState, ...data.users]);
+        setTotalResults(data.totalCount);
 
         setIsLoadMoreLoading(false);
         setIsLoading(false);
@@ -79,24 +69,24 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
-      {!isEmptySeach && totalUsers === 0 && !isLoading && <NoResults />}
+      {!isEmptySeach && totalResults === 0 && !isLoading && <NoResults />}
       {isLoading && !isLoadMoreLoading && <Loader />}
-      {users.length !== 0 && (
+      {dataList.length !== 0 && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {totalUsers}</TotalResults>
+            <TotalResults>Results: {totalResults}</TotalResults>
           </ResultsWrapper>
           <List>
-            {users.map(user => (
+            {dataList.map(dataItem => (
               <SearchItem
-                key={user._id}
-                id={user._id}
-                user={user}
+                key={dataItem._id}
+                id={dataItem._id}
+                dataItem={dataItem}
                 state={{ from: location }}
               />
             ))}
           </List>
-          {users.length > 0 && users.length < totalUsers && (
+          {dataList.length > 0 && dataList.length < totalResults && (
             <WatchMoreBtn type="button" onClick={loadMore}>
               {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
             </WatchMoreBtn>

@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
-import { FiUserX } from 'react-icons/fi';
+import { BsFillFileEarmarkExcelFill } from 'react-icons/bs';
 
 export const Wrapper = styled.div`
-  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 90px;
   text-align: center;
 `;
 
@@ -15,7 +18,7 @@ export const IconWrapper = styled.div`
   align-items: center;
 `;
 
-export const IconKeyboard = styled(FiUserX)`
+export const IconKeyboard = styled(BsFillFileEarmarkExcelFill)`
   width: 90px;
   height: 90px;
 

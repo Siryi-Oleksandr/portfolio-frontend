@@ -3,7 +3,7 @@ import { theme } from 'theme';
 
 export const ListContainer = styled.div`
   width: 100%;
-  padding: 0 15px;
+  padding: 65px 15px 0 15px;
 
   margin-left: auto;
   margin-right: auto;
@@ -32,7 +32,6 @@ export const ResultsWrapper = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-top: 10px;
   margin-bottom: 7px;
 `;
 

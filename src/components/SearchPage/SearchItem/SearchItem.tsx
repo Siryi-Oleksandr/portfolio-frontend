@@ -12,24 +12,24 @@ import {
 } from './SearchItem.styled';
 
 interface Props {
-  user: IUser;
+  dataItem: IUser;
   state: object;
   id: string;
 }
 
-const SearchItem: FC<Props> = ({ user, state, id }) => {
+const SearchItem: FC<Props> = ({ dataItem, state, id }) => {
   return (
     <Item>
       <Wrapper>
         <ImageWrapper>
-          <img src={user.avatarURL} alt="user avatar" />
+          <img src={dataItem.avatarURL} alt="user avatar" />
         </ImageWrapper>
         <InfoWrapper>
           <NameLink to={`/portfolio/${id}`} state={state}>
-            {user.name}
+            {dataItem.name}
           </NameLink>
           <Profession>
-            {user.profession === '' ? '' : `${user.profession}`}
+            {dataItem.profession === '' ? '' : `${dataItem.profession}`}
           </Profession>
         </InfoWrapper>
       </Wrapper>

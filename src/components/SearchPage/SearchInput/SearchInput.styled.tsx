@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 import { BsSearch } from 'react-icons/bs';
+import { BiSolidUser } from 'react-icons/bi';
+import { AiFillProject } from 'react-icons/ai';
 
 interface isReadySearch {
   isReady: boolean;
@@ -9,7 +11,7 @@ interface isReadySearch {
 export const Form = styled.form<isReadySearch>`
   height: 41px;
   transform: ${({ isReady }) =>
-    isReady ? 'translateY(0)' : 'translateY(-200%)'};
+    isReady ? 'translateY(0)' : 'translateY(-350%)'};
   transition: transform 800ms ease;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
   background-color: #404040;
@@ -83,4 +85,92 @@ export const SearchIcon = styled(BsSearch)`
   transition: ${theme.transition.hover};
 
   fill: #fff;
+`;
+
+export const RadioWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5px;
+`;
+
+export const UserLabel = styled.label<{ isSearchProjects: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+
+  font-family: ${theme.fonts.text};
+  color: ${({ isSearchProjects }) =>
+    !isSearchProjects
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.second_text_switch}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const ProjectLabel = styled.label<{ isSearchProjects: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+
+  font-family: ${theme.fonts.text};
+  color: ${({ isSearchProjects }) =>
+    isSearchProjects
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.second_text_switch}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const UserIconWrapper = styled.div<{ isSearchProjects: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  border-color: ${({ isSearchProjects }) =>
+    !isSearchProjects && `${theme.colors.accentColor}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const UserIcon = styled(BiSolidUser)<{ isSearchProjects: boolean }>`
+  width: 25px;
+  height: 25px;
+  color: ${({ isSearchProjects }) =>
+    !isSearchProjects
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.primary_text_switch}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const ProjectIconWrapper = styled.div<{ isSearchProjects: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  border-color: ${({ isSearchProjects }) =>
+    isSearchProjects && `${theme.colors.accentColor}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const ProjectIcon = styled(AiFillProject)<{ isSearchProjects: boolean }>`
+  width: 25px;
+  height: 25px;
+  color: ${({ isSearchProjects }) =>
+    isSearchProjects
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.primary_text_switch}`};
+
+  transition: ${theme.transition.hover};
 `;
