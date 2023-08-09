@@ -1,5 +1,5 @@
 import { ErrorMessage, Formik, FormikHelpers } from 'formik';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   Label,
   LabelTextArea,
@@ -9,6 +9,7 @@ import {
   ImageWrap,
   AddImgIcon,
   ImagesWrap,
+  Wrapper,
 } from './UpdateProjectForm.styled';
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
@@ -39,28 +40,14 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
     stringStack = projectById.technicalStack.join(', ');
   }
 
-  useEffect(() => {
-    if (projectById.projectImages !== undefined) {
-      if (projectById.projectImages[0]?.posterURL) {
-        setProjectImg1(projectById.projectImages[0].posterURL);
-      }
-      if (projectById.projectImages[1]?.posterURL) {
-        setProjectImg2(projectById.projectImages[1].posterURL);
-      }
-      if (projectById.projectImages[2]?.posterURL) {
-        setProjectImg3(projectById.projectImages[2].posterURL);
-      }
-    }
-  }, [projectById.projectImages]);
-
   const initialValues: ICreateUpdateProject = {
     projectTitle: projectById.projectTitle || '',
     projectSubTitle: projectById.projectSubTitle || '',
     projectLink: projectById.projectLink || '',
     codeLink: projectById.codeLink || '',
-    image1: projectImg1,
-    image2: projectImg2,
-    image3: projectImg3,
+    image1: undefined,
+    image2: undefined,
+    image3: undefined,
     aboutProject: projectById.aboutProject || '',
     technicalStack: stringStack,
   };
@@ -71,6 +58,7 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
+    console.log(values);
     dispatch(updateProject({ id, ...values }));
     actions.resetForm();
     onClose();
@@ -160,66 +148,70 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                 name="aboutProject"
               />
             </LabelTextArea>
-            <ImagesWrap>
-              <Label>
-                <input
-                  type="file"
-                  name="image1"
-                  onChange={event =>
-                    handleFormikImageUpload(
-                      event,
-                      props,
-                      'image1',
-                      setProjectImg1
-                    )
-                  }
-                  style={{ display: 'none' }}
-                />
-                <AddImgIcon />
-                <StyledLabel>Project Images</StyledLabel>
-                <ImageWrap>
-                  <img src={projectImg1} alt="project image1" />
-                </ImageWrap>
-              </Label>
-              <Label>
-                <input
-                  type="file"
-                  name="image2"
-                  onChange={event =>
-                    handleFormikImageUpload(
-                      event,
-                      props,
-                      'image2',
-                      setProjectImg2
-                    )
-                  }
-                  style={{ display: 'none' }}
-                />
-                <AddImgIcon />
-                <ImageWrap>
-                  <img src={projectImg2} alt="project image2" />
-                </ImageWrap>
-              </Label>
-              <Label>
-                <input
-                  type="file"
-                  name="image3"
-                  onChange={event =>
-                    handleFormikImageUpload(
-                      event,
-                      props,
-                      'image3',
-                      setProjectImg3
-                    )
-                  }
-                  style={{ display: 'none' }}
-                />
-                <AddImgIcon />
-                <ImageWrap>
-                  <img src={projectImg3} alt="project image3" />
-                </ImageWrap>
-              </Label>
-            </ImagesWrap>
+            <Wrapper>
+              <ImagesWrap>
+                <Label>
+                  <input
+                    type="file"
+                    name="image1"
+                    onChange={event =>
+                      handleFormikImageUpload(
+                        event,
+                        props,
+                        'image1',
+                        setProjectImg1
+                      )
+                    }
+                    style={{ display: 'none' }}
+                  />
+                  <AddImgIcon />
+                  <StyledLabel>Project Images*</StyledLabel>
+                  <ErrorMessage component={StyledErrorMessage} name="image1" />
+                  <ImageWrap>
+                    <img src={projectImg1} alt="project image1" />
+                  </ImageWrap>
+                </Label>
+                <Label>
+                  <input
+                    type="file"
+                    name="image2"
+                    onChange={event =>
+                      handleFormikImageUpload(
+                        event,
+                        props,
+                        'image2',
+                        setProjectImg2
+                      )
+                    }
+                    style={{ display: 'none' }}
+                  />
+                  <AddImgIcon />
+                  <ImageWrap>
+                    <img src={projectImg2} alt="project image2" />
+                  </ImageWrap>
+                </Label>
+                <Label>
+                  <input
+                    type="file"
+                    name="image3"
+                    onChange={event =>
+                      handleFormikImageUpload(
+                        event,
+                        props,
+                        'image3',
+                        setProjectImg3
+                      )
+                    }
+                    style={{ display: 'none' }}
+                  />
+                  <AddImgIcon />
+                  <ImageWrap>
+                    <img src={projectImg3} alt="project image3" />
+                  </ImageWrap>
+                </Label>
+              </ImagesWrap>
+              <p>* - You have to download your files again</p>
+            </Wrapper>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
               Update project
             </SubmitBtn>
