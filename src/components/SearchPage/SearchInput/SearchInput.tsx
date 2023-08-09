@@ -71,9 +71,9 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
         </SubmitBtn>
       </InputContainer>
       <RadioWrapper>
-        <UserLabel isSearchProjects={isSearchProjects}>
-          <UserIconWrapper isSearchProjects={isSearchProjects}>
-            <UserIcon isSearchProjects={isSearchProjects} />
+        <UserLabel selected={isSearchProjects}>
+          <UserIconWrapper selected={isSearchProjects}>
+            <UserIcon selected={isSearchProjects} />
           </UserIconWrapper>
           <input
             style={{ display: 'none' }}
@@ -85,9 +85,9 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
           />
           Search users
         </UserLabel>
-        <ProjectLabel isSearchProjects={isSearchProjects}>
-          <ProjectIconWrapper isSearchProjects={isSearchProjects}>
-            <ProjectIcon isSearchProjects={isSearchProjects} />
+        <ProjectLabel selected={isSearchProjects}>
+          <ProjectIconWrapper selected={isSearchProjects}>
+            <ProjectIcon selected={isSearchProjects} />
           </ProjectIconWrapper>
           <input
             style={{ display: 'none' }}

@@ -95,7 +95,7 @@ export const RadioWrapper = styled.div`
   margin-top: 5px;
 `;
 
-export const UserLabel = styled.label<{ isSearchProjects: boolean }>`
+export const UserLabel = styled.label<{ selected: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,15 +103,15 @@ export const UserLabel = styled.label<{ isSearchProjects: boolean }>`
   gap: 3px;
 
   font-family: ${theme.fonts.text};
-  color: ${({ isSearchProjects }) =>
-    !isSearchProjects
+  color: ${({ selected }) =>
+    !selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.second_text_switch}`};
 
   transition: ${theme.transition.hover};
 `;
 
-export const ProjectLabel = styled.label<{ isSearchProjects: boolean }>`
+export const ProjectLabel = styled.label<{ selected: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,56 +119,54 @@ export const ProjectLabel = styled.label<{ isSearchProjects: boolean }>`
   gap: 3px;
 
   font-family: ${theme.fonts.text};
-  color: ${({ isSearchProjects }) =>
-    isSearchProjects
+  color: ${({ selected }) =>
+    selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.second_text_switch}`};
 
   transition: ${theme.transition.hover};
 `;
 
-export const UserIconWrapper = styled.div<{ isSearchProjects: boolean }>`
+export const UserIconWrapper = styled.div<{ selected: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px;
   border: 2px solid transparent;
   border-radius: 50px;
-  border-color: ${({ isSearchProjects }) =>
-    !isSearchProjects && `${theme.colors.accentColor}`};
+  border-color: ${({ selected }) => !selected && `${theme.colors.accentColor}`};
 
   transition: ${theme.transition.hover};
 `;
 
-export const UserIcon = styled(BiSolidUser)<{ isSearchProjects: boolean }>`
+export const UserIcon = styled(BiSolidUser)<{ selected: boolean }>`
   width: 25px;
   height: 25px;
-  color: ${({ isSearchProjects }) =>
-    !isSearchProjects
+  color: ${({ selected }) =>
+    !selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.primary_text_switch}`};
 
   transition: ${theme.transition.hover};
 `;
 
-export const ProjectIconWrapper = styled.div<{ isSearchProjects: boolean }>`
+export const ProjectIconWrapper = styled.div<{ selected: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px;
   border: 2px solid transparent;
   border-radius: 50px;
-  border-color: ${({ isSearchProjects }) =>
-    isSearchProjects && `${theme.colors.accentColor}`};
+  border-color: ${({ selected }) => selected && `${theme.colors.accentColor}`};
 
   transition: ${theme.transition.hover};
 `;
 
-export const ProjectIcon = styled(AiFillProject)<{ isSearchProjects: boolean }>`
+export const ProjectIcon = styled(AiFillProject)<{ selected: boolean }>`
   width: 25px;
   height: 25px;
-  color: ${({ isSearchProjects }) =>
-    isSearchProjects
+  color: ${({ selected }) =>
+    selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.primary_text_switch}`};
 
