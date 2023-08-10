@@ -122,7 +122,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchUsers }) => {
             ((isSearchUsers === 'true' && users.length < totalResults) ||
               (isSearchUsers !== 'true' && projects.length < totalResults)) && (
               <WatchMoreBtn type="button" onClick={loadMore}>
-                {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
+                {isLoadMoreLoading ? <SmallLoader /> : 'More'}
               </WatchMoreBtn>
             )}
         </ListContainer>

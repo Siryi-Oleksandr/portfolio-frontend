@@ -59,6 +59,14 @@ export const ImageWrapper = styled.div`
   border-radius: ${theme.radii.medium};
   overflow: hidden;
 
+  & img {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+  }
+
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: calc(50% - 20px);
   }
@@ -89,16 +97,16 @@ export const AboutTitle = styled.h3`
   background-color: ${theme.colors.accentColor};
   font-size: 27px;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 27px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 40px;
-    margin-bottom: 50px;
+    font-size: 44px;
+    /* margin-bottom: 50px; */
   }
 `;
 
@@ -106,11 +114,13 @@ export const AboutText = styled.p`
   font-family: ${theme.fonts.text};
   font-size: ${theme.fontSizes.l};
   color: ${theme.colors.primary_text_switch};
+  margin-top: 12px;
 
   transition: ${theme.transition.hover};
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 24px;
+    margin-top: 30px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {

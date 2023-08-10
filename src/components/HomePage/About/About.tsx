@@ -13,6 +13,10 @@ import {
 } from './About.styled';
 
 // IMAGES
+// import portfolioImg from 'images/portfolioImg.jpg';
+// import searchImg from 'images/searchImg2.jpg';
+// import projectsImg from 'images/projectsImg2.jpg';
+// import interfaceImg from 'images/interface.jpg';
 
 const About: FC = () => {
   return (
@@ -23,38 +27,52 @@ const About: FC = () => {
           <AboutItem>
             <TextWrapper>
               <ItemNumber>1.</ItemNumber>
-              <AboutTitle>Save your projects</AboutTitle>
+              <AboutTitle>Create your portfolio</AboutTitle>
+              <AboutTitle>and share with</AboutTitle>
+              <AboutTitle>the others!</AboutTitle>
               <AboutText>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                animi sunt commodi voluptates dolorum eaque asperiores
-                reiciendis fugit fugiat sapiente deserunt quaerat nulla
-                incidunt, praesentium similique natus qui alias molestias.
+                Dont have a portfolio? <br /> No problem!
+                <br /> Create your own unique portfolio with all necessary
+                information and share it with everyone.
               </AboutText>
             </TextWrapper>
-            <ImageWrapper></ImageWrapper>
+            <ImageWrapper>
+              {/* <img src={portfolioImg} alt="portfolio" /> */}
+            </ImageWrapper>
           </AboutItem>
           <AboutItem>
             <TextWrapper>
               <ItemNumber>2.</ItemNumber>
-              <AboutTitle>Search other developers</AboutTitle>
+              <AboutTitle>Save your projects!</AboutTitle>
               <AboutText>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                animi sunt commodi voluptates dolorum eaque asperiores
-                reiciendis fugit fugiat sapiente deserunt quaerat nulla
-                incidunt, praesentium similique natus qui alias molestias.
+                Save all your projects with all information you need. Upload
+                photos, save links to website or code and write a description.
               </AboutText>
             </TextWrapper>
-            <ImageWrapper></ImageWrapper>
+            <ImageWrapper>
+              {/* <img src={projectsImg} alt="search" /> */}
+            </ImageWrapper>
           </AboutItem>
           <AboutItem>
             <TextWrapper>
               <ItemNumber>3.</ItemNumber>
-              <AboutTitle>Search their projects</AboutTitle>
+              <AboutTitle>Search for other users</AboutTitle>
+              <AboutTitle>and their projects!</AboutTitle>
               <AboutText>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                animi sunt commodi voluptates dolorum eaque asperiores
-                reiciendis fugit fugiat sapiente deserunt quaerat nulla
-                incidunt, praesentium similique natus qui alias molestias.
+                Easy and fast searching of other users or their projects!
+              </AboutText>
+            </TextWrapper>
+            <ImageWrapper>
+              {/* <img src={searchImg} alt="search" /> */}
+            </ImageWrapper>
+          </AboutItem>
+          <AboutItem>
+            <TextWrapper>
+              <ItemNumber>4.</ItemNumber>
+              <AboutTitle>Unique and </AboutTitle>
+              <AboutTitle>simple interface!</AboutTitle>
+              <AboutText>
+                Website is easy to use for everyone, not only for developers.
               </AboutText>
             </TextWrapper>
             <ImageWrapper></ImageWrapper>

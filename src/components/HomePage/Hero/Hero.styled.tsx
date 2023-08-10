@@ -48,7 +48,7 @@ export const TextWrapper = styled.div`
 
 export const Title = styled.h1`
   font-family: ${theme.fonts.title};
-  font-size: 70px;
+  font-size: 67px;
   letter-spacing: 4px;
   color: #fff;
   margin-bottom: 80px;

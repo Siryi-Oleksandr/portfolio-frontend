@@ -1,6 +1,6 @@
 import App from './App/App';
 import Loader from './Loader/Loader';
-import SmallLoader from './SearchPage/smallLoader';
+import SmallLoader from './SearchPage/SearchList/smallLoader/smallLoader';
 import Navigation from './Navigation/Navigation';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import ThemeToggler from './ThemeToggler/ThemeToggler';
