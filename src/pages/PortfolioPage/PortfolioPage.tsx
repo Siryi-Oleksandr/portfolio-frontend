@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader, Portfolio } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -7,18 +7,17 @@ import { getUserProjects } from 'redux/project/operations';
 import { useProjects, useSearch } from 'hooks';
 
 const PortfolioPage: FC = () => {
-  const [isGuest, setIsGuest] = useState(false);
-  let { userId = 'example' } = useParams();
+  // const [isGuest, setIsGuest] = useState(false);
+  let { userId = '64d4797b379a5ea8b43b84d3' } = useParams();
   const { userProjects, isProjectLoading } = useProjects();
   const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
 
-
   useEffect(() => {
-    if (userId === 'example') {
-      return setIsGuest(true);
-    }
-    setIsGuest(false);
+    // if (userId === 'example') {
+    //   return setIsGuest(true);
+    // }
+    // setIsGuest(false);
     dispatch(getUserById(userId));
     dispatch(getUserProjects(userId));
   }, [dispatch, userId]);
@@ -26,11 +25,7 @@ const PortfolioPage: FC = () => {
   return (
     <>
       {(isSearchLoading || isProjectLoading) && <Loader />}
-      {isGuest ? (
-        <p>Заглушка</p>
-      ) : (
-        <Portfolio user={user ? user : {}} projects={userProjects} />
-      )}
+      <Portfolio user={user ? user : {}} projects={userProjects} />
     </>
   );
 };

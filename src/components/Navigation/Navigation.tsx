@@ -15,7 +15,7 @@ import Logo from './Logo/Logo';
 
 const Navigation: FC = () => {
   const { isLoggedIn, user } = useAuth();
-  const example = 'example';
+  const example = '64d4797b379a5ea8b43b84d3';
 
   return (
     <>
