@@ -4,7 +4,7 @@ import { BsKeyboardFill } from 'react-icons/bs';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 
 export const Wrapper = styled.div`
-  padding-top: 90px;
+  padding-top: 150px;
   text-align: center;
 `;
 

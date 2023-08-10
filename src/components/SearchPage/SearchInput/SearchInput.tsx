@@ -58,6 +58,7 @@ const SearchInput: FC<onSubmitFunc> = ({
 
   const onSearchTypeChange = () => {
     setIsSearchUsers(prevState => !prevState);
+    setQuery('');
   };
 
   return (
