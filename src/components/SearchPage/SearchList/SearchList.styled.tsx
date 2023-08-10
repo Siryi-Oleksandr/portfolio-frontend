@@ -3,7 +3,7 @@ import { theme } from 'theme';
 
 export const ListContainer = styled.div`
   width: 100%;
-  padding: 0 15px;
+  padding: 70px 15px 0 15px;
 
   margin-left: auto;
   margin-right: auto;
@@ -18,12 +18,14 @@ export const ListContainer = styled.div`
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     max-width: ${theme.breakpoints.tablet};
     padding: 0 20px;
+    padding-top: 70px;
     padding-bottom: 40px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     max-width: ${theme.breakpoints.desktop};
     padding: 0 140px;
+    padding-top: 70px;
     padding-bottom: 40px;
   }
 `;
@@ -32,7 +34,6 @@ export const ResultsWrapper = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-top: 10px;
   margin-bottom: 7px;
 `;
 

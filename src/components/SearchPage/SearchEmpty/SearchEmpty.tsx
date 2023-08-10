@@ -14,7 +14,7 @@ const SearchEmpty: FC = () => {
         <IconArrow />
         <IconKeyboard />
       </IconWrapper>
-      <Text>Search for other developers!</Text>
+      <Text>Search for users or projects!</Text>
     </Wrapper>
   );
 };

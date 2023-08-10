@@ -1,43 +1,36 @@
 import React, { FC, useEffect, useState } from 'react';
-import { instance } from '../../../redux/auth/operations';
+import { fetchUsers, fetchProjects } from '../apiServise';
 import { useLocation } from 'react-router-dom';
 import {
-  SearchItem,
+  SearchUserItem,
+  SearchProjectsItem,
   SearchEmpty,
   NoResults,
   Loader,
   SmallLoader,
 } from 'components';
-import { IUser } from '../../../types/userTypes';
+import { IUser } from 'types/userTypes';
+import { IProjects } from 'types/projectTypes';
 import {
   ListContainer,
   ResultsWrapper,
   TotalResults,
   List,
   WatchMoreBtn,
-} from './SearchListRedux.styled';
+} from './SearchList.styled';
 
 interface Props {
   query: string;
   page: number;
+  isSearchUsers: string;
   loadMore: () => void;
 }
 
-const fetchUsers = async (query: string, page: number) => {
-  try {
-    const response = await instance.get(
-      `/?query=${query}&page=${page}&limit=2`
-    );
-    return response.data;
-  } catch (error: any) {
-    console.log(error.message);
-  }
-};
-
-const SearchList: FC<Props> = ({ query, page, loadMore }) => {
+const SearchList: FC<Props> = ({ query, page, loadMore, isSearchUsers }) => {
   const location = useLocation();
   const [users, setUsers] = useState<IUser[]>([]);
-  const [totalUsers, setTotalUsers] = useState(0);
+  const [projects, setProjects] = useState<IProjects[]>([]);
+  const [totalResults, setTotalResults] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
   const [isEmptySeach, setIsEmptySeach] = useState(true);
@@ -48,8 +41,9 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     }
 
     if (page === 1) {
-      setTotalUsers(0);
+      setTotalResults(0);
       setUsers([]);
+      setProjects([]);
     }
 
     if (page > 1) {
@@ -58,49 +52,79 @@ const SearchList: FC<Props> = ({ query, page, loadMore }) => {
     setIsEmptySeach(false);
     setIsLoading(true);
 
-    fetchUsers(query, page)
-      .then(data => {
-        console.log(data);
-        setUsers(prevState => [...prevState, ...data.users]);
-        setTotalUsers(data.totalCount);
+    const booleanValue = isSearchUsers === 'true' ? true : false;
 
-        setIsLoadMoreLoading(false);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-        setIsLoadMoreLoading(false);
-      });
-  }, [page, query]);
+    if (booleanValue) {
+      fetchUsers(query, page)
+        .then(data => {
+          // console.log(data);
+          setUsers(prevState => [...prevState, ...data.users]);
+          setTotalResults(data.totalCount);
+
+          setIsLoadMoreLoading(false);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          setIsLoadMoreLoading(false);
+        });
+    } else {
+      fetchProjects(query, page)
+        .then(data => {
+          // console.log(data);
+          setProjects(prevState => [...prevState, ...data.projects]);
+          setTotalResults(data.totalCount);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          setIsLoadMoreLoading(false);
+        });
+    }
+  }, [isSearchUsers, page, query]);
 
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
-      {!isEmptySeach && totalUsers === 0 && !isLoading && <NoResults />}
+      {!isEmptySeach && totalResults === 0 && !isLoading && <NoResults />}
       {isLoading && !isLoadMoreLoading && <Loader />}
-      {users.length !== 0 && (
+      {totalResults !== 0 && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {totalUsers}</TotalResults>
+            <TotalResults>
+              {isSearchUsers === 'true' ? 'Total users' : 'Total projects'}:{' '}
+              {totalResults}
+            </TotalResults>
           </ResultsWrapper>
           <List>
-            {users.map(user => (
-              <SearchItem
-                key={user._id}
-                id={user._id}
-                user={user}
-                state={{ from: location }}
-              />
-            ))}
+            {isSearchUsers === 'true'
+              ? users.map(user => (
+                  <SearchUserItem
+                    key={user._id}
+                    user={user}
+                    state={{ from: location }}
+                  />
+                ))
+              : projects.map(project => (
+                  <SearchProjectsItem
+                    key={project._id}
+                    project={project}
+                    state={{ from: location }}
+                  />
+                ))}
           </List>
-          {users.length > 0 && users.length < totalUsers && (
-            <WatchMoreBtn type="button" onClick={loadMore}>
-              {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
-            </WatchMoreBtn>
-          )}
+          {totalResults > 0 &&
+            ((isSearchUsers === 'true' && users.length < totalResults) ||
+              (isSearchUsers !== 'true' && projects.length < totalResults)) && (
+              <WatchMoreBtn type="button" onClick={loadMore}>
+                {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
+              </WatchMoreBtn>
+            )}
         </ListContainer>
       )}
     </>

@@ -7,7 +7,7 @@ const NoResults: FC = () => {
       <IconWrapper>
         <IconKeyboard />
       </IconWrapper>
-      <Text>Users not found</Text>
+      <Text>No results</Text>
     </Wrapper>
   );
 };

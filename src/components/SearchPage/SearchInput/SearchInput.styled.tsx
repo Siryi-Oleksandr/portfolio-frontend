@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 import { BsSearch } from 'react-icons/bs';
+import { BiSolidUser } from 'react-icons/bi';
+import { AiFillProject } from 'react-icons/ai';
 
 interface isReadySearch {
   isReady: boolean;
@@ -9,7 +11,7 @@ interface isReadySearch {
 export const Form = styled.form<isReadySearch>`
   height: 41px;
   transform: ${({ isReady }) =>
-    isReady ? 'translateY(0)' : 'translateY(-200%)'};
+    isReady ? 'translateY(0)' : 'translateY(-350%)'};
   transition: transform 800ms ease;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
   background-color: #404040;
@@ -47,7 +49,7 @@ export const Input = styled.input`
   transition: border-color 0.3s ease-in-out;
 
   ::placeholder {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   :focus {
@@ -83,4 +85,94 @@ export const SearchIcon = styled(BsSearch)`
   transition: ${theme.transition.hover};
 
   fill: #fff;
+`;
+
+export const RadioWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 270px;
+  margin: 0 auto;
+  margin-top: 7px;
+`;
+
+export const UserLabel = styled.label<{ selected: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+
+  font-family: ${theme.fonts.text};
+  color: ${({ selected }) =>
+    selected
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.second_text_switch}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const ProjectLabel = styled.label<{ selected: boolean }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+
+  font-family: ${theme.fonts.text};
+  color: ${({ selected }) =>
+    !selected
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.second_text_switch}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const UserIconWrapper = styled.div<{ selected: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  border-color: ${({ selected }) => selected && `${theme.colors.accentColor}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const UserIcon = styled(BiSolidUser)<{ selected: boolean }>`
+  width: 25px;
+  height: 25px;
+  color: ${({ selected }) =>
+    selected
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.primary_text_switch}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const ProjectIconWrapper = styled.div<{ selected: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  border-color: ${({ selected }) => !selected && `${theme.colors.accentColor}`};
+
+  transition: ${theme.transition.hover};
+`;
+
+export const ProjectIcon = styled(AiFillProject)<{ selected: boolean }>`
+  width: 25px;
+  height: 25px;
+  color: ${({ selected }) =>
+    !selected
+      ? `${theme.colors.accentColor}`
+      : `${theme.colors.primary_text_switch}`};
+
+  transition: ${theme.transition.hover};
 `;

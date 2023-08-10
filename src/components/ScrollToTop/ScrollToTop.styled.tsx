@@ -32,11 +32,11 @@ export const ArrowIcon = styled(BsFillArrowUpCircleFill)`
   height: 100%;
 
   color: ${theme.colors.accentColor};
-  opacity: 0.7;
+  opacity: 1;
   transition: opacity 300ms ease;
 
   :hover,
   :focus {
-    opacity: 1;
+    opacity: 0.8;
   }
 `;

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import {
-  SearchItem,
+  // SearchItem,
   SearchEmpty,
   NoResults,
   Loader,
@@ -26,7 +26,7 @@ import {
   TotalResults,
   List,
   WatchMoreBtn,
-} from './SearchListRedux.styled';
+} from './SearchList.styled';
 
 interface Props {
   query: string;
@@ -35,7 +35,7 @@ interface Props {
 }
 
 const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
-  const location = useLocation();
+  // const location = useLocation();
   const [isEmptySeach, setIsEmptySeach] = useState(true);
   // const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
 
@@ -82,14 +82,14 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
             <TotalResults>Results: {totalUsers}</TotalResults>
           </ResultsWrapper>
           <List>
-            {users.map(user => (
+            {/* {users.map(user => (
               <SearchItem
                 key={user._id}
                 id={user._id}
                 user={user}
                 state={{ from: location }}
               />
-            ))}
+            ))} */}
           </List>
           {users.length > 0 && users.length < totalUsers && (
             <WatchMoreBtn type="button" onClick={loadMore}>

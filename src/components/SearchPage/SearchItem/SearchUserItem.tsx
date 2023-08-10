@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { IUser } from 'types/userTypes';
+// import { IProjects } from 'types/projectTypes';
 import {
   Item,
   Wrapper,
@@ -9,15 +10,14 @@ import {
   Profession,
   LinkBtn,
   ArrowLink,
-} from './SearchItem.styled';
+} from './SearchUserItem.styled';
 
 interface Props {
   user: IUser;
   state: object;
-  id: string;
 }
 
-const SearchItem: FC<Props> = ({ user, state, id }) => {
+const SearchUserItem: FC<Props> = ({ user, state }) => {
   return (
     <Item>
       <Wrapper>
@@ -25,7 +25,7 @@ const SearchItem: FC<Props> = ({ user, state, id }) => {
           <img src={user.avatarURL} alt="user avatar" />
         </ImageWrapper>
         <InfoWrapper>
-          <NameLink to={`/portfolio/${id}`} state={state}>
+          <NameLink to={`/portfolio/${user._id}`} state={state}>
             {user.name}
           </NameLink>
           <Profession>
@@ -33,11 +33,11 @@ const SearchItem: FC<Props> = ({ user, state, id }) => {
           </Profession>
         </InfoWrapper>
       </Wrapper>
-      <LinkBtn to={`/portfolio/${id}`} state={state}>
+      <LinkBtn to={`/portfolio/${user._id}`} state={state}>
         <ArrowLink />
       </LinkBtn>
     </Item>
   );
 };
 
-export default SearchItem;
+export default SearchUserItem;
