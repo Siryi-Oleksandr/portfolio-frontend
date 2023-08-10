@@ -56,6 +56,19 @@ export const ExperienceWrapper = styled(CustomersWrapper)`
   flex-direction: column-reverse;
 `;
 
+export const ImgWrapper = styled.div`
+  width: 230px;
+  height: 256px;
+
+  & img {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+  }
+`;
+
 export const CustomersInfo = styled.div`
   width: 100%;
   display: flex;
@@ -104,10 +117,10 @@ export const AboutUser = styled.div`
 export const Summary = styled.p`
   color: ${theme.colors.second_text_switch};
   font-family: ${theme.fonts.text};
-  font-size: 12px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 2.66;
+  line-height: 2;
   letter-spacing: -0.24px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
