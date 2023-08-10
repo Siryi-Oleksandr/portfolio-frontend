@@ -18,18 +18,25 @@ import {
 interface onSubmitFunc {
   onSubmit: Function;
   paramsQuery: string;
+  paramsSearchType: string;
 }
 
-const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
+const SearchInput: FC<onSubmitFunc> = ({
+  onSubmit,
+  paramsQuery,
+  paramsSearchType,
+}) => {
   const [query, setQuery] = useState<string>('');
   const [ready, setReady] = useState<boolean>(false);
-  const [isSearchProjects, setIsSearchProjects] = useState(false);
+  const [isSearchUsers, setIsSearchUsers] = useState(true);
 
   const { isDesktop } = useResponse();
 
   useEffect(() => {
     setQuery(paramsQuery);
-  }, [paramsQuery]);
+    const booleanValue = paramsSearchType === 'false' ? false : true;
+    setIsSearchUsers(booleanValue);
+  }, [paramsQuery, paramsSearchType]);
 
   useEffect(() => {
     setReady(true);
@@ -46,12 +53,11 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
       return;
     }
 
-    onSubmit(query, isSearchProjects);
+    onSubmit(query, isSearchUsers);
   };
 
   const onSearchTypeChange = () => {
-    setIsSearchProjects(prevState => !prevState);
-    setQuery('');
+    setIsSearchUsers(prevState => !prevState);
   };
 
   return (
@@ -64,37 +70,37 @@ const SearchInput: FC<onSubmitFunc> = ({ onSubmit, paramsQuery }) => {
           value={query}
           autoComplete="off"
           autoFocus={isDesktop && true}
-          placeholder={!isSearchProjects ? 'Search users' : 'Search projects'}
+          placeholder={isSearchUsers ? 'Search users' : 'Search projects'}
         />
         <SubmitBtn type="submit">
           <SearchIcon />
         </SubmitBtn>
       </InputContainer>
       <RadioWrapper>
-        <UserLabel selected={isSearchProjects}>
-          <UserIconWrapper selected={isSearchProjects}>
-            <UserIcon selected={isSearchProjects} />
+        <UserLabel selected={isSearchUsers}>
+          <UserIconWrapper selected={isSearchUsers}>
+            <UserIcon selected={isSearchUsers} />
           </UserIconWrapper>
           <input
             style={{ display: 'none' }}
             type="radio"
             name="searchType"
             value="users"
-            checked={!isSearchProjects}
+            checked={isSearchUsers}
             onChange={onSearchTypeChange}
           />
           Search users
         </UserLabel>
-        <ProjectLabel selected={isSearchProjects}>
-          <ProjectIconWrapper selected={isSearchProjects}>
-            <ProjectIcon selected={isSearchProjects} />
+        <ProjectLabel selected={isSearchUsers}>
+          <ProjectIconWrapper selected={isSearchUsers}>
+            <ProjectIcon selected={isSearchUsers} />
           </ProjectIconWrapper>
           <input
             style={{ display: 'none' }}
             type="radio"
             name="searchType"
             value="projects"
-            checked={isSearchProjects}
+            checked={!isSearchUsers}
             onChange={onSearchTypeChange}
           />
           Search projects

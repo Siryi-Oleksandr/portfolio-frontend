@@ -32,6 +32,7 @@ export interface IProjects {
     linkedinURL: string;
     gitHubURL: string;
     profession: string;
+    name: string;
     surname: string;
     miniAvatarURL: string;
   };

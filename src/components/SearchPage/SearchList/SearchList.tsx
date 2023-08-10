@@ -9,7 +9,8 @@ import {
   Loader,
   SmallLoader,
 } from 'components';
-import { IUser } from '../../../types/userTypes';
+import { IUser } from 'types/userTypes';
+import { IProjects } from 'types/projectTypes';
 import {
   ListContainer,
   ResultsWrapper,
@@ -21,13 +22,14 @@ import {
 interface Props {
   query: string;
   page: number;
-  isSearchProjects: boolean;
+  isSearchUsers: string;
   loadMore: () => void;
 }
 
-const SearchList: FC<Props> = ({ query, page, loadMore, isSearchProjects }) => {
+const SearchList: FC<Props> = ({ query, page, loadMore, isSearchUsers }) => {
   const location = useLocation();
-  const [dataList, setDataList] = useState<IUser[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
+  const [projects, setProjects] = useState<IProjects[]>([]);
   const [totalResults, setTotalResults] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
@@ -40,7 +42,8 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchProjects }) => {
 
     if (page === 1) {
       setTotalResults(0);
-      setDataList([]);
+      setUsers([]);
+      setProjects([]);
     }
 
     if (page > 1) {
@@ -49,48 +52,76 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchProjects }) => {
     setIsEmptySeach(false);
     setIsLoading(true);
 
-    fetchUsers(query, page)
-      .then(data => {
-        console.log(data);
-        setDataList(prevState => [...prevState, ...data.users]);
-        setTotalResults(data.totalCount);
+    const booleanValue = isSearchUsers === 'true' ? true : false;
 
-        setIsLoadMoreLoading(false);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-        setIsLoadMoreLoading(false);
-      });
-  }, [page, query]);
+    if (booleanValue) {
+      fetchUsers(query, page)
+        .then(data => {
+          console.log(data);
+          setUsers(prevState => [...prevState, ...data.users]);
+          setTotalResults(data.totalCount);
+
+          setIsLoadMoreLoading(false);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          setIsLoadMoreLoading(false);
+        });
+    } else {
+      fetchProjects(query, page)
+        .then(data => {
+          console.log(data);
+          setProjects(prevState => [...prevState, ...data.projects]);
+          setTotalResults(data.totalCount);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          setIsLoadMoreLoading(false);
+        });
+    }
+  }, [isSearchUsers, page, query]);
 
   return (
     <>
       {isEmptySeach && !isLoading && <SearchEmpty />}
       {!isEmptySeach && totalResults === 0 && !isLoading && <NoResults />}
       {isLoading && !isLoadMoreLoading && <Loader />}
-      {dataList.length !== 0 && (
+      {totalResults !== 0 && (
         <ListContainer>
           <ResultsWrapper>
             <TotalResults>Results: {totalResults}</TotalResults>
           </ResultsWrapper>
           <List>
-            {dataList.map(dataItem => (
-              <SearchUserItem
-                key={dataItem._id}
-                dataItem={dataItem}
-                state={{ from: location }}
-              />
-            ))}
+            {isSearchUsers === 'true'
+              ? users.map(user => (
+                  <SearchUserItem
+                    key={user._id}
+                    user={user}
+                    state={{ from: location }}
+                  />
+                ))
+              : projects.map(project => (
+                  <SearchProjectsItem
+                    key={project._id}
+                    project={project}
+                    state={{ from: location }}
+                  />
+                ))}
           </List>
-          {dataList.length > 0 && dataList.length < totalResults && (
-            <WatchMoreBtn type="button" onClick={loadMore}>
-              {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
-            </WatchMoreBtn>
-          )}
+          {totalResults > 0 &&
+            ((isSearchUsers === 'true' && users.length < totalResults) ||
+              (isSearchUsers !== 'true' && projects.length < totalResults)) && (
+              <WatchMoreBtn type="button" onClick={loadMore}>
+                {isLoadMoreLoading ? <SmallLoader /> : 'Load more'}
+              </WatchMoreBtn>
+            )}
         </ListContainer>
       )}
     </>

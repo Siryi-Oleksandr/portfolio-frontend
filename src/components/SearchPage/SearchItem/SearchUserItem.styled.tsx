@@ -9,7 +9,7 @@ export const Item = styled.li`
   align-items: center;
   border: 1px solid ${theme.colors.accentColor};
   border-radius: 6px;
-  padding: 13px 20px 13px 10px;
+  padding: 13px 10px 13px 10px;
 
   transition: ${theme.transition.hover};
   background-color: ${theme.colors.second_background_switch};
@@ -25,8 +25,9 @@ export const Wrapper = styled.div`
 export const ImageWrapper = styled.div`
   width: 40px;
   height: 40px;
+  border: 1px solid ${theme.colors.accentColor};
   border-radius: 50%;
-  background-color: red;
+
   overflow: hidden;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {

@@ -92,7 +92,9 @@ export const RadioWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 5px;
+  width: 270px;
+  margin: 0 auto;
+  margin-top: 7px;
 `;
 
 export const UserLabel = styled.label<{ selected: boolean }>`
@@ -105,7 +107,7 @@ export const UserLabel = styled.label<{ selected: boolean }>`
 
   font-family: ${theme.fonts.text};
   color: ${({ selected }) =>
-    !selected
+    selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.second_text_switch}`};
 
@@ -122,7 +124,7 @@ export const ProjectLabel = styled.label<{ selected: boolean }>`
 
   font-family: ${theme.fonts.text};
   color: ${({ selected }) =>
-    selected
+    !selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.second_text_switch}`};
 
@@ -136,7 +138,7 @@ export const UserIconWrapper = styled.div<{ selected: boolean }>`
   padding: 4px;
   border: 2px solid transparent;
   border-radius: 50px;
-  border-color: ${({ selected }) => !selected && `${theme.colors.accentColor}`};
+  border-color: ${({ selected }) => selected && `${theme.colors.accentColor}`};
 
   transition: ${theme.transition.hover};
 `;
@@ -145,7 +147,7 @@ export const UserIcon = styled(BiSolidUser)<{ selected: boolean }>`
   width: 25px;
   height: 25px;
   color: ${({ selected }) =>
-    !selected
+    selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.primary_text_switch}`};
 
@@ -159,7 +161,7 @@ export const ProjectIconWrapper = styled.div<{ selected: boolean }>`
   padding: 4px;
   border: 2px solid transparent;
   border-radius: 50px;
-  border-color: ${({ selected }) => selected && `${theme.colors.accentColor}`};
+  border-color: ${({ selected }) => !selected && `${theme.colors.accentColor}`};
 
   transition: ${theme.transition.hover};
 `;
@@ -168,7 +170,7 @@ export const ProjectIcon = styled(AiFillProject)<{ selected: boolean }>`
   width: 25px;
   height: 25px;
   color: ${({ selected }) =>
-    selected
+    !selected
       ? `${theme.colors.accentColor}`
       : `${theme.colors.primary_text_switch}`};
 
