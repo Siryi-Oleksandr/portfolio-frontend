@@ -49,7 +49,7 @@ export const Input = styled.input`
   transition: border-color 0.3s ease-in-out;
 
   ::placeholder {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   :focus {

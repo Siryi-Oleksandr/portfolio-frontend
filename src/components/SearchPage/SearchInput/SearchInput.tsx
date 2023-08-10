@@ -72,7 +72,9 @@ const SearchInput: FC<onSubmitFunc> = ({
           autoComplete="off"
           autoFocus={isDesktop && true}
           placeholder={
-            isSearchUsers ? 'Search users' : 'Search projects by technic'
+            isSearchUsers
+              ? 'Search users by name'
+              : 'Search projects by technology'
           }
         />
         <SubmitBtn type="submit">
