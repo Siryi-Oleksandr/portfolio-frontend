@@ -96,7 +96,10 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchUsers }) => {
       {totalResults !== 0 && (
         <ListContainer>
           <ResultsWrapper>
-            <TotalResults>Results: {totalResults}</TotalResults>
+            <TotalResults>
+              {isSearchUsers === 'true' ? 'Total users' : 'Total projects'}:{' '}
+              {totalResults}
+            </TotalResults>
           </ResultsWrapper>
           <List>
             {isSearchUsers === 'true'
