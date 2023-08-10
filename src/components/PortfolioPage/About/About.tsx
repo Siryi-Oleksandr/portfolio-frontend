@@ -11,16 +11,15 @@ import {
   AboutUser,
   Summary,
   AboutWrapper,
+  ImgWrapper,
 } from './About.styled';
 import { IUser } from 'types/userTypes';
+import { useProjects } from 'hooks';
 
 // IMAGES
-import handX1 from 'images/portfolio/about/about-hand-1x.jpg';
-import handX2 from 'images/portfolio/about/about-hand-2x.jpg';
-import laptopX1 from 'images/portfolio/about/about-laptop-1x.jpg';
-import laptopX2 from 'images/portfolio/about/about-laptop-2x.jpg';
+import teamX2 from 'images/portfolio/about/about-team.jpg';
+import officeX2 from 'images/portfolio/about/about-office.jpg';
 import SectionTitle from '../Title/Title';
-import { useProjects } from 'hooks';
 
 type Props = {
   user: Partial<IUser>;
@@ -33,13 +32,9 @@ const About: FC<Props> = ({ user }) => {
     <Section>
       <WorthWrapper>
         <CustomersWrapper>
-          <img
-            srcSet={`${handX1} 1x, ${handX2} 2x`}
-            src={handX1}
-            width="230"
-            height="256"
-            alt="customer"
-          />
+          <ImgWrapper>
+            <img src={officeX2} alt="bisenes analis" />
+          </ImgWrapper>
 
           <CustomersInfo>
             <CustomersText>Successfull Projects</CustomersText>
@@ -48,13 +43,9 @@ const About: FC<Props> = ({ user }) => {
         </CustomersWrapper>
 
         <ExperienceWrapper>
-          <img
-            srcSet={`${laptopX1} 1x, ${laptopX2} 2x`}
-            src={laptopX1}
-            width="230"
-            height="256"
-            alt="experience"
-          />
+          <ImgWrapper>
+            <img src={teamX2} alt="team work" />
+          </ImgWrapper>
 
           <ExperienceInfo>
             <CustomersText>Years of experience</CustomersText>

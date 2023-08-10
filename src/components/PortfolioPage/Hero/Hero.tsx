@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { toast } from 'react-hot-toast';
 import { Container, MainBtn } from '../../index';
 import {
   HeroName,
@@ -22,6 +23,18 @@ type Props = {
 
 const PortfolioHero: FC<Props> = ({ user }) => {
   const { name, surname, profession, avatarURL } = user;
+
+  const handleCopyLink = () => {
+    const urlToCopy = window.location.href;
+
+    try {
+      navigator.clipboard.writeText(urlToCopy);
+      toast.success(`URL is copied successfully!`);
+    } catch (error) {
+      console.error('Failed to copy:', error);
+    }
+  };
+
   return (
     <Section>
       <Container>
@@ -36,7 +49,7 @@ const PortfolioHero: FC<Props> = ({ user }) => {
             </FullName>
 
             <Proffecion>{profession}</Proffecion>
-            <MainBtn text="Let's Talk" />
+            <MainBtn text="Copy Link" onClick={handleCopyLink} />
           </HeroInfoWrapper>
 
           <MediaWrapper>

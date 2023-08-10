@@ -8,13 +8,11 @@ type Props = {
 };
 
 const ProjectList: FC<Props> = ({ projects }) => {
-  // const [projects] = useState<Array<IProject>>(projectsDb || []);
-
   return (
     <List>
-      {projects.map(project => (
-        <ProjectItem key={project._id} project={project} />
-      ))}
+      {projects
+        .map(project => <ProjectItem key={project._id} project={project} />)
+        .reverse()}
     </List>
   );
 };
