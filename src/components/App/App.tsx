@@ -14,13 +14,12 @@ import {
   PortfolioPage,
   CabinetPage,
   SearchPage,
-  ContactsPage,
   ProjectDetails,
   RegisterPage,
   LoginPage,
   AddProject,
-  // ChangePassPage,
-  // RecoveryPassPage,
+  ChangePassPage,
+  RecoveryPassPage,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -70,7 +69,7 @@ const App: FC = () => {
                 path="/register"
                 element={
                   <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    redirectTo="/cabinet"
                     component={<RegisterPage />}
                   />
                 }
@@ -79,36 +78,22 @@ const App: FC = () => {
                 path="/login"
                 element={
                   <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    redirectTo="/cabinet"
                     component={<LoginPage />}
                   />
                 }
               />
-              {/* <Route
-                path="/changepass"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
-                    component={<ChangePassPage />}
-                  />
-                }
-              />
-              <Route
-                path="/recovery"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
-                    component={<RecoveryPassPage />}
-                  />
-                }
-              /> */}
 
               <Route path="/portfolio/:userId" element={<PortfolioPage />} />
               <Route
                 path="/projectDetails/:projectId"
                 element={<ProjectDetails />}
               />
-              <Route path="/contacts" element={<ContactsPage />} />
+              <Route path="/recoveryPassword" element={<RecoveryPassPage />} />
+              <Route
+                path="/resetPassword/:resetToken"
+                element={<ChangePassPage />}
+              />
               {/* </Route> */}
 
               <Route path="/" element={<PrivateRoute />}>

@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { IoEyeOutline, IoEyeOff } from 'react-icons/io5';
-// import { useAppDispatch } from 'redux/reduxHooks';
-// import { FormLoginSchema } from 'services';
-import { ChangePassValues } from 'types/changePassTypes';
+import { useAppDispatch } from 'redux/reduxHooks';
+import { FormResetSchema } from 'services';
+import { IChangePassValues } from 'types/changePassTypes';
 import {
   StyledForm,
   StyledField,
@@ -19,59 +19,87 @@ import {
   RedirectLink,
   IconWrap,
 } from 'components/RegisterForm/RegisterForm.styled';
-import { usePasswordToggle } from 'hooks/usePasswordToogle';
+import { resetPassword } from 'redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
 
-const ChangePassForm: FC = () => {
-  //   const dispatch = useAppDispatch();
+type Props = {
+  token: string;
+};
 
-  const initialValues: ChangePassValues = {
-    confirmpassword: '',
+const ChangePassForm: FC<Props> = ({ token }) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const initialValues: IChangePassValues = {
     password: '',
+    confirmPassword: '',
   };
-  const [passwordType, togglePassword] = usePasswordToggle();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
-  const handleLoginSubmit = (
-    values: ChangePassValues,
-    actions: FormikHelpers<ChangePassValues>
+  const handleTogglePassword = (field: string) => {
+    if (field === 'password') {
+      setPasswordVisible(!passwordVisible);
+    } else if (field === 'confirmPassword') {
+      setConfirmPasswordVisible(!confirmPasswordVisible);
+    }
+  };
+
+  const handleResetPassword = async (
+    values: IChangePassValues,
+    actions: FormikHelpers<IChangePassValues>
   ) => {
-    actions.resetForm();
-    // dispatch(loginUser(values));
+    const res = await dispatch(
+      resetPassword({ resetToken: token, newPassword: values.password })
+    );
+
+    if (res.type === 'auth/resetPassword/fulfilled') {
+      navigate('/login', { replace: true });
+      actions.resetForm();
+    }
+    actions.setSubmitting(false);
   };
 
   return (
     <>
       <Formik
         initialValues={initialValues}
-        // validationSchema={FormLoginSchema}
-        onSubmit={handleLoginSubmit}
+        validationSchema={FormResetSchema}
+        onSubmit={handleResetPassword}
       >
         <StyledForm>
           <FormTitleContainer>
             <FormTitle>Change Password</FormTitle>
-            <FormDescription>enter your new password</FormDescription>
+            <FormDescription>Enter your new password</FormDescription>
           </FormTitleContainer>
           <InputsContainer>
             <Label>
-              <StyledField type={passwordType} name="password" />
+              <StyledField
+                type={passwordVisible ? 'text' : 'password'}
+                name="password"
+              />
               <StyledLabel>Password</StyledLabel>
-              <IconWrap onClick={togglePassword}>
-                {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
+              <IconWrap onClick={() => handleTogglePassword('password')}>
+                {passwordVisible ? <IoEyeOff /> : <IoEyeOutline />}
               </IconWrap>
               <ErrorMessage name="password" component={StyledErrorMessage} />
             </Label>
             <Label>
-              <StyledField type={passwordType} name="confirmpassword" />
+              <StyledField
+                type={confirmPasswordVisible ? 'text' : 'password'}
+                name="confirmPassword"
+              />
               <StyledLabel>Confirm Password</StyledLabel>
-              <IconWrap onClick={togglePassword}>
-                {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
+              <IconWrap onClick={() => handleTogglePassword('confirmPassword')}>
+                {confirmPasswordVisible ? <IoEyeOff /> : <IoEyeOutline />}
               </IconWrap>
               <ErrorMessage
-                name="confirmpassword"
+                name="confirmPassword"
                 component={StyledErrorMessage}
               />
             </Label>
           </InputsContainer>
-          <SubmitBtn type="submit">Send</SubmitBtn>
+          <SubmitBtn type="submit">Change</SubmitBtn>
           <RedirectContainer>
             <RedirectLink to={'/login'}>Log In</RedirectLink>
           </RedirectContainer>

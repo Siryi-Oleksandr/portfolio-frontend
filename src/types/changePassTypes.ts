@@ -1,8 +1,13 @@
-export interface ChangePassValues {
-  confirmpassword: string;
+export interface IChangePassValues {
   password: string;
+  confirmPassword: string;
 }
 
-export interface RestorePassValues {
+export interface IRestorePassValues {
   email: string;
+}
+
+export interface IResetPassValues {
+  resetToken: string;
+  newPassword: string;
 }
