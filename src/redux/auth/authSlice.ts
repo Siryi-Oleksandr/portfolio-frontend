@@ -24,6 +24,7 @@ const initialState: IAuthState = {
   isRefreshing: false,
   isLoading: false,
   error: null,
+  isLogedGoogle: false,
 };
 
 const authSlice = createSlice({
@@ -32,6 +33,9 @@ const authSlice = createSlice({
   reducers: {
     updateAccessToken: (state, action: PayloadAction<string>) => {
       state.accessToken = action.payload;
+    },
+    updateLoginGoogle: state => {
+      state.isLogedGoogle = true;
     },
   },
   extraReducers: builder => {
@@ -111,7 +115,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { updateAccessToken } = authSlice.actions;
+export const { updateLoginGoogle, updateAccessToken } = authSlice.actions;
 
 const authPersistConfig = {
   key: 'auth',
