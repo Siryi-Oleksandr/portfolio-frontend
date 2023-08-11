@@ -8,6 +8,8 @@ import ProjectDetails from './ProjectDetails/ProjectDetails';
 import RegisterPage from './RegisterPage/RegisterPage';
 import LoginPage from './LoginPage/LoginPage';
 import AddProject from './AddProject/AddProject';
+import ChangePassPage from './ChangePassPage/ChangePassPage';
+import RecoveryPassPage from './RecoveryPassPage/RecoveryPassPage';
 
 export {
   HomePage,
@@ -20,4 +22,6 @@ export {
   RegisterPage,
   LoginPage,
   AddProject,
+  ChangePassPage,
+  RecoveryPassPage,
 };
