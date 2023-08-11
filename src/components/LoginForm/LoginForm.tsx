@@ -74,6 +74,7 @@ const LoginForm: FC = () => {
             </RedirectLink>
           </RecoverWrapper>
           <SubmitBtn type="submit">Login</SubmitBtn>
+          <a href="https://ts-projects-api.onrender.com/google">Google</a>
           <RedirectContainer>
             <RedirectMeta>Don't have an account?</RedirectMeta>
             <RedirectLink to={'/register'}>Sign Up</RedirectLink>
