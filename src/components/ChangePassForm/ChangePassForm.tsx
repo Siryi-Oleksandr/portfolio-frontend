@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
 import { IoEyeOutline, IoEyeOff } from 'react-icons/io5';
-import { loginUser } from 'redux/auth/operations';
-import { useAppDispatch } from 'redux/reduxHooks';
-import { FormLoginSchema } from 'services';
-import { LoginValues } from 'types/authFormTypes';
+// import { useAppDispatch } from 'redux/reduxHooks';
+// import { FormLoginSchema } from 'services';
+import { ChangePassValues } from 'types/changePassTypes';
 import {
   StyledForm,
   StyledField,
@@ -17,47 +16,41 @@ import {
   InputsContainer,
   SubmitBtn,
   RedirectContainer,
-  RedirectMeta,
   RedirectLink,
   IconWrap,
 } from 'components/RegisterForm/RegisterForm.styled';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
 
-const LoginForm: FC = () => {
-  const dispatch = useAppDispatch();
+const ChangePassForm: FC = () => {
+  //   const dispatch = useAppDispatch();
 
-  const initialValues: LoginValues = {
-    email: '',
+  const initialValues: ChangePassValues = {
+    confirmpassword: '',
     password: '',
   };
   const [passwordType, togglePassword] = usePasswordToggle();
 
   const handleLoginSubmit = (
-    values: LoginValues,
-    actions: FormikHelpers<LoginValues>
+    values: ChangePassValues,
+    actions: FormikHelpers<ChangePassValues>
   ) => {
     actions.resetForm();
-    dispatch(loginUser(values));
+    // dispatch(loginUser(values));
   };
 
   return (
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={FormLoginSchema}
+        // validationSchema={FormLoginSchema}
         onSubmit={handleLoginSubmit}
       >
         <StyledForm>
           <FormTitleContainer>
-            <FormTitle>Log In</FormTitle>
-            <FormDescription>to create your own portfolio!</FormDescription>
+            <FormTitle>Change Password</FormTitle>
+            <FormDescription>enter your new password</FormDescription>
           </FormTitleContainer>
           <InputsContainer>
-            <Label>
-              <StyledField type="email" name="email" />
-              <StyledLabel>Email</StyledLabel>
-              <ErrorMessage name="email" component={StyledErrorMessage} />
-            </Label>
             <Label>
               <StyledField type={passwordType} name="password" />
               <StyledLabel>Password</StyledLabel>
@@ -66,12 +59,21 @@ const LoginForm: FC = () => {
               </IconWrap>
               <ErrorMessage name="password" component={StyledErrorMessage} />
             </Label>
+            <Label>
+              <StyledField type={passwordType} name="confirmpassword" />
+              <StyledLabel>Confirm Password</StyledLabel>
+              <IconWrap onClick={togglePassword}>
+                {passwordType === 'text' ? <IoEyeOff /> : <IoEyeOutline />}
+              </IconWrap>
+              <ErrorMessage
+                name="confirmpassword"
+                component={StyledErrorMessage}
+              />
+            </Label>
           </InputsContainer>
-          <SubmitBtn type="submit">Login</SubmitBtn>
-          <a href="https://ts-projects-api.onrender.com/google">Google</a>
+          <SubmitBtn type="submit">Send</SubmitBtn>
           <RedirectContainer>
-            <RedirectMeta>Don't have an account?</RedirectMeta>
-            <RedirectLink to={'/register'}>Sign Up</RedirectLink>
+            <RedirectLink to={'/login'}>Log In</RedirectLink>
           </RedirectContainer>
         </StyledForm>
       </Formik>
@@ -79,4 +81,4 @@ const LoginForm: FC = () => {
   );
 };
 
-export default LoginForm;
+export default ChangePassForm;

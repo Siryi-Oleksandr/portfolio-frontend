@@ -14,6 +14,7 @@ export interface IAuthState {
   isRefreshing: boolean;
   isLoading: boolean;
   error: any;
+  isLogedGoogle: boolean;
 }
 
 export interface IStateAuth {
