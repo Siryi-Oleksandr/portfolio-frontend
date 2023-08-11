@@ -1,5 +1,9 @@
 import { sliceTags } from './sliceTags';
-import { FormRegisterSchema, FormLoginSchema } from './yupSchemas';
+import {
+  FormRegisterSchema,
+  FormLoginSchema,
+  FormResetSchema,
+} from './yupSchemas';
 import { handleFormikImageUpload } from './handleImageUpload';
 
 export {
@@ -7,4 +11,5 @@ export {
   FormLoginSchema,
   FormRegisterSchema,
   handleFormikImageUpload,
+  FormResetSchema,
 };

@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
 import { IUpdateUser } from 'redux/reduxTypes';
 import { theme } from 'theme';
+import { RestorePassValues } from 'types/changePassTypes';
 
 export const instance = axios.create({
   baseURL: 'https://ts-projects-api.onrender.com',
@@ -189,6 +190,26 @@ export const updateUser = createAsyncThunk(
 
       return response.data;
     } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const forgotPassword = createAsyncThunk(
+  'auth/recoveryPassword',
+  async (data: RestorePassValues, thunkAPI) => {
+    try {
+      const res = await instance.post('/forgotPassword', {
+        email: data.email,
+      });
+      toast.success(`Sent. Check your email.`, {
+        style: tostStyleSuccess,
+      });
+      return res.data;
+    } catch (error: any) {
+      toast.error(`Sending failed. Try again.`, {
+        style: tostStyleError,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

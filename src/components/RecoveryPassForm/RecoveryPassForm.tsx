@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
-// import { useAppDispatch } from 'redux/reduxHooks';
-// import { FormLoginSchema } from 'services';
+import { useAppDispatch } from 'redux/reduxHooks';
 import { RestorePassValues } from 'types/changePassTypes';
 import {
   StyledForm,
@@ -17,28 +16,30 @@ import {
   RedirectContainer,
   RedirectLink,
 } from 'components/RegisterForm/RegisterForm.styled';
+import { forgotPassword } from 'redux/auth/operations';
+import { FormResetSchema } from 'services';
 
 const RecoveryPassForm: FC = () => {
-  //   const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const initialValues: RestorePassValues = {
     email: '',
   };
 
-  const handleLoginSubmit = (
+  const handleSendEmail = (
     values: RestorePassValues,
     actions: FormikHelpers<RestorePassValues>
   ) => {
     actions.resetForm();
-    // dispatch(loginUser(values));
+    dispatch(forgotPassword(values));
   };
 
   return (
     <>
       <Formik
         initialValues={initialValues}
-        // validationSchema={FormLoginSchema}
-        onSubmit={handleLoginSubmit}
+        validationSchema={FormResetSchema}
+        onSubmit={handleSendEmail}
       >
         <StyledForm>
           <FormTitleContainer>

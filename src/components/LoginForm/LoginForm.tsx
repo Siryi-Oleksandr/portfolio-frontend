@@ -20,6 +20,7 @@ import {
   RedirectMeta,
   RedirectLink,
   IconWrap,
+  RecoverWrapper,
 } from 'components/RegisterForm/RegisterForm.styled';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
 
@@ -67,6 +68,11 @@ const LoginForm: FC = () => {
               <ErrorMessage name="password" component={StyledErrorMessage} />
             </Label>
           </InputsContainer>
+          <RecoverWrapper>
+            <RedirectLink to={'/recoveryPassword'}>
+              Forgot your password?
+            </RedirectLink>
+          </RecoverWrapper>
           <SubmitBtn type="submit">Login</SubmitBtn>
           <RedirectContainer>
             <RedirectMeta>Don't have an account?</RedirectMeta>

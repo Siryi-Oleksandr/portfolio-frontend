@@ -32,6 +32,12 @@ export const FormLoginSchema = Yup.object().shape({
     .required('Required'),
 });
 
+export const FormResetSchema = Yup.object().shape({
+  email: Yup.string()
+    .matches(regExp, 'Invalid email address')
+    .required('Required'),
+});
+
 export const FormUserUpdateSchema = Yup.object().shape({
   name: Yup.string().min(2).max(35).required('Required'),
   email: Yup.string()

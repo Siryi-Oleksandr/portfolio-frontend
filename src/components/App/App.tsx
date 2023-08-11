@@ -19,8 +19,8 @@ import {
   RegisterPage,
   LoginPage,
   AddProject,
-  // ChangePassPage,
-  // RecoveryPassPage,
+  ChangePassPage,
+  RecoveryPassPage,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -94,7 +94,11 @@ const App: FC = () => {
                 path="/projectDetails/:projectId"
                 element={<ProjectDetails />}
               />
-              <Route path="/contacts" element={<ContactsPage />} />
+              <Route path="/recoveryPassword" element={<RecoveryPassPage />} />
+              <Route
+                path="/changePassword/:resetToken"
+                element={<ChangePassPage />}
+              />
               {/* </Route> */}
 
               <Route path="/" element={<PrivateRoute />}>
