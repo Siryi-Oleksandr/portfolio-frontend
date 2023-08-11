@@ -55,7 +55,7 @@ const App: FC = () => {
                 path="/register"
                 element={
                   <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    redirectTo="/cabinet"
                     component={<RegisterPage />}
                   />
                 }
@@ -64,7 +64,7 @@ const App: FC = () => {
                 path="/login"
                 element={
                   <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    redirectTo="/cabinet"
                     component={<LoginPage />}
                   />
                 }

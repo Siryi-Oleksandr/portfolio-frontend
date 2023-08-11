@@ -6,8 +6,7 @@ import { theme } from 'theme';
 import { IResetPassValues, IRestorePassValues } from 'types/changePassTypes';
 
 export const instance = axios.create({
-  // baseURL: 'https://ts-projects-api.onrender.com',
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://ts-projects-api.onrender.com',
 });
 
 const setToken = (accessToken: string | null) => {

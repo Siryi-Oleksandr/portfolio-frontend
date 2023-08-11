@@ -1,6 +1,6 @@
-export interface ChangePassValues {
-  confirmpassword: string;
+export interface IChangePassValues {
   password: string;
+  confirmPassword: string;
 }
 
 export interface IRestorePassValues {

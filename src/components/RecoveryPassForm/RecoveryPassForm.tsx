@@ -17,7 +17,7 @@ import {
   RedirectLink,
 } from 'components/RegisterForm/RegisterForm.styled';
 import { forgotPassword } from 'redux/auth/operations';
-import { FormResetSchema } from 'services';
+import { FormForgotSchema } from 'services';
 
 const RecoveryPassForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -38,7 +38,7 @@ const RecoveryPassForm: FC = () => {
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={FormResetSchema}
+        validationSchema={FormForgotSchema}
         onSubmit={handleSendEmail}
       >
         <StyledForm>
