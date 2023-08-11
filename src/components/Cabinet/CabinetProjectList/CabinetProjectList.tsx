@@ -36,15 +36,15 @@ const CabinetProjectList: FC<Props> = ({ user, projects }) => {
   return (
     <Container>
       <List>
-        {projects.map(project => (
-          <CabinetProjectItem key={project._id} project={project} />
-        ))}
         <AddProjectBtnWrap key="addBtnId">
           <AddProjectBtn to="/addProject">
             <MdOutlineAddCircle size="50px" />
             Add project
           </AddProjectBtn>
         </AddProjectBtnWrap>
+        {projects.map(project => (
+          <CabinetProjectItem key={project._id} project={project} />
+        ))}
       </List>
     </Container>
   );

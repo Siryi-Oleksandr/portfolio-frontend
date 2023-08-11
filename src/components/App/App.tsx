@@ -19,6 +19,8 @@ import {
   RegisterPage,
   LoginPage,
   AddProject,
+  // ChangePassPage,
+  // RecoveryPassPage,
 } from 'pages';
 import GlobalStyles from 'GlobalStyle';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -68,6 +70,24 @@ const App: FC = () => {
                   />
                 }
               />
+              {/* <Route
+                path="/changepass"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    component={<ChangePassPage />}
+                  />
+                }
+              />
+              <Route
+                path="/recovery"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
+                    component={<RecoveryPassPage />}
+                  />
+                }
+              /> */}
 
               <Route path="/portfolio/:userId" element={<PortfolioPage />} />
               <Route

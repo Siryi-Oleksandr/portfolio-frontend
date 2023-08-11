@@ -42,6 +42,12 @@ const Footer: FC = () => {
       case '/login':
         setShowDefaultFooter(true);
         break;
+      case '/changePass':
+        setShowDefaultFooter(true);
+        break;
+      case '/recovery':
+        setShowDefaultFooter(true);
+        break;
       case '/register':
         setShowDefaultFooter(true);
         break;
