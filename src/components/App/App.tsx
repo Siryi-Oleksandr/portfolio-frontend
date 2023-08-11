@@ -14,7 +14,6 @@ import {
   PortfolioPage,
   CabinetPage,
   SearchPage,
-  ContactsPage,
   ProjectDetails,
   RegisterPage,
   LoginPage,
@@ -70,24 +69,6 @@ const App: FC = () => {
                   />
                 }
               />
-              {/* <Route
-                path="/changepass"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
-                    component={<ChangePassPage />}
-                  />
-                }
-              />
-              <Route
-                path="/recovery"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/" // TODO: will redirect to the portfolio/:userId
-                    component={<RecoveryPassPage />}
-                  />
-                }
-              /> */}
 
               <Route path="/portfolio/:userId" element={<PortfolioPage />} />
               <Route
@@ -96,7 +77,7 @@ const App: FC = () => {
               />
               <Route path="/recoveryPassword" element={<RecoveryPassPage />} />
               <Route
-                path="/changePassword/:resetToken"
+                path="/resetPassword/:resetToken"
                 element={<ChangePassPage />}
               />
               {/* </Route> */}
