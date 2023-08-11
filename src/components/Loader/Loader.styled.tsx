@@ -2,11 +2,14 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 
 const rotateAnimation = keyframes`
-  from {
-    transform: rotate(0deg);
+   0% {
+    transform: rotate(0deg) scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 `;
 

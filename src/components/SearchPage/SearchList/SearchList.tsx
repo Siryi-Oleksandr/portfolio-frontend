@@ -74,7 +74,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchUsers }) => {
     } else {
       fetchProjects(query, page)
         .then(data => {
-          // console.log(data);
+          console.log(data);
           setProjects(prevState => [...prevState, ...data.projects]);
           setTotalResults(data.totalCount);
         })
