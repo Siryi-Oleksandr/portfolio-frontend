@@ -69,19 +69,19 @@ export const WatchMoreBtn = styled.button`
   height: 42px;
   border: 1px solid ${theme.colors.accentColor};
   border-radius: 4px;
-  background-color: transparent;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  background-color: #404040;
   cursor: pointer;
 
   font-family: ${theme.fonts.text};
   font-weight: ${theme.fontWeights.heading};
   font-size: ${theme.fontSizes.m};
 
-  color: ${theme.colors.primary_text_switch};
+  color: #fff;
   transition: ${theme.transition.hover};
 
   :hover,
   :focus {
     transform: scale(1.04);
-    background-color: ${theme.colors.accentColor};
   }
 `;
