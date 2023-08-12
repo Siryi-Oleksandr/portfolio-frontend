@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
-// import { useAppDispatch } from 'redux/reduxHooks';
-// import { FormLoginSchema } from 'services';
-import { RestorePassValues } from 'types/changePassTypes';
+import { useAppDispatch } from 'redux/reduxHooks';
+import { IRestorePassValues } from 'types/changePassTypes';
 import {
   StyledForm,
   StyledField,
@@ -17,33 +16,35 @@ import {
   RedirectContainer,
   RedirectLink,
 } from 'components/RegisterForm/RegisterForm.styled';
+import { forgotPassword } from 'redux/auth/operations';
+import { FormForgotSchema } from 'services';
 
 const RecoveryPassForm: FC = () => {
-  //   const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  const initialValues: RestorePassValues = {
+  const initialValues: IRestorePassValues = {
     email: '',
   };
 
-  const handleLoginSubmit = (
-    values: RestorePassValues,
-    actions: FormikHelpers<RestorePassValues>
+  const handleSendEmail = (
+    values: IRestorePassValues,
+    actions: FormikHelpers<IRestorePassValues>
   ) => {
     actions.resetForm();
-    // dispatch(loginUser(values));
+    dispatch(forgotPassword(values));
   };
 
   return (
     <>
       <Formik
         initialValues={initialValues}
-        // validationSchema={FormLoginSchema}
-        onSubmit={handleLoginSubmit}
+        validationSchema={FormForgotSchema}
+        onSubmit={handleSendEmail}
       >
         <StyledForm>
           <FormTitleContainer>
             <FormTitle>Recovery Password</FormTitle>
-            <FormDescription>enter your email</FormDescription>
+            <FormDescription>Enter your email</FormDescription>
           </FormTitleContainer>
           <InputsContainer>
             <Label>
@@ -54,7 +55,7 @@ const RecoveryPassForm: FC = () => {
           </InputsContainer>
           <SubmitBtn type="submit">Send</SubmitBtn>
           <RedirectContainer>
-            <RedirectLink to={'/'}>Go Home</RedirectLink>
+            <RedirectLink to={'/login'}>Go Back</RedirectLink>
           </RedirectContainer>
         </StyledForm>
       </Formik>

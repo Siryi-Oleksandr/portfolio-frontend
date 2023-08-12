@@ -32,6 +32,21 @@ export const FormLoginSchema = Yup.object().shape({
     .required('Required'),
 });
 
+export const FormForgotSchema = Yup.object().shape({
+  email: Yup.string()
+    .matches(regExp, 'Invalid email address')
+    .required('Required'),
+});
+
+export const FormResetSchema = Yup.object().shape({
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password must be at least 6 characters long'),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), undefined], 'Passwords must match')
+    .required('Password confirmation is required'),
+});
+
 export const FormUserUpdateSchema = Yup.object().shape({
   name: Yup.string().min(2).max(35).required('Required'),
   email: Yup.string()

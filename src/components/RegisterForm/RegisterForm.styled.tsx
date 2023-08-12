@@ -178,7 +178,7 @@ export const RedirectLink = styled(Link)`
   font-weight: 400;
   font-family: ${theme.fonts.text};
   color: ${theme.colors.primary_text_switch};
-  transition: all 200ms ease;
+  transition: transform 200ms ease, color 200ms ease;
   &:hover {
     transform: scale(1.1);
     color: ${theme.colors.accentColor};
@@ -189,4 +189,10 @@ export const InfoWrapper = styled.div`
   position: absolute;
   top: -26px;
   right: 140px;
+`;
+
+export const RecoverWrapper = styled.div`
+  padding: 8px 0;
+  margin-bottom: 24px;
+  text-align: left;
 `;
