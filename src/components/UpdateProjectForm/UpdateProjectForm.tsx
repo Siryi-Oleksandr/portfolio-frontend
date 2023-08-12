@@ -58,7 +58,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
-    console.log(values);
     dispatch(updateProject({ id, ...values }));
     actions.resetForm();
     onClose();
