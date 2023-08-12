@@ -26,11 +26,9 @@ const SearchUserItem: FC<Props> = ({ user, state }) => {
         </ImageWrapper>
         <InfoWrapper>
           <NameLink to={`/portfolio/${user._id}`} state={state}>
-            {user.name}
+            {user.name} {user.surname}
           </NameLink>
-          <Profession>
-            {user.profession === '' ? '' : `${user.profession}`}
-          </Profession>
+          <Profession>{user.profession}</Profession>
         </InfoWrapper>
       </Wrapper>
       <LinkBtn to={`/portfolio/${user._id}`} state={state}>
