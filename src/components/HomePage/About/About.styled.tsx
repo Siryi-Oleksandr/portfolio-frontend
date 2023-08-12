@@ -56,6 +56,7 @@ export const AboutItem = styled.li`
 export const ImageWrapper = styled.div`
   height: 500px;
   background-color: lightgray;
+  border: 1px solid ${theme.colors.accentColor};
   border-radius: ${theme.radii.medium};
   overflow: hidden;
 

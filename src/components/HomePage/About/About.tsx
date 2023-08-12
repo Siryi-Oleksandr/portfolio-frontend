@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Container } from '../../index';
+import { useResponse } from 'hooks/useResponsive';
 import {
   Section,
   Title,
@@ -13,12 +14,17 @@ import {
 } from './About.styled';
 
 // IMAGES
-// import portfolioImg from 'images/portfolioImg.jpg';
-// import searchImg from 'images/searchImg2.jpg';
-// import projectsImg from 'images/projectsImg2.jpg';
-// import interfaceImg from 'images/interface.jpg';
+import portfolioImg from 'images/homePage/portfolioImg.jpg';
+import portfolioImgDesk from 'images/homePage/portfolioImgDesk.jpg';
+import projectsImg from 'images/homePage/projectsImg.png';
+import projectsImgDesk from 'images/homePage/projectsImgDesk.jpg';
+import searchImg from 'images/homePage/searchImg.jpg';
+import searchImgDesk from 'images/homePage/searchImgDesk.jpg';
+import designImg from 'images//homePage/designImg.jpg';
 
 const About: FC = () => {
+  const { isMobile, isTablet, isDesktop } = useResponse();
+
   return (
     <Section>
       <Container>
@@ -37,7 +43,9 @@ const About: FC = () => {
               </AboutText>
             </TextWrapper>
             <ImageWrapper>
-              {/* <img src={portfolioImg} alt="portfolio" /> */}
+              {isMobile && <img src={portfolioImg} alt="portfolio" />}
+              {isTablet && <img src={portfolioImg} alt="portfolio" />}
+              {isDesktop && <img src={portfolioImgDesk} alt="portfolio" />}
             </ImageWrapper>
           </AboutItem>
           <AboutItem>
@@ -50,7 +58,9 @@ const About: FC = () => {
               </AboutText>
             </TextWrapper>
             <ImageWrapper>
-              {/* <img src={projectsImg} alt="search" /> */}
+              {isMobile && <img src={projectsImg} alt="portfolio" />}
+              {isTablet && <img src={projectsImg} alt="portfolio" />}
+              {isDesktop && <img src={projectsImgDesk} alt="portfolio" />}
             </ImageWrapper>
           </AboutItem>
           <AboutItem>
@@ -63,7 +73,9 @@ const About: FC = () => {
               </AboutText>
             </TextWrapper>
             <ImageWrapper>
-              {/* <img src={searchImg} alt="search" /> */}
+              {isMobile && <img src={searchImg} alt="portfolio" />}
+              {isTablet && <img src={searchImg} alt="portfolio" />}
+              {isDesktop && <img src={searchImgDesk} alt="portfolio" />}
             </ImageWrapper>
           </AboutItem>
           <AboutItem>
@@ -75,7 +87,9 @@ const About: FC = () => {
                 Website is easy to use for everyone, not only for developers.
               </AboutText>
             </TextWrapper>
-            <ImageWrapper></ImageWrapper>
+            <ImageWrapper>
+              <img src={designImg} alt="search" />
+            </ImageWrapper>
           </AboutItem>
         </AboutList>
       </Container>
