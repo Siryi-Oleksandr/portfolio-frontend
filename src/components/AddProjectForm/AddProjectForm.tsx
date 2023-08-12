@@ -44,7 +44,6 @@ const AddProjectForm: FC = () => {
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
-    console.log(values);
     dispatch(createProject(values));
     actions.resetForm();
     navigate('/cabinet');
