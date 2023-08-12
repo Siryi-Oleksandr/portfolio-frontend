@@ -13,6 +13,8 @@ const linkedinRegexp =
 
 const githubRegexp = /^(?:https?:\/\/)?(?:www\.)?github\.com\/[a-zA-Z\d-]+$/i;
 
+const internetLinkRegexp = /\b(?:https?|ftp):\/\/[^\s/$.?#]+\.[^\s]*\b/;
+
 export const FormRegisterSchema = Yup.object().shape({
   name: Yup.string().min(2).max(35).required('Required'),
   email: Yup.string()
@@ -66,8 +68,12 @@ export const FormAddProjectUpdateSchema = Yup.object().shape({
   projectTitle: Yup.string().min(3).max(100).required(),
   technicalStack: Yup.string().min(3).max(100).required(),
   projectSubTitle: Yup.string(),
-  projectLink: Yup.string().required(),
-  codeLink: Yup.string().required(),
+  projectLink: Yup.string()
+    .matches(internetLinkRegexp, 'Invalid address')
+    .required(),
+  codeLink: Yup.string()
+    .matches(internetLinkRegexp, 'Invalid address')
+    .required(),
   aboutProject: Yup.string().min(3).max(1000).required(),
   image1: Yup.mixed().required('File is required'),
 });
