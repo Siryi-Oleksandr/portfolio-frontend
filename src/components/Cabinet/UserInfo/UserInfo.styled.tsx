@@ -159,7 +159,7 @@ export const SubscriptionBtn = styled.button`
   font-size: ${theme.fontSizes.s};
   text-decoration: none;
   border-radius: 16px;
-  border: 2px dashed ${theme.colors.accentColor};
+  border: 2px solid ${theme.colors.accentColor};
   position: relative;
   overflow: hidden;
   cursor: pointer;
