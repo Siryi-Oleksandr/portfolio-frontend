@@ -6,7 +6,7 @@ import { theme } from 'theme';
 export const BackLincAwesome = styled(AwesomeButton)`
   padding: 0px, 0px;
   font-size: 18px;
-  width: 140px;
+  width: 120px;
   height: 35px;
   --button-default-border-radius: 4px;
   --button-horizontal-padding: 16px;
@@ -19,6 +19,10 @@ export const BackLincAwesome = styled(AwesomeButton)`
   --button-secondary-color-hover: ${theme.colors.awesome_hover_switch};
   --button-secondary-color-active: ${theme.colors.awesome_hover_switch};
   --button-secondary-border: 2px solid #d77642;
+  @media screen and (max-width: 600px) {
+    width: 100px;
+    height: 35px;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -29,5 +33,5 @@ export const StyledLink = styled(Link)`
   padding: 0;
   color: ${theme.colors.awesome_text_switch};
   text-decoration: none;
-  width: 140px;
+  width: 120px;
 `;
