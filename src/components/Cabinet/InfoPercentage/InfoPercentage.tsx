@@ -17,6 +17,7 @@ interface UserObject {
 }
 
 const InfoPercentage: FC<Props> = ({ user }) => {
+  console.log(user);
   const [percentage, setPercentage] = useState('');
   const [emoji, setEmoji] = useState('');
 
@@ -29,7 +30,8 @@ const InfoPercentage: FC<Props> = ({ user }) => {
         if (
           userKey === '_id' ||
           userKey === 'miniAvatarURL' ||
-          userKey === 'avatarURL'
+          userKey === 'avatarURL' ||
+          userKey === 'subscription'
         ) {
           continue;
         }
@@ -49,7 +51,7 @@ const InfoPercentage: FC<Props> = ({ user }) => {
         }
       }
 
-      const percentage = (filledProperties / (totalProperties - 3)) * 100;
+      const percentage = (filledProperties / (totalProperties - 4)) * 100;
       return percentage.toFixed(0);
     };
 
