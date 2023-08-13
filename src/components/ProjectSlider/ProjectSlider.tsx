@@ -54,7 +54,7 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    fade:true,
+    fade: true,
     autoplay: true,
     autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
@@ -67,7 +67,8 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
             className={dot.props.className}
             onClick={() => {
               if (sliderRef.current) {
-                sliderRef.current.slickGoTo(index);              }
+                sliderRef.current.slickGoTo(index);
+              }
             }}
           />
         ))}
@@ -76,11 +77,20 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
   };
   return (
     <SliderContainer>
-      <Slider ref={(slider) => (sliderRef.current = slider)} {...settings}>
+      <Slider ref={slider => (sliderRef.current = slider)} {...settings}>
         {images.map(image => {
           return (
-            <div  key={image}>
-              <img style={{marginLeft:"auto", marginRight:"auto",width:"100%", objectFit:"contain"}} src={image} alt={`Project${image}`} />
+            <div key={image}>
+              <img
+                style={{
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  width: '100%',
+                  objectFit: 'contain',
+                }}
+                src={image}
+                alt={`Project${image}`}
+              />
             </div>
           );
         })}

@@ -7,7 +7,7 @@ import { AiFillGithub } from 'react-icons/ai';
 
 export const ProjectSectionContainer = styled.section`
   width: 1000px;
-  padding: 20px 15px;
+  padding: 10px 15px 20px 15px;
   margin-left: auto;
   margin-right: auto;
   @media screen and (max-width: 375px) {
@@ -43,7 +43,7 @@ export const ProjectSubTitle = styled.h3`
 export const CopyLincAwesome = styled(AwesomeButton)`
   padding: 0px, 0px;
   font-size: 18px;
-  width: 140px;
+  width: 120px;
   height: 35px;
   --button-default-border-radius: 4px;
   --button-horizontal-padding: 16px;
@@ -56,6 +56,11 @@ export const CopyLincAwesome = styled(AwesomeButton)`
   --button-secondary-color-hover: ${theme.colors.awesome_hover_switch};
   --button-secondary-color-active: ${theme.colors.awesome_hover_switch};
   --button-secondary-border: 2px solid #d77642;
+  @media screen and (max-width: 600px) {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+  }
 `;
 
 export const LinksContainer = styled.div`
@@ -101,6 +106,18 @@ export const Line = styled.hr`
   width: 50%;
   border: 0.5 solid rgba(72, 72, 72, 1);
   margin-left: 0px;
+`;
+
+export const TopLine = styled(Line)`
+  border-color: ${theme.colors.awesome_text_switch};
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: 600px) {
+    width: 20%;
+  }
+  /* @media screen and (max-width: 785px) {
+    width: 30%;
+  } */
 `;
 
 export const ProjectAbout = styled.p`

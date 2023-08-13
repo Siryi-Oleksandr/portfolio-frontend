@@ -24,6 +24,7 @@ import {
   TechnicalListItem,
   TechnicalListItemText,
   CopyLincAwesome,
+  TopLine,
 } from './ProjectDetails.styled';
 import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
 import BackLink from 'components/BackLink/BackLink';
@@ -77,8 +78,16 @@ const ProjectDetails: FC = () => {
           </div>
         ) : (
           <>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '30px',
+              }}
+            >
               <BackLink to={backLinkLocationRef.current}>Back</BackLink>
+              <TopLine />
               <CopyLincAwesome onPress={handleCopyLink} type="secondary">
                 Copy link
               </CopyLincAwesome>

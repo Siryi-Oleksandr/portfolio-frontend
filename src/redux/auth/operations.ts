@@ -46,6 +46,7 @@ export const tostStyleError = {
   border: '1px solid black',
   background: `${theme.colors.mainRed}`,
   color: '#fff',
+  marginTop: '70px',
 };
 
 export const tostStyleSuccess = {
@@ -53,6 +54,7 @@ export const tostStyleSuccess = {
   border: `1px solid ${theme.colors.accentColor}`,
   background: `${theme.colors.tagBgColor}`,
   color: `${theme.colors.white}`,
+  marginTop: '70px',
 };
 
 export const registerUser = createAsyncThunk(
