@@ -5,6 +5,7 @@ import {
   TextWrapper,
   Text,
   Percentage,
+  StyledEmoji,
   InfoWrapper,
 } from './InfoPercentage.styled';
 
@@ -80,7 +81,8 @@ const InfoPercentage: FC<Props> = ({ user }) => {
     <TextWrapper>
       <Text>
         Filled infromation:{' '}
-        <Percentage percentage={percentage}>{percentage}%</Percentage> {emoji}
+        <Percentage percentage={percentage}>{percentage}%</Percentage>{' '}
+        <StyledEmoji>{emoji}</StyledEmoji>
         <InfoWrapper>
           <InfoTrigger>
             The percentage of information you have filled in your fields.
