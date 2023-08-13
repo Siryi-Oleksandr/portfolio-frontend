@@ -16,8 +16,8 @@ const InfoTrigger: FC<Props> = ({ children }) => {
   return (
     <TriggerWrapper>
       <Text
-        onMouseEnter={() => setTimeout(() => setShowInfo(true), 800)}
-        onMouseLeave={() => setTimeout(() => setShowInfo(false), 500)}
+        onMouseEnter={() => setTimeout(() => setShowInfo(true), 400)}
+        onMouseLeave={() => setTimeout(() => setShowInfo(false), 400)}
       >
         ?
       </Text>

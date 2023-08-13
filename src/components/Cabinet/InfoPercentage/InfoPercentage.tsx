@@ -5,6 +5,7 @@ import {
   TextWrapper,
   Text,
   Percentage,
+  StyledEmoji,
   InfoWrapper,
 } from './InfoPercentage.styled';
 
@@ -17,6 +18,7 @@ interface UserObject {
 }
 
 const InfoPercentage: FC<Props> = ({ user }) => {
+  console.log(user);
   const [percentage, setPercentage] = useState('');
   const [emoji, setEmoji] = useState('');
 
@@ -29,7 +31,8 @@ const InfoPercentage: FC<Props> = ({ user }) => {
         if (
           userKey === '_id' ||
           userKey === 'miniAvatarURL' ||
-          userKey === 'avatarURL'
+          userKey === 'avatarURL' ||
+          userKey === 'subscription'
         ) {
           continue;
         }
@@ -49,7 +52,7 @@ const InfoPercentage: FC<Props> = ({ user }) => {
         }
       }
 
-      const percentage = (filledProperties / (totalProperties - 3)) * 100;
+      const percentage = (filledProperties / (totalProperties - 4)) * 100;
       return percentage.toFixed(0);
     };
 
@@ -78,7 +81,8 @@ const InfoPercentage: FC<Props> = ({ user }) => {
     <TextWrapper>
       <Text>
         Filled infromation:{' '}
-        <Percentage percentage={percentage}>{percentage}%</Percentage> {emoji}
+        <Percentage percentage={percentage}>{percentage}%</Percentage>{' '}
+        <StyledEmoji>{emoji}</StyledEmoji>
         <InfoWrapper>
           <InfoTrigger>
             The percentage of information you have filled in your fields.

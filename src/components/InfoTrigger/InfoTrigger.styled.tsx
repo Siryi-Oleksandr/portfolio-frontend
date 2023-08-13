@@ -21,7 +21,6 @@ export const InfoWrapper = styled.div<{ showInfo: boolean }>`
   width: 100px;
   pointer-events: none;
   background-color: ${theme.colors.textarea};
-  border: 1px solid #000;
   border-radius: 4px;
   text-align: center;
 
