@@ -15,22 +15,30 @@ import {
   AboutWrap,
   AboutText,
   TextProfession,
+  SubscriptionBtn,
 } from './UserInfo.styled';
 import { IconContext } from 'react-icons';
 import { FaEdit } from 'react-icons/fa';
+import { SubscriptionModal } from '../SubscriptionModal/SubscriptionModal';
 
 const UserInfo: FC = () => {
   // const dispatch = useAppDispatch();
   const user: IUser = useAppSelector(selectUser);
   const [showModal, setShowModal] = useState(false);
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
 
   const handleCloseModal = () => {
     setShowModal(false);
+    setShowSubscriptionModal(false);
     document.body.style.overflow = 'auto';
   };
 
   const handleShowModal = () => {
     setShowModal(true);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleShowSubscriptionModal = () => {
+    setShowSubscriptionModal(true);
     document.body.style.overflow = 'hidden';
   };
 
@@ -58,6 +66,9 @@ const UserInfo: FC = () => {
     <IconContext.Provider value={{ className: 'slider-icons' }}>
       <UserInfoContainer>
         <LogoWrap>
+          <SubscriptionBtn onClick={handleShowSubscriptionModal}>
+            {user.subscription}
+          </SubscriptionBtn>
           <Avawrap>
             <AvatarImg
               src={initialValues?.avatarURL}
@@ -78,6 +89,9 @@ const UserInfo: FC = () => {
         </AboutWrap>
 
         {showModal && <UserFormModal onClose={handleCloseModal} />}
+        {showSubscriptionModal && (
+          <SubscriptionModal onClose={handleCloseModal} />
+        )}
       </UserInfoContainer>
       {/* <p>User info { initialValues.email}</p>
             <button onClick={handleShowModal}> edit info</button>
