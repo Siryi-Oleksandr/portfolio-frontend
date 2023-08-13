@@ -13,6 +13,7 @@ import TagList from './TagList/TagList';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
 import { IProject } from 'types/projectTypes';
+import projectImg from '../../img/project-img.jpg';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -64,7 +65,7 @@ const ProjectItem: FC<Props> = ({ project }) => {
         </Bar>
         <ImgWrapper>
           <Img
-            src={projectImages[0].posterURL}
+            src={projectImages[0] ? projectImages[0].posterURL : projectImg}
             alt={`poster of ${projectTitle}`}
           />
           <Overlay className="nested-component">
