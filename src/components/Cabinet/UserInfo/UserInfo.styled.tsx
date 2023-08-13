@@ -150,19 +150,29 @@ export const EditBtn = styled(Btn)`
 
 export const SubscriptionBtn = styled.button`
   position: absolute;
-  top: 44px;
-  left: 70px;
-  padding: 8px 16px;
+  top: 38px;
+  left: 44px;
+  padding: 4px 8px;
   color: ${theme.colors.white};
   background-color: ${theme.colors.tagBgColor};
   font-family: ${theme.fonts.text};
-  font-size: ${theme.fontSizes.m};
+  font-size: ${theme.fontSizes.s};
   text-decoration: none;
   border-radius: 16px;
-  border: 2px dashed ${theme.colors.accentColor};
+  border: 2px solid ${theme.colors.accentColor};
   position: relative;
   overflow: hidden;
   cursor: pointer;
+
+  @media screen and (min-width: 550px) {
+    left: 60px;
+  }
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    top: 44px;
+    left: 70px;
+    padding: 8px 16px;
+    font-size: ${theme.fontSizes.m};
+  }
 
   :hover {
     box-shadow: 1px 1px 25px 10px ${theme.colors.accentColor40};
