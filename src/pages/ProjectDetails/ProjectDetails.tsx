@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Loader } from 'components';
+import { toast } from 'react-hot-toast';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getProjectById } from 'redux/project/operations';
 import { getUserById } from 'redux/searchUsers/operations';
@@ -22,6 +23,7 @@ import {
   TechnicalList,
   TechnicalListItem,
   TechnicalListItemText,
+  CopyLincAwesome,
 } from './ProjectDetails.styled';
 import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
 import BackLink from 'components/BackLink/BackLink';
@@ -33,9 +35,19 @@ const ProjectDetails: FC = () => {
 
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
-  
 
   const userId = projectById.owner?._id;
+
+  const handleCopyLink = () => {
+    const urlToCopy = window.location.href;
+
+    try {
+      navigator.clipboard.writeText(urlToCopy);
+      toast.success(`URL is copied successfully!`);
+    } catch (error) {
+      console.error('Failed to copy:', error);
+    }
+  };
 
   useEffect(() => {
     dispatch(getProjectById(projectId as string));
@@ -65,7 +77,13 @@ const ProjectDetails: FC = () => {
           </div>
         ) : (
           <>
-            <BackLink to={backLinkLocationRef.current}>Back</BackLink>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <BackLink to={backLinkLocationRef.current}>Back</BackLink>
+              <CopyLincAwesome onPress={handleCopyLink} type="secondary">
+                Copy link
+              </CopyLincAwesome>
+            </div>
+
             <ProjectTitle>{projectTitle}</ProjectTitle>
             {projectSubTitle && (
               <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>

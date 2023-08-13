@@ -8,6 +8,9 @@ html[data-theme='light'] {
   --auth-button-bacground: #171820;
   --auth-button-color: #fff;
   --project-page-text-primary: #1a1c1f;
+  --awesome-button-background: #fbf9f4;
+  --awesome-button-hover: #f5e7d6;
+  --awesome-button-text: #995200;
 }
 
 html[data-theme='dark'] {
@@ -20,6 +23,9 @@ html[data-theme='dark'] {
   --auth-button-bacground: #a9a9aa;
   --auth-button-color: #171820;
   --project-page-text-primary: #cacaca;
+  --awesome-button-background: #5f3e0d;
+  --awesome-button-hover: #79531a;
+  --awesome-button-text: #ff8a04;
 }
 
 body {

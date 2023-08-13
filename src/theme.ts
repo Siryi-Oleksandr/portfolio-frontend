@@ -44,6 +44,12 @@ export const theme = {
     auth_button_color_switch: 'var(--auth-button-color)',
 
     project_page_primary_text_switch: 'var(--project-page-text-primary)',
+
+    awesome_background_switch: 'var(--awesome-button-background)',
+
+    awesome_hover_switch: 'var(--awesome-button-hover)',
+
+    awesome_text_switch: 'var(--awesome-button-text)',
   },
 
   fonts: {

@@ -28,6 +28,8 @@ import {
   RedirectLink,
   IconWrap,
   InfoWrapper,
+  GoogleBtn,
+  GoogleIcon,
 } from './RegisterForm.styled';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
 import { PassDiff, InfoTrigger } from 'components';
@@ -107,6 +109,10 @@ const RegisterForm: FC = () => {
             </Label>
           </InputsContainer>
           <SubmitBtn type="submit">Register</SubmitBtn>
+          <GoogleBtn href="https://ts-projects-api.onrender.com/google">
+            <GoogleIcon className="google-icon" />
+            Google
+          </GoogleBtn>
           <RedirectContainer>
             <RedirectMeta>Already have an account?</RedirectMeta>
             <RedirectLink to={'/login'}>Log In</RedirectLink>
