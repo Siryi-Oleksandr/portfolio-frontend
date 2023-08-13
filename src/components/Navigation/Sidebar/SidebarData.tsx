@@ -1,5 +1,5 @@
 import { AiOutlineHome, AiOutlineSearch } from 'react-icons/ai';
-import { BiCabinet } from 'react-icons/bi';
+// import { BiCabinet } from 'react-icons/bi';
 import { SidebarItem } from 'types/SidebarItem';
 
 export const SidebarData: SidebarItem[] = [
@@ -13,11 +13,11 @@ export const SidebarData: SidebarItem[] = [
     path: '/search',
     icon: <AiOutlineSearch size="25px" />,
   },
-  {
-    title: 'Cabinet',
-    path: '/cabinet',
-    icon: <BiCabinet size="25px" />,
-  },
+  // {
+  //   title: 'Cabinet',
+  //   path: '/cabinet',
+  //   icon: <BiCabinet size="25px" />,
+  // },
   // {
   //   title: 'Portfolio',
   //   path: '/portfolio/:userId',
