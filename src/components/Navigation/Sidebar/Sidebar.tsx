@@ -5,6 +5,7 @@ import {
   AiOutlineClose,
   AiFillFolderOpen,
 } from 'react-icons/ai';
+import { BiCabinet } from 'react-icons/bi';
 
 import { SidebarData } from './SidebarData';
 import Submenu from './Submenu';
@@ -67,6 +68,14 @@ const Sidebar: FC = () => {
                 <Submenu item={item} key={index} closeSidebar={closeSidebar} />
               );
             })}
+            {isLoggedIn ? (
+              <AuthSlideIcon to="cabinet" onClick={closeSidebar}>
+                <BiCabinet size="24px" />
+                <BtnSlideText>Cabinet</BtnSlideText>
+              </AuthSlideIcon>
+            ) : (
+              <></>
+            )}
             <AuthSlideIcon
               to={`/portfolio/${user._id ? user._id : example}`}
               onClick={closeSidebar}

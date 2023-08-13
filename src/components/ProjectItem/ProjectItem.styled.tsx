@@ -3,6 +3,8 @@ import { theme } from 'theme';
 
 export const Item = styled.li`
   width: 100%;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 4px 4px rgba(254, 57, 12, 0.25);
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: calc(50% - ${theme.gaps.medium / 2}px);
