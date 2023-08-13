@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import 'framer.styles.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { EditProjectModal } from 'components/Cabinet/EditProjectModal/EditProjectModal';
 import { FaEdit, FaRegTrashAlt, FaLink } from 'react-icons/fa';
 import { DeleteModal } from 'components/Cabinet/DeleteModal/DeleteModal';
@@ -27,6 +27,7 @@ type Props = {
 const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const location = useLocation();
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -56,7 +57,7 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
       animate={isHover ? 'visible' : 'hidden'}
     >
       <motion.div className="cabinet-btn">
-        <Link to={`/projectDetails/${projectId}`}>
+        <Link to={`/projectDetails/${projectId}`} state={{ from: location }}>
           <FaLink size="30px"></FaLink>
         </Link>
       </motion.div>

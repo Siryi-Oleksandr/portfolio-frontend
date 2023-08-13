@@ -3,6 +3,7 @@ import { Form, Field } from 'formik';
 import { theme } from 'theme';
 import { Btn } from 'components/Buttons/MainBtn.styled';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 
 export const StyledForm = styled(Form)`
   margin-left: auto;
@@ -138,15 +139,55 @@ export const StyledErrorMessage = styled.p`
 export const SubmitBtn = styled(Btn)`
   width: 280px;
   height: 48px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  background-color: ${theme.colors.auth_button_background_switch};
+  color: ${theme.colors.auth_button_color_switch};
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: ${theme.colors.accent_color_switch};
+  }
+  @media screen and (max-width: 375px) {
+    max-width: 280px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 600px) {
+    width: 340px;
+  }
+  @media screen and (min-width: 601px) {
+    width: 480px;
+  }
+`;
+export const GoogleIcon = styled(FcGoogle)`
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+  transition: ${theme.transition.hover};
+`;
+
+export const GoogleBtn = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 48px;
   margin-bottom: 24px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   background-color: ${theme.colors.auth_button_background_switch};
   color: ${theme.colors.auth_button_color_switch};
+  border-radius: ${theme.radii.tiny};
+  transition: ${theme.transition.hover};
   &:hover {
     transform: scale(1.02);
     background-color: ${theme.colors.accent_color_switch};
+
+    .google-icon {
+      transform: rotate(360deg);
+    }
   }
   @media screen and (max-width: 375px) {
     max-width: 280px;

@@ -1,14 +1,16 @@
-import { HiArrowLeft } from "react-icons/hi";
-import { FC } from "react";
-import { BackLinkProps } from "types/backLinkTypes"; 
-import { StyledLink } from "./BackLink.styled";
+import { HiArrowLeft } from 'react-icons/hi';
+import { FC } from 'react';
+import { BackLinkProps } from 'types/backLinkTypes';
+import { BackLincAwesome, StyledLink } from './BackLink.styled';
 
-const BackLink: FC<BackLinkProps> = ({to}) => {
+const BackLink: FC<BackLinkProps> = ({ to }) => {
   return (
-    <StyledLink to={to}>
-      <HiArrowLeft size="24" />
-      Back
-    </StyledLink>
+    <BackLincAwesome type="secondary">
+      <StyledLink to={to}>
+        <HiArrowLeft />
+        Back
+      </StyledLink>
+    </BackLincAwesome>
   );
 };
 export default BackLink;

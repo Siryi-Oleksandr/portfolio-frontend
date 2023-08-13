@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Bar,
   IconsBlock,
@@ -40,7 +40,7 @@ type Props = {
 
 const ProjectItem: FC<Props> = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
-
+  const location = useLocation();
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -57,7 +57,7 @@ const ProjectItem: FC<Props> = ({ project }) => {
   } = project;
   return (
     <Item onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Link to={`/projectDetails/${projectId}`}>
+      <Link to={`/projectDetails/${projectId}`} state={{ from: location }}>
         <Bar>
           <Title>{projectTitle}</Title>
           <IconsBlock />
