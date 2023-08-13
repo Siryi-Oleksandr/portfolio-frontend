@@ -147,3 +147,44 @@ export const EditBtn = styled(Btn)`
     padding-bottom: 2px;
   }
 `;
+
+export const SubscriptionBtn = styled.button`
+  position: absolute;
+  top: 44px;
+  left: 70px;
+  padding: 8px 16px;
+  color: ${theme.colors.white};
+  background-color: ${theme.colors.tagBgColor};
+  font-family: ${theme.fonts.text};
+  font-size: ${theme.fontSizes.m};
+  text-decoration: none;
+  border-radius: 16px;
+  border: 2px dashed ${theme.colors.accentColor};
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  :hover {
+    box-shadow: 1px 1px 25px 10px ${theme.colors.accentColor40};
+  }
+
+  :before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      ${theme.colors.accentColor40},
+      transparent
+    );
+    transition: all 650ms;
+  }
+
+  :hover:before {
+    left: 100%;
+  }
+`;

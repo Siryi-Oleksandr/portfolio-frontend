@@ -68,7 +68,7 @@ const Footer: FC = () => {
       <FooterWrap>
         {showDefaultFooter ? (
           <>
-            <p>"Showcasing Success" - сreated by developers for people 😉</p>
+            <p>"Bankfolio" - сreated by developers for people 😉</p>
             <p>
               {' '}
               Wanna get in touch or talk about a project? <br />

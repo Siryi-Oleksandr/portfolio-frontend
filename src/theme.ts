@@ -3,6 +3,7 @@ import './components/ThemeToggler/colorsThemeToggler.css';
 export const theme = {
   colors: {
     accentColor: '#FE390C',
+    accentColor40: '#fe380c49',
     lightGray: '#F7F7F7',
     mediumtGray: '#DDDDDD',
     grayIcon: '#A7AAB4',
