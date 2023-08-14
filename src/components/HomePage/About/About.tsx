@@ -16,11 +16,10 @@ import {
 // IMAGES
 import portfolioImg from 'images/homePage/portfolioImg.jpg';
 import portfolioImgDesk from 'images/homePage/portfolioImgDesk.jpg';
-import projectsImg from 'images/homePage/projectsImg.png';
+import projectsImg from 'images/homePage/projectsImg.jpg';
 import projectsImgDesk from 'images/homePage/projectsImgDesk.jpg';
 import searchImg from 'images/homePage/searchImg.jpg';
 import searchImgDesk from 'images/homePage/searchImgDesk.jpg';
-import designImg from 'images//homePage/designImg.jpg';
 
 const About: FC = () => {
   const { isMobile, isTablet, isDesktop } = useResponse();
@@ -78,7 +77,7 @@ const About: FC = () => {
               {isDesktop && <img src={searchImgDesk} alt="portfolio" />}
             </ImageWrapper>
           </AboutItem>
-          <AboutItem>
+          {/* <AboutItem>
             <TextWrapper>
               <ItemNumber>4.</ItemNumber>
               <AboutTitle>Unique and </AboutTitle>
@@ -90,7 +89,7 @@ const About: FC = () => {
             <ImageWrapper>
               <img src={designImg} alt="search" />
             </ImageWrapper>
-          </AboutItem>
+          </AboutItem> */}
         </AboutList>
       </Container>
     </Section>
