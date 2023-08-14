@@ -4,8 +4,6 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 export const SliderContainer = styled.div`
   max-width: 100%;
   overflow: hidden;
-
- 
 `;
 
 export const NextArrowStyled = styled.div`

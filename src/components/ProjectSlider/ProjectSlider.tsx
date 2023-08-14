@@ -53,7 +53,7 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     fade: true,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -80,12 +80,14 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
       <Slider ref={slider => (sliderRef.current = slider)} {...settings}>
         {images.map(image => {
           return (
-            <div key={image}>
+            <div className='image-container' key={image}>
               <img
                 style={{
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
                   width: '100%',
+                  height: '100%',
                   objectFit: 'contain',
                 }}
                 src={image}
