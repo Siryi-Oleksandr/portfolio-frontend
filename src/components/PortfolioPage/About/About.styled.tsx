@@ -123,7 +123,7 @@ export const Summary = styled.p`
   line-height: 2;
   letter-spacing: -0.24px;
 
-  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+  @media screen and (min-width: 200px) and (max-width: ${theme.breakpoints.mobileMax}) {
     font-size: 14px;
     line-height: 2.28;
     letter-spacing: -0.28px;
