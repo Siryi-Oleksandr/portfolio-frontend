@@ -7,17 +7,12 @@ import { getUserProjects } from 'redux/project/operations';
 import { useProjects, useSearch } from 'hooks';
 
 const PortfolioPage: FC = () => {
-  // const [isGuest, setIsGuest] = useState(false);
   let { userId = '64d4797b379a5ea8b43b84d3' } = useParams();
   const { userProjects, isProjectLoading } = useProjects();
   const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // if (userId === 'example') {
-    //   return setIsGuest(true);
-    // }
-    // setIsGuest(false);
     dispatch(getUserById(userId));
     dispatch(getUserProjects(userId));
   }, [dispatch, userId]);
