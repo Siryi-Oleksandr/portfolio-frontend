@@ -37,3 +37,9 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.slick-slide > div > .image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
