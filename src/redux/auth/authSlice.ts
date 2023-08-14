@@ -7,6 +7,7 @@ import {
   logoutUser,
   currentUser,
   updateUser,
+  deleteUserAccount,
 } from './operations';
 
 import { IPostUser, IAuthState } from 'redux/reduxTypes';
@@ -27,6 +28,16 @@ const initialState: IAuthState = {
   isLogedGoogle: false,
 };
 
+const handlePending = (state: IAuthState) => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const handleRejected = (state: IAuthState, action: PayloadAction<any>) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 const authSlice = createSlice({
   name: 'auth/register',
   initialState,
@@ -40,36 +51,17 @@ const authSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(registerUser.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(loginUser.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(logoutUser.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(currentUser.pending, state => {
-        state.isRefreshing = true;
-      })
-      .addCase(updateUser.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(registerUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(loginUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(updateUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(currentUser.rejected, state => {
-        state.isRefreshing = false;
-      })
+      .addCase(registerUser.pending, handlePending)
+      .addCase(loginUser.pending, handlePending)
+      .addCase(logoutUser.pending, handlePending)
+      .addCase(currentUser.pending, handlePending)
+      .addCase(updateUser.pending, handlePending)
+      .addCase(deleteUserAccount.pending, handlePending)
+      .addCase(registerUser.rejected, handleRejected)
+      .addCase(loginUser.rejected, handleRejected)
+      .addCase(updateUser.rejected, handleRejected)
+      .addCase(currentUser.rejected, handleRejected)
+      .addCase(deleteUserAccount.rejected, handleRejected)
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.user };
         state.accessToken = action.payload.accessToken;
@@ -106,14 +98,25 @@ const authSlice = createSlice({
         state.accessToken = payload.accessToken;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         state.user = { ...state.user, ...payload };
         state.isLoading = false;
         state.error = null;
+      })
+      .addCase(deleteUserAccount.fulfilled, state => {
+        state.user = newUser;
+        state.accessToken = '';
+        state.isLoggedIn = false;
+        state.isRefreshing = false;
+        state.isLoading = false;
+        state.error = null;
+        state.isLogedGoogle = false;
       });
   },
 });
+
 
 export const { updateLoginGoogle, updateAccessToken } = authSlice.actions;
 

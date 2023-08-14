@@ -238,3 +238,20 @@ export const resetPassword = createAsyncThunk(
     }
   }
 );
+
+export const deleteUserAccount = createAsyncThunk(
+  'auth/deleteUser',
+  async (id: string, thunkAPI) => {
+    try {
+      const response = await instance.delete(`/${id}`);
+      if (response) {
+        toast.success(`${response.data.message}`);
+        setToken('');
+        localStorage.setItem('refreshToken', '');
+      }
+      return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
