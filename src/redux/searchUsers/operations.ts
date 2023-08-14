@@ -1,7 +1,6 @@
 import { instance } from 'redux/auth/operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
 export const searchUsers = createAsyncThunk(
   'users/searchUsers',
   async ({ query, page }: { query: string; page: number }, thunkAPI) => {
@@ -11,7 +10,6 @@ export const searchUsers = createAsyncThunk(
       );
       return response.data;
     } catch (error: any) {
-
       return thunkAPI.rejectWithValue(error.message);
     }
   }
