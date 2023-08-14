@@ -1,21 +1,20 @@
 {
   "files": {
     "main.css": "/portfolio-frontend/static/css/main.8a4aab19.css",
-    "main.js": "/portfolio-frontend/static/js/main.a65caebe.js",
+    "main.js": "/portfolio-frontend/static/js/main.0eb6155b.js",
+    "static/media/projectsImg.jpg": "/portfolio-frontend/static/media/projectsImg.0cb4deb26be6515a8ead.jpg",
+    "static/media/portfolioImgDesk.jpg": "/portfolio-frontend/static/media/portfolioImgDesk.9f286abee6dbae523ef4.jpg",
+    "static/media/portfolioImg.jpg": "/portfolio-frontend/static/media/portfolioImg.d93b854bc8ba9e34997e.jpg",
+    "static/media/searchImg.jpg": "/portfolio-frontend/static/media/searchImg.7ff1eb0496200a392f8f.jpg",
     "static/media/Bg.jpg": "/portfolio-frontend/static/media/Bg.0a7499a3396c6d2d33f6.jpg",
-    "static/media/portfolioImgDesk.jpg": "/portfolio-frontend/static/media/portfolioImgDesk.9fd49f7066d300f2561c.jpg",
-    "static/media/projectsImgDesk.jpg": "/portfolio-frontend/static/media/projectsImgDesk.4b5fe9321b38cb438bfc.jpg",
+    "static/media/projectsImgDesk.jpg": "/portfolio-frontend/static/media/projectsImgDesk.a37021f02a54efbed3a6.jpg",
     "static/media/project-img.jpg": "/portfolio-frontend/static/media/project-img.e83b515db5793a44377b.jpg",
-    "static/media/designImg.jpg": "/portfolio-frontend/static/media/designImg.f15f3cb1d1aa100856c0.jpg",
     "static/media/hero-desktop-x2.jpg": "/portfolio-frontend/static/media/hero-desktop-x2.45e7dddd7c8a7d193f84.jpg",
-    "static/media/projectsImg.png": "/portfolio-frontend/static/media/projectsImg.7a947028975b28950f3b.png",
     "static/media/about-team.jpg": "/portfolio-frontend/static/media/about-team.6c03f8fc489e4692d42e.jpg",
-    "static/media/portfolioImg.jpg": "/portfolio-frontend/static/media/portfolioImg.dedc44f931a0cd0bac65.jpg",
     "static/media/hero-tablet-x2-desktop.jpg": "/portfolio-frontend/static/media/hero-tablet-x2-desktop.59f80b5af1d4678c2e63.jpg",
+    "static/media/searchImgDesk.jpg": "/portfolio-frontend/static/media/searchImgDesk.ebbb6ad7b430325bfd9a.jpg",
     "static/media/about-office.jpg": "/portfolio-frontend/static/media/about-office.1e526313e1951e8cff5e.jpg",
-    "static/media/searchImg.jpg": "/portfolio-frontend/static/media/searchImg.0dfc7a031b8face3250f.jpg",
     "static/media/placeholder-image.jpg": "/portfolio-frontend/static/media/placeholder-image.3c0a422b9d39f22e1be7.jpg",
-    "static/media/searchImgDesk.jpg": "/portfolio-frontend/static/media/searchImgDesk.89e57740cdf086bb5402.jpg",
     "static/media/hero-mobile-x2-tablet.jpg": "/portfolio-frontend/static/media/hero-mobile-x2-tablet.23515ed1858f2a0e426a.jpg",
     "static/media/QRmono.png": "/portfolio-frontend/static/media/QRmono.8793179caff3ba6786bb.png",
     "static/media/Logo_5.svg": "/portfolio-frontend/static/media/Logo_5.44135877db9d58a43533ae2900333679.svg",
@@ -25,10 +24,10 @@
     "static/media/slick.woff": "/portfolio-frontend/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio-frontend/index.html",
     "main.8a4aab19.css.map": "/portfolio-frontend/static/css/main.8a4aab19.css.map",
-    "main.a65caebe.js.map": "/portfolio-frontend/static/js/main.a65caebe.js.map"
+    "main.0eb6155b.js.map": "/portfolio-frontend/static/js/main.0eb6155b.js.map"
   },
   "entrypoints": [
     "static/css/main.8a4aab19.css",
-    "static/js/main.a65caebe.js"
+    "static/js/main.0eb6155b.js"
   ]
 }
