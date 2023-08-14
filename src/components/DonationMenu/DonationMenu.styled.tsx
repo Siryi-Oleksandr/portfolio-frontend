@@ -1,20 +1,24 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 
-export const DonationWrapper = styled.div`
+export const DonationWrapper = styled.div<{ donat: boolean }>`
   position: fixed;
   display: flex;
   flex-direction: row;
-  right: 0;
-  bottom: 190px;
+  right: ${({ donat }) => (donat ? '0' : '-274px')};
+  bottom: 75px;
+  transition: ${theme.transition.hover};
+  z-index: 100;
 `;
 
 export const LinkWrapper = styled.div`
-  border: 1px solid black;
+  border-radius: ${theme.radii.tiny};
+  border: 2px solid black;
 `;
 
 export const DonationBtn = styled.button`
   writing-mode: vertical-lr;
+  height: 175px;
   padding: 8px;
   background-color: ${theme.colors.redErrorLight};
   color: ${theme.colors.primary_text_switch};
