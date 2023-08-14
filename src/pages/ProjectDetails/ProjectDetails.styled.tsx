@@ -25,6 +25,13 @@ export const ProjectSectionContainer = styled.section`
   }
 `;
 
+export const BackLinkContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
 export const ProjectTitle = styled.h2`
   color: ${theme.colors.project_page_primary_text_switch};
   font-family: ${theme.fonts.title};
@@ -50,12 +57,12 @@ export const CopyLincAwesome = styled(AwesomeButton)`
   --button-raise-level: 4px;
   --button-hover-pressure: 1;
   --transform-speed: 0.15s;
-  --button-secondary-color: ${theme.colors.awesome_background_switch};
-  --button-secondary-color-dark: #b75b06;
-  --button-secondary-color-light: ${theme.colors.awesome_text_switch};
-  --button-secondary-color-hover: ${theme.colors.awesome_hover_switch};
-  --button-secondary-color-active: ${theme.colors.awesome_hover_switch};
-  --button-secondary-border: 2px solid #d77642;
+  --button-secondary-color: #FE390C;
+  --button-secondary-color-dark: #be2c0b;
+  --button-secondary-color-light: ${theme.colors.white};
+  --button-secondary-color-hover: #c43110;
+  --button-secondary-color-active: #c43110;
+  --button-secondary-border: 2px solid #ff2f00;
   @media screen and (max-width: 600px) {
     width: 100px;
     height: 35px;
@@ -109,7 +116,7 @@ export const Line = styled.hr`
 `;
 
 export const TopLine = styled(Line)`
-  border-color: ${theme.colors.awesome_text_switch};
+  border-color: ${theme.colors.accentColor};
   margin-left: auto;
   margin-right: auto;
   @media screen and (max-width: 600px) {

@@ -29,7 +29,7 @@ const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState<string>('false');
   const showSidebar = () => setSidebar('true');
   const closeSidebar = () => setSidebar('false');
-  const example = 'example';
+  const example = '64d4797b379a5ea8b43b84d3';
 
   const ref = useRef(null);
   const handleClickOutside = () => {

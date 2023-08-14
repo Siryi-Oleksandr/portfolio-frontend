@@ -14,15 +14,23 @@ type Props = {
 
 const Portfolio: FC<Props> = ({ user, projects }) => {
   let viewportWidth = useViewportWidth();
+
+  const isTeam =
+    user?.name?.toLowerCase().includes('team') ||
+    user?.surname?.toLowerCase().includes('team');
+
   return (
     <>
       <PortfolioHero user={user} />
       <Container>
         <About user={user} />
         {viewportWidth > 768 ? (
-          <SectionTitle number="02" text="My technology stack" />
+          <SectionTitle
+            number="02"
+            text={isTeam ? 'Our technology stack' : 'My technology stack'}
+          />
         ) : (
-          <SectionTitle number="02" text="My stack" />
+          <SectionTitle number="02" text={isTeam ? 'Our stack' : 'My stack'} />
         )}
         {user.technicalStack ? (
           <StackList techStack={user.technicalStack} />
