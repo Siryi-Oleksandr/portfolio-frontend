@@ -1,17 +1,21 @@
 import styled from '@emotion/styled';
 import { theme } from 'theme';
 
-export const SubscroptionWrap = styled.div`
+export const SubscriptionWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 600px;
+  max-width: 750px;
   font-family: ${theme.fonts.text};
-  font-size: ${theme.fontSizes.m};
+  font-size: ${theme.fontSizes.s};
   color: ${theme.colors.primary_text_switch};
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    font-size: ${theme.fontSizes.m};
+  }
 `;
 
-export const SubscroptionList = styled.ul`
+export const SubscriptionList = styled.ul`
   list-style: square;
   margin-left: 32px;
 `;
@@ -57,5 +61,31 @@ export const Link = styled.a`
 
   :not(:hover)::after {
     animation: underline-fade-out 0.3s forwards;
+  }
+`;
+
+export const SubscriptionBtn = styled.a`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: ${theme.colors.accentColor};
+  font-family: ${theme.fonts.text};
+  font-size: ${theme.fontSizes.s};
+  line-height: 1.2;
+  color: ${theme.colors.white};
+  outline: none;
+  border: none;
+  border-radius: ${theme.radii.tiny};
+
+  transition: ${theme.transition.hover};
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    padding: 14px 24px;
+    font-size: ${theme.fontSizes.m};
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;

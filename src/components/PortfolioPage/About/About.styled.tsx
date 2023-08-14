@@ -126,6 +126,7 @@ export const Summary = styled.p`
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: 20px;
     line-height: 2.2;
+
     letter-spacing: -0.28px;
   }
 `;
