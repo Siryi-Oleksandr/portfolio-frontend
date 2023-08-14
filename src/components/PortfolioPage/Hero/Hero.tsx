@@ -35,13 +35,17 @@ const PortfolioHero: FC<Props> = ({ user }) => {
     }
   };
 
+  const isTeam =
+    name?.toLowerCase().includes('team') ||
+    surname?.toLowerCase().includes('team');
+
   return (
     <Section>
       <Container>
         <HeroWrapper>
           <HeroInfoWrapper>
             <SubTitle>
-              Hello, <span>I'm</span>
+              Hello, {isTeam ? <span>We're</span> : <span>I'm</span>}
             </SubTitle>
             <FullName>
               <HeroName>{name}</HeroName>
