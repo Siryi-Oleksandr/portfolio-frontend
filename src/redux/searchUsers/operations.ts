@@ -28,3 +28,15 @@ export const getUserById = createAsyncThunk(
     }
   }
 );
+
+export const getTotalUsers = createAsyncThunk(
+  'users/getTotalUsers',
+  async (_, thunkAPI) => {
+    try {
+      const response = await instance.get(`/`);
+      return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
