@@ -16,7 +16,7 @@ import {
 } from './NotFoundPage.styled';
 
 const NotFoundPage: FC = () => {
-  const [countdown, setCountdown] = useState(1000);
+  const [countdown, setCountdown] = useState(10);
   const navigate = useNavigate();
 
   useEffect(() => {
