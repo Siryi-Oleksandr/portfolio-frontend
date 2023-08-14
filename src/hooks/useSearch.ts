@@ -5,6 +5,7 @@ import {
   selectError,
   totalUsersCount,
   userById,
+  selectTotalUsers,
 } from 'redux/searchUsers/searchUsersSelectors';
 
 export const useSearch = () => {
@@ -13,6 +14,7 @@ export const useSearch = () => {
   const totalCount = useAppSelector(totalUsersCount);
   const isSearchLoading = useAppSelector(selectIsLoading);
   const isSearchError = useAppSelector(selectError);
+  const totalUsers = useAppSelector(selectTotalUsers);
 
   return {
     user,
@@ -20,5 +22,6 @@ export const useSearch = () => {
     totalCount,
     isSearchLoading,
     isSearchError,
+    totalUsers,
   };
 };

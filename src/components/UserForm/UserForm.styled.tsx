@@ -123,3 +123,46 @@ export const SubmitBtn = styled(Btn)`
     font-size: 16px;
   }
 `;
+export const DeleteButton = styled.button`
+  position: relative;
+  width: 150px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  font-family: ${theme.fonts.text};
+  font-weight: 600;
+  font-size: 15px;
+  line-height: inherit;
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  .bucket {
+    top: 50%;
+    right: -11%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%) rotate(360deg);
+    opacity: 0;
+    position: absolute;
+    transition: ${theme.transition};
+  }
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  &:hover .bucket {
+    opacity: 1;
+    animation: rotate 2s linear infinite;
+  }
+`;

@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { EditProjectModal } from 'components/Cabinet/EditProjectModal/EditProjectModal';
 import { FaEdit, FaRegTrashAlt, FaLink } from 'react-icons/fa';
 import { DeleteModal } from 'components/Cabinet/DeleteModal/DeleteModal';
+import { useDeleteModal } from 'hooks/useDeleteModal';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -26,8 +27,10 @@ type Props = {
 
 const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
   const [showModal, setShowModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+ 
   const location = useLocation();
+  const { showDeleteModal, handleCloseDeleteModal, handleShowDeleteModal } =
+    useDeleteModal();
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -39,15 +42,6 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
     document.body.style.overflow = 'hidden';
   };
 
-  const handleCloseDeleteModal = () => {
-    setShowDeleteModal(false);
-    document.body.style.overflow = 'auto';
-  };
-
-  const handleShowDeleteModal = () => {
-    setShowDeleteModal(true);
-    document.body.style.overflow = 'hidden';
-  };
 
   return (
     <motion.div
@@ -75,7 +69,7 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
         <EditProjectModal onClose={handleCloseModal} projectId={projectId} />
       )}
       {showDeleteModal && (
-        <DeleteModal onClose={handleCloseDeleteModal} id={projectId} />
+        <DeleteModal onClose={handleCloseDeleteModal} id={projectId} content={"project"} />
       )}
     </motion.div>
   );

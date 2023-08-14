@@ -5,20 +5,24 @@ import {
   FooterStyled,
   FooterWrap,
   Socials,
+  TextWrapper,
 } from './Footer.styled';
-import { useAppSelector } from 'redux/reduxHooks';
+import { useAppSelector, useAppDispatch } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
 import { useLocation } from 'react-router-dom';
-import SocialLink from 'components/SocialLink/SocialLink';
-import { useViewportWidth } from 'hooks/useViewportWidth';
+import { SocialLink, TotalCountTrigger } from 'components';
 import { userById } from 'redux/searchUsers/searchUsersSelectors';
 import { Link } from 'react-router-dom';
+import { useSearch, useViewportWidth } from 'hooks';
+import { getTotalUsers } from 'redux/searchUsers/operations';
 
 type TSize = '1em' | '1.5em' | '2em';
 
 const Footer: FC = () => {
   const [showDefaultFooter, setShowDefaultFooter] = useState<boolean>(true);
   const user: Partial<IUser> = useAppSelector(userById);
+  const dispatch = useAppDispatch();
+  const { totalUsers } = useSearch();
   const example = '64d4797b379a5ea8b43b84d3';
 
   const location = useLocation();
@@ -65,25 +69,33 @@ const Footer: FC = () => {
     }
   }, [location.pathname, setShowDefaultFooter]);
 
+  useEffect(() => {
+    dispatch(getTotalUsers());
+  }, [dispatch]);
+
   return (
     <FooterStyled>
       <FooterWrap>
         {showDefaultFooter ? (
           <>
-            <p>"Bankfolio" - сreated by developers for people 😉</p>
-            <p>
+            <TextWrapper>
+              "Bankfolio" - сreated by developers for people 😉
+            </TextWrapper>
+            <TotalCountTrigger totalCount={totalUsers} />
+            <TextWrapper>
               {' '}
               Wanna get in touch or talk about a project? <br />
               Feel free to contact us via email at{' '}
               <Email href="mailto:commitmakers@gmail.com">
                 commitmakers@gmail.com
               </Email>
-            </p>
+            </TextWrapper>
           </>
         ) : (
           <>
             <p style={{ flex: '1' }}>
-              {user.name} {user.surname} <span style={{color:"#FE390C"}}>{user.profession}</span>
+              {user.name} {user.surname}{' '}
+              <span style={{ color: '#FE390C' }}>{user.profession}</span>
             </p>
             <AvatarWrap>
               <Link to={`/portfolio/${user._id ? user._id : example}`}>
@@ -94,6 +106,7 @@ const Footer: FC = () => {
                 />
               </Link>
             </AvatarWrap>
+
             <Socials style={{ flex: '1' }}>
               {user.telegram && (
                 <SocialLink
