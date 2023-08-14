@@ -92,3 +92,11 @@ export const AvatarWrap = styled.div`
     border-radius: 50%;
   }
 `;
+
+export const TextWrapper = styled.p`
+  width: 100%;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    width: 40%;
+  }
+`;

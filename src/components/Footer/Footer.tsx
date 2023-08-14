@@ -5,6 +5,7 @@ import {
   FooterStyled,
   FooterWrap,
   Socials,
+  TextWrapper,
 } from './Footer.styled';
 import { useAppSelector, useAppDispatch } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
@@ -77,17 +78,18 @@ const Footer: FC = () => {
       <FooterWrap>
         {showDefaultFooter ? (
           <>
-            <p>"Bankfolio" - сreated by developers for people 😉</p>
-
-            <p>
+            <TextWrapper>
+              "Bankfolio" - сreated by developers for people 😉
+            </TextWrapper>
+            <TotalCountTrigger totalCount={totalUsers} />
+            <TextWrapper>
               {' '}
               Wanna get in touch or talk about a project? <br />
               Feel free to contact us via email at{' '}
               <Email href="mailto:commitmakers@gmail.com">
                 commitmakers@gmail.com
               </Email>
-            </p>
-            <TotalCountTrigger totalCount={totalUsers} />
+            </TextWrapper>
           </>
         ) : (
           <>
@@ -133,7 +135,6 @@ const Footer: FC = () => {
                 size={size}
               />
             </Socials>
-            <TotalCountTrigger totalCount={totalUsers} />
           </>
         )}
       </FooterWrap>

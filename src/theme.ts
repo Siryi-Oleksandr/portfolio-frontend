@@ -21,6 +21,7 @@ export const theme = {
     disabled: '#c9cdd3',
     tagBgColor: '#313131',
     tagTextColor: '#999999',
+    gray: '#cccccc',
 
     // Theme toggler
 
@@ -45,7 +46,6 @@ export const theme = {
     auth_button_color_switch: 'var(--auth-button-color)',
 
     project_page_primary_text_switch: 'var(--project-page-text-primary)',
-
   },
 
   fonts: {

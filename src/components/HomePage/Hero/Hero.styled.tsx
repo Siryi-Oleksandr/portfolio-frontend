@@ -50,12 +50,13 @@ export const Title = styled.h1`
   font-family: ${theme.fonts.title};
   font-size: 67px;
   letter-spacing: 4px;
-  color: #fff;
+  color: ${theme.colors.white};
   margin-bottom: 80px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     margin-bottom: 100px;
     font-size: 100px;
+    letter-spacing: 8px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
@@ -68,16 +69,15 @@ export const Description = styled.p`
   font-family: ${theme.fonts.text};
   font-size: 23px;
   font-weight: ${theme.fontWeights.title};
-  color: #fff;
+  color: ${theme.colors.gray};
   margin-bottom: 80px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 30px;
-    line-height: 60px;
+    line-height: 1.5;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: 40px;
-    line-height: 80px;
   }
 `;
