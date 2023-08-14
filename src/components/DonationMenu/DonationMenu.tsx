@@ -17,7 +17,7 @@ const DonationMenu = () => {
           setShowDonatain(!showDonatain);
         }}
       >
-        support developers
+        Support developers
       </DonationBtn>
       <LinkWrapper>
         <img src={banka} alt="Monobanka" width="270px" height="317px" />

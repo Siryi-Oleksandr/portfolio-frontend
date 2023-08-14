@@ -17,9 +17,12 @@ export const LinkWrapper = styled.div`
 `;
 
 export const DonationBtn = styled.button`
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
-  height: 175px;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 69px;
+  right: 205px;
+  height: 43px;
+  width: 181px;
   padding: 8px;
   background-color: ${theme.colors.redErrorLight};
   color: ${theme.colors.primary_text_switch};
