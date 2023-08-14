@@ -13,15 +13,16 @@ export const BackLincAwesome = styled(AwesomeButton)`
   --button-raise-level: 4px;
   --button-hover-pressure: 1;
   --transform-speed: 0.15s;
-  --button-secondary-color: ${theme.colors.awesome_background_switch};
-  --button-secondary-color-dark: #b75b06;
-  --button-secondary-color-light: ${theme.colors.awesome_text_switch};
-  --button-secondary-color-hover: ${theme.colors.awesome_hover_switch};
-  --button-secondary-color-active: ${theme.colors.awesome_hover_switch};
-  --button-secondary-border: 2px solid #d77642;
+  --button-secondary-color: #FE390C;
+  --button-secondary-color-dark: #be2c0b;
+  --button-secondary-color-light: ${theme.colors.white};
+  --button-secondary-color-hover: #c43110;
+  --button-secondary-color-active: #c43110;
+  --button-secondary-border: 2px solid #ff2f00;
   @media screen and (max-width: 600px) {
     width: 100px;
     height: 35px;
+    font-size: 15px;
   }
 `;
 
@@ -31,7 +32,7 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   gap: 4px;
   padding: 0;
-  color: ${theme.colors.awesome_text_switch};
+  color: ${theme.colors.white};
   text-decoration: none;
   width: 120px;
 `;

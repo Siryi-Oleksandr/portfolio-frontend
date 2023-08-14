@@ -12,12 +12,14 @@ import { useLocation } from 'react-router-dom';
 import SocialLink from 'components/SocialLink/SocialLink';
 import { useViewportWidth } from 'hooks/useViewportWidth';
 import { userById } from 'redux/searchUsers/searchUsersSelectors';
+import { Link } from 'react-router-dom';
 
 type TSize = '1em' | '1.5em' | '2em';
 
 const Footer: FC = () => {
   const [showDefaultFooter, setShowDefaultFooter] = useState<boolean>(true);
   const user: Partial<IUser> = useAppSelector(userById);
+  const example = '64d4797b379a5ea8b43b84d3';
 
   const location = useLocation();
 
@@ -81,14 +83,16 @@ const Footer: FC = () => {
         ) : (
           <>
             <p style={{ flex: '1' }}>
-              {user.name} {user.surname} {user.profession}
+              {user.name} {user.surname} <span style={{color:"#FE390C"}}>{user.profession}</span>
             </p>
             <AvatarWrap>
-              <img
-                src={user.miniAvatarURL}
-                alt="Avatar"
-                style={{ flex: '1' }}
-              />
+              <Link to={`/portfolio/${user._id ? user._id : example}`}>
+                <img
+                  src={user.miniAvatarURL}
+                  alt="Avatar"
+                  style={{ flex: '1' }}
+                />
+              </Link>
             </AvatarWrap>
             <Socials style={{ flex: '1' }}>
               {user.telegram && (
