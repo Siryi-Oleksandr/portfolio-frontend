@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SlLogout } from 'react-icons/sl';
 import { BtnAuth, BtnText } from './login.styled';
 import { IconContext } from 'react-icons';
@@ -7,10 +7,11 @@ import { logoutUser } from 'redux/auth/operations';
 
 const LogoutBtn = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    <Navigate to="/" />;
+    navigate('/');
   };
 
   return (
