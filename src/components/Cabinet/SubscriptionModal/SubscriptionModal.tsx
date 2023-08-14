@@ -2,8 +2,9 @@ import { Modal } from 'components/Modal/Modal';
 import React, { FC } from 'react';
 import {
   Link,
-  SubscroptionList,
-  SubscroptionWrap,
+  SubscriptionBtn,
+  SubscriptionList,
+  SubscriptionWrap,
 } from './SubscriptionModal.styled';
 
 type SubscriptionModalPorps = {
@@ -13,7 +14,7 @@ type SubscriptionModalPorps = {
 export const SubscriptionModal: FC<SubscriptionModalPorps> = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
-      <SubscroptionWrap>
+      <SubscriptionWrap>
         <h2>"Start" vs "Pro" Subscription for Your Bankfolio</h2>
         <p>
           Welcome to our innovative web service for creating and organizing your
@@ -27,19 +28,19 @@ export const SubscriptionModal: FC<SubscriptionModalPorps> = ({ onClose }) => {
           allow you to manage your projects easily and efficiently. You'll have
           possibility:
         </h4>
-        <SubscroptionList>
+        <SubscriptionList>
           <li>Create your portfolio and share with the others.</li>
           <li>Save 5 your projects.</li>
           <li>Search for other users and their projects.</li>
           <li>Easy and fast searching of other users or their projects.</li>
-        </SubscroptionList>
+        </SubscriptionList>
         <h3>"Pro" Subscription:</h3>
         <h4>
           By subscribing to the "Pro" level, you unlock the full potential of
           our service. With the "Pro" subscription, you'll have everything that
           "Start" offers, plus:
         </h4>
-        <SubscroptionList>
+        <SubscriptionList>
           <li>
             Unlimited project creation and storage. Your ideas and plans will no
             longer be limited by the number of available slots.
@@ -49,11 +50,21 @@ export const SubscriptionModal: FC<SubscriptionModalPorps> = ({ onClose }) => {
             can confidently share screenshot of your projects without worrying
             about reducing their resolution.
           </li>
-        </SubscroptionList>
+        </SubscriptionList>
         <p>
-          If you wish to purchase the "Pro" subscription, you need to make a
-          donation of at least 50 UAH to "Monobank." Take a screenshot of the
-          payment and send it to us via{' '}
+          If you wish to purchase the "Pro" subscription, you need to{' '}
+          <b>
+            make a donation of at least 50 UAH to{' '}
+            <Link
+              href="https://send.monobank.ua/jar/5hm2RbSNYT"
+              target="blank"
+              rel="noreferrer noopener"
+            >
+              "Monobank"
+            </Link>
+            .
+          </b>{' '}
+          Take a screenshot of the payment and send it to us via{' '}
           <Link href="mailto:commitmakers@gmail.com" target="blank">
             commitmakers@gmail.com
           </Link>{' '}
@@ -75,7 +86,14 @@ export const SubscriptionModal: FC<SubscriptionModalPorps> = ({ onClose }) => {
             commitmakers@gmail.com
           </Link>
         </p>
-      </SubscroptionWrap>
+        <SubscriptionBtn
+          href="https://send.monobank.ua/jar/5hm2RbSNYT"
+          target="blank"
+          rel="noreferrer noopener"
+        >
+          Get "Pro" Subscription
+        </SubscriptionBtn>
+      </SubscriptionWrap>
     </Modal>
   );
 };
