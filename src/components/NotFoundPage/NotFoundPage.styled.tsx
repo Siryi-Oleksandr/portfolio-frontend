@@ -14,8 +14,11 @@ const rotateAnimation = keyframes`
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding-top: 150px;
 `;
 
 export const NumberLogoWrapper = styled.div`
@@ -86,6 +89,7 @@ export const NavigateText = styled.p`
 
 export const HomeLink = styled(Link)`
   color: ${theme.colors.accentColor};
+  font-weight: ${theme.fontWeights.bold};
 
   :hover,
   :focus {
