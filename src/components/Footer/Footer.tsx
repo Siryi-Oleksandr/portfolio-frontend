@@ -15,6 +15,7 @@ import { userById } from 'redux/searchUsers/searchUsersSelectors';
 import { Link } from 'react-router-dom';
 import { useSearch, useViewportWidth } from 'hooks';
 import { getTotalUsers } from 'redux/searchUsers/operations';
+import defaultImg from '../../images/team.jpg';
 
 type TSize = '1em' | '1.5em' | '2em';
 
@@ -97,10 +98,11 @@ const Footer: FC = () => {
               {user.name} {user.surname}{' '}
               <span style={{ color: '#FE390C' }}>{user.profession}</span>
             </p>
+
             <AvatarWrap>
               <Link to={`/portfolio/${user._id ? user._id : example}`}>
                 <img
-                  src={user.miniAvatarURL}
+                  src={user.miniAvatarURL || defaultImg}
                   alt="Avatar"
                   style={{ flex: '1' }}
                 />
@@ -129,11 +131,13 @@ const Footer: FC = () => {
                   size={size}
                 />
               )}
-              <SocialLink
-                type="email"
-                url={`mailto:${user.email}`}
-                size={size}
-              />
+              {user.email && (
+                <SocialLink
+                  type="email"
+                  url={`mailto:${user.email}`}
+                  size={size}
+                />
+              )}
             </Socials>
           </>
         )}
