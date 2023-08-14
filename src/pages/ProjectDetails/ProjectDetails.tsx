@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, } from 'react-router-dom';
 import { Loader } from 'components';
 import { toast } from 'react-hot-toast';
 import { useAppDispatch } from 'redux/reduxHooks';

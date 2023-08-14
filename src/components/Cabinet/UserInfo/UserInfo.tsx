@@ -42,6 +42,7 @@ const UserInfo: FC = () => {
     document.body.style.overflow = 'hidden';
   };
 
+
   let stringStack = '';
 
   if (user.technicalStack !== undefined) {
@@ -83,6 +84,7 @@ const UserInfo: FC = () => {
             Edit
             <FaEdit size="32px" />
           </EditBtn>
+          
         </LogoWrap>
         <AboutWrap>
           <AboutText>{initialValues.summary}</AboutText>

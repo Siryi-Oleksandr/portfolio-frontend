@@ -75,7 +75,7 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
         <EditProjectModal onClose={handleCloseModal} projectId={projectId} />
       )}
       {showDeleteModal && (
-        <DeleteModal onClose={handleCloseDeleteModal} id={projectId} />
+        <DeleteModal onClose={handleCloseDeleteModal} id={projectId} content={"project"} />
       )}
     </motion.div>
   );

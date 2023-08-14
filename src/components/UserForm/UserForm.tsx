@@ -19,6 +19,8 @@ import { IUpdateUser } from 'redux/reduxTypes';
 import { updateUser } from 'redux/auth/operations';
 import { FormUserUpdateSchema } from 'services/yupSchemas';
 import { handleFormikImageUpload } from 'services';
+import { useDeleteModal } from 'hooks/useDeleteModal';
+import { DeleteModal } from 'components/Cabinet/DeleteModal/DeleteModal';
 
 type UserFormPorps = {
   onClose: () => void;
@@ -28,6 +30,8 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const user: IUser = useAppSelector(selectUser);
   const [userAvatar, setUserAvatar] = useState<any>(user.avatarURL);
+  const { showDeleteModal, handleCloseDeleteModal, handleShowDeleteModal } =
+    useDeleteModal();
 
   let stringStack = '';
 
@@ -175,6 +179,20 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
               </Label>
             </InputsContainer>
             <SubmitBtn type="submit">Update info</SubmitBtn>
+            {showDeleteModal && (
+              <DeleteModal
+                onClose={handleCloseDeleteModal}
+                id={user._id}
+                content={'account'}
+              />
+            )}
+            <button
+              onClick={handleShowDeleteModal}
+              type="button"
+              style={{ width: '120px', height: '30px' }}
+            >
+              Delete Account
+            </button>
           </StyledUserForm>
         )}
       </Formik>
