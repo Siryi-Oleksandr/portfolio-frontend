@@ -53,7 +53,7 @@ export const SubscriptionModal: FC<SubscriptionModalPorps> = ({ onClose }) => {
         </SubscriptionList>
         <p>
           If you wish to purchase the "Pro" subscription, you need to{' '}
-          <b>
+          <b style={{ color: '#FE390C' }}>
             make a donation of at least 50 UAH to{' '}
             <Link
               href="https://send.monobank.ua/jar/5hm2RbSNYT"
