@@ -8,7 +8,7 @@ export const Section = styled.section`
 export const Title = styled.h2`
   margin: 0 auto;
   font-family: ${theme.fonts.title};
-  font-size: ${theme.fontSizes.xl};
+  font-size: 45px;
   color: ${theme.colors.primary_text_switch};
   margin-bottom: 30px;
   text-align: center;

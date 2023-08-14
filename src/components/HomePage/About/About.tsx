@@ -28,7 +28,7 @@ const About: FC = () => {
   return (
     <Section>
       <Container>
-        <Title>For what is this bank for?</Title>
+        <Title>What’s this bank for?</Title>
         <AboutList>
           <AboutItem>
             <TextWrapper>
