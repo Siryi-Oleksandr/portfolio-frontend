@@ -4,7 +4,7 @@ import { theme } from 'theme';
 export const TextWrapper = styled.div`
   position: absolute;
   top: 270px;
-  right: 26px;
+  right: 40px;
 `;
 
 export const Text = styled.p`
@@ -44,5 +44,5 @@ export const StyledEmoji = styled.span`
 export const InfoWrapper = styled.div`
   position: absolute;
   top: -27px;
-  right: -5px;
+  right: -10px;
 `;

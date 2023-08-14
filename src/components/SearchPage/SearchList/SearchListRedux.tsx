@@ -66,7 +66,6 @@ const SearchListRedux: FC<Props> = ({ query, page, loadMore }) => {
     dispatch(searchUsers({ query, page }));
 
     // return () => {
-    //   console.log('RETURN');
     //   dispatch(resetSearchUsers());
     // };
   }, [dispatch, page, query]);

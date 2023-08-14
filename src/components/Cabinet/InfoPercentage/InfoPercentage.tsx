@@ -18,12 +18,12 @@ interface UserObject {
 }
 
 const InfoPercentage: FC<Props> = ({ user }) => {
-  console.log(user);
   const [percentage, setPercentage] = useState('');
   const [emoji, setEmoji] = useState('');
 
   useEffect(() => {
     const calculateInfoPercentage = (userObj: UserObject) => {
+      const newObj = userObj;
       const totalProperties = Object.keys(userObj).length;
       let filledProperties = 0;
 
@@ -56,25 +56,25 @@ const InfoPercentage: FC<Props> = ({ user }) => {
       return percentage.toFixed(0);
     };
 
-    const getEmoji = (percentage: string) => {
-      const numericPercentage = +percentage;
+    // const getEmoji = (percentage: string) => {
+    //   const numericPercentage = +percentage;
 
-      if (numericPercentage === 100) {
-        return '😁';
-      } else if (numericPercentage >= 70 && numericPercentage < 100) {
-        return '🙂';
-      } else if (numericPercentage >= 37 && numericPercentage < 70) {
-        return '😐';
-      } else if (numericPercentage < 37) {
-        return '😞';
-      }
-    };
+    //   if (numericPercentage === 100) {
+    //     return '😁';
+    //   } else if (numericPercentage >= 70 && numericPercentage < 100) {
+    //     return '🙂';
+    //   } else if (numericPercentage >= 37 && numericPercentage < 70) {
+    //     return '😐';
+    //   } else if (numericPercentage < 37) {
+    //     return '😞';
+    //   }
+    // };
 
     const filledPercentage = calculateInfoPercentage(user);
     setPercentage(filledPercentage);
 
-    const newEmoji: any = getEmoji(filledPercentage);
-    setEmoji(newEmoji);
+    // const newEmoji: any = getEmoji(filledPercentage);
+    // setEmoji(newEmoji);
   }, [user]);
 
   return (
@@ -82,7 +82,7 @@ const InfoPercentage: FC<Props> = ({ user }) => {
       <Text>
         Filled infromation:{' '}
         <Percentage percentage={percentage}>{percentage}%</Percentage>{' '}
-        <StyledEmoji>{emoji}</StyledEmoji>
+        {/* <StyledEmoji>{emoji}</StyledEmoji> */}
         <InfoWrapper>
           <InfoTrigger>
             The percentage of information you have filled in your fields.
