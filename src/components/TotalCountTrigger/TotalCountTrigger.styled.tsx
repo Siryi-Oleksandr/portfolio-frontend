@@ -59,16 +59,16 @@ export const TotalUsers = styled.div`
       ${theme.colors.accentColor40},
       transparent
     );
-    animation: slideAnimation 5s linear infinite;
+    animation: slideAnimation 2100ms linear infinite;
   }
 
   @keyframes slideAnimation {
     0%,
     100% {
-      left: -100%;
+      left: -200%;
     }
     50% {
-      left: 100%;
+      left: 200%;
     }
   }
 `;
