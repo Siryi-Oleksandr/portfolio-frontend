@@ -7,3 +7,4 @@ export const selectIsLoadingMore = (state: IStateSearch) =>
 export const selectError = (state: IStateSearch) => state.search.error;
 export const totalUsersCount = (state: IStateSearch) => state.search.totalCount;
 export const userById = (state: IStateSearch) => state.search.userById;
+export const selectTotalUsers = (state: IStateSearch) => state.search.totalUsers

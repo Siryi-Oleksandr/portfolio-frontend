@@ -4,7 +4,7 @@ import { Loader } from 'components';
 import { toast } from 'react-hot-toast';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getProjectById } from 'redux/project/operations';
-import { getUserById } from 'redux/searchUsers/operations';
+import {  getUserById } from 'redux/searchUsers/operations';
 import { useProjects } from 'hooks';
 import {
   ProjectSectionContainer,
@@ -30,10 +30,12 @@ import {
 import { ProjectSlider } from '../../components/ProjectSlider/ProjectSlider';
 import BackLink from 'components/BackLink/BackLink';
 
+
 const ProjectDetails: FC = () => {
   const { projectId } = useParams();
   const { projectById, isProjectLoading } = useProjects();
   const dispatch = useAppDispatch();
+ 
 
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
