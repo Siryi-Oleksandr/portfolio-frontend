@@ -1,5 +1,11 @@
 import { FC, Suspense } from 'react';
-import { Footer, Loader, Navigation, Container } from 'components';
+import {
+  Footer,
+  Loader,
+  Navigation,
+  Container,
+  DonationMenu,
+} from 'components';
 import { FooterWrapper, Main } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
 
@@ -10,6 +16,7 @@ const Layout: FC = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
+      <DonationMenu />
       <FooterWrapper>
         <Container>
           <Footer />
