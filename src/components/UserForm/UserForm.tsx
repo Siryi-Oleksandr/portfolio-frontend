@@ -3,11 +3,13 @@ import { selectUser } from 'redux/auth/authSelectors';
 import { useAppDispatch, useAppSelector } from 'redux/reduxHooks';
 import { IUser } from '../../types/userTypes';
 import { Formik, ErrorMessage, FormikHelpers } from 'formik';
+import { AiFillDelete } from 'react-icons/ai';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import { InfoPercentage } from 'components';
 import {
   AddIcon,
   Avatar,
+  DeleteButton,
   InputsContainer,
   Label,
   StyledField,
@@ -186,13 +188,13 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 content={'account'}
               />
             )}
-            <button
+            <DeleteButton
               onClick={handleShowDeleteModal}
               type="button"
-              style={{ width: '120px', height: '30px' }}
             >
               Delete Account
-            </button>
+              <AiFillDelete className='bucket'/>
+            </DeleteButton>
           </StyledUserForm>
         )}
       </Formik>
