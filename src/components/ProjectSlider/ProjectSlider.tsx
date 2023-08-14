@@ -88,7 +88,7 @@ export const ProjectSlider: FC<SliderProps> = ({ images }) => {
                   left: 0,
                   width: '100%',
                   height: '100%',
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                 }}
                 src={image}
                 alt={`Project${image}`}
