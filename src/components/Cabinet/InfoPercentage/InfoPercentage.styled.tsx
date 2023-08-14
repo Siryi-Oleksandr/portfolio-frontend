@@ -4,7 +4,7 @@ import { theme } from 'theme';
 export const TextWrapper = styled.div`
   position: absolute;
   top: 270px;
-  right: 26px;
+  right: 40px;
 `;
 
 export const Text = styled.p`
@@ -36,13 +36,14 @@ export const Percentage = styled.span<{ percentage: string }>`
   border-radius: 5px;
 `;
 
-export const StyledEmoji = styled.span`
-  font-size: 18px;
-  pointer-events: none;
-`;
+// export const StyledEmoji = styled.span`
+//   font-size: 18px;
+//   pointer-events: none;
+// `;
 
-export const InfoWrapper = styled.div`
+export const InfoWrapper = styled.span`
+  display: block;
   position: absolute;
   top: -27px;
-  right: -5px;
+  right: -10px;
 `;

@@ -5,7 +5,6 @@ import {
   TextWrapper,
   Text,
   Percentage,
-  StyledEmoji,
   InfoWrapper,
 } from './InfoPercentage.styled';
 
@@ -18,9 +17,7 @@ interface UserObject {
 }
 
 const InfoPercentage: FC<Props> = ({ user }) => {
-  console.log(user);
   const [percentage, setPercentage] = useState('');
-  const [emoji, setEmoji] = useState('');
 
   useEffect(() => {
     const calculateInfoPercentage = (userObj: UserObject) => {
@@ -56,39 +53,38 @@ const InfoPercentage: FC<Props> = ({ user }) => {
       return percentage.toFixed(0);
     };
 
-    const getEmoji = (percentage: string) => {
-      const numericPercentage = +percentage;
+    // const getEmoji = (percentage: string) => {
+    //   const numericPercentage = +percentage;
 
-      if (numericPercentage === 100) {
-        return '😁';
-      } else if (numericPercentage >= 70 && numericPercentage < 100) {
-        return '🙂';
-      } else if (numericPercentage >= 37 && numericPercentage < 70) {
-        return '😐';
-      } else if (numericPercentage < 37) {
-        return '😞';
-      }
-    };
+    //   if (numericPercentage === 100) {
+    //     return '😁';
+    //   } else if (numericPercentage >= 70 && numericPercentage < 100) {
+    //     return '🙂';
+    //   } else if (numericPercentage >= 37 && numericPercentage < 70) {
+    //     return '😐';
+    //   } else if (numericPercentage < 37) {
+    //     return '😞';
+    //   }
+    // };
 
     const filledPercentage = calculateInfoPercentage(user);
     setPercentage(filledPercentage);
 
-    const newEmoji: any = getEmoji(filledPercentage);
-    setEmoji(newEmoji);
+    // const newEmoji: any = getEmoji(filledPercentage);
+    // setEmoji(newEmoji);
   }, [user]);
 
   return (
     <TextWrapper>
       <Text>
         Filled infromation:{' '}
-        <Percentage percentage={percentage}>{percentage}%</Percentage>{' '}
-        <StyledEmoji>{emoji}</StyledEmoji>
-        <InfoWrapper>
-          <InfoTrigger>
-            The percentage of information you have filled in your fields.
-          </InfoTrigger>
-        </InfoWrapper>
+        <Percentage percentage={percentage}>{percentage}%</Percentage>
       </Text>
+      <InfoWrapper>
+        <InfoTrigger>
+          The percentage of information you have filled in your fields.
+        </InfoTrigger>
+      </InfoWrapper>
     </TextWrapper>
   );
 };
