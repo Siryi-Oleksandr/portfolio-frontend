@@ -3,7 +3,7 @@ import { instance } from '../../redux/auth/operations';
 export const fetchUsers = async (query: string, page: number) => {
   try {
     const response = await instance.get(
-      `/?query=${query}&page=${page}&limit=2`
+      `/?query=${query}&page=${page}&limit=10`
     );
     return response.data;
   } catch (error: any) {
@@ -14,7 +14,7 @@ export const fetchUsers = async (query: string, page: number) => {
 export const fetchProjects = async (query: string, page: number) => {
   try {
     const response = await instance.get(
-      `/projects/query/?query=${query}&page=${page}&limit=2`
+      `/projects/query/?query=${query}&page=${page}&limit=10`
     );
     return response.data;
   } catch (error: any) {

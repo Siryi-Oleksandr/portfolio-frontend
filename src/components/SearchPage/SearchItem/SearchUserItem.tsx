@@ -22,7 +22,7 @@ const SearchUserItem: FC<Props> = ({ user, state }) => {
     <Item>
       <Wrapper>
         <ImageWrapper>
-          <img src={user.avatarURL} alt="user avatar" />
+          <img src={user.miniAvatarURL} alt="user avatar" />
         </ImageWrapper>
         <InfoWrapper>
           <NameLink to={`/portfolio/${user._id}`} state={state}>

@@ -11,7 +11,7 @@ interface isReadySearch {
 export const Form = styled.form<isReadySearch>`
   height: 41px;
   transform: ${({ isReady }) =>
-    isReady ? 'translateY(0)' : 'translateY(-350%)'};
+    isReady ? 'translateY(-1px)' : 'translateY(-350%)'};
   transition: transform 800ms ease;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
   background-color: #404040;
@@ -37,7 +37,7 @@ export const Input = styled.input`
   height: 41px;
   padding-left: 45px;
   padding-right: 15px;
-  border-top: 2px solid #fff;
+  border-top: 3px solid #fff;
   border-left: 2px solid #fff;
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
