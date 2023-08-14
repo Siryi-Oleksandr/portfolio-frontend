@@ -36,6 +36,7 @@ import InfoPercentage from './Cabinet/InfoPercentage/InfoPercentage';
 import UpdateProjectForm from './UpdateProjectForm/UpdateProjectForm';
 import InfoTrigger from './InfoTrigger/InfoTrigger';
 import TotalCountTrigger from './TotalCountTrigger/TotalCountTrigger';
+import DonationMenu from './DonationMenu/DonationMenu';
 // import Modal from './Modal/Modal';
 
 export {
@@ -77,4 +78,5 @@ export {
   UpdateProjectForm,
   InfoTrigger,
   TotalCountTrigger,
+  DonationMenu,
 };
