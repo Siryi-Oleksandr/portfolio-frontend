@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { searchUsers, getUserById } from './operations';
+import { searchUsers, getUserById, getTotalUsers } from './operations';
 import { ISearchState } from 'redux/reduxTypes';
 import { IUser } from 'types/userTypes';
 
@@ -7,6 +7,7 @@ const initialState: ISearchState = {
   foundUsers: [],
   userById: {},
   totalCount: 0,
+  totalUsers: 0,
   isLoading: false,
   isLoadingMore: false,
   error: null,
@@ -40,6 +41,8 @@ const searchSlice = createSlice({
       .addCase(searchUsers.rejected, handleRejected)
       .addCase(getUserById.pending, handlePending)
       .addCase(getUserById.rejected, handleRejected)
+      .addCase(getTotalUsers.pending, handlePending)
+      .addCase(getTotalUsers.rejected, handleRejected)
       .addCase(
         searchUsers.fulfilled,
         (
@@ -58,7 +61,11 @@ const searchSlice = createSlice({
         state.totalCount = 0;
         state.isLoading = false;
         state.error = null;
-      });
+      }).addCase(getTotalUsers.fulfilled, (state,action)=>{
+        state.totalUsers = action.payload.totalCount
+        state.isLoading = false;
+        state.error = null;
+      });;
   },
 });
 
