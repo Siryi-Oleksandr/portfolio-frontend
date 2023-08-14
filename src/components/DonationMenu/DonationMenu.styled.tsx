@@ -13,7 +13,7 @@ export const DonationWrapper = styled.div<{ donat: boolean }>`
 
 export const LinkWrapper = styled.div`
   border-radius: ${theme.radii.tiny};
-  border: 2px solid black;
+  border: 2px solid ${theme.colors.gray};
 `;
 
 export const DonationBtn = styled.button`
