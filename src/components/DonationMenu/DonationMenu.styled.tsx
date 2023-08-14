@@ -18,6 +18,7 @@ export const LinkWrapper = styled.div`
 
 export const DonationBtn = styled.button`
   writing-mode: vertical-lr;
+  text-orientation: mixed;
   height: 175px;
   padding: 8px;
   background-color: ${theme.colors.redErrorLight};
