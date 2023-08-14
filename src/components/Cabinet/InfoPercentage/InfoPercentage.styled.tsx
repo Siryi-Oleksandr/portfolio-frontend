@@ -36,12 +36,13 @@ export const Percentage = styled.span<{ percentage: string }>`
   border-radius: 5px;
 `;
 
-export const StyledEmoji = styled.span`
-  font-size: 18px;
-  pointer-events: none;
-`;
+// export const StyledEmoji = styled.span`
+//   font-size: 18px;
+//   pointer-events: none;
+// `;
 
-export const InfoWrapper = styled.div`
+export const InfoWrapper = styled.span`
+  display: block;
   position: absolute;
   top: -27px;
   right: -10px;
