@@ -15,19 +15,24 @@ import {
 } from './About.styled';
 import { IUser } from 'types/userTypes';
 import { useProjects } from 'hooks';
+import SectionTitle from '../Title/Title';
 
 // IMAGES
 import teamX2 from 'images/portfolio/about/about-team.jpg';
 import officeX2 from 'images/portfolio/about/about-office.jpg';
-import SectionTitle from '../Title/Title';
 
 type Props = {
   user: Partial<IUser>;
 };
 
 const About: FC<Props> = ({ user }) => {
-  const { experience, summary } = user;
+  const { experience, summary, name, surname } = user;
   const { userProjects } = useProjects();
+
+  const isTeam =
+    name?.toLowerCase().includes('team') ||
+    surname?.toLowerCase().includes('team');
+
   return (
     <Section>
       <WorthWrapper>
@@ -56,7 +61,7 @@ const About: FC<Props> = ({ user }) => {
 
       <AboutUser>
         <AboutWrapper>
-          <SectionTitle number="01" text="About me" />
+          <SectionTitle number="01" text={isTeam ? 'About us' : 'About me'} />
           <Summary>
             {summary ? summary : 'Here must be summary about you'}
           </Summary>
