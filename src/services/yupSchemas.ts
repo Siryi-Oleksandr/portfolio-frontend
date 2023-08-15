@@ -61,7 +61,7 @@ export const FormUserUpdateSchema = Yup.object().shape({
   linkedinURL: Yup.string().matches(linkedinRegexp, 'Invalid Linkedin address'),
   gitHubURL: Yup.string().matches(githubRegexp, 'Invalid GitHub address'),
   technicalStack: Yup.string().min(2).max(150),
-  summary: Yup.string().min(2).max(500),
+  summary: Yup.string().min(10).max(5000),
 });
 
 export const FormAddProjectUpdateSchema = Yup.object().shape({
