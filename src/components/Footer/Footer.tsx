@@ -5,6 +5,7 @@ import {
   FooterStyled,
   FooterWrap,
   Socials,
+  SubscriptionBtn,
   TextWrapper,
 } from './Footer.styled';
 import { useAppSelector, useAppDispatch } from 'redux/reduxHooks';
@@ -91,6 +92,13 @@ const Footer: FC = () => {
                 commitmakers@gmail.com
               </Email>
             </TextWrapper>
+            <SubscriptionBtn
+              href="https://send.monobank.ua/jar/5hm2RbSNYT"
+              target="blank"
+              rel="noreferrer noopener"
+            >
+              Support developers
+            </SubscriptionBtn>
           </>
         ) : (
           <>
@@ -142,6 +150,7 @@ const Footer: FC = () => {
           </>
         )}
       </FooterWrap>
+
       <p>Created by CommitMakersTeam, 2023</p>
     </FooterStyled>
   );
