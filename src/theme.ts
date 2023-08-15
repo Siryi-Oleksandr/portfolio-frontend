@@ -15,6 +15,7 @@ export const theme = {
     mainYellow: '#F3B249',
     redColor: '#DA1414',
     redErrorLight: '#E74A3B',
+    redErrorLight80: '#e7493bd8',
     mainRed: '#EA3D65',
     greenValid: '#3CBC81',
     textarea: '#CACDD1',
