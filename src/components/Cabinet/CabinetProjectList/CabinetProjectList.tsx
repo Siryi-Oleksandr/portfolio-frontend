@@ -69,9 +69,11 @@ const CabinetProjectList: FC<Props> = ({ user, projects }) => {
             Add project
           </AddProjectBtn> */}
         </AddProjectBtnWrap>
-        {projects.map(project => (
-          <CabinetProjectItem key={project._id} project={project} />
-        ))}
+        {projects
+          .map(project => (
+            <CabinetProjectItem key={project._id} project={project} />
+          ))
+          .reverse()}
       </List>
       {showSubscriptionModal && (
         <SubscriptionModal onClose={handleCloseModal} />
