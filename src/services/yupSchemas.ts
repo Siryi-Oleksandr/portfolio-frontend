@@ -67,7 +67,7 @@ export const FormUserUpdateSchema = Yup.object().shape({
 export const FormAddProjectUpdateSchema = Yup.object().shape({
   projectTitle: Yup.string().min(3).max(100).required(),
   technicalStack: Yup.string().min(3).max(100).required(),
-  projectSubTitle: Yup.string().max(100),
+  projectSubTitle: Yup.string().max(200),
   projectLink: Yup.string().matches(internetLinkRegexp, 'Invalid address'),
   codeLink: Yup.string()
     .matches(internetLinkRegexp, 'Invalid address')
