@@ -15,6 +15,7 @@ export const DeleteModalBtn = styled.button`
   background-color: ${theme.colors.primary_text_switch};
   color: ${theme.colors.background_switch};
   transition: ${theme.transition.hover};
+  cursor: pointer;
   &:hover {
     background-color: ${theme.colors.accent_color_switch};
     transform: scale(1.2);
@@ -26,6 +27,7 @@ export const DeleteText = styled.p`
   font-family: ${theme.fonts.text};
   font-size: ${theme.fontSizes.l};
   font-weight: ${theme.fontWeights.bold};
+  text-align: center;
   @media screen and (max-width: ${theme.breakpoints.desktop}) {
     font-size: ${theme.fontSizes.m};
   }
