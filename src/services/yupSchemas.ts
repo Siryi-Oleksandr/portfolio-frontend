@@ -61,13 +61,13 @@ export const FormUserUpdateSchema = Yup.object().shape({
   linkedinURL: Yup.string().matches(linkedinRegexp, 'Invalid Linkedin address'),
   gitHubURL: Yup.string().matches(githubRegexp, 'Invalid GitHub address'),
   technicalStack: Yup.string().min(2).max(150),
-  summary: Yup.string().min(2).max(500),
+  summary: Yup.string().min(10).max(5000),
 });
 
 export const FormAddProjectUpdateSchema = Yup.object().shape({
   projectTitle: Yup.string().min(3).max(100).required(),
   technicalStack: Yup.string().min(3).max(100).required(),
-  projectSubTitle: Yup.string().max(100),
+  projectSubTitle: Yup.string().max(200),
   projectLink: Yup.string().matches(internetLinkRegexp, 'Invalid address'),
   codeLink: Yup.string()
     .matches(internetLinkRegexp, 'Invalid address')
