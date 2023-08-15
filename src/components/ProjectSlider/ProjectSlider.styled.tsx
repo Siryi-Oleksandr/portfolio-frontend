@@ -2,17 +2,18 @@ import styled from '@emotion/styled';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 export const SliderContainer = styled.div`
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
-  box-shadow: rgba(254, 57, 12, 0.25) 0px 0px 4px 4px;
-
+  box-shadow: 0 0 4px 4px rgba(254, 57, 12, 0.25);
+  
+  
 `;
 
 export const NextArrowStyled = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  height: 99.3%;
+  height: 100%;
   top: 49.68%;
   right: 0px;
   width: 140px;
@@ -43,7 +44,7 @@ export const PrevArrowStyled = styled.div`
   align-items: center;
   padding-left: 20px;
   width: 140px;
-  height: 99.3%;
+  height: 100%;
   top: 49.68%;
   z-index: 100;
   transition: all 500ms ease;
