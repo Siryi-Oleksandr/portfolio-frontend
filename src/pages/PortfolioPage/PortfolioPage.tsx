@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader, Portfolio } from 'components';
+import { Loader, Portfolio, ScrollToTop } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getUserById } from 'redux/searchUsers/operations';
 import { getUserProjects } from 'redux/project/operations';
@@ -21,6 +21,7 @@ const PortfolioPage: FC = () => {
     <>
       {(isSearchLoading || isProjectLoading) && <Loader />}
       <Portfolio user={user ? user : {}} projects={userProjects} />
+      <ScrollToTop />
     </>
   );
 };
