@@ -18,6 +18,7 @@ export const ScrollBtn = styled.button<isScrollBtnVisible>`
   pointer-events: ${({ isVisible }) => (isVisible ? 'auto' : 'none')};
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0.5)')};
+  z-index: 50;
 
   transition: opacity 300ms ease, transform 300ms ease;
 
@@ -31,7 +32,7 @@ export const ArrowIcon = styled(BsFillArrowUpCircleFill)`
   width: 100%;
   height: 100%;
 
-  color: ${theme.colors.accentColor};
+  color: ${theme.colors.redErrorLight80};
   opacity: 1;
   transition: opacity 300ms ease;
 

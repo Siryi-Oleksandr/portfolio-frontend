@@ -32,13 +32,13 @@ const About: FC = () => {
           <AboutItem>
             <TextWrapper>
               <ItemNumber>1.</ItemNumber>
-              <AboutTitle>Create your portfolio</AboutTitle>
-              <AboutTitle>and share with</AboutTitle>
-              <AboutTitle>the others!</AboutTitle>
+              <AboutTitle>Create Your</AboutTitle>
+              <AboutTitle>Unique Portfolio</AboutTitle>
+              {/* <AboutTitle>the others!</AboutTitle> */}
               <AboutText>
-                Dont have a portfolio? <br /> No problem!
-                <br /> Create your own unique portfolio with all necessary
-                information and share it with everyone.
+                Don't have a portfolio yet? <br /> No worries!
+                <br /> Craft your own distinctive portfolio containing all
+                necessary information and easily share it with everyone.
               </AboutText>
             </TextWrapper>
             <ImageWrapper>
@@ -50,10 +50,12 @@ const About: FC = () => {
           <AboutItem>
             <TextWrapper>
               <ItemNumber>2.</ItemNumber>
-              <AboutTitle>Save your projects!</AboutTitle>
+              <AboutTitle> Save Your Projects</AboutTitle>
               <AboutText>
-                Save all your projects with all information you need. Upload
-                photos, save links to website or code and write a description.
+                Effortlessly store your projects along with all the essential
+                information. Upload images, include links to websites or code
+                repositories, and provide comprehensive descriptions for each
+                project.
               </AboutText>
             </TextWrapper>
             <ImageWrapper>
@@ -65,10 +67,12 @@ const About: FC = () => {
           <AboutItem>
             <TextWrapper>
               <ItemNumber>3.</ItemNumber>
-              <AboutTitle>Search for other users</AboutTitle>
-              <AboutTitle>and their projects!</AboutTitle>
+              <AboutTitle>Explore Other Users</AboutTitle>
+              <AboutTitle>and Their Projects</AboutTitle>
               <AboutText>
-                Easy and fast searching of other users or their projects!
+                Easily and quickly discover fellow users and explore their
+                impressive projects. The intuitive search functionality enables
+                you to find users and their creations with convenience.
               </AboutText>
             </TextWrapper>
             <ImageWrapper>
