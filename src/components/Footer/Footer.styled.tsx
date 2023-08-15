@@ -100,3 +100,20 @@ export const TextWrapper = styled.p`
     width: 40%;
   }
 `;
+
+export const SubscriptionBtn = styled.a`
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: ${theme.colors.redErrorLight80};
+  font-family: ${theme.fonts.text};
+  font-size: ${theme.fontSizes.s};
+  line-height: 1.2;
+  color: ${theme.colors.white};
+  outline: none;
+  border: none;
+  border-radius: ${theme.radii.tiny};
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    display: none;
+  }
+`;

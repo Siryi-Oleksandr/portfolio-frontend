@@ -9,6 +9,10 @@ export const DonationWrapper = styled.div<{ donat: boolean }>`
   bottom: 75px;
   transition: ${theme.transition.hover};
   z-index: 100;
+
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    display: none;
+  }
 `;
 
 export const LinkWrapper = styled.div`
@@ -24,7 +28,7 @@ export const DonationBtn = styled.button`
   height: 43px;
   width: 181px;
   padding: 8px;
-  background-color: ${theme.colors.redErrorLight};
+  background-color: ${theme.colors.redErrorLight80};
   color: ${theme.colors.primary_text_switch};
   font-family: ${theme.fonts.heading};
   font-size: ${theme.fontSizes.m};
