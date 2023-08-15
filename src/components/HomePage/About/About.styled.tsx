@@ -120,11 +120,11 @@ export const AboutText = styled.p`
   transition: ${theme.transition.hover};
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    font-size: 24px;
+    font-size: 23px;
     margin-top: 30px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    font-size: 30px;
+    font-size: 27px;
   }
 `;
