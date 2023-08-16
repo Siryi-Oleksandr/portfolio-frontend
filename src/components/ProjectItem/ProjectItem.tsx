@@ -65,6 +65,7 @@ const ProjectItem: FC<Props> = ({ project }) => {
         </Bar>
         <ImgWrapper>
           <Img
+            effect="blur"
             src={projectImages[0] ? projectImages[0].posterURL : projectImg}
             alt={`poster of ${projectTitle}`}
           />

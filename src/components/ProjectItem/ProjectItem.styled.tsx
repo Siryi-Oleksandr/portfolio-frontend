@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { theme } from 'theme';
 
 export const Item = styled.li`
@@ -85,7 +86,7 @@ export const ImgWrapper = styled.div`
   padding-top: 56.25%; // (9 / 16) * 100%     set relation 16:9
 `;
 
-export const Img = styled.img`
+export const Img = styled(LazyLoadImage)`
   position: absolute;
   top: 0;
   left: 0;

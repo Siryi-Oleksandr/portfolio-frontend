@@ -94,7 +94,7 @@ const ProjectDetails: FC = () => {
               <ProjectSubTitle>{projectSubTitle}</ProjectSubTitle>
             )}
             <LinksContainer>
-              {projectLink && (
+              {/* {projectLink && (
                 <ProjectLink
                   onPress={(e: React.MouseEvent) => {
                     e.preventDefault();
@@ -105,7 +105,7 @@ const ProjectDetails: FC = () => {
                   <ProjectLinkIcon />
                   Website
                 </ProjectLink>
-              )}
+              )} */}
               <CodeLink
                 type="danger"
                 onPress={(e: React.MouseEvent) => {
