@@ -14,7 +14,10 @@ import {
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
-import { FormAddProjectUpdateSchema } from 'services/yupSchemas';
+import {
+  FormAddProjectUpdateSchema,
+  FormProjectUpdateSchema,
+} from 'services/yupSchemas';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import placeholder from '../../images/placeholder-image.jpg';
 import { handleFormikImageUpload } from 'services';
@@ -33,6 +36,7 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
   const [projectImg3, setProjectImg3] = useState<string>(placeholder);
 
   const { projectById } = useProjects();
+  console.log(projectById);
 
   let stringStack = '';
 
@@ -66,7 +70,7 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={FormAddProjectUpdateSchema}
+      validationSchema={FormProjectUpdateSchema}
       onSubmit={handleSubmit}
     >
       {props => (
@@ -167,7 +171,18 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   <StyledLabel>Project Images*</StyledLabel>
                   <ErrorMessage component={StyledErrorMessage} name="image1" />
                   <ImageWrap>
-                    <img src={projectImg1} alt="project image1" />
+                    <img
+                      src={
+                        projectImg1 === placeholder
+                          ? projectById &&
+                            projectById.projectImages &&
+                            projectById.projectImages[0]
+                            ? projectById.projectImages[0].posterURL
+                            : placeholder
+                          : projectImg1
+                      }
+                      alt="project image1"
+                    />
                   </ImageWrap>
                 </Label>
                 <Label>
@@ -186,7 +201,18 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   />
                   <AddImgIcon />
                   <ImageWrap>
-                    <img src={projectImg2} alt="project image2" />
+                    <img
+                      src={
+                        projectImg2 === placeholder
+                          ? projectById &&
+                            projectById.projectImages &&
+                            projectById.projectImages[1]
+                            ? projectById.projectImages[1].posterURL
+                            : placeholder
+                          : projectImg2
+                      }
+                      alt="project image2"
+                    />
                   </ImageWrap>
                 </Label>
                 <Label>
@@ -205,7 +231,18 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   />
                   <AddImgIcon />
                   <ImageWrap>
-                    <img src={projectImg3} alt="project image3" />
+                    <img
+                      src={
+                        projectImg3 === placeholder
+                          ? projectById &&
+                            projectById.projectImages &&
+                            projectById.projectImages[2]
+                            ? projectById.projectImages[2].posterURL
+                            : placeholder
+                          : projectImg3
+                      }
+                      alt="project image3"
+                    />
                   </ImageWrap>
                 </Label>
               </ImagesWrap>

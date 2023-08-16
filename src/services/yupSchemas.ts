@@ -75,3 +75,15 @@ export const FormAddProjectUpdateSchema = Yup.object().shape({
   aboutProject: Yup.string().min(3).max(1000).required(),
   image1: Yup.mixed().required('File is required'),
 });
+
+export const FormProjectUpdateSchema = Yup.object().shape({
+  projectTitle: Yup.string().min(3).max(100).required(),
+  technicalStack: Yup.string().min(3).max(100).required(),
+  projectSubTitle: Yup.string().max(200),
+  projectLink: Yup.string().matches(internetLinkRegexp, 'Invalid address'),
+  codeLink: Yup.string()
+    .matches(internetLinkRegexp, 'Invalid address')
+    .required(),
+  aboutProject: Yup.string().min(3).max(1000).required(),
+  image1: Yup.mixed(),
+});
