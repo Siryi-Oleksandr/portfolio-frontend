@@ -20,7 +20,7 @@ import {
 } from 'services/yupSchemas';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import placeholder from '../../images/placeholder-image.jpg';
-import { handleFormikImageUpload } from 'services';
+import { handleFormikImageUpload, setImage } from 'services';
 import { useProjects } from 'hooks';
 import { updateProject } from 'redux/project/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -172,15 +172,12 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   <ErrorMessage component={StyledErrorMessage} name="image1" />
                   <ImageWrap>
                     <img
-                      src={
-                        projectImg1 === placeholder
-                          ? projectById &&
-                            projectById.projectImages &&
-                            projectById.projectImages[0]
-                            ? projectById.projectImages[0].posterURL
-                            : placeholder
-                          : projectImg1
-                      }
+                      src={setImage(
+                        projectImg1,
+                        placeholder,
+                        projectById.projectImages,
+                        0
+                      )}
                       alt="project image1"
                     />
                   </ImageWrap>
@@ -202,15 +199,12 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   <AddImgIcon />
                   <ImageWrap>
                     <img
-                      src={
-                        projectImg2 === placeholder
-                          ? projectById &&
-                            projectById.projectImages &&
-                            projectById.projectImages[1]
-                            ? projectById.projectImages[1].posterURL
-                            : placeholder
-                          : projectImg2
-                      }
+                      src={setImage(
+                        projectImg2,
+                        placeholder,
+                        projectById.projectImages,
+                        1
+                      )}
                       alt="project image2"
                     />
                   </ImageWrap>
@@ -232,15 +226,12 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   <AddImgIcon />
                   <ImageWrap>
                     <img
-                      src={
-                        projectImg3 === placeholder
-                          ? projectById &&
-                            projectById.projectImages &&
-                            projectById.projectImages[2]
-                            ? projectById.projectImages[2].posterURL
-                            : placeholder
-                          : projectImg3
-                      }
+                      src={setImage(
+                        projectImg3,
+                        placeholder,
+                        projectById.projectImages,
+                        2
+                      )}
                       alt="project image3"
                     />
                   </ImageWrap>
