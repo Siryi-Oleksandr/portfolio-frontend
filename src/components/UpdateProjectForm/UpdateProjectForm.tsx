@@ -36,7 +36,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
   const [projectImg3, setProjectImg3] = useState<string>(placeholder);
 
   const { projectById } = useProjects();
-  console.log(projectById);
 
   let stringStack = '';
 
