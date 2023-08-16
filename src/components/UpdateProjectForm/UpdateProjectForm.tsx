@@ -14,10 +14,7 @@ import {
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
-import {
-  FormAddProjectUpdateSchema,
-  FormProjectUpdateSchema,
-} from 'services/yupSchemas';
+import { FormProjectUpdateSchema } from 'services/yupSchemas';
 import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import placeholder from '../../images/placeholder-image.jpg';
 import { handleFormikImageUpload, setImage } from 'services';
