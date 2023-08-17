@@ -73,7 +73,67 @@ export const Label = styled.label`
   position: relative;
 `;
 
-export const ResetBtn;
+export const StyledImageLabel = styled.p`
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.primary_text_switch};
+  transition: all 250ms ease-in-out;
+`;
+
+export const ResetBtn = styled.button`
+  position: absolute;
+  top: -20px;
+  right: 0;
+  border: 1px solid ${theme.colors.gray};
+  padding: 4px;
+  border-radius: 4px;
+  background-color: orange;
+
+  font-family: ${theme.fonts.text};
+  font-size: ${theme.fontSizes.s};
+
+  :disabled {
+    background-color: ${theme.colors.gray};
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    font-size: ${theme.fontSizes.m};
+  }
+`;
+
+export const StyledErrorMessage = styled.p`
+  position: absolute;
+  top: -18px;
+  right: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.redColor};
+  transition: all 300ms ease-in-out;
+`;
+
+export const StyledErrorImageMessage = styled.p`
+  position: absolute;
+  top: 5px;
+  left: 35px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.redColor};
+  transition: all 300ms ease-in-out;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    top: 5px;
+    right: 0;
+  }
+`;
 
 export const FileLabel = styled.label<{
   projectImg: string;
@@ -156,6 +216,7 @@ export const CheckMark = styled(BsCheck)`
 `;
 
 export const ImagesWrap = styled.div`
+  position: relative;
   grid-column: 1 / 3;
   display: flex;
   flex-direction: column;

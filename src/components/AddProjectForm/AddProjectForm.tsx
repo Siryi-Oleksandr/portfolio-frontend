@@ -6,8 +6,11 @@ import {
   LabelTextArea,
   StyledAddProjectForm,
   StyledProdjecField,
+  StyledErrorMessage,
+  StyledErrorImageMessage,
   StyledLabel,
   ImageWrap,
+  ResetBtn,
   AddImgIcon,
   IconWrapper,
   AddedImgIcon,
@@ -18,7 +21,7 @@ import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
 import { FormAddProjectUpdateSchema } from 'services/yupSchemas';
-import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
+// import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { createProject } from 'redux/project/operations';
 import placeholder from '../../images/placeholder-image.jpg';
@@ -30,6 +33,7 @@ const AddProjectForm: FC = () => {
   const [projectImg1, setProjectImg1] = useState<string>(placeholder);
   const [projectImg2, setProjectImg2] = useState<string>(placeholder);
   const [projectImg3, setProjectImg3] = useState<string>(placeholder);
+  const [noImages, setNoImages] = useState(false);
   const navigate = useNavigate();
 
   const initialValues: ICreateUpdateProject = {
@@ -44,13 +48,29 @@ const AddProjectForm: FC = () => {
     technicalStack: '',
   };
 
+  const noImgSelected =
+    projectImg1 === placeholder &&
+    projectImg2 === placeholder &&
+    projectImg3 === placeholder;
+
   const handleSubmit = (
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
+    if (noImgSelected) {
+      setNoImages(true);
+      return;
+    }
     dispatch(createProject(values));
     actions.resetForm();
     navigate('/cabinet');
+  };
+
+  const handleResetImages = () => {
+    setProjectImg1(placeholder);
+    setProjectImg2(placeholder);
+    setProjectImg3(placeholder);
+    setNoImages(false);
   };
 
   return (
@@ -139,7 +159,14 @@ const AddProjectForm: FC = () => {
             </LabelTextArea>
 
             <ImagesWrap>
-              <button>Reset images</button>
+              <StyledLabel>Project Images</StyledLabel>
+              <ResetBtn
+                type="button"
+                disabled={noImgSelected}
+                onClick={handleResetImages}
+              >
+                Reset images
+              </ResetBtn>
               <FileLabel projectImg={projectImg1} placeholder={placeholder}>
                 <input
                   type="file"
@@ -162,8 +189,16 @@ const AddProjectForm: FC = () => {
                     <CheckMark />
                   </IconWrapper>
                 )}
-                <ErrorMessage component={StyledErrorMessage} name="image1" />
-                <StyledLabel>Project Images</StyledLabel>
+                <ErrorMessage
+                  component={StyledErrorImageMessage}
+                  name="image1"
+                />
+                {noImages && projectImg1 === placeholder && (
+                  <StyledErrorImageMessage>
+                    Image is required
+                  </StyledErrorImageMessage>
+                )}
+
                 <ImageWrap>
                   <img src={projectImg1} alt="project image1" />
                 </ImageWrap>
