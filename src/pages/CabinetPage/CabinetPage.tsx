@@ -9,7 +9,7 @@ import { useAuth, useProjects } from 'hooks';
 // import { useParams } from 'react-router-dom';
 
 const CabinetPage: FC = () => {
-  const { userProjects, isProjectLoading } = useProjects();
+  const { userProjects, isProjectLoading ,isProjectCreating} = useProjects();
   let { user, isAuthLoading } = useAuth();
   const dispatch = useAppDispatch();
 
@@ -21,7 +21,7 @@ const CabinetPage: FC = () => {
 
   return (
     <>
-      {(isAuthLoading || isProjectLoading) && <Loader />}
+      {(isAuthLoading || isProjectLoading || isProjectCreating) && <Loader />}
       <CabinetUserInfo />
       <CabinetProjectList user={user ? user : {}} projects={userProjects} />
     </>
