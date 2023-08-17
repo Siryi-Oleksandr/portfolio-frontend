@@ -16,7 +16,11 @@ const githubRegexp = /^(?:https?:\/\/)?(?:www\.)?github\.com\/[a-zA-Z\d-]+$/i;
 const internetLinkRegexp = /\b(?:https?|ftp):\/\/[^\s/$.?#]+\.[^\s]*\b/;
 
 export const FormRegisterSchema = Yup.object().shape({
-  name: Yup.string().min(2).max(35).required('Required'),
+  name: Yup.string()
+    .min(2)
+    .max(35)
+    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters')
+    .required('Required'),
   email: Yup.string()
     .matches(regExp, 'Invalid email address')
     .required('Required'),
@@ -50,11 +54,18 @@ export const FormResetSchema = Yup.object().shape({
 });
 
 export const FormUserUpdateSchema = Yup.object().shape({
-  name: Yup.string().min(2).max(35).required('Required'),
+  name: Yup.string()
+    .min(2)
+    .max(35)
+    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters')
+    .required('Required'),
   email: Yup.string()
     .matches(regExp, 'Invalid email address')
     .required('Required'),
-  surname: Yup.string().min(2).max(35),
+  surname: Yup.string()
+    .min(2)
+    .max(35)
+    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters'),
   profession: Yup.string().min(2).max(35),
   phone: Yup.string().matches(phoneRegexp, 'Invalid phone'),
   telegram: Yup.string().matches(telegramRegexp, 'Invalid Telegram address'),
