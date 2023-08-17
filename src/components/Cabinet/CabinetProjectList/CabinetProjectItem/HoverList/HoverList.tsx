@@ -23,11 +23,12 @@ type Props = {
   description: string;
   isHover: boolean;
   projectId: string;
+  title: string;
 };
 
-const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
+const HoverList: FC<Props> = ({ isHover, description, projectId, title }) => {
   const [showModal, setShowModal] = useState(false);
- 
+
   const location = useLocation();
   const { showDeleteModal, handleCloseDeleteModal, handleShowDeleteModal } =
     useDeleteModal();
@@ -41,7 +42,6 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
     setShowModal(true);
     document.body.style.overflow = 'hidden';
   };
-
 
   return (
     <motion.div
@@ -69,7 +69,12 @@ const HoverList: FC<Props> = ({ isHover, description, projectId }) => {
         <EditProjectModal onClose={handleCloseModal} projectId={projectId} />
       )}
       {showDeleteModal && (
-        <DeleteModal onClose={handleCloseDeleteModal} id={projectId} content={"project"} />
+        <DeleteModal
+          onClose={handleCloseDeleteModal}
+          id={projectId}
+          title={title}
+          content={'project'}
+        />
       )}
     </motion.div>
   );

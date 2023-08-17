@@ -11,40 +11,50 @@ import { deleteUserAccount } from 'redux/auth/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { useNavigate } from 'react-router-dom';
 
-
-
 type DeleteModalPorps = {
   onClose: any;
   id: string;
   content: string;
+  title: string;
 };
 
-export const DeleteModal: FC<DeleteModalPorps> = ({ onClose, id, content }) => {
+export const DeleteModal: FC<DeleteModalPorps> = ({
+  onClose,
+  id,
+  title,
+  content,
+}) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const handleDelete = (id: string) => {
-    if(content === 'project'){
-      dispatch(deleteProject(id));
+  const handleDelete = (id: string, title: string) => {
+    if (content === 'project') {
+      dispatch(deleteProject({ id, title }));
       onClose();
-      return
+      return;
     }
-    if(content === 'account'){
-      dispatch(deleteUserAccount(id));
+    if (content === 'account') {
+      dispatch(deleteUserAccount({ id, title }));
       onClose();
       navigate('/');
-      
-      return
+
+      return;
     }
-    
-    
   };
 
   return (
     <Modal onClose={onClose}>
       <ButtonsWrap>
-        <DeleteText>Do you really want to delete {content}?!<br/>{content === "account" && <span> Your projects will be deleted too!</span>}</DeleteText>
+        <DeleteText>
+          Do you really want to delete {content}?!
+          <br />
+          {content === 'account' && (
+            <span> Your projects will be deleted too!</span>
+          )}
+        </DeleteText>
         <BtnWrap>
-          <DeleteModalBtn onClick={() => handleDelete(id)}>Yes</DeleteModalBtn>
+          <DeleteModalBtn onClick={() => handleDelete(id, title)}>
+            Yes
+          </DeleteModalBtn>
           <DeleteModalBtn onClick={onClose}>No</DeleteModalBtn>
         </BtnWrap>
       </ButtonsWrap>
