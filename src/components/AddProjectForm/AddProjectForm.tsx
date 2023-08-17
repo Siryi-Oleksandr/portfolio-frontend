@@ -8,6 +8,9 @@ import {
   StyledLabel,
   ImageWrap,
   AddImgIcon,
+  IconWrapper,
+  AddedImgIcon,
+  CheckMark,
   ImagesWrap,
 } from './AddProjectForm.styled';
 import { SubmitBtn } from 'components/UserForm/UserForm.styled';
@@ -148,51 +151,62 @@ const AddProjectForm: FC = () => {
                   }
                   style={{ display: 'none' }}
                 />
-                <AddImgIcon />
+                {projectImg1 === placeholder ? (
+                  <AddImgIcon />
+                ) : (
+                  <IconWrapper>
+                    <AddedImgIcon />
+                    <CheckMark />
+                  </IconWrapper>
+                )}
                 <ErrorMessage component={StyledErrorMessage} name="image1" />
                 <StyledLabel>Project Images</StyledLabel>
                 <ImageWrap>
                   <img src={projectImg1} alt="project image1" />
                 </ImageWrap>
               </Label>
-              <Label>
-                <input
-                  type="file"
-                  name="image2"
-                  onChange={event =>
-                    handleFormikImageUpload(
-                      event,
-                      props,
-                      'image2',
-                      setProjectImg2
-                    )
-                  }
-                  style={{ display: 'none' }}
-                />
-                <AddImgIcon />
-                <ImageWrap>
-                  <img src={projectImg2} alt="project image2" />
-                </ImageWrap>
-              </Label>
-              <Label>
-                <input
-                  type="file"
-                  name="image3"
-                  onChange={event =>
-                    handleFormikImageUpload(
-                      event,
-                      props,
-                      'image3',
-                      setProjectImg3
-                    )
-                  }
-                  style={{ display: 'none' }}
-                />
-                <AddImgIcon />
-                <ImageWrap>
-                  <img src={projectImg3} alt="project image3" />
-                </ImageWrap>
-              </Label>
+              {projectImg1 !== placeholder && (
+                <Label>
+                  <input
+                    type="file"
+                    name="image2"
+                    onChange={event =>
+                      handleFormikImageUpload(
+                        event,
+                        props,
+                        'image2',
+                        setProjectImg2
+                      )
+                    }
+                    style={{ display: 'none' }}
+                  />
+                  <AddImgIcon />
+                  <ImageWrap>
+                    <img src={projectImg2} alt="project image2" />
+                  </ImageWrap>
+                </Label>
+              )}
+              {projectImg2 !== placeholder && (
+                <Label>
+                  <input
+                    type="file"
+                    name="image3"
+                    onChange={event =>
+                      handleFormikImageUpload(
+                        event,
+                        props,
+                        'image3',
+                        setProjectImg3
+                      )
+                    }
+                    style={{ display: 'none' }}
+                  />
+                  <AddImgIcon />
+                  <ImageWrap>
+                    <img src={projectImg3} alt="project image3" />
+                  </ImageWrap>
+                </Label>
+              )}
             </ImagesWrap>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
               Add new project

@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { theme } from 'theme';
 import { Field, Form } from 'formik';
 import { BiSolidImageAdd } from 'react-icons/bi';
+import { BiSolidImageAlt } from 'react-icons/bi';
+import { BsCheck } from 'react-icons/bs';
 
 export const StyledAddProjectForm = styled(Form)`
   display: flex;
@@ -116,6 +118,30 @@ export const AddImgIcon = styled(BiSolidImageAdd)`
   font-size: 12px;
   cursor: pointer;
   color: ${theme.colors.accentColor};
+`;
+
+export const IconWrapper = styled.div`
+  position: relative;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin-bottom: 1px;
+`;
+
+export const AddedImgIcon = styled(BiSolidImageAlt)`
+  width: 35px;
+  height: 35px;
+  /* font-size: 12px; */
+  color: ${theme.colors.greenValid};
+`;
+
+export const CheckMark = styled(BsCheck)`
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #fff;
 `;
 
 export const ImagesWrap = styled.div`

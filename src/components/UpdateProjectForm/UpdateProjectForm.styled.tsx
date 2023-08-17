@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from 'theme';
 import { Field, Form } from 'formik';
 import { BiSolidImageAdd } from 'react-icons/bi';
+import { BiSolidImageAlt } from 'react-icons/bi';
 
 export const StyledAddProjectForm = styled(Form)`
   display: flex;
@@ -115,6 +116,14 @@ export const AddImgIcon = styled(BiSolidImageAdd)`
   font-size: 12px;
   cursor: pointer;
   color: ${theme.colors.accentColor};
+`;
+
+export const AddedImgIcon = styled(BiSolidImageAlt)`
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  cursor: pointer;
+  color: ${theme.colors.greenValid};
 `;
 
 export const ImagesWrap = styled.div`
