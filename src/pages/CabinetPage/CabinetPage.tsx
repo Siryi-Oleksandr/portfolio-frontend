@@ -11,12 +11,12 @@ import { useAuth, useProjects } from 'hooks';
 const CabinetPage: FC = () => {
   const { userProjects, isProjectLoading } = useProjects();
   let { user, isAuthLoading } = useAuth();
-  // const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // dispatch(getUserById(userId));
-    dispatch(getUserProjects(user._id));
+    if (user?._id) {
+      dispatch(getUserProjects(user._id));
+    }
   }, [dispatch, user]);
 
   return (
