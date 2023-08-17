@@ -48,7 +48,6 @@ const App: FC = () => {
           <GlobalStyles />
           <Routes>
             <Route path="/" element={<Layout />}>
-              {/* <Route path="/" element={<PublicRoute />}> */}
               <Route index element={<HomePage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route
@@ -80,7 +79,6 @@ const App: FC = () => {
                 path="/resetPassword/:resetToken"
                 element={<ChangePassPage />}
               />
-              {/* </Route> */}
 
               <Route path="/" element={<PrivateRoute />}>
                 <Route path="/cabinet" element={<CabinetPage />} />
