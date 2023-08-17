@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from 'theme';
 import { App } from './components';
@@ -17,9 +17,9 @@ root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter basename="/portfolio-frontend">
+        <HashRouter basename="/">
           <App />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </PersistGate>
   </Provider>

@@ -46,6 +46,7 @@ const CabinetProjectItem: FC<Props> = ({ project }) => {
               description={aboutProject}
               isHover={isHovered}
               projectId={projectId}
+              title={projectTitle}
             />
           </Overlay>
         </ImgWrapper>

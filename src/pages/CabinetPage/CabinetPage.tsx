@@ -9,19 +9,19 @@ import { useAuth, useProjects } from 'hooks';
 // import { useParams } from 'react-router-dom';
 
 const CabinetPage: FC = () => {
-  const { userProjects, isProjectLoading } = useProjects();
+  const { userProjects, isProjectLoading ,isProjectCreating} = useProjects();
   let { user, isAuthLoading } = useAuth();
-  // const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // dispatch(getUserById(userId));
-    dispatch(getUserProjects(user._id));
+    if (user?._id) {
+      dispatch(getUserProjects(user._id));
+    }
   }, [dispatch, user]);
 
   return (
     <>
-      {(isAuthLoading || isProjectLoading) && <Loader />}
+      {(isAuthLoading || isProjectLoading || isProjectCreating) && <Loader />}
       <CabinetUserInfo />
       <CabinetProjectList user={user ? user : {}} projects={userProjects} />
     </>

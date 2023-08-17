@@ -8,3 +8,5 @@ export const selectProjectById = (state: IStateProject) =>
   state.projects.projectById;
 export const selectisLoading = (state: IStateProject) =>
   state.projects.isLoading;
+export const selectIsCreatingProject = (state: IStateProject) =>
+  state.projects.isCreatingProject;
