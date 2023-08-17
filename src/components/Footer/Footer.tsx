@@ -22,6 +22,7 @@ type TSize = '1em' | '1.5em' | '2em';
 
 const Footer: FC = () => {
   const [showDefaultFooter, setShowDefaultFooter] = useState<boolean>(true);
+  const [isPortfolio, setIsPortfolio] = useState<boolean>(false);
   const user: Partial<IUser> = useAppSelector(userById);
   const dispatch = useAppDispatch();
   const { totalUsers } = useSearch();
@@ -72,6 +73,13 @@ const Footer: FC = () => {
   }, [location.pathname, setShowDefaultFooter]);
 
   useEffect(() => {
+    setIsPortfolio(false);
+    if (location.pathname.includes('portfolio')) {
+      setIsPortfolio(true);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
     dispatch(getTotalUsers());
   }, [dispatch]);
 
@@ -108,13 +116,21 @@ const Footer: FC = () => {
             </p>
 
             <AvatarWrap>
-              <Link to={`/portfolio/${user._id ? user._id : example}`}>
+              {isPortfolio ? (
                 <img
                   src={user.miniAvatarURL || defaultImg}
                   alt="Avatar"
                   style={{ flex: '1' }}
                 />
-              </Link>
+              ) : (
+                <Link to={`/portfolio/${user._id ? user._id : example}`}>
+                  <img
+                    src={user.miniAvatarURL || defaultImg}
+                    alt="Avatar"
+                    style={{ flex: '1' }}
+                  />
+                </Link>
+              )}
             </AvatarWrap>
 
             <Socials style={{ flex: '1' }}>
