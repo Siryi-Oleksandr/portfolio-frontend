@@ -6,6 +6,7 @@ import {
   FormForgotSchema,
 } from './yupSchemas';
 import { handleFormikImageUpload } from './handleImageUpload';
+import { setImage } from './setImage';
 
 export {
   sliceTags,
@@ -13,5 +14,6 @@ export {
   FormRegisterSchema,
   FormForgotSchema,
   handleFormikImageUpload,
+  setImage,
   FormResetSchema,
 };

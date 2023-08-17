@@ -42,7 +42,7 @@ export const DeleteModal: FC<DeleteModalPorps> = ({ onClose, id, content }) => {
   return (
     <Modal onClose={onClose}>
       <ButtonsWrap>
-        <DeleteText>Do you really want to delete {content}?</DeleteText>
+        <DeleteText>Do you really want to delete {content}?!<br/>{content === "account" && <span> Your projects will be deleted too!</span>}</DeleteText>
         <BtnWrap>
           <DeleteModalBtn onClick={() => handleDelete(id)}>Yes</DeleteModalBtn>
           <DeleteModalBtn onClick={onClose}>No</DeleteModalBtn>

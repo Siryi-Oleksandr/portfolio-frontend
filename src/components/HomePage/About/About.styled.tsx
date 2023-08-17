@@ -65,7 +65,7 @@ export const ImageWrapper = styled.div`
     height: 100%;
     width: 100%;
 
-    /* object-fit: cover; */
+    object-fit: cover;
   }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {

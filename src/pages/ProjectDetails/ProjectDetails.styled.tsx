@@ -37,6 +37,7 @@ export const ProjectTitle = styled.h2`
   font-family: ${theme.fonts.title};
   font-size: 2.7em;
   line-height: 1.47em;
+  letter-spacing: 0.03em;
 `;
 
 export const ProjectSubTitle = styled.h3`
@@ -45,6 +46,7 @@ export const ProjectSubTitle = styled.h3`
   font-size: 1.1em;
   line-height: 1.8em;
   margin-bottom: 10px;
+  letter-spacing: 0.02em;
 `;
 
 export const CopyLincAwesome = styled(AwesomeButton)`
@@ -88,6 +90,7 @@ export const ProjectLinkIcon = styled(BiLinkExternal)`
 
 export const CodeLink = styled(AwesomeButton)`
   height: 40px;
+  margin-left: auto;
 `;
 
 export const CodeLinkIcon = styled(AiFillGithub)`
@@ -106,6 +109,7 @@ export const ProjectAboutTitle = styled.h4`
   font-size: 1.8em;
   line-height: 1.35em;
   font-weight: 600;
+  letter-spacing: 0.03em;
 `;
 
 export const Line = styled.hr`
@@ -122,9 +126,6 @@ export const TopLine = styled(Line)`
   @media screen and (max-width: 600px) {
     width: 20%;
   }
-  /* @media screen and (max-width: 785px) {
-    width: 30%;
-  } */
 `;
 
 export const ProjectAbout = styled.p`
