@@ -2,7 +2,7 @@
   "name": "portfolio-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Siryi-Oleksandr.github.io/portfolio-frontend/",
+  "homepage": "https://Siryi-Oleksandr.github.io/",
   "dependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/react": "^11.11.1",
