@@ -185,6 +185,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
               <DeleteModal
                 onClose={handleCloseDeleteModal}
                 id={user._id}
+                title={user.name}
                 content={'account'}
               />
             )}

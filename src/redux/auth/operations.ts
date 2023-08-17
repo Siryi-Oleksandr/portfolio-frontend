@@ -241,11 +241,11 @@ export const resetPassword = createAsyncThunk(
 
 export const deleteUserAccount = createAsyncThunk(
   'auth/deleteUser',
-  async (id: string, thunkAPI) => {
+  async ({ id, title }: { id: string; title: string }, thunkAPI) => {
     try {
       const response = await instance.delete(`/${id}`);
       if (response) {
-        toast.success(`${response.data.message}`);
+        toast.success(`User ${title} successful delete`);
         setToken('');
         localStorage.setItem('refreshToken', '');
       }
