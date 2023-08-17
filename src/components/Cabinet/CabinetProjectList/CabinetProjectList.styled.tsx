@@ -23,6 +23,8 @@ export const AddProjectBtnWrap = styled.div`
     rgba(0, 0, 0, 0.7),
     rgba(0, 0, 0, 0.1)
   );
+  box-shadow: 0 0 4px 4px rgba(254, 57, 12, 0.25);
+  border-radius: 4px 4px 0 0;
   border: none;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
@@ -41,6 +43,8 @@ export const AddProjectBtn = styled(NavLink)`
   background-color: inherit;
   border: none;
   color: ${theme.colors.primary_text_switch};
+  font-size: ${theme.fontSizes.l};
+  font-weight: ${theme.fontWeights.bold};
   transition: ${theme.transition.hover};
   &:hover {
     color: ${theme.colors.accent_color_switch};
