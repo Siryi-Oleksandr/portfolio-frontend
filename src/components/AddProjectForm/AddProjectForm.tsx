@@ -2,6 +2,7 @@ import { ErrorMessage, Formik, FormikHelpers } from 'formik';
 import React, { FC, useState } from 'react';
 import {
   Label,
+  FileLabel,
   LabelTextArea,
   StyledAddProjectForm,
   StyledProdjecField,
@@ -136,8 +137,10 @@ const AddProjectForm: FC = () => {
                 name="aboutProject"
               />
             </LabelTextArea>
+
             <ImagesWrap>
-              <Label>
+              <button>Reset images</button>
+              <FileLabel projectImg={projectImg1} placeholder={placeholder}>
                 <input
                   type="file"
                   name="image1"
@@ -164,9 +167,9 @@ const AddProjectForm: FC = () => {
                 <ImageWrap>
                   <img src={projectImg1} alt="project image1" />
                 </ImageWrap>
-              </Label>
+              </FileLabel>
               {projectImg1 !== placeholder && (
-                <Label>
+                <FileLabel projectImg={projectImg2} placeholder={placeholder}>
                   <input
                     type="file"
                     name="image2"
@@ -180,14 +183,21 @@ const AddProjectForm: FC = () => {
                     }
                     style={{ display: 'none' }}
                   />
-                  <AddImgIcon />
+                  {projectImg2 === placeholder ? (
+                    <AddImgIcon />
+                  ) : (
+                    <IconWrapper>
+                      <AddedImgIcon />
+                      <CheckMark />
+                    </IconWrapper>
+                  )}
                   <ImageWrap>
                     <img src={projectImg2} alt="project image2" />
                   </ImageWrap>
-                </Label>
+                </FileLabel>
               )}
               {projectImg2 !== placeholder && (
-                <Label>
+                <FileLabel projectImg={projectImg3} placeholder={placeholder}>
                   <input
                     type="file"
                     name="image3"
@@ -201,11 +211,18 @@ const AddProjectForm: FC = () => {
                     }
                     style={{ display: 'none' }}
                   />
-                  <AddImgIcon />
+                  {projectImg3 === placeholder ? (
+                    <AddImgIcon />
+                  ) : (
+                    <IconWrapper>
+                      <AddedImgIcon />
+                      <CheckMark />
+                    </IconWrapper>
+                  )}
                   <ImageWrap>
                     <img src={projectImg3} alt="project image3" />
                   </ImageWrap>
-                </Label>
+                </FileLabel>
               )}
             </ImagesWrap>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>

@@ -73,6 +73,17 @@ export const Label = styled.label`
   position: relative;
 `;
 
+export const ResetBtn;
+
+export const FileLabel = styled.label<{
+  projectImg: string;
+  placeholder: string;
+}>`
+  position: relative;
+  pointer-events: ${({ projectImg, placeholder }) =>
+    projectImg === placeholder ? 'all' : 'none'};
+`;
+
 export const LabelTextArea = styled.label`
   position: relative;
 
