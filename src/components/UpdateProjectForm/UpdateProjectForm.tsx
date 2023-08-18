@@ -2,6 +2,7 @@ import { ErrorMessage, Formik, FormikHelpers } from 'formik';
 import React, { FC, useState } from 'react';
 import {
   Label,
+  FileLabel,
   LabelTextArea,
   StyledAddProjectForm,
   StyledProdjecField,
@@ -201,11 +202,16 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                 <StyledLabel>Project Images*</StyledLabel>
                 <ResetBtn
                   type="button"
+                  disabled={editMode && noImgSelected}
                   onClick={!editMode ? handleEditMode : handleResetImages}
                 >
                   {!editMode ? 'Edit images' : 'Reset images'}
                 </ResetBtn>
-                <Label>
+                <FileLabel
+                  editMode={editMode}
+                  projectImg={projectImg1}
+                  placeholder={placeholder}
+                >
                   <input
                     type="file"
                     name="image1"
@@ -245,57 +251,83 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                       alt="project image1"
                     />
                   </ImageWrap>
-                </Label>
-                {(!editMode && image2 !== placeholder) ||
-                  (projectImg1 !== placeholder && (
-                    <Label>
-                      <input
-                        type="file"
-                        name="image2"
-                        onChange={event =>
-                          handleFormikImageUpload(
-                            event,
-                            props,
-                            'image2',
-                            setProjectImg2
-                          )
-                        }
-                        style={{ display: 'none' }}
-                      />
+                </FileLabel>
+                {((!editMode && image2 !== placeholder) ||
+                  projectImg1 !== placeholder) && (
+                  <FileLabel
+                    editMode={editMode}
+                    projectImg={projectImg2}
+                    placeholder={placeholder}
+                  >
+                    <input
+                      type="file"
+                      name="image2"
+                      onChange={event =>
+                        handleFormikImageUpload(
+                          event,
+                          props,
+                          'image2',
+                          setProjectImg2
+                        )
+                      }
+                      style={{ display: 'none' }}
+                    />
+                    {!editMode ? (
+                      <IconWrapper />
+                    ) : projectImg2 === placeholder ? (
                       <AddImgIcon />
-                      <ImageWrap>
-                        <img
-                          src={editMode ? projectImg2 : image2}
-                          alt="project image2"
-                        />
-                      </ImageWrap>
-                    </Label>
-                  ))}
-                {(!editMode && image3 !== placeholder) ||
-                  (projectImg2 !== placeholder && (
-                    <Label>
-                      <input
-                        type="file"
-                        name="image3"
-                        onChange={event =>
-                          handleFormikImageUpload(
-                            event,
-                            props,
-                            'image3',
-                            setProjectImg3
-                          )
-                        }
-                        style={{ display: 'none' }}
+                    ) : (
+                      <IconWrapper>
+                        <AddedImgIcon />
+                        <CheckMark />
+                      </IconWrapper>
+                    )}
+                    <ImageWrap>
+                      <img
+                        src={editMode ? projectImg2 : image2}
+                        alt="project image2"
                       />
+                    </ImageWrap>
+                  </FileLabel>
+                )}
+                {((!editMode && image3 !== placeholder) ||
+                  projectImg2 !== placeholder) && (
+                  <FileLabel
+                    editMode={editMode}
+                    projectImg={projectImg3}
+                    placeholder={placeholder}
+                  >
+                    <input
+                      type="file"
+                      name="image3"
+                      onChange={event =>
+                        handleFormikImageUpload(
+                          event,
+                          props,
+                          'image3',
+                          setProjectImg3
+                        )
+                      }
+                      style={{ display: 'none' }}
+                    />
+                    {!editMode ? (
+                      <IconWrapper />
+                    ) : projectImg3 === placeholder ? (
                       <AddImgIcon />
-                      <ImageWrap>
-                        <img
-                          src={editMode ? projectImg3 : image3}
-                          alt="project image3"
-                        />
-                      </ImageWrap>
-                    </Label>
-                  ))}
+                    ) : (
+                      <IconWrapper>
+                        <AddedImgIcon />
+                        <CheckMark />
+                      </IconWrapper>
+                    )}
+                    <ImageWrap>
+                      <img
+                        src={editMode ? projectImg3 : image3}
+                        alt="project image3"
+                      />
+                    </ImageWrap>
+                  </FileLabel>
+                )}
               </ImagesWrap>
               {/* <p>* - You have to download your files again</p> */}
             </Wrapper>

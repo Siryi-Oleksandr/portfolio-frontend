@@ -77,16 +77,24 @@ export const ResetBtn = styled.button`
   position: absolute;
   top: -20px;
   right: 0;
-  border: 1px solid ${theme.colors.gray};
-  padding: 4px;
+  border: 2px solid transparent;
+  padding: 4px 6px;
   border-radius: 4px;
   background-color: orange;
+  cursor: pointer;
 
   font-family: ${theme.fonts.text};
   font-size: ${theme.fontSizes.s};
 
+  transition: ${theme.transition.hover};
+
   :disabled {
     background-color: ${theme.colors.gray};
+  }
+
+  :hover,
+  :focus {
+    border-color: ${theme.colors.accentColor};
   }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {

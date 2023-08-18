@@ -81,20 +81,38 @@ export const LabelTextArea = styled.label`
   }
 `;
 
+export const FileLabel = styled.label<{
+  editMode: boolean;
+  projectImg: string;
+  placeholder: string;
+}>`
+  position: relative;
+  pointer-events: ${({ editMode, projectImg, placeholder }) =>
+    !editMode ? 'none' : projectImg === placeholder ? 'all' : 'none'};
+`;
+
 export const ResetBtn = styled.button`
   position: absolute;
   top: -20px;
   right: 0;
-  border: 1px solid ${theme.colors.gray};
-  padding: 4px;
+  border: 2px solid transparent;
+  padding: 4px 6px;
   border-radius: 4px;
   background-color: orange;
+  cursor: pointer;
 
   font-family: ${theme.fonts.text};
   font-size: ${theme.fontSizes.s};
 
+  transition: ${theme.transition.hover};
+
   :disabled {
     background-color: ${theme.colors.gray};
+  }
+
+  :hover,
+  :focus {
+    border-color: ${theme.colors.accentColor};
   }
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
@@ -202,10 +220,12 @@ export const ImagesWrap = styled.div`
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     flex-direction: row;
+    width: 595px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     gap: 16px;
+    width: 950px;
   }
 `;
 
