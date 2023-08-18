@@ -88,13 +88,13 @@ export const FormAddProjectUpdateSchema = Yup.object().shape({
 });
 
 export const FormProjectUpdateSchema = Yup.object().shape({
-  projectTitle: Yup.string().min(3).max(100).required(),
-  technicalStack: Yup.string().min(3).max(100).required(),
+  projectTitle: Yup.string().min(3).max(100).required('Required field'),
+  technicalStack: Yup.string().min(3).max(100).required('Required field'),
   projectSubTitle: Yup.string().max(200),
   projectLink: Yup.string().matches(internetLinkRegexp, 'Invalid address'),
   codeLink: Yup.string()
     .matches(internetLinkRegexp, 'Invalid address')
-    .required(),
-  aboutProject: Yup.string().min(3).max(1000).required(),
+    .required('Required field'),
+  aboutProject: Yup.string().min(3).max(1000).required('Required field'),
   image1: Yup.mixed(),
 });

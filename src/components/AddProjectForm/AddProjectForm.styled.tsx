@@ -73,18 +73,6 @@ export const Label = styled.label`
   position: relative;
 `;
 
-export const StyledImageLabel = styled.p`
-  position: absolute;
-  top: -20px;
-  left: 0;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  font-family: ${theme.fonts.heading};
-  color: ${theme.colors.primary_text_switch};
-  transition: all 250ms ease-in-out;
-`;
-
 export const ResetBtn = styled.button`
   position: absolute;
   top: -20px;

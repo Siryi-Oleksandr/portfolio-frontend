@@ -6,8 +6,14 @@ import {
   StyledAddProjectForm,
   StyledProdjecField,
   StyledLabel,
+  StyledErrorMessage,
+  StyledErrorImageMessage,
   ImageWrap,
+  ResetBtn,
+  IconWrapper,
   AddImgIcon,
+  AddedImgIcon,
+  CheckMark,
   ImagesWrap,
   Wrapper,
 } from './UpdateProjectForm.styled';
@@ -15,7 +21,7 @@ import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
 import { FormProjectUpdateSchema } from 'services/yupSchemas';
-import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
+// import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import placeholder from '../../images/placeholder-image.jpg';
 import { handleFormikImageUpload, setImage } from 'services';
 import { useProjects } from 'hooks';
@@ -31,6 +37,8 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
   const [projectImg1, setProjectImg1] = useState<string>(placeholder);
   const [projectImg2, setProjectImg2] = useState<string>(placeholder);
   const [projectImg3, setProjectImg3] = useState<string>(placeholder);
+  const [editMode, setEditMode] = useState(false);
+  const [noImages, setNoImages] = useState(false);
 
   const { projectById } = useProjects();
 
@@ -54,14 +62,55 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
 
   const id = projectById._id;
 
+  const noImgSelected =
+    projectImg1 === placeholder &&
+    projectImg2 === placeholder &&
+    projectImg3 === placeholder;
+
   const handleSubmit = (
     values: ICreateUpdateProject,
     actions: FormikHelpers<ICreateUpdateProject>
   ) => {
+    if (editMode && noImgSelected) {
+      setNoImages(true);
+      return;
+    }
     dispatch(updateProject({ id, ...values }));
     actions.resetForm();
     onClose();
   };
+
+  const handleEditMode = () => {
+    setEditMode(true);
+  };
+
+  const handleResetImages = () => {
+    setProjectImg1(placeholder);
+    setProjectImg2(placeholder);
+    setProjectImg3(placeholder);
+    setNoImages(false);
+  };
+
+  const image1 = setImage(
+    projectImg1,
+    placeholder,
+    projectById.projectImages,
+    0
+  );
+
+  const image2 = setImage(
+    projectImg2,
+    placeholder,
+    projectById.projectImages,
+    1
+  );
+
+  const image3 = setImage(
+    projectImg3,
+    placeholder,
+    projectById.projectImages,
+    2
+  );
 
   return (
     <Formik
@@ -149,6 +198,13 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
             </LabelTextArea>
             <Wrapper>
               <ImagesWrap>
+                <StyledLabel>Project Images*</StyledLabel>
+                <ResetBtn
+                  type="button"
+                  onClick={!editMode ? handleEditMode : handleResetImages}
+                >
+                  {!editMode ? 'Edit images' : 'Reset images'}
+                </ResetBtn>
                 <Label>
                   <input
                     type="file"
@@ -163,77 +219,85 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                     }
                     style={{ display: 'none' }}
                   />
-                  <AddImgIcon />
-                  <StyledLabel>Project Images*</StyledLabel>
-                  <ErrorMessage component={StyledErrorMessage} name="image1" />
+                  {!editMode ? (
+                    <IconWrapper />
+                  ) : projectImg1 === placeholder ? (
+                    <AddImgIcon />
+                  ) : (
+                    <IconWrapper>
+                      <AddedImgIcon />
+                      <CheckMark />
+                    </IconWrapper>
+                  )}
+
+                  <ErrorMessage
+                    component={StyledErrorImageMessage}
+                    name="image1"
+                  />
+                  {noImages && projectImg1 === placeholder && (
+                    <StyledErrorImageMessage>
+                      Image is required
+                    </StyledErrorImageMessage>
+                  )}
                   <ImageWrap>
                     <img
-                      src={setImage(
-                        projectImg1,
-                        placeholder,
-                        projectById.projectImages,
-                        0
-                      )}
+                      src={editMode ? projectImg1 : image1}
                       alt="project image1"
                     />
                   </ImageWrap>
                 </Label>
-                <Label>
-                  <input
-                    type="file"
-                    name="image2"
-                    onChange={event =>
-                      handleFormikImageUpload(
-                        event,
-                        props,
-                        'image2',
-                        setProjectImg2
-                      )
-                    }
-                    style={{ display: 'none' }}
-                  />
-                  <AddImgIcon />
-                  <ImageWrap>
-                    <img
-                      src={setImage(
-                        projectImg2,
-                        placeholder,
-                        projectById.projectImages,
-                        1
-                      )}
-                      alt="project image2"
-                    />
-                  </ImageWrap>
-                </Label>
-                <Label>
-                  <input
-                    type="file"
-                    name="image3"
-                    onChange={event =>
-                      handleFormikImageUpload(
-                        event,
-                        props,
-                        'image3',
-                        setProjectImg3
-                      )
-                    }
-                    style={{ display: 'none' }}
-                  />
-                  <AddImgIcon />
-                  <ImageWrap>
-                    <img
-                      src={setImage(
-                        projectImg3,
-                        placeholder,
-                        projectById.projectImages,
-                        2
-                      )}
-                      alt="project image3"
-                    />
-                  </ImageWrap>
-                </Label>
+                {(!editMode && image2 !== placeholder) ||
+                  (projectImg1 !== placeholder && (
+                    <Label>
+                      <input
+                        type="file"
+                        name="image2"
+                        onChange={event =>
+                          handleFormikImageUpload(
+                            event,
+                            props,
+                            'image2',
+                            setProjectImg2
+                          )
+                        }
+                        style={{ display: 'none' }}
+                      />
+                      <AddImgIcon />
+                      <ImageWrap>
+                        <img
+                          src={editMode ? projectImg2 : image2}
+                          alt="project image2"
+                        />
+                      </ImageWrap>
+                    </Label>
+                  ))}
+                {(!editMode && image3 !== placeholder) ||
+                  (projectImg2 !== placeholder && (
+                    <Label>
+                      <input
+                        type="file"
+                        name="image3"
+                        onChange={event =>
+                          handleFormikImageUpload(
+                            event,
+                            props,
+                            'image3',
+                            setProjectImg3
+                          )
+                        }
+                        style={{ display: 'none' }}
+                      />
+                      <AddImgIcon />
+                      <ImageWrap>
+                        <img
+                          src={editMode ? projectImg3 : image3}
+                          alt="project image3"
+                        />
+                      </ImageWrap>
+                    </Label>
+                  ))}
               </ImagesWrap>
-              <p>* - You have to download your files again</p>
+              {/* <p>* - You have to download your files again</p> */}
             </Wrapper>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
               Update project
