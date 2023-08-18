@@ -13,6 +13,10 @@ export const DonationWrapper = styled.div<{ donat: boolean }>`
   @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
     display: none;
   }
+
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    bottom: 10px;
+  }
 `;
 
 export const LinkWrapper = styled.div`
@@ -36,6 +40,10 @@ export const DonationBtn = styled.button`
   border: none;
   border-radius: ${theme.radii.tiny};
   cursor: pointer;
+
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    top: 138px;
+  }
 `;
 
 export const DonationLink = styled.a`
