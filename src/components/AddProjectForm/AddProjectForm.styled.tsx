@@ -136,6 +136,7 @@ export const FileLabel = styled.label<{
   placeholder: string;
 }>`
   position: relative;
+  cursor: pointer;
   pointer-events: ${({ projectImg, placeholder }) =>
     projectImg === placeholder ? 'auto' : 'none'};
 `;
@@ -183,7 +184,6 @@ export const AddImgIcon = styled(BiSolidImageAdd)`
   width: 35px;
   height: 35px;
   font-size: 12px;
-  cursor: pointer;
   color: ${theme.colors.accentColor};
 `;
 
@@ -191,7 +191,6 @@ export const IconWrapper = styled.div`
   position: relative;
   width: 35px;
   height: 35px;
-  cursor: pointer;
   margin-bottom: 1px;
 `;
 
