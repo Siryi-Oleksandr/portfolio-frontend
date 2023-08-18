@@ -88,7 +88,7 @@ export const FileLabel = styled.label<{
 }>`
   position: relative;
   pointer-events: ${({ editMode, projectImg, placeholder }) =>
-    !editMode ? 'none' : projectImg === placeholder ? 'all' : 'none'};
+    !editMode ? 'none' : projectImg === placeholder ? 'auto' : 'none'};
 `;
 
 export const ResetBtn = styled.button`
