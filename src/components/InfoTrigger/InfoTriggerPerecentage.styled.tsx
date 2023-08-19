@@ -17,14 +17,15 @@ export const Text = styled.p`
 
 export const InfoWrapper = styled.div<{ showInfo: boolean }>`
   position: absolute;
-  padding: 7px;
-  width: 200px;
+  padding: 4px;
+  width: 130px;
   pointer-events: none;
   background-color: ${theme.colors.textarea};
   border-radius: 4px;
-  text-align: start;
+  text-align: center;
+
   opacity: ${({ showInfo }) => (showInfo ? '1' : '0')};
-  transform: translateX(-101%) translateY(-100%);
+  transform: translateX(-102%) translateY(-137%);
 
   transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
 
