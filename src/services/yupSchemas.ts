@@ -16,12 +16,17 @@ const githubRegexp = /^(?:https?:\/\/)?(?:www\.)?github\.com\/[a-zA-Z\d-]+$/i;
 const internetLinkRegexp = /\b(?:https?|ftp):\/\/[^\s/$.?#]+\.[^\s]*\b/;
 
 export const FormRegisterSchema = Yup.object().shape({
-  name: Yup.string().min(2).max(35).required('Required'),
+  name: Yup.string()
+    .min(2)
+    .max(35)
+    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters without spaces')
+    .required('Required'),
   email: Yup.string()
     .matches(regExp, 'Invalid email address')
     .required('Required'),
   password: Yup.string()
     .min(6, 'Password must be 6 characters long')
+    .matches(/^[A-Za-z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\/`"'-=|]*$/, 'You can only use Latin letters numbers and symbols!')
     .required('Required'),
 });
 
@@ -31,6 +36,7 @@ export const FormLoginSchema = Yup.object().shape({
     .required('Required'),
   password: Yup.string()
     .min(6, 'Password must be 6 characters long')
+    .matches(/^[A-Za-z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\/`"'-=|]*$/, 'You can only use Latin letters numbers and symbols!')
     .required('Required'),
 });
 
