@@ -68,6 +68,18 @@ export const StyledLabel = styled.span`
   transition: all 250ms ease-in-out;
 `;
 
+export const ProjectLabel = styled.span`
+  position: absolute;
+  top: -30px;
+  left: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.primary_text_switch};
+  transition: all 250ms ease-in-out;
+`;
+
 export const Label = styled.label`
   position: relative;
 `;
@@ -93,11 +105,16 @@ export const FileLabel = styled.label<{
 `;
 
 export const ResetBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   position: absolute;
-  top: -25px;
+  top: -35px;
   right: 0;
   border: 2px solid transparent;
-  padding: 3px 6px;
+  width: 150px;
+  height: 30px;
   border-radius: 4px;
   background-color: orange;
   cursor: pointer;
@@ -109,6 +126,7 @@ export const ResetBtn = styled.button`
 
   :disabled {
     background-color: ${theme.colors.gray};
+    pointer-events: none;
   }
 
   :hover,
@@ -213,6 +231,7 @@ export const CheckMark = styled(BsCheck)`
 export const ImagesWrap = styled.div`
   position: relative;
   grid-column: 1 / 3;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 8px;

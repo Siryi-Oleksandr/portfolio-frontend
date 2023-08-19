@@ -7,6 +7,7 @@ import {
   StyledAddProjectForm,
   StyledProdjecField,
   StyledLabel,
+  ProjectLabel,
   StyledErrorMessage,
   StyledErrorImageMessage,
   ImageWrap,
@@ -22,12 +23,13 @@ import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
 import { FormProjectUpdateSchema } from 'services/yupSchemas';
-// import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import placeholder from '../../images/placeholder-image.jpg';
 import { handleFormikImageUpload, setImage } from 'services';
 import { useProjects } from 'hooks';
 import { updateProject } from 'redux/project/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
+import { RiImageEditFill } from 'react-icons/ri';
+import { GrPowerReset } from 'react-icons/gr';
 
 type UpdateProjectFormPorps = {
   onClose: () => void;
@@ -200,13 +202,18 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
             </LabelTextArea>
             <Wrapper>
               <ImagesWrap>
-                <StyledLabel>Project Images*</StyledLabel>
+                <ProjectLabel>Project Images*</ProjectLabel>
                 <ResetBtn
                   type="button"
                   disabled={editMode && noImgSelected}
                   onClick={!editMode ? handleEditMode : handleResetImages}
                 >
                   {!editMode ? 'Edit images' : 'Reset images'}
+                  {!editMode ? (
+                    <RiImageEditFill size={'20px'} />
+                  ) : (
+                    <GrPowerReset />
+                  )}
                 </ResetBtn>
                 {projectImg1 !== '' && (
                   <FileLabel
