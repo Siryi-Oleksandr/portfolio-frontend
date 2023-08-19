@@ -31,8 +31,9 @@ import {
   GoogleBtn,
   GoogleIcon,
 } from './RegisterForm.styled';
+import InfoText from './InfoText';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
-import { PassDiff, InfoTrigger } from 'components';
+import { PassDiff, InfoTriggerPassword } from 'components';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -102,34 +103,9 @@ const RegisterForm: FC = () => {
               </IconWrap>
               <PassDiff password={password} />
               <InfoWrapper>
-                <InfoTrigger>
-                  <p>This bar shows the difficulty of your password.</p>
-                  <br />
-                  <p>Weak password:</p>
-                  <ul>
-                    <li>At least 6 characters</li>
-                    <li>Any characters allowed</li>
-                  </ul>
-                  <br />
-                  <p>Okay password:</p>
-
-                  <ul>
-                    <li>At least 8 characters</li>
-                    <li>At least one uppercase letter</li>
-                    <li>At least one lowercase letter</li>
-                    <li>At least one digit or special character</li>
-                  </ul>
-                  <br />
-                  <p>Strong passwrod:</p>
-
-                  <ul>
-                    <li>At least 10 characters</li>
-                    <li>At least one uppercase letter</li>
-                    <li>At least one lowercase letter</li>
-                    <li>At least one digit</li>
-                    <li>At least one special character</li>
-                  </ul>
-                </InfoTrigger>
+                <InfoTriggerPassword>
+                  <InfoText />
+                </InfoTriggerPassword>
               </InfoWrapper>
             </Label>
           </InputsContainer>
