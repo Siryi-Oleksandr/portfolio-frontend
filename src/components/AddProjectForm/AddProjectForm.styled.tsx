@@ -75,10 +75,10 @@ export const Label = styled.label`
 
 export const ResetBtn = styled.button`
   position: absolute;
-  top: -20px;
+  top: -25px;
   right: 0;
   border: 2px solid transparent;
-  padding: 4px 6px;
+  padding: 3px 6px;
   border-radius: 4px;
   background-color: orange;
   cursor: pointer;
