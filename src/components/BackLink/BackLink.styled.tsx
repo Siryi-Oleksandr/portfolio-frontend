@@ -22,7 +22,7 @@ export const BackLincAwesome = styled(AwesomeButton)`
   @media screen and (max-width: 600px) {
     width: 100px;
     height: 35px;
-    font-size: 15px;
+    font-size: 13px;
   }
 `;
 

@@ -19,13 +19,14 @@ export const FormRegisterSchema = Yup.object().shape({
   name: Yup.string()
     .min(2)
     .max(35)
-    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters')
+    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters without spaces')
     .required('Required'),
   email: Yup.string()
     .matches(regExp, 'Invalid email address')
     .required('Required'),
   password: Yup.string()
     .min(6, 'Password must be 6 characters long')
+    .matches(/^[A-Za-z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\/`"'-=|]*$/, 'You can only use Latin letters numbers and symbols!')
     .required('Required'),
 });
 
@@ -35,6 +36,7 @@ export const FormLoginSchema = Yup.object().shape({
     .required('Required'),
   password: Yup.string()
     .min(6, 'Password must be 6 characters long')
+    .matches(/^[A-Za-z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\/`"'-=|]*$/, 'You can only use Latin letters numbers and symbols!')
     .required('Required'),
 });
 
@@ -54,18 +56,11 @@ export const FormResetSchema = Yup.object().shape({
 });
 
 export const FormUserUpdateSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2)
-    .max(35)
-    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters')
-    .required('Required'),
+  name: Yup.string().min(2).max(35).required('Required'),
   email: Yup.string()
     .matches(regExp, 'Invalid email address')
     .required('Required'),
-  surname: Yup.string()
-    .min(2)
-    .max(35)
-    .matches(/^[a-zA-Z]+$/, 'You can only use Latin letters'),
+  surname: Yup.string().min(2).max(35),
   profession: Yup.string().min(2).max(35),
   phone: Yup.string().matches(phoneRegexp, 'Invalid phone'),
   telegram: Yup.string().matches(telegramRegexp, 'Invalid Telegram address'),
@@ -76,25 +71,25 @@ export const FormUserUpdateSchema = Yup.object().shape({
 });
 
 export const FormAddProjectUpdateSchema = Yup.object().shape({
-  projectTitle: Yup.string().min(3).max(100).required(),
-  technicalStack: Yup.string().min(3).max(100).required(),
+  projectTitle: Yup.string().min(3).max(100).required('Required field'),
+  technicalStack: Yup.string().min(3).max(100).required('Required field'),
   projectSubTitle: Yup.string().max(200),
   projectLink: Yup.string().matches(internetLinkRegexp, 'Invalid address'),
   codeLink: Yup.string()
     .matches(internetLinkRegexp, 'Invalid address')
-    .required(),
-  aboutProject: Yup.string().min(3).max(1000).required(),
-  image1: Yup.mixed().required('File is required'),
+    .required('Required field'),
+  aboutProject: Yup.string().min(3).max(1000).required('Required field'),
+  image1: Yup.mixed().required('Image is required'),
 });
 
 export const FormProjectUpdateSchema = Yup.object().shape({
-  projectTitle: Yup.string().min(3).max(100).required(),
-  technicalStack: Yup.string().min(3).max(100).required(),
+  projectTitle: Yup.string().min(3).max(100).required('Required field'),
+  technicalStack: Yup.string().min(3).max(100).required('Required field'),
   projectSubTitle: Yup.string().max(200),
   projectLink: Yup.string().matches(internetLinkRegexp, 'Invalid address'),
   codeLink: Yup.string()
     .matches(internetLinkRegexp, 'Invalid address')
-    .required(),
-  aboutProject: Yup.string().min(3).max(1000).required(),
+    .required('Required field'),
+  aboutProject: Yup.string().min(3).max(1000).required('Required field'),
   image1: Yup.mixed(),
 });
