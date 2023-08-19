@@ -332,7 +332,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                   </FileLabel>
                 )}
               </ImagesWrap>
-              {/* <p>* - You have to download your files again</p> */}
             </Wrapper>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
               Update project
