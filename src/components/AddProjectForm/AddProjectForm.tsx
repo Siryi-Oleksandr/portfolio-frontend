@@ -67,7 +67,8 @@ const AddProjectForm: FC = () => {
   };
 
   const handleResetImages = () => {
-    setProjectImg1(placeholder);
+    setProjectImg1('');
+    setTimeout(() => setProjectImg1(placeholder), 0);
     setProjectImg2(placeholder);
     setProjectImg3(placeholder);
     setNoImages(false);
@@ -167,42 +168,44 @@ const AddProjectForm: FC = () => {
               >
                 Reset images
               </ResetBtn>
-              <FileLabel projectImg={projectImg1} placeholder={placeholder}>
-                <input
-                  type="file"
-                  name="image1"
-                  onChange={event =>
-                    handleFormikImageUpload(
-                      event,
-                      props,
-                      'image1',
-                      setProjectImg1
-                    )
-                  }
-                  style={{ display: 'none' }}
-                />
-                {projectImg1 === placeholder ? (
-                  <AddImgIcon />
-                ) : (
-                  <IconWrapper>
-                    <AddedImgIcon />
-                    <CheckMark />
-                  </IconWrapper>
-                )}
-                <ErrorMessage
-                  component={StyledErrorImageMessage}
-                  name="image1"
-                />
-                {noImages && projectImg1 === placeholder && (
-                  <StyledErrorImageMessage>
-                    Image is required
-                  </StyledErrorImageMessage>
-                )}
+              {projectImg1 !== '' && (
+                <FileLabel projectImg={projectImg1} placeholder={placeholder}>
+                  <input
+                    type="file"
+                    name="image1"
+                    onChange={event =>
+                      handleFormikImageUpload(
+                        event,
+                        props,
+                        'image1',
+                        setProjectImg1
+                      )
+                    }
+                    style={{ display: 'none' }}
+                  />
+                  {projectImg1 === placeholder ? (
+                    <AddImgIcon />
+                  ) : (
+                    <IconWrapper>
+                      <AddedImgIcon />
+                      <CheckMark />
+                    </IconWrapper>
+                  )}
+                  <ErrorMessage
+                    component={StyledErrorImageMessage}
+                    name="image1"
+                  />
+                  {noImages && projectImg1 === placeholder && (
+                    <StyledErrorImageMessage>
+                      Image is required
+                    </StyledErrorImageMessage>
+                  )}
 
-                <ImageWrap>
-                  <img src={projectImg1} alt="project image1" />
-                </ImageWrap>
-              </FileLabel>
+                  <ImageWrap>
+                    <img src={projectImg1} alt="project image1" />
+                  </ImageWrap>
+                </FileLabel>
+              )}
               {projectImg1 !== placeholder && (
                 <FileLabel projectImg={projectImg2} placeholder={placeholder}>
                   <input
