@@ -31,8 +31,9 @@ import {
   GoogleBtn,
   GoogleIcon,
 } from './RegisterForm.styled';
+import InfoText from './InfoText';
 import { usePasswordToggle } from 'hooks/usePasswordToogle';
-import { PassDiff, InfoTrigger } from 'components';
+import { PassDiff, InfoTriggerPassword } from 'components';
 
 const RegisterForm: FC = () => {
   const dispatch = useAppDispatch();
@@ -102,9 +103,9 @@ const RegisterForm: FC = () => {
               </IconWrap>
               <PassDiff password={password} />
               <InfoWrapper>
-                <InfoTrigger>
-                  This bar shows the difficulty of your password
-                </InfoTrigger>
+                <InfoTriggerPassword>
+                  <InfoText />
+                </InfoTriggerPassword>
               </InfoWrapper>
             </Label>
           </InputsContainer>

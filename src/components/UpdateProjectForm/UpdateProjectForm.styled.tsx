@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { theme } from 'theme';
 import { Field, Form } from 'formik';
 import { BiSolidImageAdd } from 'react-icons/bi';
+import { BiSolidImageAlt } from 'react-icons/bi';
+import { BsCheck } from 'react-icons/bs';
 
 export const StyledAddProjectForm = styled(Form)`
   display: flex;
@@ -79,6 +81,75 @@ export const LabelTextArea = styled.label`
   }
 `;
 
+export const FileLabel = styled.label<{
+  editMode: boolean;
+  projectImg: string;
+  placeholder: string;
+}>`
+  position: relative;
+  cursor: pointer;
+  pointer-events: ${({ editMode, projectImg, placeholder }) =>
+    !editMode ? 'none' : projectImg === placeholder ? 'auto' : 'none'};
+`;
+
+export const ResetBtn = styled.button`
+  position: absolute;
+  top: -25px;
+  right: 0;
+  border: 2px solid transparent;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background-color: orange;
+  cursor: pointer;
+
+  font-family: ${theme.fonts.text};
+  font-size: ${theme.fontSizes.s};
+
+  transition: ${theme.transition.hover};
+
+  :disabled {
+    background-color: ${theme.colors.gray};
+  }
+
+  :hover,
+  :focus {
+    border-color: ${theme.colors.accentColor};
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    font-size: ${theme.fontSizes.m};
+  }
+`;
+
+export const StyledErrorMessage = styled.p`
+  position: absolute;
+  top: -18px;
+  right: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.redColor};
+  transition: all 300ms ease-in-out;
+`;
+
+export const StyledErrorImageMessage = styled.p`
+  position: absolute;
+  top: 5px;
+  left: 35px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.redColor};
+  transition: all 300ms ease-in-out;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    top: 5px;
+    right: 0;
+  }
+`;
+
 export const ImageWrap = styled.div`
   width: 260px;
   height: 200px;
@@ -113,11 +184,34 @@ export const AddImgIcon = styled(BiSolidImageAdd)`
   width: 35px;
   height: 35px;
   font-size: 12px;
-  cursor: pointer;
   color: ${theme.colors.accentColor};
 `;
 
+export const IconWrapper = styled.div`
+  position: relative;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 1px;
+`;
+
+export const AddedImgIcon = styled(BiSolidImageAlt)`
+  width: 35px;
+  height: 35px;
+  /* font-size: 12px; */
+  color: ${theme.colors.greenValid};
+`;
+
+export const CheckMark = styled(BsCheck)`
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #fff;
+`;
+
 export const ImagesWrap = styled.div`
+  position: relative;
   grid-column: 1 / 3;
   display: flex;
   flex-direction: column;
@@ -125,10 +219,12 @@ export const ImagesWrap = styled.div`
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     flex-direction: row;
+    width: 595px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     gap: 16px;
+    width: 950px;
   }
 `;
 

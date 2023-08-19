@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import { InfoTrigger } from 'components';
+import { InfoTriggerPercentage } from 'components';
 import { IUser } from 'types/userTypes';
 import {
   TextWrapper,
@@ -81,9 +81,9 @@ const InfoPercentage: FC<Props> = ({ user }) => {
         <Percentage percentage={percentage}>{percentage}%</Percentage>
       </Text>
       <InfoWrapper>
-        <InfoTrigger>
-          The percentage of information you have filled in your fields.
-        </InfoTrigger>
+        <InfoTriggerPercentage>
+          <p>The percentage of information you have filled in your fields.</p>
+        </InfoTriggerPercentage>
       </InfoWrapper>
     </TextWrapper>
   );
