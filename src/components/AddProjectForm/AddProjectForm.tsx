@@ -264,7 +264,7 @@ const AddProjectForm: FC = () => {
               )}
             </ImagesWrap>
             <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
-              Add new project
+              Save project
             </SubmitBtn>
           </StyledAddProjectForm>
         </Container>

@@ -19,6 +19,7 @@ export const InfoWrapper = styled.div<{ showInfo: boolean }>`
   position: absolute;
   padding: 4px;
   width: 130px;
+  border: 1px solid ${theme.colors.accentColor};
   pointer-events: none;
   background-color: ${theme.colors.textarea};
   border-radius: 4px;
