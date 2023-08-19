@@ -50,7 +50,7 @@ export const theme = {
   },
 
   fonts: {
-    title: 'Anton',
+    title: 'Anton, sans-serif',
     heading: 'Montserrat',
     text: 'Montserrat',
   },
