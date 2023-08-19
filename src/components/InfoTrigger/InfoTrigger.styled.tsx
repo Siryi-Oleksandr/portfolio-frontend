@@ -35,7 +35,7 @@ export const InfoWrapper = styled.div<{ showInfo: boolean }>`
   z-index: 100;
 `;
 
-export const InfoText = styled.p`
+export const InfoText = styled.div`
   font-family: ${theme.fonts.text};
   font-size: 11px;
   color: #000;

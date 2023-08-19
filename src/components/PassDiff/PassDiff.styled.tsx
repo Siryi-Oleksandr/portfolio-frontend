@@ -16,7 +16,7 @@ export const List = styled.ul`
 
 export const Item = styled.li<{ state: string }>`
   position: relative;
-  width: 40px;
+  width: 43px;
   height: 7px;
 
   font-size: 12px;
@@ -34,16 +34,17 @@ export const Item = styled.li<{ state: string }>`
     background-color: ${({ state }) => state === 'medium' && orange};
   }
   &:nth-of-type(2) {
-    color: ${orange};
+    color: ${({ state }) => (state === 'red' ? red : `${orange}`)};
     background-color: ${({ state }) => state === 'medium' && orange};
   }
 
   &:nth-of-type(3) {
-    color: ${green};
+    color: ${({ state }) => (state === 'red' ? red : `${green}`)};
   }
 `;
 
 export const Span = styled.span`
+  font-family: ${theme.fonts.text};
   position: absolute;
   bottom: 9px;
   left: 50%;

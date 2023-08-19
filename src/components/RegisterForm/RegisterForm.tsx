@@ -103,7 +103,7 @@ const RegisterForm: FC = () => {
               <PassDiff password={password} />
               <InfoWrapper>
                 <InfoTrigger>
-                  This bar shows the difficulty of your password
+                  <p>This bar shows the difficulty of your password</p>
                 </InfoTrigger>
               </InfoWrapper>
             </Label>

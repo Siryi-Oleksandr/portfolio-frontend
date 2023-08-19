@@ -229,7 +229,7 @@ export const RedirectLink = styled(Link)`
 export const InfoWrapper = styled.div`
   position: absolute;
   top: -26px;
-  right: 140px;
+  right: 150px;
 `;
 
 export const RecoverWrapper = styled.div`
