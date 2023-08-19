@@ -115,6 +115,7 @@ export const ResetBtn = styled.button`
   border: 2px solid transparent;
   width: 150px;
   height: 30px;
+  /* padding: 3px 6px; */
   border-radius: 4px;
   background-color: orange;
   cursor: pointer;
