@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
 import { theme } from 'theme';
 import { Field, Form } from 'formik';
 import { BiSolidImageAdd } from 'react-icons/bi';
