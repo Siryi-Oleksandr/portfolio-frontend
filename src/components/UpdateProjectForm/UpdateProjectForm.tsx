@@ -16,6 +16,8 @@ import {
   AddImgIcon,
   AddedImgIcon,
   CheckMark,
+  EditIcon,
+  ResetIcon,
   ImagesWrap,
   Wrapper,
 } from './UpdateProjectForm.styled';
@@ -28,8 +30,6 @@ import { handleFormikImageUpload, setImage } from 'services';
 import { useProjects } from 'hooks';
 import { updateProject } from 'redux/project/operations';
 import { useAppDispatch } from 'redux/reduxHooks';
-import { RiImageEditFill } from 'react-icons/ri';
-import { GrPowerReset } from 'react-icons/gr';
 
 type UpdateProjectFormPorps = {
   onClose: () => void;
@@ -204,16 +204,13 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
               <ImagesWrap>
                 <ProjectLabel>Project Images*</ProjectLabel>
                 <ResetBtn
+                  editMode={editMode}
                   type="button"
                   disabled={editMode && noImgSelected}
                   onClick={!editMode ? handleEditMode : handleResetImages}
                 >
                   {!editMode ? 'Edit images' : 'Reset images'}
-                  {!editMode ? (
-                    <RiImageEditFill size={'20px'} />
-                  ) : (
-                    <GrPowerReset />
-                  )}
+                  {!editMode ? <EditIcon /> : <ResetIcon />}
                 </ResetBtn>
                 {projectImg1 !== '' && (
                   <FileLabel

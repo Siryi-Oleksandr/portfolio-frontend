@@ -9,8 +9,10 @@ import {
   StyledErrorMessage,
   StyledErrorImageMessage,
   StyledLabel,
+  ProjectLabel,
   ImageWrap,
   ResetBtn,
+  ResetIcon,
   AddImgIcon,
   IconWrapper,
   AddedImgIcon,
@@ -160,13 +162,13 @@ const AddProjectForm: FC = () => {
             </LabelTextArea>
 
             <ImagesWrap>
-              <StyledLabel>Project Images</StyledLabel>
+              <ProjectLabel>Project Images</ProjectLabel>
               <ResetBtn
                 type="button"
                 disabled={noImgSelected}
                 onClick={handleResetImages}
               >
-                Reset images
+                Reset images <ResetIcon />
               </ResetBtn>
               {projectImg1 !== '' && (
                 <FileLabel projectImg={projectImg1} placeholder={placeholder}>
