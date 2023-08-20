@@ -34,7 +34,6 @@ const About: FC = () => {
               <ItemNumber>1.</ItemNumber>
               <AboutTitle>Create Your</AboutTitle>
               <AboutTitle>Unique Portfolio</AboutTitle>
-              {/* <AboutTitle>the others!</AboutTitle> */}
               <AboutText>
                 Don't have a portfolio yet? <br /> No worries!
                 <br /> Craft your own distinctive portfolio containing all

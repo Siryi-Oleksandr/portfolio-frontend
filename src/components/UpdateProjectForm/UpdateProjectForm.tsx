@@ -7,6 +7,7 @@ import {
   StyledAddProjectForm,
   StyledProdjecField,
   StyledLabel,
+  ProjectLabel,
   StyledErrorMessage,
   StyledErrorImageMessage,
   ImageWrap,
@@ -15,6 +16,8 @@ import {
   AddImgIcon,
   AddedImgIcon,
   CheckMark,
+  EditIcon,
+  ResetIcon,
   ImagesWrap,
   Wrapper,
 } from './UpdateProjectForm.styled';
@@ -22,7 +25,6 @@ import { SubmitBtn } from 'components/UserForm/UserForm.styled';
 import Container from 'components/Container/Container';
 import { ICreateUpdateProject } from 'redux/reduxTypes';
 import { FormProjectUpdateSchema } from 'services/yupSchemas';
-// import { StyledErrorMessage } from 'components/RegisterForm/RegisterForm.styled';
 import placeholder from '../../images/placeholder-image.jpg';
 import { handleFormikImageUpload, setImage } from 'services';
 import { useProjects } from 'hooks';
@@ -200,13 +202,15 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
             </LabelTextArea>
             <Wrapper>
               <ImagesWrap>
-                <StyledLabel>Project Images*</StyledLabel>
+                <ProjectLabel>Project Images*</ProjectLabel>
                 <ResetBtn
+                  editMode={editMode}
                   type="button"
                   disabled={editMode && noImgSelected}
                   onClick={!editMode ? handleEditMode : handleResetImages}
                 >
                   {!editMode ? 'Edit images' : 'Reset images'}
+                  {!editMode ? <EditIcon /> : <ResetIcon />}
                 </ResetBtn>
                 {projectImg1 !== '' && (
                   <FileLabel
