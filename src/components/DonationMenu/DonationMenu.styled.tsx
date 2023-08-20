@@ -28,7 +28,7 @@ export const DonationBtn = styled.button`
   transform: rotate(90deg);
   position: absolute;
   top: 69px;
-  right: 205px;
+  right: 204px;
   height: 43px;
   width: 181px;
   padding: 8px;
