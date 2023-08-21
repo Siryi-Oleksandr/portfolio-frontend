@@ -4,15 +4,11 @@ import UserForm from 'components/UserForm/UserForm';
 
 type ModalUserFormPorps = {
   onClose: any;
-  showModal: boolean;
 };
 
-export const UserFormModal: FC<ModalUserFormPorps> = ({
-  onClose,
-  showModal,
-}) => {
+export const UserFormModal: FC<ModalUserFormPorps> = ({ onClose }) => {
   return (
-    <Modal onClose={onClose} showModal={showModal}>
+    <Modal onClose={onClose}>
       <div>
         <UserForm onClose={onClose} />
       </div>

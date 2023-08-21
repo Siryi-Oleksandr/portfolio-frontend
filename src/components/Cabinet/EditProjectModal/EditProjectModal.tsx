@@ -30,7 +30,7 @@ export const EditProjectModal: FC<ModalUserFormPorps> = ({
   }, [dispatch, projectId, showModal]);
 
   return (
-    <Modal onClose={onClose} showModal={showModal}>
+    <Modal onClose={onClose}>
       {!isProjectLoading && (
         <div>
           <UpdateProjectForm onClose={onClose} />

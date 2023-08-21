@@ -196,13 +196,14 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
               Update info
             </SubmitBtn>
 
-            <DeleteModal
-              onClose={handleCloseDeleteModal}
-              id={user._id}
-              title={user.name}
-              content={'account'}
-              showModal={showDeleteModal}
-            />
+            {showDeleteModal && (
+              <DeleteModal
+                onClose={handleCloseDeleteModal}
+                id={user._id}
+                title={user.name}
+                content={'account'}
+              />
+            )}
 
             <DeleteButton onClick={handleShowDeleteModal} type="button">
               Delete Account

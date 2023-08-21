@@ -16,7 +16,6 @@ type DeleteModalPorps = {
   id: string;
   content: string;
   title: string;
-  showModal: boolean;
 };
 
 export const DeleteModal: FC<DeleteModalPorps> = ({
@@ -24,7 +23,6 @@ export const DeleteModal: FC<DeleteModalPorps> = ({
   id,
   title,
   content,
-  showModal,
 }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -44,7 +42,7 @@ export const DeleteModal: FC<DeleteModalPorps> = ({
   };
 
   return (
-    <Modal onClose={onClose} showModal={showModal}>
+    <Modal onClose={onClose}>
       <ButtonsWrap>
         <DeleteText>
           Do you really want to delete {content}?!

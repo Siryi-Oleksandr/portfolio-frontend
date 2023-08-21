@@ -16,9 +16,10 @@ export const Overlay = styled.div`
   background-color: transparent;
   z-index: 100;
 
-  opacity: ${({ showModal, loading }) => (showModal && !loading ? '1' : '0')};
-  visibility: ${({ showModal, loading }) =>
-    showModal && !loading ? 'visible' : 'hidden'};
+  opacity: ${({ showModal, isLoading }) =>
+    showModal && !isLoading ? '1' : '0'};
+  visibility: ${({ showModal, isLoading }) =>
+    showModal && !isLoading ? 'visible' : 'hidden'};
 
   transition: opacity 200ms ease, visibility 200ms ease;
 `;
@@ -38,8 +39,8 @@ export const ModalContainer = styled.div`
   border-color: ${theme.colors.modal_border_color};
   overflow-y: auto;
 
-  transform: ${({ showModal, loading }) =>
-    showModal && !loading ? 'scale(1)' : 'scale(0.9)'};
+  transform: ${({ showModal, isLoading }) =>
+    showModal && !isLoading ? 'scale(1)' : 'scale(0.9)'};
   transition: transform 250ms ease;
 
   ::-webkit-scrollbar {
