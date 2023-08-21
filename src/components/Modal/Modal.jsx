@@ -13,14 +13,14 @@ export const Modal = ({ children, onClose }) => {
     [onClose]
   );
 
-  const handleOverlayClick = useCallback(
-    evt => {
-      if (evt.target === evt.currentTarget) {
-        onClose();
-      }
-    },
-    [onClose]
-  );
+  // const handleOverlayClick = useCallback(
+  //   evt => {
+  //     if (evt.target === evt.currentTarget) {
+  //       onClose();
+  //     }
+  //   },
+  //   [onClose]
+  // );
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
@@ -30,7 +30,7 @@ export const Modal = ({ children, onClose }) => {
   }, [handleKeyPress]);
 
   return createPortal(
-    <Overlay onClick={handleOverlayClick}>
+    <Overlay>
       <ModalContainer>
         <CloseBtn onClick={onClose}>
           <AiOutlineClose size="24px" />
@@ -41,4 +41,3 @@ export const Modal = ({ children, onClose }) => {
     document.getElementById('modal-root')
   );
 };
-// export default Modal;
