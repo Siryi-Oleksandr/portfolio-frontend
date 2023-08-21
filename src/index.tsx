@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from 'theme';
-import { App } from './components';
+import { App, ScrollToTopForRouting } from './components';
 import './index.css';
 
 const root = ReactDOM.createRoot(
@@ -18,6 +18,7 @@ root.render(
     <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider theme={theme}>
         <HashRouter basename="/">
+          <ScrollToTopForRouting />
           <App />
         </HashRouter>
       </ThemeProvider>
