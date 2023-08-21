@@ -166,8 +166,8 @@ const Footer: FC = () => {
           </>
         )}
       </FooterWrap>
-
-      <p>Created by CommitMakersTeam, 2023</p>
+      Created by <Link to={`/portfolio/${example}`}>CommitMakersTeam</Link>,
+      2023
     </FooterStyled>
   );
 };

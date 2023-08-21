@@ -38,6 +38,8 @@ import InfoTriggerPassword from './InfoTrigger/InfoTriggerPassword';
 import InfoTriggerPercentage from './InfoTrigger/InfoTriggerPercentage';
 import TotalCountTrigger from './TotalCountTrigger/TotalCountTrigger';
 import DonationMenu from './DonationMenu/DonationMenu';
+import ScrollToTopForRouting from './ScrollToTopForRouting/ScrollToTopForRouting';
+
 // import Modal from './Modal/Modal';
 
 export {
@@ -81,4 +83,5 @@ export {
   InfoTriggerPercentage,
   TotalCountTrigger,
   DonationMenu,
+  ScrollToTopForRouting,
 };
