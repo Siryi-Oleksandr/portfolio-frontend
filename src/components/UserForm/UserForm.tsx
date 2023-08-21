@@ -32,7 +32,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const user: IUser = useAppSelector(selectUser);
   const [userAvatar, setUserAvatar] = useState<any>(user.avatarURL);
-  const [isFormChanged, setIsFormChanged] = useState<boolean>(false);
   const { showDeleteModal, handleCloseDeleteModal, handleShowDeleteModal } =
     useDeleteModal();
 
@@ -63,17 +62,18 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
   ) => {
     actions.resetForm();
     dispatch(updateUser(values));
-    setIsFormChanged(false);
     onClose();
   };
 
-  const handleInputChange = (
-    event: { target: { name: string; value: string } },
-    props: { setFieldValue: (arg0: string, arg1: string) => void }
+  const areValuesEqualInitial = (
+    values: IUpdateUser,
+    initialValues: IUpdateUser
   ) => {
-    const { name, value } = event.target;
-    props.setFieldValue(name, value);
-    setIsFormChanged(true);
+    return Object.keys(values).every(
+      key =>
+        values[key as keyof IUpdateUser] ===
+        initialValues[key as keyof IUpdateUser]
+    );
   };
 
   return (
@@ -101,45 +101,28 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                       'avatar',
                       setUserAvatar
                     );
-                    setIsFormChanged(true);
                   }}
                   style={{ display: 'none' }}
                 />
                 <AddIcon />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="name"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="name" />
                 <StyledLabel>Name</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="name" />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="surname"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="surname" />
                 <StyledLabel>Surname</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="surname" />
               </Label>
               <Label>
-                <StyledField
-                  type="email"
-                  name="email"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="email" name="email" />
                 <StyledLabel>Email</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="email" />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="profession"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="profession" />
                 <StyledLabel>Profession</StyledLabel>
                 <ErrorMessage
                   component={StyledErrorMessage}
@@ -152,7 +135,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                   min="0"
                   step="0.5"
                   name="experience"
-                  onChange={(event: any) => handleInputChange(event, props)}
                 />
                 <StyledLabel>Experience (years)</StyledLabel>
                 <ErrorMessage
@@ -161,29 +143,17 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="phone"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="phone" />
                 <StyledLabel>Phone</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="phone" />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="telegram"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="telegram" />
                 <StyledLabel>Telegram</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="telegram" />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="linkedinURL"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="linkedinURL" />
                 <StyledLabel>LinkedIn</StyledLabel>
                 <ErrorMessage
                   component={StyledErrorMessage}
@@ -191,11 +161,7 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 />
               </Label>
               <Label>
-                <StyledField
-                  type="text"
-                  name="gitHubURL"
-                  onChange={(event: any) => handleInputChange(event, props)}
-                />
+                <StyledField type="text" name="gitHubURL" />
                 <StyledLabel>GitHub</StyledLabel>
                 <ErrorMessage component={StyledErrorMessage} name="gitHubURL" />
               </Label>
@@ -204,7 +170,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                   type="text"
                   name="technicalStack"
                   placeholder="HTML, CSS, JavaScript, React"
-                  onChange={(event: any) => handleInputChange(event, props)}
                 />
                 <StyledLabel>TechnicalStack</StyledLabel>
                 <ErrorMessage
@@ -216,7 +181,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <StyledField
                   component="textarea"
                   type="text"
-                  onChange={(event: any) => handleInputChange(event, props)}
                   value={props.values.summary || ''}
                   name="summary"
                   style={{ height: '150px' }}
@@ -225,17 +189,21 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <ErrorMessage component={StyledErrorMessage} name="summary" />
               </Label>
             </InputsContainer>
-            <SubmitBtn type="submit" disabled={!isFormChanged}>
+            <SubmitBtn
+              type="submit"
+              disabled={areValuesEqualInitial(props.values, initialValues)}
+            >
               Update info
             </SubmitBtn>
-            {showDeleteModal && (
-              <DeleteModal
-                onClose={handleCloseDeleteModal}
-                id={user._id}
-                title={user.name}
-                content={'account'}
-              />
-            )}
+
+            <DeleteModal
+              onClose={handleCloseDeleteModal}
+              id={user._id}
+              title={user.name}
+              content={'account'}
+              showModal={showDeleteModal}
+            />
+
             <DeleteButton onClick={handleShowDeleteModal} type="button">
               Delete Account
               <AiFillDelete className="bucket" />

@@ -9,11 +9,15 @@ import {
 
 type SubscriptionModalPorps = {
   onClose: () => void;
+  showModal: boolean;
 };
 
-export const SubscriptionModal: FC<SubscriptionModalPorps> = ({ onClose }) => {
+export const SubscriptionModal: FC<SubscriptionModalPorps> = ({
+  onClose,
+  showModal,
+}) => {
   return (
-    <Modal onClose={onClose}>
+    <Modal onClose={onClose} showModal={showModal}>
       <SubscriptionWrap>
         <h2>"Start" vs "Pro" Subscription for Your Bankfolio</h2>
         <p>

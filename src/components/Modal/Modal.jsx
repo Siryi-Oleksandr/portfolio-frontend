@@ -1,9 +1,12 @@
 import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import { useProjects } from 'hooks';
 import { CloseBtn, ModalContainer, Overlay } from './Modal.styled';
 import { AiOutlineClose } from 'react-icons/ai';
 
-export const Modal = ({ children, onClose }) => {
+export const Modal = ({ children, onClose, showModal }) => {
+  const { isProjectLoading } = useProjects();
+
   const handleKeyPress = useCallback(
     evt => {
       if (evt.key === 'Escape') {
@@ -30,8 +33,8 @@ export const Modal = ({ children, onClose }) => {
   }, [handleKeyPress]);
 
   return createPortal(
-    <Overlay>
-      <ModalContainer>
+    <Overlay showModal={showModal} loading={isProjectLoading}>
+      <ModalContainer showModal={showModal} loading={isProjectLoading}>
         <CloseBtn onClick={onClose}>
           <AiOutlineClose size="24px" />
         </CloseBtn>
