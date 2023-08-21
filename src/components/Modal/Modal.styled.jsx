@@ -15,6 +15,11 @@ export const Overlay = styled.div`
   margin-right: auto;
   background-color: transparent;
   z-index: 100;
+
+  opacity: ${({ showModal }) => (showModal ? '1' : '0')};
+  visibility: ${({ showModal }) => (showModal ? 'visible' : 'hidden')};
+
+  transition: opacity 200ms ease, visibility 200ms ease;
 `;
 
 export const ModalContainer = styled.div`
@@ -32,9 +37,8 @@ export const ModalContainer = styled.div`
   border-color: ${theme.colors.modal_border_color};
   overflow-y: auto;
 
-  opacity: ${({ showModal }) => (showModal ? '1' : '0')};
   transform: ${({ showModal }) => (showModal ? 'scale(1)' : 'scale(0.9)')};
-  transition: opacity 200ms ease, transform 250ms ease;
+  transition: transform 250ms ease;
 
   ::-webkit-scrollbar {
     width: 8px;

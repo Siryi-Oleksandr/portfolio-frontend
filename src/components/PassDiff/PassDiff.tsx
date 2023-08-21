@@ -53,7 +53,6 @@ const PassDiff: FC<{ password: string }> = ({ password }) => {
 
     if (/.{6,}/.test(password)) {
       if (/(?=.*[a-z])(?=.*[A-Z])(?=.*[\d!@#$%^&*?]).{8,}/.test(password)) {
-        console.log('asd');
         if (
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{10,}$/.test(password)
         ) {
