@@ -12,7 +12,7 @@ export const UserFormModal: FC<ModalUserFormPorps> = ({
   showModal,
 }) => {
   return (
-    <Modal onClose={onClose} showModal={showModal}>
+    <Modal onClose={onClose}>
       <div>
         <UserForm onClose={onClose} />
       </div>

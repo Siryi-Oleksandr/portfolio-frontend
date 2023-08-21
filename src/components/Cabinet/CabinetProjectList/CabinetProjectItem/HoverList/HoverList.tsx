@@ -66,19 +66,22 @@ const HoverList: FC<Props> = ({ isHover, description, projectId, title }) => {
         <FaRegTrashAlt size="30px" />
       </motion.button>
 
-      <EditProjectModal
-        onClose={handleCloseModal}
-        projectId={projectId}
-        showModal={showModal}
-      />
+      {showModal && (
+        <EditProjectModal
+          onClose={handleCloseModal}
+          projectId={projectId}
+          showModal={showModal}
+        />
+      )}
 
-      <DeleteModal
-        onClose={handleCloseDeleteModal}
-        id={projectId}
-        title={title}
-        content={'project'}
-        showModal={showDeleteModal}
-      />
+      {showDeleteModal && (
+        <DeleteModal
+          onClose={handleCloseDeleteModal}
+          id={projectId}
+          title={title}
+          content={'project'}
+        />
+      )}
     </motion.div>
   );
 };

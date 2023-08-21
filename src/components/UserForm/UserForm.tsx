@@ -202,7 +202,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 id={user._id}
                 title={user.name}
                 content={'account'}
-                showModal={showDeleteModal}
               />
             )}
 
