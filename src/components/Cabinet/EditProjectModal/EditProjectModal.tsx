@@ -24,18 +24,18 @@ export const EditProjectModal: FC<ModalUserFormPorps> = ({
       return;
     }
 
-    dispatch(getProjectById(projectId));
-  }, [dispatch, projectId]);
+    if (showModal) {
+      dispatch(getProjectById(projectId));
+    }
+  }, [dispatch, projectId, showModal]);
 
   return (
-    <>
+    <Modal onClose={onClose} showModal={showModal}>
       {!isProjectLoading && (
-        <Modal onClose={onClose} showModal={showModal}>
-          <div>
-            <UpdateProjectForm onClose={onClose} />
-          </div>
-        </Modal>
+        <div>
+          <UpdateProjectForm onClose={onClose} />
+        </div>
       )}
-    </>
+    </Modal>
   );
 };
