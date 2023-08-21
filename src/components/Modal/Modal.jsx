@@ -33,8 +33,8 @@ export const Modal = ({ children, onClose, showModal }) => {
   }, [handleKeyPress]);
 
   return createPortal(
-    <Overlay showModal={showModal} loading={isProjectLoading}>
-      <ModalContainer showModal={showModal} loading={isProjectLoading}>
+    <Overlay showModal={showModal} isLoading={isProjectLoading}>
+      <ModalContainer showModal={showModal} isLoading={isProjectLoading}>
         <CloseBtn onClick={onClose}>
           <AiOutlineClose size="24px" />
         </CloseBtn>
