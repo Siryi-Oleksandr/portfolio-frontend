@@ -1,12 +1,15 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { CloseBtn, ModalContainer, Overlay } from './Modal.styled';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export const Modal = ({ children, onClose }) => {
+  const [showModal, setShowModal] = useState(false);
+
   const handleKeyPress = useCallback(
     evt => {
       if (evt.key === 'Escape') {
+        setShowModal(false);
         onClose();
       }
     },
@@ -16,11 +19,18 @@ export const Modal = ({ children, onClose }) => {
   const handleOverlayClick = useCallback(
     evt => {
       if (evt.target === evt.currentTarget) {
+        setShowModal(false);
         onClose();
       }
     },
     [onClose]
   );
+
+  useEffect(() => {
+    setShowModal(true);
+
+    return () => setShowModal(false);
+  }, [showModal]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
@@ -30,8 +40,8 @@ export const Modal = ({ children, onClose }) => {
   }, [handleKeyPress]);
 
   return createPortal(
-    <Overlay onClick={handleOverlayClick}>
-      <ModalContainer>
+    <Overlay onClick={handleOverlayClick} showModal={showModal}>
+      <ModalContainer showModal={showModal}>
         <CloseBtn onClick={onClose}>
           <AiOutlineClose size="24px" />
         </CloseBtn>

@@ -31,6 +31,11 @@ export const ModalContainer = styled.div`
   box-shadow: 0px 4px 16px 0px #1111111a;
   border-color: ${theme.colors.modal_border_color};
   overflow-y: auto;
+
+  opacity: ${({ showModal }) => (showModal ? '1' : '0')};
+  transform: ${({ showModal }) => (showModal ? 'scale(1)' : 'scale(0.9)')};
+  transition: opacity 200ms ease, transform 250ms ease;
+
   ::-webkit-scrollbar {
     width: 8px;
   }

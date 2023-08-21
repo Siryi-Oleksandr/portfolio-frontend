@@ -83,6 +83,17 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
     onClose();
   };
 
+  const areValuesEqualInitial = (
+    values: ICreateUpdateProject,
+    initialValues: ICreateUpdateProject
+  ) => {
+    return Object.keys(values).every(
+      key =>
+        values[key as keyof ICreateUpdateProject] ===
+        initialValues[key as keyof ICreateUpdateProject]
+    );
+  };
+
   const handleEditMode = () => {
     setEditMode(true);
   };
@@ -157,7 +168,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                 className="full-width"
                 component="textarea"
                 autoComplete="off"
-                onChange={props.handleChange}
               />
               <StyledLabel>Project SubTitle</StyledLabel>
               <ErrorMessage
@@ -191,7 +201,6 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                 className="full-width"
                 component="textarea"
                 autoComplete="off"
-                onChange={props.handleChange}
                 style={{ height: '120px' }}
               />
               <StyledLabel>About Project</StyledLabel>
@@ -337,7 +346,13 @@ const UpdateProjectForm: FC<UpdateProjectFormPorps> = ({ onClose }) => {
                 )}
               </ImagesWrap>
             </Wrapper>
-            <SubmitBtn type="submit" style={{ gridColumn: '1 / 3' }}>
+            <SubmitBtn
+              type="submit"
+              style={{ gridColumn: '1 / 3' }}
+              disabled={
+                !editMode && areValuesEqualInitial(props.values, initialValues)
+              }
+            >
               Update project
             </SubmitBtn>
           </StyledAddProjectForm>

@@ -4,7 +4,6 @@ import UpdateProjectForm from 'components/UpdateProjectForm/UpdateProjectForm';
 import { useAppDispatch } from 'redux/reduxHooks';
 import { getProjectById } from 'redux/project/operations';
 import { useProjects } from 'hooks';
-import Loader from 'components/Loader/Loader';
 
 type ModalUserFormPorps = {
   onClose: () => void;
@@ -27,14 +26,14 @@ export const EditProjectModal: FC<ModalUserFormPorps> = ({
   }, [dispatch, projectId]);
 
   return (
-    <Modal onClose={onClose}>
-      {isProjectLoading ? (
-        <Loader />
-      ) : (
-        <div>
-          <UpdateProjectForm onClose={onClose} />
-        </div>
+    <>
+      {!isProjectLoading && (
+        <Modal onClose={onClose}>
+          <div>
+            <UpdateProjectForm onClose={onClose} />
+          </div>
+        </Modal>
       )}
-    </Modal>
+    </>
   );
 };
