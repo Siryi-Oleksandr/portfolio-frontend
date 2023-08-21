@@ -4,12 +4,9 @@ import { CloseBtn, ModalContainer, Overlay } from './Modal.styled';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export const Modal = ({ children, onClose, showModal }) => {
-  // const [showModal, setShowModal] = useState(false);
-
   const handleKeyPress = useCallback(
     evt => {
       if (evt.key === 'Escape') {
-        // setShowModal(false);
         onClose();
       }
     },
