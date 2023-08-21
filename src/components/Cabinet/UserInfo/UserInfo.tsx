@@ -92,10 +92,12 @@ const UserInfo: FC = () => {
               <AboutText>{initialValues.summary}</AboutText>
             </AboutWrap>
 
-            {showModal && <UserFormModal onClose={handleCloseModal} />}
-            {showSubscriptionModal && (
-              <SubscriptionModal onClose={handleCloseModal} />
-            )}
+            <UserFormModal onClose={handleCloseModal} showModal={showModal} />
+
+            <SubscriptionModal
+              onClose={handleCloseModal}
+              showModal={showSubscriptionModal}
+            />
           </CenterContainer>
         </Container>
       </UserInfoContainer>

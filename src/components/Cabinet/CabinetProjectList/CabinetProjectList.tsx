@@ -75,9 +75,10 @@ const CabinetProjectList: FC<Props> = ({ user, projects }) => {
           ))
           .reverse()}
       </List>
-      {showSubscriptionModal && (
-        <SubscriptionModal onClose={handleCloseModal} />
-      )}
+      <SubscriptionModal
+        onClose={handleCloseModal}
+        showModal={showSubscriptionModal}
+      />
     </Container>
   );
 };
