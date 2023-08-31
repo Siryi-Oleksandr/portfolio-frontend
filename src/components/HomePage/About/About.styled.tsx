@@ -58,6 +58,7 @@ export const ImageWrapper = styled.div`
   background-color: lightgray;
   border: 1px solid ${theme.colors.accentColor};
   border-radius: ${theme.radii.medium};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 
   & img {
@@ -96,6 +97,7 @@ export const AboutTitle = styled.h3`
   border-radius: ${theme.radii.medium};
   padding: 5px 15px;
   background-color: ${theme.colors.accentColor};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
   font-size: 27px;
   color: #fff;
   margin-bottom: 3px;
