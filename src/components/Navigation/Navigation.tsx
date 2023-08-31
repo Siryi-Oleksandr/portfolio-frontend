@@ -31,6 +31,7 @@ const Navigation: FC = () => {
             <Link to={`/portfolio/${user._id ? user._id : example}`}>
               Portfolio
             </Link>
+            <Link to="/subscription">Subscription</Link>
           </nav>
         </NavWrap>
         {!isLoggedIn ? (

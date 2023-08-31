@@ -39,6 +39,7 @@ import InfoTriggerPercentage from './InfoTrigger/InfoTriggerPercentage';
 import TotalCountTrigger from './TotalCountTrigger/TotalCountTrigger';
 import DonationMenu from './DonationMenu/DonationMenu';
 import ScrollToTopForRouting from './ScrollToTopForRouting/ScrollToTopForRouting';
+import Subscription from './Subscription/Subscription';
 
 // import Modal from './Modal/Modal';
 
@@ -84,4 +85,5 @@ export {
   TotalCountTrigger,
   DonationMenu,
   ScrollToTopForRouting,
+  Subscription,
 };
