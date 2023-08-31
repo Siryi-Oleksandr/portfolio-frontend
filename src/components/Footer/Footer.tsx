@@ -66,6 +66,9 @@ const Footer: FC = () => {
       case '/addProject':
         setShowDefaultFooter(true);
         break;
+      case '/subscription':
+        setShowDefaultFooter(true);
+        break;
       default:
         setShowDefaultFooter(false);
         break;

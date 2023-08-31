@@ -7,7 +7,7 @@ import { useAppDispatch } from 'redux/reduxHooks';
 import { logoutUser } from 'redux/auth/operations';
 
 type SideProps = {
-    closeSidebar: any;
+  closeSidebar: () => void;
 };
 
 

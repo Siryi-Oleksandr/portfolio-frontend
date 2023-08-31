@@ -4,7 +4,7 @@ import UserForm from 'components/UserForm/UserForm';
 import Container from 'components/Container/Container';
 
 type ModalUserFormPorps = {
-  onClose: any;
+  onClose: () => void;
 };
 
 export const UserFormModal: FC<ModalUserFormPorps> = ({ onClose }) => {

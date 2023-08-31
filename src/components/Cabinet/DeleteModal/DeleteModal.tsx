@@ -12,7 +12,7 @@ import { useAppDispatch } from 'redux/reduxHooks';
 import { useNavigate } from 'react-router-dom';
 
 type DeleteModalPorps = {
-  onClose: any;
+  onClose: () => void;
   id: string;
   content: string;
   title: string;
