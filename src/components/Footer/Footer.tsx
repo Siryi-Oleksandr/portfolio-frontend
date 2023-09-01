@@ -5,6 +5,7 @@ import {
   FooterStyled,
   FooterWrap,
   Socials,
+  SubscriptionBtn,
   TextWrapper,
 } from './Footer.styled';
 import { useAppSelector, useAppDispatch } from 'redux/reduxHooks';
@@ -21,6 +22,7 @@ type TSize = '1em' | '1.5em' | '2em';
 
 const Footer: FC = () => {
   const [showDefaultFooter, setShowDefaultFooter] = useState<boolean>(true);
+  const [isPortfolio, setIsPortfolio] = useState<boolean>(false);
   const user: Partial<IUser> = useAppSelector(userById);
   const dispatch = useAppDispatch();
   const { totalUsers } = useSearch();
@@ -64,11 +66,21 @@ const Footer: FC = () => {
       case '/addProject':
         setShowDefaultFooter(true);
         break;
+      case '/subscription':
+        setShowDefaultFooter(true);
+        break;
       default:
         setShowDefaultFooter(false);
         break;
     }
   }, [location.pathname, setShowDefaultFooter]);
+
+  useEffect(() => {
+    setIsPortfolio(false);
+    if (location.pathname.includes('portfolio')) {
+      setIsPortfolio(true);
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     dispatch(getTotalUsers());
@@ -91,6 +103,13 @@ const Footer: FC = () => {
                 commitmakers@gmail.com
               </Email>
             </TextWrapper>
+            <SubscriptionBtn
+              href="https://send.monobank.ua/jar/5hm2RbSNYT"
+              target="blank"
+              rel="noreferrer noopener"
+            >
+              Support developers
+            </SubscriptionBtn>
           </>
         ) : (
           <>
@@ -100,13 +119,21 @@ const Footer: FC = () => {
             </p>
 
             <AvatarWrap>
-              <Link to={`/portfolio/${user._id ? user._id : example}`}>
+              {isPortfolio ? (
                 <img
                   src={user.miniAvatarURL || defaultImg}
                   alt="Avatar"
                   style={{ flex: '1' }}
                 />
-              </Link>
+              ) : (
+                <Link to={`/portfolio/${user._id ? user._id : example}`}>
+                  <img
+                    src={user.miniAvatarURL || defaultImg}
+                    alt="Avatar"
+                    style={{ flex: '1' }}
+                  />
+                </Link>
+              )}
             </AvatarWrap>
 
             <Socials style={{ flex: '1' }}>
@@ -142,7 +169,8 @@ const Footer: FC = () => {
           </>
         )}
       </FooterWrap>
-      <p>Created by CommitMakersTeam, 2023</p>
+      Created by <Link to={`/portfolio/${example}`}>CommitMakersTeam</Link>,
+      2023
     </FooterStyled>
   );
 };

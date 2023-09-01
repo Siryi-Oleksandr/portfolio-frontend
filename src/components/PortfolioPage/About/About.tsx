@@ -33,6 +33,8 @@ const About: FC<Props> = ({ user }) => {
     name?.toLowerCase().includes('team') ||
     surname?.toLowerCase().includes('team');
 
+  const isOneYear = experience?.toString() === '1';
+
   return (
     <Section>
       <WorthWrapper>
@@ -42,7 +44,11 @@ const About: FC<Props> = ({ user }) => {
           </ImgWrapper>
 
           <CustomersInfo>
-            <CustomersText>Successfull Projects</CustomersText>
+            <CustomersText>
+              {userProjects.length === 1
+                ? 'Successfull Project'
+                : 'Successfull Projects'}
+            </CustomersText>
             <CustomersNumber>{userProjects.length}</CustomersNumber>
           </CustomersInfo>
         </CustomersWrapper>
@@ -53,8 +59,10 @@ const About: FC<Props> = ({ user }) => {
           </ImgWrapper>
 
           <ExperienceInfo>
-            <CustomersText>Years of experience</CustomersText>
-            <CustomersNumber>{experience}</CustomersNumber>
+            <CustomersText>
+              {isOneYear ? 'Year' : 'Years'} of experience
+            </CustomersText>
+            <CustomersNumber>{experience ? experience : 0}</CustomersNumber>
           </ExperienceInfo>
         </ExperienceWrapper>
       </WorthWrapper>

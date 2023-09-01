@@ -56,6 +56,7 @@ export interface IProjectState {
   projectById: Partial<IProject>;
   isLoading: boolean;
   error: any;
+  isCreatingProject: boolean;
 }
 
 export interface IStateProject {

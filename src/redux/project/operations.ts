@@ -51,15 +51,21 @@ export const createProject = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
-      toast.success(`Your project ${response.data.projectTitle}has been successfully added!`, {
-        style: tostStyleSuccess,
-      });
-    
+      toast.success(
+        `Your project ${response.data.projectTitle}has been successfully added!`,
+        {
+          style: tostStyleSuccess,
+        }
+      );
+
       return response.data;
     } catch (error: any) {
-      toast.error(`Sorry we have some error ${error.message}. Please try again!`, {
-        style: tostStyleError,
-      });
+      toast.error(
+        `Sorry we have some error ${error.message}. Please try again!`,
+        {
+          style: tostStyleError,
+        }
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -103,14 +109,20 @@ export const updateProject = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
-      toast.success(`Your project ${response.data.projectTitle}has been successfully updated!`, {
-        style: tostStyleSuccess,
-      });
+      toast.success(
+        `Your project ${response.data.projectTitle}has been successfully updated!`,
+        {
+          style: tostStyleSuccess,
+        }
+      );
       return response.data;
     } catch (error: any) {
-      toast.error(`Sorry we have some error ${error.message}. Please try again!`, {
-        style: tostStyleError,
-      });
+      toast.error(
+        `Sorry we have some error ${error.message}. Please try again!`,
+        {
+          style: tostStyleError,
+        }
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -142,17 +154,20 @@ export const getProjectById = createAsyncThunk(
 
 export const deleteProject = createAsyncThunk(
   'projects/deleteProject',
-  async (id: string, thunkAPI) => {
+  async ({ id, title }: { id: string; title: string }, thunkAPI) => {
     try {
       await instance.delete(`/projects/${id}`);
-      toast.success(`Your project ${id} has been successfully deleted!`, {
+      toast.success(`Your project ${title} has been successfully deleted!`, {
         style: tostStyleSuccess,
       });
       return id;
     } catch (error: any) {
-      toast.error(`Sorry we have some error ${error.message}. Please try again!`, {
-        style: tostStyleError,
-      });
+      toast.error(
+        `Sorry we have some error ${error.message}. Please try again!`,
+        {
+          style: tostStyleError,
+        }
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }

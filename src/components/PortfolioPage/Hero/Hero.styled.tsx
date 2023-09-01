@@ -7,9 +7,8 @@ import tabletx2DesktopBg from 'images/hero-tablet-x2-desktop.jpg';
 import desktopx2Bg from 'images/hero-desktop-x2.jpg';
 
 export const Section = styled.section`
-  padding-top: 100px;
-  padding-bottom: 100px;
-
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
 
@@ -20,14 +19,14 @@ export const Section = styled.section`
   background-color: black;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    padding-top: 150px;
-    padding-bottom: 150px;
-    height: 600px;
+    padding-top: 75px;
+    padding-bottom: 75px;
     background-image: url(${mobilex2TabletBg});
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    height: 600px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-image: url(${tabletx2DesktopBg});
   }
 

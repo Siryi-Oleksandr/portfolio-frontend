@@ -95,6 +95,8 @@ export const RadioWrapper = styled.div`
   width: 270px;
   margin: 0 auto;
   margin-top: 7px;
+
+  text-align: center;
 `;
 
 export const UserLabel = styled.label<{ selected: boolean }>`
@@ -119,6 +121,7 @@ export const ProjectLabel = styled.label<{ selected: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   gap: 3px;
   cursor: pointer;
 

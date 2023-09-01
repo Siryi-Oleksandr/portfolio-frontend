@@ -108,7 +108,7 @@ const SearchInput: FC<onSubmitFunc> = ({
             checked={!isSearchUsers}
             onChange={onSearchTypeChange}
           />
-          Search projects
+          Search projects by technology
         </ProjectLabel>
       </RadioWrapper>
     </Form>

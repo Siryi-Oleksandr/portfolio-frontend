@@ -58,7 +58,7 @@ const SearchList: FC<Props> = ({ query, page, loadMore, isSearchUsers }) => {
       fetchUsers(query, page)
         .then(data => {
           setUsers(prevState => [...prevState, ...data.users]);
-          setTotalResults(data.totalCount);
+          setTotalResults(data.totalCount - 200);
 
           setIsLoadMoreLoading(false);
           setIsLoading(false);

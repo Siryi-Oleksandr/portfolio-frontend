@@ -34,9 +34,13 @@ import PassDiff from './PassDiff/PassDiff';
 import AddProjectForm from './AddProjectForm/AddProjectForm';
 import InfoPercentage from './Cabinet/InfoPercentage/InfoPercentage';
 import UpdateProjectForm from './UpdateProjectForm/UpdateProjectForm';
-import InfoTrigger from './InfoTrigger/InfoTrigger';
+import InfoTriggerPassword from './InfoTrigger/InfoTriggerPassword';
+import InfoTriggerPercentage from './InfoTrigger/InfoTriggerPercentage';
 import TotalCountTrigger from './TotalCountTrigger/TotalCountTrigger';
 import DonationMenu from './DonationMenu/DonationMenu';
+import ScrollToTopForRouting from './ScrollToTopForRouting/ScrollToTopForRouting';
+import Subscription from './Subscription/Subscription';
+
 // import Modal from './Modal/Modal';
 
 export {
@@ -76,7 +80,10 @@ export {
   AddProjectForm,
   InfoPercentage,
   UpdateProjectForm,
-  InfoTrigger,
+  InfoTriggerPassword,
+  InfoTriggerPercentage,
   TotalCountTrigger,
   DonationMenu,
+  ScrollToTopForRouting,
+  Subscription,
 };

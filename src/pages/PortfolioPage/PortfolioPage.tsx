@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader, Portfolio, ScrollToTop } from 'components';
 import { useAppDispatch } from 'redux/reduxHooks';
@@ -11,6 +11,22 @@ const PortfolioPage: FC = () => {
   const { userProjects, isProjectLoading } = useProjects();
   const { user, isSearchLoading } = useSearch();
   const dispatch = useAppDispatch();
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 500) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getUserById(userId));
@@ -21,7 +37,7 @@ const PortfolioPage: FC = () => {
     <>
       {(isSearchLoading || isProjectLoading) && <Loader />}
       <Portfolio user={user ? user : {}} projects={userProjects} />
-      <ScrollToTop />
+      <ScrollToTop scrollVisible={isVisible} />
     </>
   );
 };

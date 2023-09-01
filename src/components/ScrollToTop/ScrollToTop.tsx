@@ -1,17 +1,11 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import { ScrollBtn, ArrowIcon } from './ScrollToTop.styled';
 
-const ScrollToTop: FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+type Props = {
+  scrollVisible: boolean;
+};
 
-  const toggleVisibility = () => {
-    if (window.scrollY > 500) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
+const ScrollToTop: FC<Props> = ({ scrollVisible }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -19,16 +13,9 @@ const ScrollToTop: FC = () => {
     });
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
-
   return (
     <>
-      <ScrollBtn type="button" onClick={scrollToTop} isVisible={isVisible}>
+      <ScrollBtn type="button" onClick={scrollToTop} isVisible={scrollVisible}>
         <ArrowIcon />
       </ScrollBtn>
     </>

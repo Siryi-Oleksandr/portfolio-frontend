@@ -4,13 +4,13 @@ import {
   Text,
   InfoWrapper,
   InfoText,
-} from './InfoTrigger.styled';
+} from './InfoTriggerPerecentage.styled';
 
 interface Props {
   children?: React.ReactNode;
 }
 
-const InfoTrigger: FC<Props> = ({ children }) => {
+const InfoTriggerPercentage: FC<Props> = ({ children }) => {
   const [showInfo, setShowInfo] = useState(false);
 
   return (
@@ -29,4 +29,4 @@ const InfoTrigger: FC<Props> = ({ children }) => {
   );
 };
 
-export default InfoTrigger;
+export default InfoTriggerPercentage;

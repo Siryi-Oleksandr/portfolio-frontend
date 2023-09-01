@@ -122,7 +122,18 @@ export const SubmitBtn = styled(Btn)`
     height: 48px;
     font-size: 16px;
   }
+
+  :disabled {
+    opacity: 0.5;
+  }
+
+  &:hover:disabled {
+    transform: scale(1);
+    background-color: ${theme.colors.auth_button_background_switch};
+    cursor: default;
+  }
 `;
+
 export const DeleteButton = styled.button`
   position: relative;
   width: 150px;

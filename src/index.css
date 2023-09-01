@@ -42,4 +42,6 @@
   width: 100%;
   overflow: hidden;
   padding-top: 56.25%;
+  box-shadow: 0 0 5px 5px rgba(254, 57, 12, 0.25);
+  
 }

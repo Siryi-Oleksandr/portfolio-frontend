@@ -198,3 +198,14 @@ export const SubscriptionBtn = styled.button`
     left: 100%;
   }
 `;
+export const CenterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: ${theme.gaps.big}px;
+
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    flex-direction: column;
+  }
+`;

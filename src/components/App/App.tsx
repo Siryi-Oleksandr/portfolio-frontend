@@ -27,6 +27,7 @@ import { currentUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { selectAuthIsLoading } from 'redux/auth/authSelectors';
 import { Toaster } from 'react-hot-toast';
+import SubscriptionPage from 'pages/SubscriptionPage/SubscriptionPage';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
@@ -48,9 +49,9 @@ const App: FC = () => {
           <GlobalStyles />
           <Routes>
             <Route path="/" element={<Layout />}>
-              {/* <Route path="/" element={<PublicRoute />}> */}
               <Route index element={<HomePage />} />
               <Route path="/search" element={<SearchPage />} />
+              <Route path="/subscription" element={<SubscriptionPage />} />
               <Route
                 path="/register"
                 element={
@@ -69,7 +70,6 @@ const App: FC = () => {
                   />
                 }
               />
-
               <Route path="/portfolio/:userId" element={<PortfolioPage />} />
               <Route
                 path="/projectDetails/:projectId"
@@ -80,8 +80,6 @@ const App: FC = () => {
                 path="/resetPassword/:resetToken"
                 element={<ChangePassPage />}
               />
-              {/* </Route> */}
-
               <Route path="/" element={<PrivateRoute />}>
                 <Route path="/cabinet" element={<CabinetPage />} />
                 <Route path="/addProject" element={<AddProject />} />

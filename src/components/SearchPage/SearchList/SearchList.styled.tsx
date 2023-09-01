@@ -3,30 +3,24 @@ import { theme } from 'theme';
 
 export const ListContainer = styled.div`
   width: 100%;
-  padding: 70px 15px 0 15px;
-
+  padding: 0 15px;
+  padding-top: 90px;
+  padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 20px;
 
   background-color: transparent;
 
-  /* @media screen and (min-width: ${theme.breakpoints.mobile}) {
-    max-width: ${theme.breakpoints.mobile};
-  } */
-
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     max-width: ${theme.breakpoints.tablet};
-    padding: 0 20px;
-    padding-top: 70px;
-    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     max-width: ${theme.breakpoints.desktop};
-    padding: 0 140px;
-    padding-top: 70px;
-    padding-bottom: 40px;
+    padding-left: 140px;
+    padding-right: 140px;
   }
 `;
 

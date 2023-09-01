@@ -15,6 +15,7 @@ const initialState: IProjectState = {
   userProjects: [],
   projectById: {},
   isLoading: false,
+  isCreatingProject: false,
   error: null,
 };
 
@@ -35,11 +36,15 @@ const projectsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getAllProjects.pending, handlePending)
-      .addCase(createProject.pending, handlePending)
+      .addCase(createProject.pending, state => {
+        state.isLoading = true;
+        state.isCreatingProject = true;
+        state.error = null;
+      })
       .addCase(updateProject.pending, handlePending)
-      .addCase(getUserProjects.pending, handlePending)
       .addCase(deleteProject.pending, handlePending)
       .addCase(getProjectById.pending, handlePending)
+      .addCase(getUserProjects.pending, handlePending)
       .addCase(getAllProjects.rejected, handleRejected)
       .addCase(createProject.rejected, handleRejected)
       .addCase(updateProject.rejected, handleRejected)
@@ -53,6 +58,7 @@ const projectsSlice = createSlice({
       })
       .addCase(createProject.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.isCreatingProject = false;
         state.error = null;
         state.userProjects.push(action.payload);
       })
@@ -81,7 +87,7 @@ const projectsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.userProjects.findIndex(
-          (project) => project._id === action.payload
+          project => project._id === action.payload
         );
         if (index !== -1) {
           state.userProjects.splice(index, 1);

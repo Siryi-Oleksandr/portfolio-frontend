@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from 'theme';
-import { App } from './components';
+import { App, ScrollToTopForRouting } from './components';
 import './index.css';
 
 const root = ReactDOM.createRoot(
@@ -17,9 +17,10 @@ root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter basename="/portfolio-frontend">
+        <HashRouter basename="/">
+          <ScrollToTopForRouting />
           <App />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </PersistGate>
   </Provider>

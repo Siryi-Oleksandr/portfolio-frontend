@@ -15,8 +15,14 @@ export function handleFormikImageUpload(
   }
 
   const image = files[0];
-  if (image.type !== 'image/png' && image.type !== 'image/jpeg') {
-    toast.error(`Invalid file format! Please choose a PNG or JPEG image!`);
+  if (
+    image.type !== 'image/png' &&
+    image.type !== 'image/jpeg' &&
+    image.type !== 'image/webp'
+  ) {
+    toast.error(
+      `Invalid file format! Please choose a WEBP, PNG or JPEG image!`
+    );
     return;
   }
 

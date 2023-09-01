@@ -16,10 +16,12 @@ import {
   AboutText,
   TextProfession,
   SubscriptionBtn,
+  CenterContainer,
 } from './UserInfo.styled';
 import { IconContext } from 'react-icons';
 import { FaEdit } from 'react-icons/fa';
 import { SubscriptionModal } from '../SubscriptionModal/SubscriptionModal';
+import Container from 'components/Container/Container';
 
 const UserInfo: FC = () => {
   // const dispatch = useAppDispatch();
@@ -41,7 +43,6 @@ const UserInfo: FC = () => {
     setShowSubscriptionModal(true);
     document.body.style.overflow = 'hidden';
   };
-
 
   let stringStack = '';
 
@@ -66,34 +67,38 @@ const UserInfo: FC = () => {
   return (
     <IconContext.Provider value={{ className: 'slider-icons' }}>
       <UserInfoContainer>
-        <LogoWrap>
-          <SubscriptionBtn onClick={handleShowSubscriptionModal}>
-            {user.subscription}
-          </SubscriptionBtn>
-          <Avawrap>
-            <AvatarImg
-              src={initialValues?.avatarURL}
-              alt="avatar"
-              width="28"
-              height="28"
-            />
-          </Avawrap>
-          <TextName>{initialValues.name}</TextName>
-          <TextProfession>{initialValues.profession}</TextProfession>
-          <EditBtn onClick={handleShowModal}>
-            Edit
-            <FaEdit size="32px" />
-          </EditBtn>
-          
-        </LogoWrap>
-        <AboutWrap>
-          <AboutText>{initialValues.summary}</AboutText>
-        </AboutWrap>
+        <Container>
+          <CenterContainer>
+            <LogoWrap>
+              <SubscriptionBtn onClick={handleShowSubscriptionModal}>
+                {user.subscription}
+              </SubscriptionBtn>
+              <Avawrap>
+                <AvatarImg
+                  src={initialValues?.avatarURL}
+                  alt="avatar"
+                  width="28"
+                  height="28"
+                />
+              </Avawrap>
+              <TextName>{initialValues.name}</TextName>
+              <TextProfession>{initialValues.profession}</TextProfession>
+              <EditBtn onClick={handleShowModal}>
+                Edit
+                <FaEdit size="32px" />
+              </EditBtn>
+            </LogoWrap>
+            <AboutWrap>
+              <AboutText>{initialValues.summary}</AboutText>
+            </AboutWrap>
 
-        {showModal && <UserFormModal onClose={handleCloseModal} />}
-        {showSubscriptionModal && (
-          <SubscriptionModal onClose={handleCloseModal} />
-        )}
+            {showModal && <UserFormModal onClose={handleCloseModal} />}
+
+            {showSubscriptionModal && (
+              <SubscriptionModal onClose={handleCloseModal} />
+            )}
+          </CenterContainer>
+        </Container>
       </UserInfoContainer>
       {/* <p>User info { initialValues.email}</p>
             <button onClick={handleShowModal}> edit info</button>

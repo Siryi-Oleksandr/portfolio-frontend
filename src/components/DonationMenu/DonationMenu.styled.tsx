@@ -9,6 +9,14 @@ export const DonationWrapper = styled.div<{ donat: boolean }>`
   bottom: 75px;
   transition: ${theme.transition.hover};
   z-index: 100;
+
+  @media screen and (max-width: ${theme.breakpoints.mobileMax}) {
+    display: none;
+  }
+
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    bottom: 10px;
+  }
 `;
 
 export const LinkWrapper = styled.div`
@@ -20,11 +28,11 @@ export const DonationBtn = styled.button`
   transform: rotate(90deg);
   position: absolute;
   top: 69px;
-  right: 205px;
+  right: 204px;
   height: 43px;
   width: 181px;
   padding: 8px;
-  background-color: ${theme.colors.redErrorLight};
+  background-color: ${theme.colors.redErrorLight80};
   color: ${theme.colors.primary_text_switch};
   font-family: ${theme.fonts.heading};
   font-size: ${theme.fontSizes.m};
@@ -32,6 +40,10 @@ export const DonationBtn = styled.button`
   border: none;
   border-radius: ${theme.radii.tiny};
   cursor: pointer;
+
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    top: 138px;
+  }
 `;
 
 export const DonationLink = styled.a`

@@ -65,6 +65,17 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
     onClose();
   };
 
+  const areValuesEqualInitial = (
+    values: IUpdateUser,
+    initialValues: IUpdateUser
+  ) => {
+    return Object.keys(values).every(
+      key =>
+        values[key as keyof IUpdateUser] ===
+        initialValues[key as keyof IUpdateUser]
+    );
+  };
+
   return (
     <>
       <Formik
@@ -79,19 +90,18 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
               <Avatar>
                 <img src={userAvatar} alt="Avatar" />
               </Avatar>
-
               <Label>
                 <input
                   name="avatar"
                   type="file"
-                  onChange={event =>
+                  onChange={event => {
                     handleFormikImageUpload(
                       event,
                       props,
                       'avatar',
                       setUserAvatar
-                    )
-                  }
+                    );
+                  }}
                   style={{ display: 'none' }}
                 />
                 <AddIcon />
@@ -171,7 +181,6 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <StyledField
                   component="textarea"
                   type="text"
-                  onChange={props.handleChange}
                   value={props.values.summary || ''}
                   name="summary"
                   style={{ height: '150px' }}
@@ -180,20 +189,25 @@ const UserForm: FC<UserFormPorps> = ({ onClose }) => {
                 <ErrorMessage component={StyledErrorMessage} name="summary" />
               </Label>
             </InputsContainer>
-            <SubmitBtn type="submit">Update info</SubmitBtn>
+            <SubmitBtn
+              type="submit"
+              disabled={areValuesEqualInitial(props.values, initialValues)}
+            >
+              Update info
+            </SubmitBtn>
+
             {showDeleteModal && (
               <DeleteModal
                 onClose={handleCloseDeleteModal}
                 id={user._id}
+                title={user.name}
                 content={'account'}
               />
             )}
-            <DeleteButton
-              onClick={handleShowDeleteModal}
-              type="button"
-            >
+
+            <DeleteButton onClick={handleShowDeleteModal} type="button">
               Delete Account
-              <AiFillDelete className='bucket'/>
+              <AiFillDelete className="bucket" />
             </DeleteButton>
           </StyledUserForm>
         )}

@@ -4,6 +4,7 @@ import {
   selectUserProjects,
   selectProjectById,
   selectisLoading,
+  selectIsCreatingProject,
 } from 'redux/project/projectSelectors';
 
 export const useProjects = () => {
@@ -11,11 +12,13 @@ export const useProjects = () => {
   const userProjects = useAppSelector(selectUserProjects);
   const projectById = useAppSelector(selectProjectById);
   const isProjectLoading = useAppSelector(selectisLoading);
+  const isProjectCreating = useAppSelector(selectIsCreatingProject)
 
   return {
     allPprojects,
     userProjects,
     projectById,
     isProjectLoading,
+    isProjectCreating
   };
 };

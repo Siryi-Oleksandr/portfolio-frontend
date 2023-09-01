@@ -52,7 +52,7 @@ const CabinetProjectList: FC<Props> = ({ user, projects }) => {
         <AddProjectBtnWrap key="addBtnId">
           {user.subscription === 'start' && projects.length > 4 ? (
             <OpenSubscriptionBtn onClick={handleShowSubscriptionModal}>
-              <MdOutlineAddCircle size="50px" />
+              <MdOutlineAddCircle size="100px" />
               <AddText>
                 to add more than 5 projects, it is necessary to buy Pro
                 subscription
@@ -60,7 +60,7 @@ const CabinetProjectList: FC<Props> = ({ user, projects }) => {
             </OpenSubscriptionBtn>
           ) : (
             <AddProjectBtn to="/addProject">
-              <MdOutlineAddCircle size="50px" />
+              <MdOutlineAddCircle size="100px" />
               Add project
             </AddProjectBtn>
           )}
@@ -69,9 +69,11 @@ const CabinetProjectList: FC<Props> = ({ user, projects }) => {
             Add project
           </AddProjectBtn> */}
         </AddProjectBtnWrap>
-        {projects.map(project => (
-          <CabinetProjectItem key={project._id} project={project} />
-        ))}
+        {projects
+          .map(project => (
+            <CabinetProjectItem key={project._id} project={project} />
+          ))
+          .reverse()}
       </List>
       {showSubscriptionModal && (
         <SubscriptionModal onClose={handleCloseModal} />
